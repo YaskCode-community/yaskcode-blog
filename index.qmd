@@ -1,0 +1,66 @@
+---
+title: "Blog YaskCode"
+pagetitle: "Blog YaskCode · Aprende, practica, construye y comparte"
+description: "Explora artículos, tutoriales y recursos abiertos sobre Ingeniería de Software, Inteligencia Artificial, Ciencia de Datos y Cloud."
+title-block-banner: false
+page-layout: full
+toc: false
+listing:
+  id: articulos
+  contents: posts/**/index.qmd
+  sort: "date desc"
+  template: assets/cards.ejs.md
+  feed: true
+---
+
+::: {.blog-intro}
+Explora artículos, tutoriales y recursos abiertos sobre **Ingeniería de Software, Inteligencia Artificial, Ciencia de Datos y Cloud**.
+:::
+
+```{=html}
+<div class="explore-grid" id="explorar">
+  <section class="explore-panel" aria-labelledby="areas-title">
+    <h2 id="areas-title">Explora por área</h2>
+    <div class="filter-buttons" data-group="area">
+      <button type="button" data-value="Ingeniería de Software" aria-pressed="false">Ingeniería de Software</button>
+      <button type="button" data-value="Ciencia de Datos" aria-pressed="false">Ciencia de Datos</button>
+      <button type="button" data-value="Inteligencia Artificial" aria-pressed="false">Inteligencia Artificial</button>
+      <button type="button" data-value="Cloud" aria-pressed="false">Cloud Computing</button>
+    </div>
+  </section>
+  <section class="explore-panel" aria-labelledby="sections-title">
+    <h2 id="sections-title">Explora por contenido</h2>
+    <div class="filter-buttons" data-group="section">
+      <button type="button" data-value="Radar tecnológico" aria-pressed="false">Radar tecnológico</button>
+      <button type="button" data-value="Aprende" aria-pressed="false">Aprende</button>
+      <button type="button" data-value="Práctica" aria-pressed="false">Práctica</button>
+      <button type="button" data-value="Construye" aria-pressed="false">Construye</button>
+      <button type="button" data-value="Comparte" aria-pressed="false">Comparte</button>
+      <button type="button" data-value="Explora y participa" aria-pressed="false">Explora y participa</button>
+      <button type="button" data-value="Comunidad YaskCode" aria-pressed="false">Comunidad YaskCode</button>
+    </div>
+  </section>
+  <section class="explore-panel subscribe-panel" aria-labelledby="subscribe-title">
+    <h2 id="subscribe-title">Sigamos aprendiendo</h2>
+    <p>Recibe nuevos artículos, recursos y oportunidades de YaskCode en tu correo.</p>
+    <a class="subscribe-button" href="https://yaskcode.beehiiv.com/">Suscríbete a YaskCode</a>
+    <p class="small-note">La suscripción continúa en beehiiv.</p>
+  </section>
+</div>
+<section class="article-controls" aria-label="Buscar y filtrar artículos">
+  <label for="article-search">Buscar artículos</label>
+  <div class="search-row">
+    <input id="article-search" type="search" placeholder="Busca por título, tema o descripción…" aria-controls="article-grid" autocomplete="off">
+    <button type="button" id="reset-filters">Mostrar todos</button>
+  </div>
+  <p id="result-status" role="status" aria-live="polite" aria-atomic="true"></p>
+</section>
+<noscript><p>Las tarjetas están disponibles abajo. Activa JavaScript para utilizar los filtros y el buscador.</p></noscript>
+```
+
+::: {#articulos}
+:::
+
+```{=html}
+<p id="no-results" hidden>No hay artículos con estos filtros todavía. Prueba otra área o pulsa «Mostrar todos».</p>
+```

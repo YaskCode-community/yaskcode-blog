@@ -1,0 +1,58 @@
+/*-- scss:defaults --*/
+$primary: #B00091;
+$link-color: #B00091;
+$body-color: #222222;
+$body-bg: #ffffff;
+$font-family-sans-serif: Arial, sans-serif;
+$font-size-root: 17px;
+$headings-font-weight: 700;
+$navbar-bg: #ffffff;
+$navbar-fg: #222222;
+
+/*-- scss:rules --*/
+:root { --yc-magenta: #B00091; --yc-lavender: #F5EFFA; --yc-line: #e5e7eb; }
+body { line-height: 1.65; }
+.navbar { border-bottom: 1px solid var(--yc-line); padding-block: .75rem; }
+.navbar-logo { max-height: 52px; width: auto; }
+.navbar-brand { font-weight: 700; }
+main.content { max-width: 1200px; width: 100%; margin-inline: auto; padding-inline: 1rem; }
+#title-block-header { margin-top: 2.5rem; margin-bottom: 1rem; }
+h1.title { color: #222; font-size: clamp(2rem, 4vw, 2.8rem); }
+.blog-intro { max-width: 880px; font-size: 1.12rem; margin-bottom: 2rem; }
+.explore-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.7rem; margin: 2rem 0 2.5rem; }
+.explore-panel h2 { font-size: 1.15rem; border: 0; margin: 0 0 1rem; padding: 0; }
+.filter-buttons { display: flex; flex-wrap: wrap; gap: 8px; }
+.filter-buttons button, #reset-filters { border: 1px solid #e6d8ed; border-radius: 9px; background: var(--yc-lavender); color: var(--yc-magenta); padding: 10px 13px; font: inherit; font-size: .94rem; line-height: 1.4; cursor: pointer; }
+.filter-buttons button:hover, #reset-filters:hover { background: #eadcf2; }
+.filter-buttons button[aria-pressed="true"] { background: var(--yc-magenta); border-color: var(--yc-magenta); color: #fff; }
+.subscribe-panel { padding: 1.25rem; background: var(--yc-lavender); border-radius: 12px; align-self: start; }
+.subscribe-panel p { font-size: .96rem; }
+.subscribe-button { display: inline-block; border-radius: 9px; background: var(--yc-magenta); color: #fff; padding: .7rem 1rem; font-weight: 700; text-decoration: none; }
+.subscribe-button:hover { background: #880070; color: #fff; }
+.small-note { color: #555; margin: .8rem 0 0; font-size: .83rem !important; }
+.article-controls label { display: block; font-weight: 700; margin-bottom: .5rem; }
+.search-row { display: flex; gap: .75rem; }
+#article-search { flex: 1; min-width: 0; border: 1px solid #a7a7b1; border-radius: 9px; padding: .7rem 1rem; font: inherit; }
+#result-status { margin: .7rem 0 1.5rem; color: #555; font-size: .9rem; }
+.article-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.6rem; }
+.post-card { overflow: hidden; border: 1px solid var(--yc-line); border-radius: 12px; background: #fff; }
+.post-card[hidden], [hidden] { display: none !important; }
+.card-image-link { display: block; }
+.post-card img { display: block; width: 100%; height: auto; aspect-ratio: 1200 / 630; object-fit: cover; }
+.card-body { padding: 1.2rem; }
+.card-tags { display: flex; flex-wrap: wrap; gap: .4rem; }
+.card-tags span { border-radius: 6px; background: var(--yc-lavender); padding: .2rem .5rem; font-size: .72rem; color: var(--yc-magenta); }
+.card-date, .card-author { color: #555; font-size: .82rem; margin: .8rem 0; }
+.post-card h2 { font-size: 1.35rem; line-height: 1.35; border: 0; padding: 0; margin: .7rem 0; }
+.post-card h2 a { color: #222; text-decoration: none; }
+.post-card h2 a:hover { color: var(--yc-magenta); text-decoration: underline; }
+.card-description { font-size: .94rem; }
+:focus-visible { outline: 3px solid #2457c5 !important; outline-offset: 4px; }
+#no-results { padding: 1.2rem; background: var(--yc-lavender); border-radius: 9px; }
+body:not(.fullcontent) main.content { max-width: 900px; }
+main p, main li { overflow-wrap: anywhere; }
+.quarto-table, .cell-output-display { overflow-x: auto; }
+.nav-footer { border-top: 1px solid var(--yc-line); margin-top: 3rem; }
+@media (max-width: 900px) { .explore-grid { grid-template-columns: 1fr 1fr; } .subscribe-panel { grid-column: 1 / -1; } .article-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 600px) { .explore-grid, .article-grid { grid-template-columns: 1fr; } .subscribe-panel { grid-column: auto; } .search-row { flex-direction: column; } .filter-buttons button { font-size: 16px; } #title-block-header { margin-top: 1.5rem; } }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto !important; } }

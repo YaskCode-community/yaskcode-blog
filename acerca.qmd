@@ -1,0 +1,21 @@
+---
+title: "Acerca del Blog YaskCode"
+toc: false
+---
+
+El Blog YaskCode comparte artículos, tutoriales y recursos abiertos sobre Ingeniería de Software, Inteligencia Artificial, Ciencia de Datos y Cloud.
+
+Es un espacio de publicación del ecosistema YaskCode, coordinado por **Yaskelly Yedra**, profesora e investigadora en Computación. Reúne explicaciones y aprendizajes de proyectos, laboratorios y experiencias educativas, con español como idioma principal.
+
+**Aprende · Practica · Construye · Comparte.**
+
+## Explora y participa
+
+- [Campus YaskCode](https://yaskelly.github.io/)
+- [YaskCode Community](https://github.com/YaskCode-community)
+- [Conversaciones y propuestas](https://github.com/orgs/YaskCode-community/discussions)
+- [Suscríbete a la newsletter](https://yaskcode.beehiiv.com/)
+
+## Fuentes y correcciones
+
+Cada artículo identifica su autoría y las referencias utilizadas. Los ejemplos hipotéticos y los resultados comprobados se distinguen en el texto. Puedes proponer una corrección en el [repositorio del blog](https://github.com/YaskCode-community/yaskcode-blog/issues).
