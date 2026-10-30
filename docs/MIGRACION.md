@@ -45,3 +45,11 @@ GitHub conserva los originales; Quarto genera el blog. La publicación prevista 
 - `git diff --check`: correcto.
 - No se pudo abrir la vista local en el navegador de esta sesión. No se afirma validación visual ni de teclado/móvil. Debe completarse con `quarto preview` antes de aceptar el diseño.
 - Se encontró un formulario inline existente en beehiiv. Sus ajustes son diferentes al magenta/lavanda del archivo: no se modificó ni incrustó automáticamente. Se conserva el acceso a la landing actual.
+
+## Revisión local de la autora · 30 de octubre de 2026
+
+- Se recibieron capturas de portada, artículo y página Acerca en escritorio y emulación móvil. Se detectaron una introducción duplicada y un desplazamiento del contenido en pantallas amplias.
+- Se eliminó el bloque introductorio repetido; se conserva la descripción del título y sus metadatos. La salida HTML contiene una sola aparición visible de la introducción.
+- Se retiraron las reglas globales de ancho y márgenes sobre `main.content`. La portada utiliza ahora el diseño de artículo de Quarto con cuerpo de 1200 px y sin columnas laterales reservadas; los artículos conservan su cuadrícula y tabla de contenido nativas. Se establece `min-width: 0` para permitir que el contenido se contraiga dentro de la cuadrícula.
+- Tras el ajuste, Quarto genera las tres páginas y la comprobación de recursos locales pasa. El centrado y la adaptación móvil requieren confirmación visual de la autora con esta nueva versión; no se da por completada esa validación.
+- El aviso CSP observado en el perfil habitual de Chrome no se reprodujo en incógnito: las capturas muestran «No issues detected». La consola solo muestra la conexión de la vista previa. El origen del aviso sigue sin identificarse; podría depender del perfil o sus extensiones. No se modificó la CSP ni se añadió `unsafe-eval`.

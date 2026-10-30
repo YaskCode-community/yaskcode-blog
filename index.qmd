@@ -3,7 +3,11 @@ title: "Blog YaskCode"
 pagetitle: "Blog YaskCode · Aprende, practica, construye y comparte"
 description: "Explora artículos, tutoriales y recursos abiertos sobre Ingeniería de Software, Inteligencia Artificial, Ciencia de Datos y Cloud."
 title-block-banner: false
-page-layout: full
+page-layout: article
+grid:
+  body-width: 1200px
+  sidebar-width: 0px
+  margin-width: 0px
 toc: false
 listing:
   id: articulos
@@ -12,10 +16,6 @@ listing:
   template: assets/cards.ejs.md
   feed: true
 ---
-
-::: {.blog-intro}
-Explora artículos, tutoriales y recursos abiertos sobre **Ingeniería de Software, Inteligencia Artificial, Ciencia de Datos y Cloud**.
-:::
 
 ```{=html}
 <div class="explore-grid" id="explorar">

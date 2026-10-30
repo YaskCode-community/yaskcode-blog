@@ -129,7 +129,7 @@ Puedes participar en [YaskCode Community](https://github.com/YaskCode-community)
 
 ## Próximos pasos de la migración
 
-- Corregir el texto introductorio duplicado y revisar el centrado en pantallas amplias.
+- Confirmar visualmente los ajustes de la introducción y del centrado en pantallas amplias.
 - Completar la validación visual y funcional en escritorio y móvil.
 - Revisar la página Acerca y el recorrido de suscripción.
 - Acordar las licencias y el tratamiento de las URLs anteriores.

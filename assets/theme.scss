@@ -15,10 +15,10 @@ body { line-height: 1.65; }
 .navbar { border-bottom: 1px solid var(--yc-line); padding-block: .75rem; }
 .navbar-logo { max-height: 52px; width: auto; }
 .navbar-brand { font-weight: 700; }
-main.content { max-width: 1200px; width: 100%; margin-inline: auto; padding-inline: 1rem; }
+/* Quarto controls the column widths and centering at each breakpoint. */
+main.content { min-width: 0; }
 #title-block-header { margin-top: 2.5rem; margin-bottom: 1rem; }
 h1.title { color: #222; font-size: clamp(2rem, 4vw, 2.8rem); }
-.blog-intro { max-width: 880px; font-size: 1.12rem; margin-bottom: 2rem; }
 .explore-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.7rem; margin: 2rem 0 2.5rem; }
 .explore-panel h2 { font-size: 1.15rem; border: 0; margin: 0 0 1rem; padding: 0; }
 .filter-buttons { display: flex; flex-wrap: wrap; gap: 8px; }
@@ -49,7 +49,6 @@ h1.title { color: #222; font-size: clamp(2rem, 4vw, 2.8rem); }
 .card-description { font-size: .94rem; }
 :focus-visible { outline: 3px solid #2457c5 !important; outline-offset: 4px; }
 #no-results { padding: 1.2rem; background: var(--yc-lavender); border-radius: 9px; }
-body:not(.fullcontent) main.content { max-width: 900px; }
 main p, main li { overflow-wrap: anywhere; }
 .quarto-table, .cell-output-display { overflow-x: auto; }
 .nav-footer { border-top: 1px solid var(--yc-line); margin-top: 3rem; }
