@@ -3,11 +3,32 @@ title: "Acerca del Blog YaskCode"
 toc: false
 ---
 
-El Blog YaskCode comparte artículos, tutoriales y recursos abiertos sobre Ingeniería de Software, Inteligencia Artificial, Ciencia de Datos y Cloud.
+**De la teoría al conocimiento compartido.**
 
-Es un espacio de publicación del ecosistema YaskCode, coordinado por **Yaskelly Yedra**, profesora e investigadora en Computación. Reúne explicaciones y aprendizajes de proyectos, laboratorios y experiencias educativas, con español como idioma principal.
+El Blog YaskCode ayuda a estudiantes, docentes y comunidad tecnológica a comprender ideas, ponerlas a prueba y convertirlas en proyectos y aprendizajes compartidos. Publicamos en español sobre **Ingeniería de Software, Inteligencia Artificial, Ciencia de Datos y Cloud**.
 
-**Aprende · Practica · Construye · Comparte.**
+Es un espacio del ecosistema YaskCode, coordinado por **Yaskelly Yedra**, profesora e investigadora en Computación.
+
+## Aprende · Practica · Construye · Comparte
+
+Nuestro recorrido editorial conecta cuatro formas de aprender:
+
+- **Aprende:** comprende los fundamentos, su utilidad y sus límites.
+- **Practica:** prueba una idea con una actividad acotada y comprueba qué ocurrió.
+- **Construye:** integra conocimientos para resolver un problema y explica tus decisiones.
+- **Comparte:** documenta resultados, errores y recursos para que otras personas puedan aportar y continuar.
+
+Un tema puede convertirse en varias entradas relacionadas. Cada publicación debe ser útil por sí misma y ofrecer un siguiente paso; el recorrido es flexible y se adapta al contexto.
+
+Las preguntas de la comunidad, los laboratorios y proyectos como YASE alimentan el blog. Distinguimos lo que planeamos, los ejemplos y los resultados que realmente hemos observado.
+
+## Cómo cuidamos las publicaciones
+
+Identificamos autoría y fuentes, revisamos las afirmaciones y recursos, reconocemos límites y recibimos correcciones. Cuidamos la lectura móvil, la navegación por teclado y las alternativas textuales.
+
+Cuando se use IA de forma sustancial, explicamos su función y la revisión humana realizada. Compartir materiales de otras personas requiere reconocer su autoría y respetar permisos y condiciones de uso.
+
+Puedes consultar la [guía editorial completa](https://github.com/YaskCode-community/yaskcode-blog/blob/feat/quarto-blog-base/docs/GUIA-EDITORIAL.md) y proponer mejoras. Es nuestra guía de trabajo inicial, que evolucionará con la experiencia.
 
 ## Explora y participa
 
@@ -18,4 +39,6 @@ Es un espacio de publicación del ecosistema YaskCode, coordinado por **Yaskelly
 
 ## Fuentes y correcciones
 
-Cada artículo identifica su autoría y las referencias utilizadas. Los ejemplos hipotéticos y los resultados comprobados se distinguen en el texto. Puedes proponer una corrección en el [repositorio del blog](https://github.com/YaskCode-community/yaskcode-blog/issues).
+Puedes [proponer una corrección o un tema](https://github.com/YaskCode-community/yaskcode-blog/issues) o contribuir mediante un pull request. Las correcciones relevantes se documentan con su fecha.
+
+Las licencias de código y contenidos están pendientes de decisión explícita. Cada material conserva su autoría y sus condiciones de uso.

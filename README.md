@@ -1,142 +1,71 @@
 # Blog YaskCode
 
-Artículos, tutoriales y recursos sobre **Ingeniería de Software, Inteligencia Artificial, Ciencia de Datos y Cloud**, con aprendizajes de proyectos, laboratorios y experiencias educativas de YaskCode.
+**De la teoría al conocimiento compartido.**
 
-**Aprende · Practica · Construye · Comparte.**
+YaskCode es un blog de aprendizaje tecnológico que conecta explicaciones, ejercicios y proyectos con experiencias reales de quienes los construyen. Su propósito es ayudar a **comprender una idea, ponerla a prueba, convertirla en una solución y compartir lo aprendido para que otras personas puedan avanzar**.
 
-Coordinado por **Yaskelly Yedra**, profesora e investigadora en Computación. El español es el idioma principal; se incorporarán traducciones al inglés cuando estén revisadas.
+Publicamos en español sobre **Ingeniería de Software, Inteligencia Artificial, Ciencia de Datos y Cloud**, para estudiantes universitarios, docentes y personas de la comunidad que quieren aprender haciendo. El proyecto está coordinado por **Yaskelly Yedra**, profesora e investigadora en Computación.
 
-## Estado del proyecto
+## Nuestra forma de trabajar
 
-Estamos migrando el blog desde beehiiv hacia un sitio propio generado con **Quarto**, con sus contenidos e imágenes versionados en GitHub.
+**Aprende → Practica → Construye → Comparte → nuevas preguntas y aprendizajes.**
 
-La primera entrega está en la rama `feat/quarto-blog-base` y en el [PR #1](https://github.com/YaskCode-community/yaskcode-blog/pull/1). Incluye el artículo publicado **«RAG: fundamentos y arquitectura para comenzar»**, tarjetas, filtros por área y sección, búsqueda y acceso a la suscripción.
+| Etapa | Qué proponemos | Qué puede llevarse la persona lectora |
+| --- | --- | --- |
+| **Aprende** | Comprender un concepto, su utilidad, sus fundamentos y sus límites. | Una explicación, ejemplos y fuentes para profundizar. |
+| **Practica** | Probar una idea mediante una actividad acotada y reflexionar sobre el resultado. | Un ejercicio guiado, una comprobación y preguntas para interpretar lo ocurrido. |
+| **Construye** | Integrar lo aprendido para resolver un problema con decisiones propias. | Un proyecto, prototipo, notebook o repositorio con instrucciones y evidencias. |
+| **Comparte** | Comunicar resultados, errores, mejoras y recursos; recibir aportes. | Una experiencia documentada que otras personas puedan discutir, adaptar o ampliar según su licencia. |
 
-**El nuevo sitio sigue en revisión y aún no está desplegado.** La dirección prevista es [yaskcode-community.github.io/yaskcode-blog/](https://yaskcode-community.github.io/yaskcode-blog/).
+Este es nuestro **recorrido editorial**, no una metodología pedagógica validada por sí misma. Puede apoyarse en aprendizaje basado en proyectos, práctica guiada, reflexión y revisión entre pares, según el objetivo de cada experiencia.
 
-Consulta el [registro de migración y sus pendientes](docs/MIGRACION.md).
+Un tema puede desarrollarse en una serie de varias entradas. Cada artículo debe ser útil por sí mismo y señalar su siguiente paso. No exigimos recorrer todas las etapas en una sola publicación ni seguir un ritmo idéntico para todas las personas.
 
-## Cómo se organiza
+## Cómo se conectan nuestras secciones
 
-| Componente | Función |
-| --- | --- |
-| Este repositorio | Conserva los originales de artículos, imágenes, diseño e historial de cambios. |
-| Quarto | Genera las páginas del blog y permite revisarlas localmente. |
-| GitHub Pages | Alojamiento previsto, pendiente de habilitar el despliegue. |
-| beehiiv | Mantiene la suscripción y el envío de la newsletter. |
-| Apps Script → HubSpot | Conserva la integración existente de contactos. |
-| Campus YaskCode | Continúa en Astro, en su propio repositorio. |
+El recorrido central convive con tres espacios que lo alimentan:
 
-Guardar cambios en GitHub **no envía una newsletter automáticamente**. En esta primera entrega, GitHub Actions comprueba el sitio y guarda un artefacto de revisión; todavía no lo publica.
+- **Radar tecnológico:** novedades seleccionadas con contexto, fuentes y una explicación de su relevancia.
+- **Explora y participa:** oportunidades, eventos y recursos, con fecha de verificación y condiciones conocidas.
+- **Comunidad YaskCode:** proyectos y voces de la comunidad, con reconocimiento a sus autores y colaboradores.
 
-## Explorar el contenido
+Las cuatro etapas se presentan en el blog como **Aprende, Práctica, Construye y Comparte**. Las áreas temáticas ayudan a encontrar el contenido; las secciones indican qué tipo de experiencia ofrece.
 
-**Áreas:** Ingeniería de Software, Ciencia de Datos, Inteligencia Artificial y Cloud Computing.
+## De dónde nacen los artículos
 
-**Secciones:** Radar tecnológico, Aprende, Práctica, Construye, Comparte, Explora y participa y Comunidad YaskCode.
+De preguntas de aprendizaje, lecturas contrastadas, laboratorios y proyectos del ecosistema YaskCode, incluido YASE. Una práctica puede originar una explicación; un error puede convertirse en una guía; un prototipo puede dar lugar a una serie.
 
-La portada permite combinar filtros de área y sección y buscar por título, tema o descripción. La búsqueda de la barra superior permite consultar el contenido completo del sitio.
+Al publicar una experiencia explicamos **qué intentamos, qué hicimos, cómo lo comprobamos, qué observamos y qué cambiaríamos**. Distinguimos planes, ejemplos, simulaciones y resultados obtenidos. El objetivo es que el conocimiento sea útil y comprobable para otras personas.
 
-## Preparar el entorno local
+Como primer paso del recorrido está disponible el original de [RAG: fundamentos y arquitectura para comenzar](posts/rag-fundamentos-arquitectura/index.qmd). Las prácticas y proyectos que continúen ese tema se enlazarán cuando estén revisados y publicados.
 
-Se necesitan Git y **Quarto 1.10.20**, la misma versión utilizada por el workflow de revisión. Python 3 se utiliza para comprobar recursos locales. El sitio actual no requiere Node ni una base de datos.
+## Nuestro compromiso editorial
 
-Para una primera descarga:
+- **Claridad:** explicar para quién escribimos y qué podrá comprender o hacer.
+- **Rigor:** citar fuentes, comprobar afirmaciones técnicas y reconocer límites.
+- **Práctica comprobable:** aportar instrucciones, requisitos y resultados cuando corresponda.
+- **Accesibilidad:** cuidar lectura móvil, navegación por teclado, textos alternativos y opciones de bajo consumo de recursos.
+- **Autoría y transparencia:** reconocer contribuciones y declarar usos sustanciales de IA y su revisión humana.
+- **Mejora continua:** escuchar correcciones y mantener un historial de cambios relevantes.
 
-```powershell
-git clone https://github.com/YaskCode-community/yaskcode-blog.git
-cd yaskcode-blog
-git switch feat/quarto-blog-base
-code -n .
-```
+La [guía editorial](docs/GUIA-EDITORIAL.md) desarrolla estos compromisos y orienta a quienes quieran contribuir.
 
-Si ya tienes la carpeta abierta, no hace falta volver a clonar. Ejecuta los siguientes comandos desde la raíz de `yaskcode-blog`.
+## Participa
 
-### Ver el blog
+Puedes [proponer un tema o una corrección](https://github.com/YaskCode-community/yaskcode-blog/issues), conversar en [YaskCode Community](https://github.com/orgs/YaskCode-community/discussions), compartir una experiencia o enviar una contribución mediante pull request. La revisión editorial comprueba pertinencia, autoría, fuentes y funcionamiento de los recursos.
 
-```powershell
-quarto preview
-```
+Explora el [Campus YaskCode](https://yaskelly.github.io/) y [suscríbete a la newsletter](https://yaskcode.beehiiv.com/) para seguir las publicaciones.
 
-Abre la dirección que indique la terminal; el puerto puede variar. Para detener la vista previa, pulsa **Ctrl + C** en esa terminal.
+## Calidad y reconocimiento
 
-### Generar y comprobar
+Queremos aportar a la comunidad y reunir evidencias que permitan presentar nuestro trabajo a convocatorias afines. Tomamos el Premio Internacional Espiral como una referencia externa para reflexionar sobre calidad educativa; **eso no supone aval, certificación, postulación ni premio obtenido**.
 
-En Windows:
+El [registro de convocatorias y referentes](docs/CONVOCATORIAS.md) distingue las categorías adecuadas para un blog de las que requieren experiencias educativas aplicadas, documenta ejemplos premiados y señala qué falta verificar antes de postular.
 
-```powershell
-quarto render
-py scripts/check_site.py
-git diff --check
-```
+## Sobre este repositorio
 
-En Linux o macOS, sustituye `py` por `python3`.
+Aquí conservamos los artículos, imágenes e historial del blog. **La migración desde beehiiv está en revisión y el nuevo sitio todavía no se ha desplegado.** beehiiv mantiene la suscripción y la newsletter.
 
-El sitio generado queda en `_site/`. Se editan los archivos fuente, no las páginas de esa carpeta. La comprobación de recursos valida enlaces e imágenes locales; la revisión visual, de teclado y de enlaces externos se realiza por separado.
+Para colaborar con el código o trabajar localmente, consulta la [guía de desarrollo](docs/DESARROLLO.md). Las decisiones de la transición están en el [registro de migración](docs/MIGRACION.md).
 
-## Escribir un artículo
-
-1. Crea una carpeta en `posts/` con un nombre breve y sin espacios: por ejemplo, `posts/mi-articulo/`.
-2. Añade el archivo `index.qmd` y guarda sus imágenes en esa misma carpeta.
-3. Completa los metadatos, escribe el contenido y revisa el resultado con `quarto preview`.
-4. Presenta el cambio en un pull request para revisión editorial y técnica.
-
-Ejemplo de metadatos para un **borrador**, que debe adaptarse al artículo real:
-
-```yaml
----
-title: "Título del artículo"
-author: "Nombre de la persona autora"
-date: 2026-10-30
-description: "Resumen breve de lo que aprenderá la persona lectora."
-categories: ["Aprende", "Inteligencia Artificial"]
-area: "Inteligencia Artificial"
-editorial-section: "Aprende"
-image: portada.png
-image-alt: "Descripción accesible de la portada."
-toc: true
-draft: true
----
-```
-
-Usa las áreas y secciones existentes, respetando sus nombres. `editorial-section` es el campo utilizado por las tarjetas y los filtros; no lo sustituyas por `section`.
-
-La portada y las búsquedas se regeneran al construir el sitio. Mantén `draft: true` mientras el texto esté pendiente y comprueba su exclusión de la salida destinada a publicación. Un borrador guardado en este repositorio público puede ser leído en GitHub.
-
-Cada artículo debe identificar su autoría, citar sus fuentes y distinguir los ejemplos hipotéticos de los resultados obtenidos. Las publicaciones derivadas de YASE y los laboratorios deben explicar qué se construyó, cómo se probó, qué se observó y cuáles son sus límites.
-
-## Archivos principales
-
-| Ruta | Contenido |
-| --- | --- |
-| `_quarto.yml` | Configuración, navegación y opciones generales. |
-| `index.qmd` | Portada y controles para explorar artículos. |
-| `acerca.qmd` | Presentación del blog, pendiente de contraste editorial. |
-| `posts/<slug>/index.qmd` | Texto y metadatos de cada artículo. |
-| `assets/theme.scss` | Colores, tipografía y estilos. |
-| `assets/cards.ejs.md` | Plantilla de tarjetas. |
-| `assets/filters.js` | Filtros y búsqueda de la portada. |
-| `scripts/check_site.py` | Comprobación de recursos locales. |
-| `.github/workflows/check.yml` | Construcción y comprobación en GitHub Actions. |
-| `docs/MIGRACION.md` | Decisiones y pendientes de migración. |
-| `AGENTS.md` | Instrucciones para asistentes que trabajen en el repositorio. |
-
-## Suscripción y comunidad
-
-La suscripción continúa en [beehiiv](https://yaskcode.beehiiv.com/). La integración con HubSpot funciona de manera independiente del blog; aquí no se guardan contactos, credenciales ni exportaciones de suscriptores.
-
-Puedes participar en [YaskCode Community](https://github.com/YaskCode-community), proponer ideas en [Discussions](https://github.com/orgs/YaskCode-community/discussions) o comunicar correcciones mediante un [issue del blog](https://github.com/YaskCode-community/yaskcode-blog/issues).
-
-## Próximos pasos de la migración
-
-- Confirmar visualmente los ajustes de la introducción y del centrado en pantallas amplias.
-- Completar la validación visual y funcional en escritorio y móvil.
-- Revisar la página Acerca y el recorrido de suscripción.
-- Acordar las licencias y el tratamiento de las URLs anteriores.
-- Habilitar el despliegue después de la aceptación de esta entrega.
-- Actualizar el enlace del Campus cuando el nuevo blog esté disponible y comprobado.
-- Incorporar las cinco entradas adicionales con revisión editorial.
-
-## Autoría y licencias
-
-Se conserva la autoría de cada artículo y la procedencia de los recursos. Las licencias de código y contenidos están pendientes de decisión explícita de la autora; la visibilidad pública de este repositorio no concede por sí sola una licencia de reutilización.
+Cada contenido conserva su autoría. Las licencias de código y materiales están pendientes de decisión explícita; consulta sus condiciones antes de reutilizarlos.

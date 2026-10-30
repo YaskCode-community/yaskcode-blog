@@ -29,7 +29,7 @@ GitHub conserva los originales; Quarto genera el blog. La publicación prevista 
 
 1. Validación visual de la autora en escritorio y móvil.
 2. Revisar suscripción y, si procede, incorporar el formulario incrustable oficial.
-3. Recuperar la carta editorial aprobada y contrastarla antes de sustituir la página Acerca provisional.
+3. Validar la guía editorial inicial y la página Acerca, redactadas a partir del recorrido y referencia aportados por la autora el 30 de octubre de 2026.
 4. Decidir licencia de código y licencia de contenidos.
 5. Acordar tratamiento de URLs antiguas y contenido duplicado entre beehiiv y el nuevo blog. No retirar el artículo anterior sin una estrategia.
 6. Habilitar GitHub Pages y autorizar el workflow de despliegue después de aceptar la primera entrega.
@@ -53,3 +53,10 @@ GitHub conserva los originales; Quarto genera el blog. La publicación prevista 
 - Se retiraron las reglas globales de ancho y márgenes sobre `main.content`. La portada utiliza ahora el diseño de artículo de Quarto con cuerpo de 1200 px y sin columnas laterales reservadas; los artículos conservan su cuadrícula y tabla de contenido nativas. Se establece `min-width: 0` para permitir que el contenido se contraiga dentro de la cuadrícula.
 - Tras el ajuste, Quarto genera las tres páginas y la comprobación de recursos locales pasa. El centrado y la adaptación móvil requieren confirmación visual de la autora con esta nueva versión; no se da por completada esa validación.
 - El aviso CSP observado en el perfil habitual de Chrome no se reprodujo en incógnito: las capturas muestran «No issues detected». La consola solo muestra la conexión de la vista previa. El origen del aviso sigue sin identificarse; podría depender del perfil o sus extensiones. No se modificó la CSP ni se añadió `unsafe-eval`.
+
+## Orientación editorial · 30 de octubre de 2026
+
+- El README se orienta a visitantes: propósito, público, recorrido Aprende · Practica · Construye · Comparte y participación. Las instrucciones operativas se conservan en `docs/DESARROLLO.md`.
+- La referencia aportada por la autora describe una newsletter que conecta conceptos, prácticas, construcción y comunidad. Se desarrolla como guía propia en `docs/GUIA-EDITORIAL.md` y se refleja en la página Acerca.
+- El análisis de Espiral, sus vías de participación y ejemplos reconocidos se registra con fuentes y fecha en `docs/CONVOCATORIAS.md`. No se ha enviado ninguna candidatura ni asignado una licencia.
+- La revisión de la guía y página Acerca por la autora sigue pendiente. La preparación editorial no convierte la migración en un sitio desplegado ni acredita impacto educativo.
