@@ -126,15 +126,19 @@
       if (!response.ok) return;
       const stats = await response.json();
       const ageMs = Date.now() - Date.parse(stats.generated_at);
-      if (stats.schema_version !== 1 || stats.window_days !== 30 ||
+      if (stats.schema_version !== 2 || stats.window_days !== 30 ||
           !Number.isFinite(ageMs) || ageMs < -600000 || ageMs > 72*3600*1000 ||
           !stats.paths || typeof stats.paths !== "object") return;
 
-      const badge = (views) => {
-        const label = views === 1 ? "vista registrada" : "vistas registradas";
-        const el = create("p","yc-view-count","◉ " + views.toLocaleString("es") +
-          " " + label + " · últimos 30 días");
-        el.title = "Datos aproximados de Cloudflare Web Analytics. Pueden excluir visitas con bloqueo de seguimiento.";
+      const valid = counts => counts && Number.isSafeInteger(counts.total) &&
+        Number.isSafeInteger(counts.last_30_days) && counts.total >= 0 &&
+        counts.last_30_days >= 0 && counts.last_30_days <= counts.total;
+      const badge = counts => {
+        const plural = counts.total === 1 ? "vista acumulada" : "vistas acumuladas";
+        const el = create("p","yc-view-count","◉ " + counts.total.toLocaleString("es") +
+          " " + plural + " · " + counts.last_30_days.toLocaleString("es") +
+          " últimos 30 días");
+        el.title = "Desde el 31 de octubre de 2026. Vistas registradas, no visitantes únicos. La medición puede omitir navegadores con bloqueo de analítica.";
         return el;
       };
       const article = location.pathname.match(/\/posts\/([^/]+)\/?(?:index\.html)?$/);
@@ -142,7 +146,7 @@
         const path = root + "posts/" + article[1] + "/";
         const number = stats.paths[path];
         const header = document.querySelector("#title-block-header");
-        if (header && Number.isSafeInteger(number) && number >= 0) header.append(badge(number));
+        if (header && valid(number)) header.append(badge(number));
       }
       document.querySelectorAll("#article-grid .post-card").forEach(card => {
         const link = card.querySelector("h2 a");
@@ -152,7 +156,7 @@
         if (path.endsWith("/index.html")) path = path.slice(0,-10);
         if (!path.endsWith("/")) path += "/";
         const number = stats.paths[path];
-        if (Number.isSafeInteger(number) && number >= 0) body.append(badge(number));
+        if (valid(number)) body.append(badge(number));
       });
     } catch {
       // Si no hay cifras confiables, el blog sigue funcionando sin mostrarlas.
