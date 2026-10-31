@@ -47,7 +47,7 @@ Al finalizar la lectura podrás:
 
 
 ::: {.callout-tip title="Recursos para llevar"}
-[**Descargar ficha de lectura (.md)**](/yaskcode-blog/recursos/hugging-face-modelos-datasets-ciencia-de-datos-ficha.md) · La opción «Imprimir o guardar como PDF» aparecerá junto al encabezado.
+<a href="../../recursos/hugging-face-modelos-datasets-ciencia-de-datos-ficha.md" download>Descargar ficha de lectura (.md)</a> · La opción «Imprimir o guardar como PDF» aparecerá junto al encabezado.
 
 La ficha sintetiza las ideas clave y propone preguntas para revisar la comprensión; **no sustituye un laboratorio**.
 :::
