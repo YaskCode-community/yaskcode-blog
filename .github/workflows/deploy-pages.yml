@@ -32,11 +32,12 @@ jobs:
       - name: Actualizar instantánea de vistas (si hay credencial de solo lectura)
         env:
           CF_WEB_ANALYTICS_TOKEN: ${{ secrets.CF_WEB_ANALYTICS_TOKEN }}
+          CF_WEB_ANALYTICS_ACCOUNT_ID: ${{ secrets.CF_WEB_ANALYTICS_ACCOUNT_ID }}
         run: |
-          if [ -n "$CF_WEB_ANALYTICS_TOKEN" ]; then
+          if [ -n "$CF_WEB_ANALYTICS_TOKEN" ] && [ -n "$CF_WEB_ANALYTICS_ACCOUNT_ID" ]; then
             python3 scripts/update_views.py --output _site/assets/views.json
           else
-            echo "::notice::Sin CF_WEB_ANALYTICS_TOKEN: se mantiene la última instantánea; la web oculta cifras obsoletas."
+            echo "::notice::Falta token o ID de cuenta: se mantiene la última instantánea; la web oculta cifras obsoletas."
           fi
       - name: Comprobar enlaces y recursos locales
         run: python3 scripts/check_site.py
