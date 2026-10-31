@@ -36,7 +36,8 @@ Antes de redactar **cada** artículo, contrastar la portada y el historial de la
 | Dato | Cómo documentarlo en el artículo y en el registro de trabajo |
 | --- | --- |
 | **Autoría original** | Nombres y orden de quienes efectivamente contribuyeron al trabajo, confirmados por el equipo y con autorización para su identificación pública. Si alguien no desea aparecer, acordar una atribución autorizada alternativa. |
-| **Coordinación/edición** | «Revisión académica y adaptación editorial: YaskCode / Yaskelly Yedra» **separada** de la autoría del estudiantado. Atribuir coautoría solo cuando corresponda al aporte real y exista acuerdo explícito. |
+| **Asesoría académica** | Identificar explícitamente a la docente asesora del proyecto, **separada** de la autoría original de los estudiantes y de la edición posterior del Blog. Para el piloto del Equipo 5, la docente confirmó que el trabajo se desarrolló **con su asesoría**. Esta función no se presenta automáticamente como coautoría. |
+| **Coordinación/edición** | «Revisión académica y adaptación editorial: YaskCode / Yaskelly Yedra» **separada** de la autoría del estudiantado y de la asesoría docente. Atribuir coautoría solo cuando corresponda al aporte real y exista acuerdo explícito. |
 | **Fecha del proyecto o de la wiki** | Indicar como fecha de elaboración académica o periodo del curso, según evidencia de wiki/commits/entrega. No inventar el día de creación si solo se sabe el semestre. |
 | **Versión de origen** | Registrar identificador de revisión/commit o copia autorizada y fecha de extracción en el expediente **privado** de procedencia. |
 | **Fecha de publicación del Blog** | Usar la fecha **real de la primera publicación web** del artículo adaptado para `datePublished` y la cabecera; no retrotraerla a la fecha del semestre o de la wiki. |
