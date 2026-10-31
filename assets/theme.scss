@@ -140,7 +140,7 @@ main p, main li { overflow-wrap: anywhere; }
 /* Una única introducción visible: el subtítulo permanece en pantalla.
    La descripción de Quarto se conserva en el HTML para SEO y fichas sociales,
    pero no se repite como segundo párrafo bajo las categorías. */
-#title-block-header .quarto-title .description { display: none; }
+#title-block-header .description { display: none; }
 /* Nivel editorial distinto de categorías (sin cambiar taxonomía de Quarto). */
 #title-block-header .quarto-categories .yc-level-badge {
   color: var(--yc-magenta);
