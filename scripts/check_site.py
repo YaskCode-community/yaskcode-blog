@@ -109,6 +109,30 @@ for required in ('draft: true', 'subtitle:', 'description:', 'categories:', 'are
                  'En 1 minuto', 'Lo que aprenderás', 'Conocimientos previos',
                  'Recursos para llevar', 'Referencias académicas y técnicas'):
     assert required in scaffold, f'Falta {required} en la plantilla Aprende'
+# Plantilla de Práctica: mismo sistema editorial, con ejercicios reproducibles
+# y retos Construye. Se mantiene fuera del render y en estado borrador.
+practice_template = ROOT.parent / 'plantillas/articulo-practica/index.qmd'
+assert practice_template.exists(), 'Falta plantilla Quarto Práctica'
+practice = practice_template.read_text(encoding='utf-8')
+practice_metadata = practice.split('---', 2)[1]
+for required in (
+        'draft: true', 'subtitle:', 'description:',
+        'categories: ["Práctica", "Inteligencia Artificial"]',
+        'editorial-section: "Práctica"', 'area:', 'level:',
+        'include-in-header:'):
+    assert required in practice_metadata, f'Falta {required} en la plantilla Práctica'
+for required in (
+        'En 1 minuto', 'Lo que practicarás', 'Conocimientos previos',
+        'Preparar el entorno', 'Laboratorio guiado', 'Comprobación',
+        'Solución de errores', 'Construye · Retos progresivos',
+        'Básico · Adaptar', 'Intermedio · Extender',
+        'Avanzado · Evaluar', 'Comparte con la comunidad'):
+    assert required in practice, f'Falta {required} en la plantilla Práctica'
+practice_rules = ROOT.parent / 'docs/ESTANDAR-PRACTICAS-LABORATORIOS.md'
+assert practice_rules.exists(), 'Falta estándar de laboratorios'
+assert 'project.resources' in practice_rules.read_text(encoding='utf-8'), 'Documentar copias de recursos de laboratorios'
+assert 'plantillas/' not in config, 'No incluir plantillas en la configuración de render'
+
 # Los relatos de comunidad usan una plantilla narrativa sin nivel técnico.
 community_template = ROOT.parent / 'plantillas/articulo-comunidad/index.qmd'
 assert community_template.exists(), 'Falta plantilla narrativa de Comunidad'
