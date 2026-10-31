@@ -59,7 +59,16 @@ main p, main li { overflow-wrap: anywhere; }
 
 /* Participación ligera del blog. El contenido se genera en cliente, sin backend ni Workers. */
 .yc-share-tools { border: 1px solid var(--yc-line); background: #fbf8fd; border-radius: 12px; padding: 1rem; margin: 2rem 0 1.5rem; }
-.yc-share-tools-compact { margin: 1rem 0 1.6rem; background: #fff; }
+/* Bloque superior sin tarjeta: título y botones se integran con el artículo. */
+.yc-share-tools-compact {
+  margin: .85rem 0 1.35rem;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  background: transparent;
+  padding: 0;
+}
+.yc-share-tools-compact .yc-share-feedback:empty { display: none; }
 .yc-share-heading { font-size: .98rem; font-weight: 700; margin: 0 0 .6rem !important; }
 .yc-share-actions { display: flex; gap: .45rem; flex-wrap: wrap; align-items: center; }
 .yc-share-action { appearance: none; display: inline-flex; align-items: center; justify-content: center; border: 1px solid #e4d2e8; background: #fff; border-radius: 8px; padding: .48rem .7rem; color: var(--yc-magenta); font: inherit; font-size: .84rem; line-height: 1.4; text-decoration: none; cursor: pointer; }
