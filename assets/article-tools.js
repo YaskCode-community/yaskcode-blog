@@ -188,7 +188,7 @@
   const articleMeta = (content) => {
     const header = document.querySelector("#title-block-header");
     if (!header) return;
-    const cleanText = content.textContent.replace(/\\s+/g, " ").trim();
+    const cleanText = content.textContent.replace(/\s+/g, " ").trim();
     const count = cleanText ? cleanText.split(" ").length : 0;
     const minutes = Math.max(1, Math.ceil(count / 220));
 
