@@ -26,6 +26,9 @@ website:
     right:
       - href: https://yaskcode.beehiiv.com/
         text: Suscríbete
+      - icon: rss
+        href: index.xml
+        text: RSS
   search:
     location: navbar
     type: overlay
