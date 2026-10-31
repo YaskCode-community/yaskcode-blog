@@ -70,7 +70,7 @@ jobs:
           dir="$(mktemp -d)"
           if [ "$ANALYTICS_HISTORY_EXISTS" = "1" ]; then
             git worktree add --detach "$dir" FETCH_HEAD
-            git -C "$dir" checkout -B analytics-history FETCH_HEAD
+            git -C "$dir" checkout -B analytics-history HEAD
           else
             git worktree add --detach "$dir" HEAD
             git -C "$dir" checkout --orphan analytics-history
