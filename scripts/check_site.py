@@ -73,7 +73,7 @@ client = (ROOT / 'assets/article-tools.js').read_text(encoding='utf-8')
 css = (ROOT.parent / 'assets/theme.scss').read_text(encoding='utf-8')
 assert 'authorHeading.textContent = "Autoría:"' in client, 'Etiqueta de autoría no compactada'
 assert 'yc-level-badge' in client and 'yc-level-badge' in css, 'Falta etiqueta de nivel'
-assert '#title-block-header .quarto-title .description { display: none; }' in css, 'Descripción SEO repetida visualmente'
+assert '#title-block-header .description { display: none; }' in css, 'Descripción SEO repetida visualmente'
 assert client.count('level:"Básico"') == 3, 'Los tres artículos técnicos requieren nivel Básico'
 assert 'historia-campus-yaskcode",level' not in client, 'El relato del Campus no debe tener nivel técnico'
 # Plantilla editorial: recursos físicos, autoría, metadatos sociales y BlogPosting.
