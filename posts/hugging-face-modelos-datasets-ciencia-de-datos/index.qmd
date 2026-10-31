@@ -4,10 +4,11 @@ subtitle: "Una guía para descubrir recursos de inteligencia artificial, compren
 author: "Yaskelly Yedra"
 date: 2026-10-31
 description: "Descubre Hugging Face Hub, modelos preentrenados, datasets, Transformers y Spaces; aprende a leer sus tarjetas y a seleccionar recursos para Ciencia de Datos con responsabilidad."
-categories: ["Aprende", "Ciencia de Datos", "Básico"]
+categories: ["Aprende", "Ciencia de Datos"]
 area: "Ciencia de Datos"
 editorial-section: "Aprende"
 level: "Básico"
+level-detail: "Fundamentos"
 publication-number: 3
 publication-status: "Aprobado para publicación"
 image: "portada-hugging-face.png"
@@ -16,19 +17,25 @@ image-description: "Ilustración original, creada con asistencia de IA y aprobad
 toc: true
 ---
 
-**Aprende · Ciencia de Datos · Nivel Básico**
-
-**Aprobación editorial:** 31 de octubre de 2026.
-
-**Tiempo estimado de lectura:** 14 minutos (estimación con 2970 palabras a 220 palabras/minuto).
+**Aprende · Ciencia de Datos · Nivel Básico · Fundamentos**
 
 ![Portada editorial con modelos, datasets y Spaces vinculados a resultados de Ciencia de Datos.](portada-hugging-face.png){fig-alt="Ilustración en blanco, magenta y lavanda: tres tarjetas de modelos, datasets y aplicaciones conectadas con un panel de resultados."}
 
 ::: {.callout-tip title="Lo que aprenderás"}
-Al terminar este artículo podrás **explicar el papel de Hugging Face**, distinguir **Models, Datasets, Spaces y bibliotecas**, reconocer para qué sirve **Transformers**, leer los elementos esenciales de una **Model Card** y una **Dataset Card**, y plantear criterios para elegir recursos de manera responsable.
+Al finalizar la lectura podrás:
+
+1. **Explicar** qué es Hugging Face y qué papel cumple Hugging Face Hub en proyectos de Ciencia de Datos.
+2. **Diferenciar** modelos, datasets, Spaces y bibliotecas de software.
+3. **Reconocer** para qué sirven Transformers y las bibliotecas principales del ecosistema.
+4. **Interpretar** la información esencial de una Model Card y una Dataset Card.
+5. **Identificar** criterios básicos para seleccionar modelos y datos de manera responsable.
 :::
 
-**Antes de comenzar:** no necesitas haber utilizado Hugging Face ni programar. Te ayudará conocer las nociones generales de *inteligencia artificial*, *aprendizaje automático* (*machine learning*) y *Ciencia de Datos*.
+**Conocimientos previos:** no necesitas experiencia con Hugging Face ni programación previa para comprender los conceptos. Es recomendable conocer nociones generales de inteligencia artificial, aprendizaje automático (*machine learning*) y Ciencia de Datos.
+
+**Público destinatario:** estudiantes universitarios, docentes, investigadores y personas que comienzan en Ciencia de Datos e Inteligencia Artificial.
+
+**Tiempo estimado de lectura:** 14 minutos (aproximadamente 2970 palabras, a 220 palabras por minuto).
 
 ## 1. ¿Por qué Hugging Face es importante para la Ciencia de Datos?
 
