@@ -33,7 +33,7 @@ Campus YaskCode nace de una mirada a la vida universitaria como encuentro entre 
 **Antes de comenzar · Conocimientos previos:** no se requieren conocimientos técnicos. Es una historia de origen para estudiantes, docentes, investigadores y personas interesadas en educación abierta y comunidad.
 
 ::: {.callout-tip title="Recursos para llevar"}
-[**Descargar ficha de lectura (.md)**](/yaskcode-blog/recursos/historia-campus-yaskcode-ficha.md) · La opción «Imprimir o guardar como PDF» estará disponible junto al encabezado.
+<a href="../../recursos/historia-campus-yaskcode-ficha.md" download>Descargar ficha de lectura (.md)</a> · La opción «Imprimir o guardar como PDF» estará disponible junto al encabezado.
 
 La ficha reúne el origen, las ideas clave y preguntas para explorar el Campus.
 :::
