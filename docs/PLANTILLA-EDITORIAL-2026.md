@@ -8,6 +8,8 @@ Este modelo se adapta al tema. No exige crear cuatro publicaciones por tema: la 
 
 La cabecera debe presentar **«AUTORÍA: Yaskelly Yedra · Perfil académico · ORCID»** en una misma línea cuando haya espacio, sin separar el rótulo del nombre. El rótulo **AUTORÍA:** hereda el mismo estilo tipográfico en mayúsculas de **FECHA DE PUBLICACIÓN** y **FECHA DE ÚLTIMA MODIFICACIÓN**; se agrega una separación vertical moderada entre las etiquetas y la autoría. Los artículos técnicos muestran **BÁSICO / INTERMEDIO / AVANZADO** con exactamente el mismo estilo visual de las otras etiquetas de Quarto, sin añadir el nivel a las categorías temáticas, filtros ni RSS. Los relatos de comunidad no reciben nivel técnico.
 
+No volver a escribir en el cuerpo una línea como **«Aprende · Área temática · Nivel Básico · Fundamentos»**: el encabezado generado por Quarto ya presenta la etapa, el área y el nivel. El detalle del nivel (`level-detail`, por ejemplo «Fundamentos») puede permanecer como metadato pedagógico sin duplicarse en pantalla. Las narraciones de comunidad pueden conservar su descripción de género si aporta información adicional y no repite íntegramente una etiqueta.
+
 El **subtítulo es la introducción visible** que presenta el propósito del artículo; la propiedad Quarto `description` se conserva como descripción SEO y de metadatos sociales, pero se oculta de la cabecera para evitar una segunda introducción repetida. Esto mantiene SEO y lectura sin redundancias, junto con el resumen detallado **«En 1 minuto»**, que tiene otra función didáctica.
 
 ## Cabecera compacta y participación

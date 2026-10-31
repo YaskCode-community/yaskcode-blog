@@ -99,6 +99,11 @@ for slug in ('rag-fundamentos-arquitectura','hugging-face-modelos-datasets-cienc
              'por-que-aprender-poo-en-la-era-de-la-ia'):
     html = (ROOT / 'posts' / slug / 'index.html').read_text(encoding='utf-8')
     assert 'Referencias académicas y técnicas' in html, f'Faltan referencias: {slug}'
+# Evitar repetir como texto del cuerpo las tres etiquetas mostradas por Quarto.
+for slug in ('rag-fundamentos-arquitectura', 'hugging-face-modelos-datasets-ciencia-de-datos',
+             'por-que-aprender-poo-en-la-era-de-la-ia'):
+    qmd = (ROOT.parent / 'posts' / slug / 'index.qmd').read_text(encoding='utf-8')
+    assert '· Nivel Básico · Fundamentos**' not in qmd, f'Metadatos visuales duplicados en {slug}'
 # Giscus debe mostrarse únicamente en las cuatro publicaciones, no en portada ni Acerca de.
 article_pages = sorted((ROOT / 'posts').glob('*/index.html'))
 assert len(article_pages) == 4, f'Se esperaban 4 artículos, hay {len(article_pages)}'

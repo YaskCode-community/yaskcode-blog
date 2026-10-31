@@ -20,7 +20,6 @@ format:
     include-in-header: ../../assets/seo-rag-fundamentos-arquitectura.html
 ---
 
-**Aprende · Inteligencia Artificial · Nivel Básico · Fundamentos**
 
 ::: {.callout-note title="En 1 minuto"}
 RAG combina **recuperación de información externa** y **generación de respuestas** para que un modelo pueda apoyarse en documentos pertinentes. Sus dos recorridos son preparar e indexar fuentes y, después, recuperar evidencia durante una consulta. La calidad depende de los documentos, las citas, la seguridad y la verificación: RAG **no garantiza por sí solo respuestas correctas**.
