@@ -1,6 +1,6 @@
 # Fase 2 · Comentarios y reacciones del Blog YaskCode con Giscus
 
-**Estado:** preparación técnica. **Todavía no está habilitado el widget de comentarios en producción**.
+**Estado:** integración preparada en rama de revisión. La publicación en producción requiere merge, despliegue y prueba real de comentarios.
 
 ## Objetivo
 
@@ -10,7 +10,7 @@ Ofrecer a los lectores comentarios y reacciones por artículo, moderados desde G
 
 - Sitio: `YaskCode-community/yaskcode-blog`, publicado con **Quarto en GitHub Pages**.
 - Repositorio para discusiones: **`YaskCode-community/.github`** (público y con Discussions habilitado; es la fuente de las discusiones de la organización YaskCode Community).
-- Categoría propuesta: **`Blog YaskCode`**, tipo **Announcement**, dedicada a conversaciones específicas de artículos. Esta categoría **todavía necesita crearse** y debe tener el nombre y tipo acordados antes de configurar la incrustación.
+- Categoría **`Blog YaskCode`**, tipo **Announcement**, creada por la administradora en la sección *3. Aprendizaje y recursos*. Giscus ya la reconoce en el configurador oficial.
 - Sistema: **Giscus** (`https://giscus.app/es`), aplicación gratuita de GitHub que almacena contenido en Discussions.
 - Mapeo recomendado: **pathname**. El mismo artículo siempre utiliza el mismo slug y evita depender de cambios editoriales de título.
 - **Reactions** habilitadas, **idioma español**, tema **light**, `input-position: bottom`, `loading: lazy`.
@@ -22,23 +22,23 @@ Ofrecer a los lectores comentarios y reacciones por artículo, moderados desde G
 ## Lista de habilitación (administración GitHub)
 
 1. Confirmar que `YaskCode-community/.github` sigue siendo público y tiene **Discussions** habilitado. Esta condición ya estaba confirmada el 31-10-2026.
-2. En el GitHub de la organización, crear la categoría **Blog YaskCode** dentro de Discussions, con tipo **Announcement** (los lectores pueden comentar, pero las discusiones nuevas quedan reservadas a los moderadores y a Giscus).
-3. Instalar la aplicación oficial **Giscus** en `https://github.com/apps/giscus`, eligiendo **Only select repositories** y autorizando exclusivamente `YaskCode-community/.github`, en vez de todos los repositorios.
-4. Abrir `https://giscus.app/es`, indicar el repositorio `YaskCode-community/.github`, elegir la categoría **Blog YaskCode** y asignar mapeo por `pathname`, reacciones habilitadas, idioma español, tema claro, caja de comentarios debajo y carga diferida.
-5. Obtener/verificar los identificadores reales de **repo-id** y **category-id** del generador Giscus. No inventarlos. El repo de Discussions tendrá su propio identificador; no usar el ID de `yaskcode-blog`.
+2. **Completado:** categoría **Blog YaskCode** creada en Discussions, tipo **Announcement**. Los lectores pueden comentar, pero la creación de discusiones queda restringida a mantenedores y Giscus.
+3. **Completado:** aplicación oficial **Giscus** instalada en `https://github.com/apps/giscus`, con acceso **Only select repositories**, exclusivamente a `YaskCode-community/.github`.
+4. **Verificado en el configurador:** repositorio `YaskCode-community/.github`, categoría **Blog YaskCode**, mapeo `pathname` y reacciones habilitadas. En Quarto se fija además idioma español, tema claro, caja de comentarios debajo y carga diferida.
+5. **Completado:** identificadores reales tomados del bloque generado por Giscus (captura facilitada por la autora): `repo-id: R_kgDOT4uDYg` y `category-id: DIC_kwDOT4uDYs4DKEGP`. Corresponden al repositorio `.github`, no a `yaskcode-blog`.
 6. Antes de publicar: abrir un artículo de prueba y verificar que aparece la caja, que requiere inicio de sesión GitHub para participar, que crea/enlaza una discusión en la categoría acordada y que el moderador puede gestionar comentarios.
 
-## Integración pendiente en Quarto
+## Integración nativa en Quarto
 
-Una vez que la aplicación esté instalada, la categoría creada y los identificadores confirmados, agregar **al nivel `website:`** de `_quarto.yml`:
+La rama de esta fase incorpora la configuración real bajo `website.comments.giscus` en `_quarto.yml`:
 
 ```yaml
   comments:
     giscus:
       repo: YaskCode-community/.github
-      repo-id: REEMPLAZAR_CON_ID_REAL
+      repo-id: R_kgDOT4uDYg
       category: Blog YaskCode
-      category-id: REEMPLAZAR_CON_ID_REAL
+      category-id: DIC_kwDOT4uDYs4DKEGP
       mapping: pathname
       reactions-enabled: true
       input-position: bottom
@@ -47,7 +47,7 @@ Una vez que la aplicación esté instalada, la categoría creada y los identific
       theme: light
 ```
 
-**No copiar literalmente los marcadores `REEMPLAZAR_CON_ID_REAL` al sitio.** Son un ejemplo de configuración pendiente. Al habilitar la configuración global, las páginas principales tienen la marca `comments: false`, para que el widget solo se muestre en los artículos.
+La portada `index.qmd` y `acerca.qmd` conservan `comments: false`. Los comentarios solo se renderizan en los cuatro artículos. El script se incorpora mediante la integración nativa de Quarto; no agregar otro script Giscus a `assets/footer.html`, porque duplicaría el widget.
 
 ## Moderación y experiencia de lectura
 
@@ -60,9 +60,9 @@ Una vez que la aplicación esté instalada, la categoría creada y los identific
 
 ## Pruebas de aceptación (antes de marcar Fase 2 completada)
 
-- [ ] Aplicación Giscus instalada solo en repositorio autorizado.
-- [ ] Categoría **Blog YaskCode** existente y con tipo adecuado.
-- [ ] `_quarto.yml` con IDs reales, sin placeholders.
+- [x] Aplicación Giscus instalada solo en repositorio autorizado.
+- [x] Categoría **Blog YaskCode** existente y con tipo adecuado.
+- [x] `_quarto.yml` con IDs reales, sin placeholders.
 - [ ] Portada y Acerca de sin comentarios; los cuatro artículos con comentarios y reacciones.
 - [ ] Al menos una prueba real de moderación y reacción en la discusión correcta.
 - [ ] Tema móvil, teclado, carga diferida y ausencia de solapamientos revisados.

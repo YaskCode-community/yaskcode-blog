@@ -38,6 +38,17 @@ assert feed.tag == 'rss', 'El feed no es RSS válido'
 rss_items = feed.findall('./channel/item')
 assert len(rss_items) >= 4, f'RSS incompleto: {len(rss_items)} publicaciones'
 assert all((item.findtext('link') or '').startswith('https://') for item in rss_items), 'RSS con enlaces no absolutos'
+# Giscus debe mostrarse únicamente en las cuatro publicaciones, no en portada ni Acerca de.
+article_pages = sorted((ROOT / 'posts').glob('*/index.html'))
+assert len(article_pages) == 4, f'Se esperaban 4 artículos, hay {len(article_pages)}'
+for article_path in article_pages:
+    assert 'giscus.app/client.js' in article_path.read_text(), (
+        f'Falta Giscus en {article_path.relative_to(ROOT)}'
+    )
+for rel in ('index.html', 'acerca.html'):
+    assert 'giscus.app/client.js' not in (ROOT / rel).read_text(), (
+        f'Giscus no debe mostrarse en {rel}'
+    )
 for path, page in pages.items():
     for ref in page.refs:
         url = urlsplit(ref)
