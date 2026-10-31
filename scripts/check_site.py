@@ -1,5 +1,6 @@
 """Check real rendered pages and their local links; no network or dependencies."""
 from html.parser import HTMLParser
+import json
 from xml.etree import ElementTree as ET
 from pathlib import Path
 from urllib.parse import unquote, urlsplit
@@ -38,10 +39,23 @@ assert feed.tag == 'rss', 'El feed no es RSS válido'
 rss_items = feed.findall('./channel/item')
 assert len(rss_items) >= 4, f'RSS incompleto: {len(rss_items)} publicaciones'
 assert all((item.findtext('link') or '').startswith('https://') for item in rss_items), 'RSS con enlaces no absolutos'
+# Estadísticas públicas: archivo estático, fuente real, sin contadores simulados.
+snapshot_file = ROOT / 'assets/views.json'
+assert snapshot_file.exists(), 'Falta assets/views.json'
+snapshot = json.loads(snapshot_file.read_text(encoding='utf-8'))
+assert snapshot.get('schema_version') == 1 and snapshot.get('window_days') == 30, 'Ventana de vistas inválida'
+assert snapshot.get('metric') == 'recorded_pageviews_non_bot', 'Métrica pública no verificada'
+assert snapshot.get('generated_at'), 'La instantánea debe indicar su fecha'
+paths = snapshot.get('paths')
+assert isinstance(paths, dict), 'Faltan rutas de vistas'
+assert PREFIX in paths, 'Falta la portada en vistas'
+assert all(isinstance(value, int) and not isinstance(value, bool) and value >= 0
+           for value in paths.values()), 'Contadores negativos o no numéricos'
 # Giscus debe mostrarse únicamente en las cuatro publicaciones, no en portada ni Acerca de.
 article_pages = sorted((ROOT / 'posts').glob('*/index.html'))
 assert len(article_pages) == 4, f'Se esperaban 4 artículos, hay {len(article_pages)}'
 for article_path in article_pages:
+    assert PREFIX + 'posts/' + article_path.parent.name + '/' in paths, f'Falta contador para {article_path.parent.name}'
     assert 'giscus.app/client.js' in article_path.read_text(), (
         f'Falta Giscus en {article_path.relative_to(ROOT)}'
     )
