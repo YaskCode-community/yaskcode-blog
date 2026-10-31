@@ -90,7 +90,9 @@ La **autoría** usa el rótulo `AUTORÍA:` y enlaza el perfil académico y ORCID
 | `index.qmd` | Portada y controles para explorar artículos. |
 | `acerca.qmd` | Presentación pública del propósito y recorrido editorial. |
 | `posts/<slug>/index.qmd` | Texto y metadatos de cada artículo. |
-| `plantillas/articulo-aprende/index.qmd` | Plantilla reutilizable de borrador, excluida del render público. |
+| `plantillas/articulo-aprende/index.qmd` | Plantilla reutilizable de Aprende, excluida del render público. |
+| `plantillas/articulo-practica/index.qmd` | Plantilla de laboratorios, ejercicios y retos Construye, excluida del render. |
+| `docs/ESTANDAR-PRACTICAS-LABORATORIOS.md` | Organización de materiales, reproducibilidad, recursos descargables y protección de datos. |
 | `docs/PLANTILLA-EDITORIAL-2026.md` | Estándar aprobado de cabecera y lista de verificación. |
 | `assets/theme.scss` | Colores, tipografía y estilos. |
 | `assets/cards.ejs.md` | Plantilla de tarjetas. |
