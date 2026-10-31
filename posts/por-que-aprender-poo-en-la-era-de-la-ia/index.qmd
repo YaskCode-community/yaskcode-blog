@@ -22,7 +22,6 @@ format:
     include-in-header: ../../assets/seo-por-que-aprender-poo-en-la-era-de-la-ia.html
 ---
 
-**Aprende · Ingeniería de Software · Nivel Básico · Fundamentos**
 
 ![La Programación Orientada a Objetos y la IA colaboran para comprender, diseñar y validar software.](portada-poo-ia.webp){fig-alt="Portada educativa clara, con el texto POO más IA, ilustraciones de una estudiante, un asistente y entidades de inventario."}
 
