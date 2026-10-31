@@ -40,7 +40,7 @@ website:
       category: Blog YaskCode
       category-id: DIC_kwDOT4uDYs4DKEGP
       mapping: pathname
-      reactions-enabled: true
+      reactions-enabled: false
       input-position: bottom
       loading: lazy
       language: es
