@@ -78,7 +78,7 @@
       link("Threads","https://www.threads.com/intent/post?text="+encodeURIComponent(title+" "+articleUrl)),
       link("Mastodon","https://share.joinmastodon.org/?text="+encodeURIComponent(title+" "+articleUrl)),
       link("Reddit","https://www.reddit.com/submit?url="+encodeURIComponent(articleUrl)+"&title="+encodeURIComponent(title)),
-      link("Correo","mailto:?subject="+encodeURIComponent(title)+"&body="+encodeURIComponent(title+"\\n"+articleUrl))
+      link("Correo","mailto:?subject="+encodeURIComponent(title)+"&body="+encodeURIComponent(title+" "+articleUrl))
     );
     moreToggle.addEventListener("click",() => {
       const willOpen = moreList.hidden;
