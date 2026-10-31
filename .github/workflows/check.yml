@@ -12,9 +12,13 @@ jobs:
       - uses: quarto-dev/quarto-actions/setup@v2
         with:
           version: '1.10.20'
-      - name: Generar sitio
+      - name: Verificar generación con borradores ocultos
         run: quarto render
-      - name: Comprobar enlaces y recursos locales
+      - name: Comprobar enlaces del sitio publicable
+        run: python3 scripts/check_site.py
+      - name: Generar vista previa editorial con borradores visibles
+        run: quarto render --profile review
+      - name: Comprobar enlaces en vista previa
         run: python3 scripts/check_site.py
       - uses: actions/upload-artifact@v4
         with:
