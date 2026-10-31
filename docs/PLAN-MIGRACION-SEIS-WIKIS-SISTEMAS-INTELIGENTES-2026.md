@@ -12,7 +12,7 @@ Convertir **copias autorizadas** de las seis wikis académicas en hasta **seis a
 
 El original académico permanece en cada repositorio/wiki de GitHub, con su visibilidad, archivos e historial intactos. El Blog publica únicamente una **adaptación editorial revisada y aprobada**, no la documentación interna completa ni una réplica de código privado.
 
-**Tipo editorial propuesto:** «Caso de estudio académico» dentro de **Comunidad YaskCode**, con relación temática a Inteligencia Artificial / Ingeniería de Software según el proyecto. No crear una categoría nueva ni añadir `BÁSICO` o `INTERMEDIO` a los seis artículos por defecto. Solo asignar nivel pedagógico a un eventual artículo didáctico específico, después de examinar el contenido.
+**Tipo editorial aprobado:** caso de estudio académico dentro de **Comunidad YaskCode**, con una **etiqueta adicional `Casos de estudio`** visible en la cabecera. En Quarto se usarán `categories: ["Comunidad YaskCode", "Casos de estudio"]` y `editorial-section: "Comunidad YaskCode"`; no se crea una sección nueva en los filtros de portada. El área temática se determina por el proyecto, y no se añade `BÁSICO` ni `INTERMEDIO` automáticamente. Solo asignar nivel pedagógico a un eventual artículo didáctico específico, después de examinar el contenido. Fuente reutilizable: [`plantillas/articulo-caso-estudio/index.qmd`](../plantillas/articulo-caso-estudio/index.qmd).
 
 ## 2. Inventario y control de acceso
 
