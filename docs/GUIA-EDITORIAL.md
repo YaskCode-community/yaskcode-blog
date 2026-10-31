@@ -75,6 +75,8 @@ No todas las entradas necesitan siete encabezados. El contenido determina la est
 
 ## De los laboratorios y YASE al blog
 
+**Nueva línea editorial pendiente:** [migración de seis wikis de Sistemas Inteligentes a casos académicos del Blog](PLAN-MIGRACION-SEIS-WIKIS-SISTEMAS-INTELIGENTES-2026.md). Será una adaptación autorizada y revisada, **no** una copia pública automática: conservar autoría del estudiantado, rol de edición docente, fecha académica original y fecha real de primera publicación web, sin modificar wikis o repositorios privados. Antes del primer caso habrá que adaptar los componentes de autoría del blog, diseñados actualmente para una sola autora.
+
 Una experiencia se convierte en artículo cuando hay algo útil que explicar y suficiente evidencia para sostenerlo. Registrar problema, entorno, decisiones, pruebas, resultados y límites ayuda a escribir sin reconstruir la historia de memoria.
 
 Antes de compartir trabajos de estudiantes o colaboradores, acordar atribución y autorización; publicar ejemplos anonimizados o datos sintéticos cuando corresponda. Nunca incluir credenciales, contactos, expedientes ni datos privados.
