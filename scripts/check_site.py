@@ -43,14 +43,17 @@ assert all((item.findtext('link') or '').startswith('https://') for item in rss_
 snapshot_file = ROOT / 'assets/views.json'
 assert snapshot_file.exists(), 'Falta assets/views.json'
 snapshot = json.loads(snapshot_file.read_text(encoding='utf-8'))
-assert snapshot.get('schema_version') == 1 and snapshot.get('window_days') == 30, 'Ventana de vistas inválida'
+assert snapshot.get('schema_version') == 2 and snapshot.get('window_days') == 30, 'Ventana de vistas inválida'
 assert snapshot.get('metric') == 'recorded_pageviews_non_bot', 'Métrica pública no verificada'
 assert snapshot.get('generated_at'), 'La instantánea debe indicar su fecha'
 paths = snapshot.get('paths')
 assert isinstance(paths, dict), 'Faltan rutas de vistas'
 assert PREFIX in paths, 'Falta la portada en vistas'
-assert all(isinstance(value, int) and not isinstance(value, bool) and value >= 0
-           for value in paths.values()), 'Contadores negativos o no numéricos'
+assert all(isinstance(value, dict) and
+           isinstance(value.get('total'), int) and value['total'] >= 0 and
+           isinstance(value.get('last_30_days'), int) and
+           0 <= value['last_30_days'] <= value['total']
+           for value in paths.values()), 'Histórico o métricas de 30 días inválidos'
 # Giscus debe mostrarse únicamente en las cuatro publicaciones, no en portada ni Acerca de.
 article_pages = sorted((ROOT / 'posts').glob('*/index.html'))
 assert len(article_pages) == 4, f'Se esperaban 4 artículos, hay {len(article_pages)}'
