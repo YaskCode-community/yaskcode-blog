@@ -21,7 +21,6 @@ format:
     include-in-header: ../../assets/seo-hugging-face-modelos-datasets-ciencia-de-datos.html
 ---
 
-**Aprende · Ciencia de Datos · Nivel Básico · Fundamentos**
 
 ![Portada editorial con modelos, datasets y Spaces vinculados a resultados de Ciencia de Datos.](portada-hugging-face.png){fig-alt="Ilustración en blanco, magenta y lavanda: tres tarjetas de modelos, datasets y aplicaciones conectadas con un panel de resultados."}
 
