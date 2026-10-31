@@ -9,6 +9,7 @@ grid:
   sidebar-width: 0px
   margin-width: 0px
 toc: false
+comments: false
 listing:
   id: articulos
   contents: posts/**/index.qmd
