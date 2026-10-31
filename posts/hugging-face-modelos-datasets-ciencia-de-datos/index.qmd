@@ -9,16 +9,16 @@ area: "Ciencia de Datos"
 editorial-section: "Aprende"
 level: "Básico"
 publication-number: 3
-publication-status: "Borrador editorial"
+publication-status: "Aprobado · pendiente de publicación"
 image: "portada-hugging-face.png"
 image-alt: "Portada original de YaskCode: modelos, conjuntos de datos y aplicaciones conectados con resultados de análisis."
-image-description: "Ilustración original, creada con asistencia de IA y pendiente de revisión editorial; no es un recurso ni un aval oficial de Hugging Face."
+image-description: "Ilustración original, creada con asistencia de IA y aprobada editorialmente; no es un recurso ni un aval oficial de Hugging Face."
 toc: true
 ---
 
 **Aprende · Ciencia de Datos · Nivel Básico**
 
-**Estado:** borrador editorial, pendiente de aprobación y publicación.
+**Estado:** aprobado editorialmente el 31 de octubre de 2026; publicación y fecha definitiva pendientes.
 
 **Tiempo estimado de lectura:** 14 minutos (estimación con 2970 palabras a 220 palabras/minuto).
 
