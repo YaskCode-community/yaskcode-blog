@@ -51,7 +51,7 @@ Al finalizar la lectura podrás:
 **Fecha editorial:** 14 de octubre de 2026. El artículo se publicó por primera vez en la web el **31 de octubre de 2026**; ambas fechas se conservan en sus metadatos.
 
 ::: {.callout-tip title="Recursos para llevar"}
-[**Descargar ficha de lectura (.md)**](/yaskcode-blog/recursos/por-que-aprender-poo-en-la-era-de-la-ia-ficha.md) · La opción «Imprimir o guardar como PDF» aparecerá junto al encabezado.
+<a href="../../recursos/por-que-aprender-poo-en-la-era-de-la-ia-ficha.md" download>Descargar ficha de lectura (.md)</a> · La opción «Imprimir o guardar como PDF» aparecerá junto al encabezado.
 
 La ficha sintetiza las ideas clave y propone preguntas para revisar la comprensión; **no sustituye un laboratorio**.
 :::
