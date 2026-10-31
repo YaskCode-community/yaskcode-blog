@@ -45,6 +45,7 @@ listing:
     <p>Recibe nuevos artículos, recursos y oportunidades de YaskCode en tu correo.</p>
     <a class="subscribe-button" href="https://yaskcode.beehiiv.com/">Suscríbete a YaskCode</a>
     <p class="small-note">La suscripción continúa en beehiiv.</p>
+    <p class="small-note">¿Prefieres seguir el blog sin correo? <a class="yc-rss-link" href="index.xml" type="application/rss+xml" aria-label="Suscribirse al RSS del Blog YaskCode">RSS · nuevas publicaciones</a></p>
   </section>
 </div>
 <section class="article-controls" aria-label="Buscar y filtrar artículos">
