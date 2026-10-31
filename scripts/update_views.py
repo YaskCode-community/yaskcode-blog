@@ -2,8 +2,8 @@
 """Build a 30-day, public-safe snapshot from Cloudflare Web Analytics.
 
 Runs in GitHub Actions, never in visitors' browsers and never in a Worker.
-The only secret is CF_WEB_ANALYTICS_TOKEN (Account Analytics: Read).
-Account and site IDs below are resource identifiers, NOT credentials.
+Secrets are CF_WEB_ANALYTICS_TOKEN (Account Analytics: Read) and CF_WEB_ANALYTICS_ACCOUNT_ID.
+The site tag below is a resource identifier, NOT a credential.
 """
 
 import argparse
@@ -16,7 +16,6 @@ from urllib.error import HTTPError, URLError
 from urllib.request import Request, urlopen
 
 API_URL = "https://api.cloudflare.com/client/v4/analytics/sql"
-ACCOUNT_ID = "21479ccca3de796f2cd9ecd30e6bd2ee"
 SITE_TAG = "be709aa5de734c88b005566cf0338c82"
 HOST = "yaskcode-community.github.io"
 BASE = "/yaskcode-blog/"
@@ -73,6 +72,9 @@ def main():
     token = os.environ.get("CF_WEB_ANALYTICS_TOKEN", "").strip()
     if not token:
         parser.error("CF_WEB_ANALYTICS_TOKEN is missing (store it only in GitHub Actions secrets)")
+    account_id = os.environ.get("CF_WEB_ANALYTICS_ACCOUNT_ID", "").strip()
+    if len(account_id) != 32 or any(char not in "0123456789abcdef" for char in account_id):
+        parser.error("CF_WEB_ANALYTICS_ACCOUNT_ID is missing or invalid (store it in GitHub Actions secrets)")
 
     end = datetime.now(timezone.utc).replace(microsecond=0)
     start = end - timedelta(days=WINDOW_DAYS)
@@ -86,7 +88,7 @@ def main():
             "start": iso(start),
             "end": iso(end),
         },
-        "scope": {"accountTag": ACCOUNT_ID},
+        "scope": {"accountTag": account_id},
     }
     req = Request(
         API_URL,
