@@ -1,0 +1,29 @@
+{
+  "pregunta": "¿Qué información necesito revisar antes de planificar la siguiente ruta?",
+  "sesiones": [
+    {
+      "dias_atras": 6,
+      "nota": "Ruta alternativa señalizada"
+    },
+    {
+      "dias_atras": 1,
+      "nota": "Lluvia durante la salida"
+    },
+    {
+      "dias_atras": 15,
+      "nota": "Camino cortado por una obra antigua"
+    },
+    {
+      "dias_atras": 2,
+      "nota": "  Lluvia   durante la salida "
+    },
+    {
+      "dias_atras": 3,
+      "nota": "Señal de mantenimiento en el parque"
+    },
+    {
+      "dias_atras": "desconocido",
+      "nota": "Fecha de registro inválida"
+    }
+  ]
+}
