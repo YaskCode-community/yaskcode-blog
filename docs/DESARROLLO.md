@@ -64,7 +64,7 @@ El sitio generado queda en `_site/`. Se editan los archivos fuente, no las pági
 
 ## Escribir un artículo nuevo con la plantilla aprobada
 
-Para contenidos técnicos de **Aprende** se usa **[`plantillas/articulo-aprende/index.qmd`](../plantillas/articulo-aprende/index.qmd)**. Para relatos de **Comunidad YaskCode** se usa **[`plantillas/articulo-comunidad/index.qmd`](../plantillas/articulo-comunidad/index.qmd)**, sin nivel de dificultad ni objetivos técnicos impuestos. Ambas plantillas están fuera de `posts/` y del render público. Para un artículo Aprende, desde la raíz del repositorio, en PowerShell:
+Para contenidos técnicos de **Aprende** se usa **[`plantillas/articulo-aprende/index.qmd`](../plantillas/articulo-aprende/index.qmd)**. Para relatos de **Comunidad YaskCode** se usa **[`plantillas/articulo-comunidad/index.qmd`](../plantillas/articulo-comunidad/index.qmd)**, sin nivel de dificultad ni objetivos técnicos impuestos. Para laboratorios, ejercicios y prácticas guiadas se usa [la plantilla Quarto Práctica](../plantillas/articulo-practica/index.qmd) y el [estándar de laboratorios reproducibles](ESTANDAR-PRACTICAS-LABORATORIOS.md). Los ejercicios suelen integrarse en el laboratorio y solo se convierten en artículos independientes si se justifican por su contenido; todos siguen `posts/<slug>/index.qmd`. Todas las plantillas permanecen fuera de `posts/` y del render público. Para un artículo Aprende, desde la raíz del repositorio, en PowerShell:
 
 ```powershell
 New-Item -ItemType Directory -Path posts/mi-articulo
