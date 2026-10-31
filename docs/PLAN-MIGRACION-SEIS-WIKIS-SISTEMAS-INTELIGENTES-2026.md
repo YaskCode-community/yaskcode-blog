@@ -16,18 +16,18 @@ El original académico permanece en cada repositorio/wiki de GitHub, con su visi
 
 ## 2. Inventario y control de acceso
 
-Los seis repositorios existen y se verificó su visibilidad en GitHub el 31-10-2026. La existencia de un repositorio **no garantiza** que su wiki pueda clonarse, esté completa ni que exista permiso para republicarla.
+Los seis repositorios existen y se verificó internamente su visibilidad en GitHub el 31-10-2026. Los equipos 1 y 6 tienen repositorios públicos; los equipos 2–5 tienen repositorios privados. La existencia de un repositorio **no garantiza** que su wiki pueda clonarse, esté completa ni que exista permiso para republicarla.
 
-| Equipo | Repositorio de origen | Visibilidad verificada | Contenido wiki y autorizaciones |
-| --- | --- | --- | --- |
-| 1 | `wellness-platform-team1` | Público | Pendientes de revisar y autorizar |
-| 2 | `wellness-platform-team2` | Privado | Pendientes de revisar y autorizar |
-| 3 | `wellness-platform-team3` | Privado | Pendientes de revisar y autorizar |
-| 4 | `wellness-platform-team4` | Privado | Pendientes de revisar y autorizar |
-| 5 | `wellness-platform-team5` | Privado | **Piloto propuesto**; revisar wiki completa y autoría |
-| 6 | `wellness-platform-team6` | Público | Pendientes de revisar y autorizar |
+| Equipo | Identificador de trabajo | Contenido wiki y autorización |
+| --- | --- | --- |
+| 1 | Equipo 1 | Pendientes de revisar y autorizar |
+| 2 | Equipo 2 | Pendientes de revisar y autorizar |
+| 3 | Equipo 3 | Pendientes de revisar y autorizar |
+| 4 | Equipo 4 | Pendientes de revisar y autorizar |
+| 5 | **Equipo 5 · piloto** | Pendientes de revisar wiki completa y autoría |
+| 6 | Equipo 6 | Pendientes de revisar y autorizar |
 
-**Privacidad:** no incluir el contenido de las wikis privadas, nombres de participantes, enlaces a archivos privados, capturas internas, datos identificables ni documentos de autorización en este repositorio público. El inventario detallado con consentimiento y permisos debe gestionarse en un espacio privado y con acceso restringido.
+**Privacidad:** los identificadores exactos, enlaces de wikis privadas, nombres de participantes, capturas internas, datos identificables y documentos de autorización no deben incluirse en este repositorio público. El inventario detallado con consentimiento y permisos se mantiene en un espacio privado y con acceso restringido.
 
 ## 3. Autoría, edición y fechas: regla obligatoria
 
@@ -60,10 +60,10 @@ Comenzar por **Equipo 5**, únicamente si hay acceso y permiso de lectura. La ca
 1. **Acceso y copia:** con una cuenta autorizada y Git, intentar clonar la wiki como un repositorio independiente (`<repositorio>.wiki.git`). Ejemplo de comando para el equipo piloto:
 
    ```bash
-   git clone https://github.com/YaskCode-laboratory/wellness-platform-team5.wiki.git
+   git clone https://github.com/<organizacion>/<repositorio>.wiki.git
    ```
 
-   Es una operación de lectura/copia local; no modifica la wiki ni hace público el repositorio. Si no hay contenido o falta acceso, registrar el bloqueo; **no** cambiar la privacidad del repositorio para solucionarlo. No incorporar credenciales/tokens en el comando ni en documentos públicos.
+   Sustituir los marcadores por el repositorio del equipo en el entorno autorizado, sin copiar su URL privada a documentación pública. Es una operación de lectura/copia local; no modifica la wiki ni hace público el repositorio. Si no hay contenido o falta acceso, registrar el bloqueo; **no** cambiar la privacidad del repositorio para solucionarlo. No incorporar credenciales/tokens en el comando ni en documentos públicos.
 2. **Inventariar el material:** Markdown, páginas, adjuntos, imágenes, diagramas, referencias, enlaces internos/externos, autores y versión/fecha disponibles. Comprobar qué recursos realmente son parte de la wiki; no asumir que todo está en el clon.
 3. **Curaduría:** seleccionar el problema, objetivos, fundamentos, arquitectura/decisiones, implementación relevante, pruebas y límites. El artículo puede sintetizar varias páginas, pero nunca presentar una afirmación sin sustento o afirmar que el prototipo es un sistema validado en producción.
 4. **Adaptación Quarto:** crear **borrador** en `posts/<slug-aprobado>/index.qmd` con imágenes autorizadas y accesibles, portada y SEO propios. Los enlaces relativos y diagramas deben funcionar en el blog. Registrar la procedencia sin publicar materiales privados.
