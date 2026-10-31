@@ -59,6 +59,12 @@ En la **generación**, el LLM recibe la pregunta, instrucciones y fragmentos rec
 
 Por eso, **similitud semántica no equivale a exactitud factual**. Encontrar un párrafo relacionado es solo el primer paso; después hay que comprobar que realmente permite responder.
 
+### Ilustración conceptual: recuperar y generar
+
+![Ilustración conceptual de RAG: documentos y datos asociados al recuperador, un modelo de IA representado de forma simbólica y el generador de respuestas.](rag-recuperador-generador.webp){fig-alt="Ilustración en tonos azules sobre fondo oscuro: a la izquierda aparecen símbolos de documentos, base de datos y nube junto al bloque Retriever; un cerebro simbólico de IA conecta con el bloque Generator a la derecha."}
+
+*Ilustración conceptual. El recuperador localiza información pertinente y el modelo generador utiliza el contexto recuperado para elaborar una respuesta. El cerebro es una representación simbólica de la IA; esta imagen simplifica el proceso y no muestra todos los componentes de una arquitectura RAG.*
+
 ## 4. Anatomía de un sistema RAG
 
 Una arquitectura introductoria puede organizarse en siete componentes:
