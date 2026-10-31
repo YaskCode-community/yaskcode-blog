@@ -1,0 +1,49 @@
+name: Publicar Blog YaskCode en GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "github-pages"
+  cancel-in-progress: false
+
+jobs:
+  build:
+    name: Generar y validar sitio
+    runs-on: ubuntu-latest
+    steps:
+      - name: Recuperar fuentes
+        uses: actions/checkout@v4
+      - name: Instalar Quarto
+        uses: quarto-dev/quarto-actions/setup@v2
+        with:
+          version: '1.10.20'
+      - name: Generar HTML
+        run: quarto render
+      - name: Comprobar enlaces y recursos locales
+        run: python3 scripts/check_site.py
+      - name: Configurar GitHub Pages
+        uses: actions/configure-pages@v5
+      - name: Subir artefacto Pages
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: _site
+
+  deploy:
+    name: Desplegar sitio
+    runs-on: ubuntu-latest
+    needs: build
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Publicar en GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
