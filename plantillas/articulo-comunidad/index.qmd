@@ -1,0 +1,82 @@
+---
+# Plantilla para un relato de Comunidad YaskCode.
+# Copiar a posts/<slug>/index.qmd; esta plantilla no se publica automáticamente.
+title: "REEMPLAZAR: título del relato o experiencia"
+subtitle: "REEMPLAZAR: qué historia encontrará la persona lectora"
+author: "Yaskelly Yedra"
+date: "YYYY-MM-DD"
+# date-modified: "YYYY-MM-DD"  # Solo al publicar una revisión real.
+description: "REEMPLAZAR: descripción breve de la historia para SEO"
+categories: ["Comunidad YaskCode"]
+editorial-section: "Comunidad YaskCode"
+article-type: "REEMPLAZAR: historia de origen o experiencia educativa"
+image: "portada-pendiente.webp"
+image-alt: "REEMPLAZAR: descripción accesible de la imagen"
+toc: true
+draft: true
+format:
+  html:
+    include-in-header: ../../assets/seo-REEMPLAZAR-SLUG.html
+---
+
+<!--
+REVISIÓN PREVIA:
+- Ajustar fecha y tipo de relato con evidencia real.
+- No agregar level, level-detail ni la etiqueta técnica BÁSICO.
+- No repetir «Comunidad YaskCode» como rótulo manual bajo las categorías.
+- Sustituir REEMPLAZAR, crear portada, ficha y archivo SEO reales.
+- Registrar el artículo nuevo en la configuración JS y revisiones técnicas.
+- Mantener draft: true hasta recibir aprobación editorial.
+-->
+
+![REEMPLAZAR: descripción breve de la ilustración o fotografía real.](portada-pendiente.webp)
+
+::: {.callout-note title="En 1 minuto"}
+REEMPLAZAR: síntesis propia del origen, propósito de la experiencia y límites. No repetir literalmente el subtítulo ni inventar impacto educativo.
+:::
+
+::: {.callout-tip title="Qué encontrarás"}
+Esta lectura invita a:
+
+1. **Conocer** REEMPLAZAR: situación y motivación del relato.
+2. **Explorar** REEMPLAZAR: decisiones, relaciones o aprendizajes de la experiencia.
+3. **Distinguir** REEMPLAZAR: resultados observados y posibilidades todavía en desarrollo.
+:::
+
+### Antes de comenzar
+
+**Conocimientos previos:** REEMPLAZAR: requisitos reales; indicar si no se necesitan.
+
+**Público destinatario:** REEMPLAZAR: a quién va dirigido el relato.
+
+::: {.callout-tip title="Recursos para llevar"}
+[Descargar ficha de lectura](../../recursos/REEMPLAZAR-SLUG-ficha.md)
+
+REEMPLAZAR: describir el recurso real y sus límites.
+:::
+
+## 1. El origen de la experiencia
+
+REEMPLAZAR: narración verificable y perspectiva personal.
+
+## 2. Decisiones, proceso y aprendizajes
+
+REEMPLAZAR: hechos, decisiones, dificultades y reflexiones sin generalizar resultados.
+
+## 3. Lo que existe y lo que está por construir
+
+REEMPLAZAR: distinguir recursos públicos de propuestas, pendientes o prototipos.
+
+## 4. Invitación a explorar
+
+REEMPLAZAR: ruta concreta real del proyecto, si existe.
+
+### Comparte con la comunidad
+
+REEMPLAZAR: invitación voluntaria a preguntas o contribuciones con protección de la privacidad.
+
+### Fuentes y recursos del proyecto
+
+REEMPLAZAR: enlaces verificables del proyecto; no fabricar referencias académicas para un testimonio.
+
+*Nota de autoría y transparencia:* REEMPLAZAR: origen, permisos y uso sustancial de IA, si existió.
