@@ -162,6 +162,27 @@
       // Si no hay cifras confiables, el blog sigue funcionando sin mostrarlas.
     }
   };
+  // Un solo gesto positivo por artículo, alojado por Pagemoji.
+  // No usa Cloudflare Workers ni modifica las reacciones de los comentarios en GitHub.
+  const positiveLike = slug => {
+    const section = create("section", "yc-like-tools");
+    section.setAttribute("aria-label", "Me gusta este artículo");
+    const widget = document.createElement("pagemoji-reactions");
+    widget.setAttribute("emojis", "💜");
+    widget.setAttribute("label", "Me gusta");
+    widget.setAttribute("variant", "outline");
+    widget.setAttribute("page", "yaskcode-blog-" + slug);
+    section.append(widget);
+    return section;
+  };
+  const loadPositiveLikes = () => {
+    if (document.querySelector("script[data-yc-pagemoji]")) return;
+    const script = document.createElement("script");
+    script.src = "https://pagemoji.magicpages.co/v1/pagemoji.js";
+    script.defer = true;
+    script.setAttribute("data-yc-pagemoji", "");
+    document.head.append(script);
+  };
   const init = () => {
     void initViews();
     const match = location.pathname.match(/\/posts\/([^/]+)\/?(?:index\.html)?$/);
@@ -174,8 +195,15 @@
     const title=document.querySelector("h1.title")?.textContent?.trim() || document.title;
     const top=share(canonical,title,true);
     const subtitle = content.querySelector("p");
-    if(subtitle) subtitle.insertAdjacentElement("beforebegin",top);
-    else content.prepend(top);
+    const like = positiveLike(slug);
+    if (subtitle) {
+      subtitle.insertAdjacentElement("beforebegin",top);
+      top.insertAdjacentElement("beforebegin",like);
+    } else {
+      content.prepend(top);
+      content.prepend(like);
+    }
+    loadPositiveLikes();
     content.append(share(canonical,title));
     const related=create("nav","yc-related");
     related.setAttribute("aria-label","Lecturas relacionadas");
