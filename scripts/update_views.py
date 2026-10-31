@@ -34,7 +34,7 @@ SQL = """SELECT toDate(timestamp) AS day, requestPath, COUNT(*) AS views
 FROM events.rumPageloadEvents
 WHERE siteTag = $tag AND requestHost = $host AND bot = 0
   AND timestamp >= $start AND timestamp < $end
-GROUP BY day, requestPath ORDER BY day ASC LIMIT 10000"""
+GROUP BY day, requestPath ORDER BY day ASC LIMIT 1000"""
 
 
 def normalized_path(value):
@@ -195,7 +195,7 @@ def query_rows(token, account_id, start, end):
     if (not isinstance(result, dict) or not isinstance(result.get("data"), list)
             or result.get("errors")):
         raise RuntimeError("Cloudflare returned an invalid analytics response")
-    if result.get("rows", len(result["data"])) >= 10000:
+    if result.get("rows", len(result["data"])) >= 1000:
         raise RuntimeError("Analytics query hit the row cap; refusing incomplete totals")
     return result["data"]
 
