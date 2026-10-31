@@ -8,7 +8,8 @@ categories: ["Comunidad YaskCode"]
 editorial-section: "Comunidad YaskCode"
 article-type: "Historia de origen / Experiencia educativa"
 planned-publication-date: 2027-10-07
-publication-status: "Borrador editorial no publicado"
+editorial-approval-date: 2026-10-31
+publication-status: "Aprobado editorialmente · pendiente de publicación"
 draft: true
 image: "campus-yaskcode-portada.webp"
 image-alt: "Panorámica ilustrada de Campus YaskCode: edificios y caminos conectan áreas de docencia, investigación, proyectos, biblioteca y comunidad."
