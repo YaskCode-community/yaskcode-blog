@@ -1,0 +1,133 @@
+---
+# Plantilla de trabajo NO publicable: copiar únicamente a posts/<slug>/index.qmd.
+# Quarto no la renderiza mientras permanezca fuera de posts/.
+title: "REEMPLAZAR: título del laboratorio"
+subtitle: "REEMPLAZAR: resultado que se obtendrá al ejecutar la práctica"
+author: "Yaskelly Yedra"
+date: "YYYY-MM-DD"  # Fecha real de publicación web, nunca fecha de creación del borrador.
+# date-modified: "YYYY-MM-DD"  # Solo revisión publicada y verificada.
+description: "REEMPLAZAR: descripción breve para buscadores y redes"
+categories: ["Práctica", "Inteligencia Artificial"]
+editorial-section: "Práctica"
+area: "Inteligencia Artificial"
+level: "Básico"  # Elegir por requisitos, autonomía y verificación, no por extensión.
+level-detail: "Laboratorio guiado"
+image: "portada-pendiente.webp"
+image-alt: "REEMPLAZAR: descripción accesible de la portada"
+toc: true
+draft: true
+format:
+  html:
+    include-in-header: ../../assets/seo-REEMPLAZAR-SLUG.html
+---
+
+<!--
+CONTROL PREVIO A PUBLICACIÓN:
+1. Sustituir TODOS los REEMPLAZAR y los archivos ficticios; no dejar enlaces rotos.
+2. Demostrar pasos y resultados en entorno reproducible; registrar fecha, versiones,
+   comandos, sistema operativo, datos y resultados efectivamente observados.
+3. Garantizar que "Práctica" sea editorial-section; el nivel no es categoría.
+4. Cada ejercicio es un archivo o sección del laboratorio salvo que, por su alcance,
+   amerite su propio post. No crear categorías nuevas: Laboratorio/Ejercicio son formatos.
+5. Materiales pequeños pueden vivir en posts/<slug>/codigo/, datos/ y pruebas/.
+   Configurar y verificar copia de cada archivo descargable en _quarto.yml
+   (project.resources) antes de publicar; evitar comodines para archivos privados.
+6. Mantener datos sintéticos/públicos y sin credenciales, claves API ni información personal.
+7. Ejecutar pruebas y revisión editorial; consultar la checklist de
+   docs/ESTANDAR-PRACTICAS-LABORATORIOS.md.
+8. Si se trabaja con LLM o RAG, distinguir una simulación determinista de una
+   invocación real, no inventar métricas ni utilizar casos clínicos sin garantías.
+9. Ajustar SEO BlogPosting, lecturas relacionadas, ficha de recursos y registro de slug.
+10. Retirar draft: true SOLAMENTE tras aprobación editorial.
+-->
+
+::: {.callout-note title="En 1 minuto"}
+REEMPLAZAR: qué construirá/probará la persona, con qué datos, en qué entorno y qué no demostrará el ejercicio. No repetir literalmente el subtítulo.
+:::
+
+::: {.callout-tip title="Lo que practicarás"}
+Al terminar podrás:
+
+1. **Preparar** REEMPLAZAR: un entorno con versiones comprobadas.
+2. **Ejecutar** REEMPLAZAR: pasos concretos sobre datos públicos o sintéticos.
+3. **Verificar** REEMPLAZAR: un resultado observable y un caso límite.
+:::
+
+### Antes de comenzar
+
+**Conocimientos previos:** REEMPLAZAR: prerrequisitos reales.
+
+**Público destinatario:** REEMPLAZAR: a quién se dirige.
+
+**Duración orientativa:** REEMPLAZAR: indicar si fue medida o es una estimación razonada.
+
+**Coste y cuentas:** REEMPLAZAR: gratuito verificado / cuota / cuentas requeridas, o «sin servicios de pago».
+
+**Entorno verificado:** REEMPLAZAR: sistema operativo, lenguaje y versiones comprobadas.
+
+::: {.callout-tip title="Materiales para descargar"}
+REEMPLAZAR: enlaces locales a código, datos de ejemplo, pruebas y ficha, **únicamente cuando existan y se compruebe que Quarto los copia al sitio**.
+
+Alternativa: un repositorio público dedicado, con versión/commit fijado cuando el proyecto sea grande. No enlazar recursos privados o pendientes.
+:::
+
+## 1. Situación y objetivo del laboratorio
+
+REEMPLAZAR: problema concreto y salida o evidencia esperada. Si existe artículo *Aprende*, enlazarlo solo si ya fue publicado.
+
+## 2. Preparar el entorno
+
+REEMPLAZAR: dependencias mínimas, comandos reproducibles y verificaciones de instalación, diferenciando Windows/PowerShell y Linux/macOS cuando corresponda.
+
+## 3. Inspeccionar los datos y el punto de partida
+
+REEMPLAZAR: formato, licencia, volumen, contenido no sensible, ejemplos de entradas y criterios de protección de datos.
+
+## 4. Laboratorio guiado, paso a paso
+
+### Paso 1 · Preparación
+
+REEMPLAZAR: comando/código real, propósito, directorio de ejecución y cómo comprobar su éxito.
+
+### Paso 2 · Implementación
+
+REEMPLAZAR: instrucción reproducible, decisiones, archivos usados y salida real o salida esperada claramente rotulada.
+
+### Paso 3 · Comprobación
+
+REEMPLAZAR: prueba ejecutable, resultado observado, criterio de éxito, y al menos un caso límite o fallo intencional.
+
+## 5. Resultados y verificación
+
+| Prueba | Entrada | Salida/criterio esperado | Evidencia observada |
+| --- | --- | --- | --- |
+| REEMPLAZAR | REEMPLAZAR | REEMPLAZAR | REEMPLAZAR: ejecución propia verificable |
+
+REEMPLAZAR: explicar discrepancias, límites, datos de prueba y lo que todavía no se verificó. No presentar salidas inventadas como ejecutadas.
+
+## 6. Solución de errores frecuentes
+
+REEMPLAZAR: síntoma → causa probable → diagnóstico → corrección → nueva comprobación.
+
+## 7. Construye · Retos progresivos
+
+### Básico · Adaptar
+REEMPLAZAR: pequeña variación que conserva la ayuda paso a paso, con entregable y prueba.
+
+### Intermedio · Extender
+REEMPLAZAR: cambio de datos o de componente que requiere decisiones, con evidencia verificable.
+
+### Avanzado · Evaluar
+REEMPLAZAR: comparación, automatización o evaluación crítica con criterios, métricas y límites.
+
+**Nota:** estos niveles son los de los *retos*; el nivel de la publicación en la cabecera representa el laboratorio base y puede ser diferente.
+
+## 8. Comparte con la comunidad
+
+REEMPLAZAR: invitar voluntariamente a compartir repositorios, pruebas, correcciones y lecciones; no solicitar credenciales, datos personales o ejercicios evaluados sin permiso.
+
+## Referencias y continuidad
+
+REEMPLAZAR: documentación oficial, fuentes, versiones y licencias contrastadas.
+
+REEMPLAZAR: enlazar el artículo conceptual *Aprende* y/o siguiente práctica **solo cuando estén disponibles**.
