@@ -71,8 +71,12 @@ assert 'grid-column: 1 / -1' in (ROOT.parent / 'assets/theme.scss').read_text(en
 # Coherencia de cabecera: metadatos, una introducción y nivel educativo.
 client = (ROOT / 'assets/article-tools.js').read_text(encoding='utf-8')
 css = (ROOT.parent / 'assets/theme.scss').read_text(encoding='utf-8')
-assert 'authorHeading.textContent = "Autoría:"' in client, 'Etiqueta de autoría no compactada'
-assert 'yc-level-badge' in client and 'yc-level-badge' in css, 'Falta etiqueta de nivel'
+assert 'authorHeading.textContent = "AUTORÍA:"' in client, 'Autoría debe estar en mayúsculas y en la misma fila'
+assert 'margin-top: .75rem;' in css, 'Falta separación entre etiquetas y autoría'
+author_heading_style = css.split('> div:first-child .quarto-title-meta-heading {', 1)[1].split('}', 1)[0]
+assert 'text-transform:' not in author_heading_style and 'font-size:' not in author_heading_style and 'font-weight:' not in author_heading_style, 'Autoría debe heredar el estilo nativo de los rótulos de fechas'
+assert 'yc-level-badge' in client and '.quarto-category.yc-level-badge' in css, 'Falta etiqueta de nivel'
+assert '.quarto-categories .yc-level-badge {' not in css, 'El nivel no debe tener un estilo diferente al de las otras categorías'
 assert '#title-block-header .description { display: none; }' in css, 'Descripción SEO repetida visualmente'
 assert client.count('level:"Básico"') == 3, 'Los tres artículos técnicos requieren nivel Básico'
 assert 'historia-campus-yaskcode",level' not in client, 'El relato del Campus no debe tener nivel técnico'

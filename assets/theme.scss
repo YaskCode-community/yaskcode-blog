@@ -141,14 +141,8 @@ main p, main li { overflow-wrap: anywhere; }
    La descripción de Quarto se conserva en el HTML para SEO y fichas sociales,
    pero no se repite como segundo párrafo bajo las categorías. */
 #title-block-header .description { display: none; }
-/* Nivel editorial distinto de categorías (sin cambiar taxonomía de Quarto). */
-#title-block-header .quarto-categories .yc-level-badge {
-  color: var(--yc-magenta);
-  background: var(--yc-lavender);
-  border: 1px solid #e6d8ed;
-  text-transform: none;
-  font-weight: 600;
-}
+/* El nivel .quarto-category.yc-level-badge hereda el estilo nativo de
+   las otras etiquetas de Quarto: misma tipografía, borde, fondo y espaciado. */
 
 /* Ficha editorial reusable: lectura estimada, perfil académico y versión imprimible. */
 .yc-editorial-meta {
@@ -166,18 +160,18 @@ main p, main li { overflow-wrap: anywhere; }
 }
 #title-block-header.yc-editorial-header .quarto-title-meta > div:first-child {
   grid-column: 1 / -1;
+  /* Dar aire entre las etiquetas y la línea de autoría. */
+  margin-top: .75rem;
   display: flex;
   flex-wrap: wrap;
   align-items: baseline;
   column-gap: .35rem;
   row-gap: 0;
 }
+/* Recuperar la tipografía nativa de .quarto-title-meta-heading:
+   AUTORÍA utiliza el mismo estilo de FECHA DE PUBLICACIÓN. */
 #title-block-header.yc-editorial-header .quarto-title-meta > div:first-child .quarto-title-meta-heading {
   margin: 0;
-  font-size: .84rem;
-  font-weight: 600;
-  line-height: 1.6;
-  text-transform: none;
 }
 #title-block-header.yc-editorial-header .quarto-title-meta > div:first-child .quarto-title-meta-contents,
 #title-block-header.yc-editorial-header .quarto-title-meta > div:first-child .quarto-title-meta-contents p {

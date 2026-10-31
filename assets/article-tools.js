@@ -210,7 +210,7 @@
         meta.querySelector(":scope > div:first-child .quarto-title-meta-contents p");
       if (authorLine && !authorLine.querySelector(".yc-author-links")) {
         const authorHeading = meta.querySelector(":scope > div:first-child .quarto-title-meta-heading");
-        if (authorHeading) authorHeading.textContent = "Autoría:";
+        if (authorHeading) authorHeading.textContent = "AUTORÍA:";
         const authorLinks = create("span","yc-author-links");
         const addProfileLink = (label, href) => {
           const a = create("a","",label);
