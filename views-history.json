@@ -2,14 +2,14 @@
   "schema_version": 1,
   "measurement_started_at": "2026-10-31T06:39:51Z",
   "refreshed_through": "2026-10-31",
-  "generated_at": "2026-10-31T16:51:42Z",
+  "generated_at": "2026-10-31T17:07:02Z",
   "daily": {
     "2026-10-31": {
-      "/yaskcode-blog/": 6,
+      "/yaskcode-blog/": 7,
       "/yaskcode-blog/posts/historia-campus-yaskcode/": 1,
       "/yaskcode-blog/posts/hugging-face-modelos-datasets-ciencia-de-datos/": 9,
       "/yaskcode-blog/posts/por-que-aprender-poo-en-la-era-de-la-ia/": 1,
-      "/yaskcode-blog/posts/rag-fundamentos-arquitectura/": 10
+      "/yaskcode-blog/posts/rag-fundamentos-arquitectura/": 11
     }
   }
 }
