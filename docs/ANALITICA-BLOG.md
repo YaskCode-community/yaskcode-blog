@@ -45,14 +45,14 @@ Los registros comienzan al configurar Web Analytics en la mañana del 31/10/2026
 El flujo se prepara en `.github/workflows/deploy-pages.yml`. Para que la actualización funcione:
 
 1. En Cloudflare, crear **un API Token personalizado** con permiso **Account → Account Analytics → Read**, restringido a la cuenta que ya contiene Web Analytics de YaskCode. **No** seleccionar permisos de Workers, Workers AI, D1, ni `Edit`. No utilizar la Global API Key.
-2. En el repositorio público del blog, ir a **Settings → Secrets and variables → Actions → New repository secret** y crear:
-   - **Name:** `CF_WEB_ANALYTICS_TOKEN`
-   - **Secret:** pegar el token obtenido de Cloudflare (nunca en archivos, capturas, PR ni mensajes de chat).
+2. En el repositorio público del blog, ir a **Settings → Secrets and variables → Actions → New repository secret** y crear **dos secretos**:
+   - `CF_WEB_ANALYTICS_TOKEN`: pegar el token obtenido de Cloudflare (nunca en archivos, capturas, PR ni mensajes de chat).
+   - `CF_WEB_ANALYTICS_ACCOUNT_ID`: copiar el **Account ID** desde el panel de Cloudflare. No es una contraseña, pero lo mantenemos fuera del código público por privacidad.
 3. Ejecutar manualmente **Actions → Publicar Blog YaskCode en GitHub Pages → Run workflow** para comprobar que el flujo consulta Cloudflare y publica una instantánea reciente.
 4. Verificar en un artículo y en su tarjeta de portada la leyenda **«vistas registradas · últimos 30 días»**, y confirmar que cambia con datos reales después de la siguiente ejecución programada.
 5. En Cloudflare, revisar periódicamente el uso de API, y revocar el token en caso de sospecha de exposición.
 
-El identificador de cuenta y el de sitio usados en el script **no son claves de acceso**, pero el token sí lo es. La configuración permanece solamente en el repositorio del blog, no en los recursos de YASE.
+El identificador de sitio incluido en el script no es una credencial. El **Account ID** y el token se guardan como secretos del repositorio; **únicamente el token concede acceso** a Cloudflare. La configuración permanece solamente en el repositorio del blog, no en los recursos de YASE.
 
 **Si no existe el secreto**, el despliegue sigue funcionando con la instantánea inicial; el navegador deja de mostrar la cifra después de 72 horas para evitar datos obsoletos. Si Cloudflare devuelve un error, el trabajo no sobrescribe valores con cifras falsas y detiene ese despliegue, conservando la última versión publicada.
 
@@ -61,7 +61,7 @@ El identificador de cuenta y el de sitio usados en el script **no son claves de 
 | Alternativa | Ventaja | Límite |
 | --- | --- | --- |
 | Solo Cloudflare Web Analytics privado | Sin cambios en el sitio ni credenciales de CI | No muestra números públicos |
-| **Cloudflare Analytics SQL + GitHub Actions + JSON estático** | Reutiliza la medición real; no usa Workers; una sola credencial de lectura | Actualización diaria y cuenta 30 días móviles |
+| **Cloudflare Analytics SQL + GitHub Actions + JSON estático** | Reutiliza la medición real; no usa Workers; un token de lectura y un identificador de cuenta guardados como secretos | Actualización diaria y cuenta 30 días móviles |
 | Worker + D1 para contador dinámico | Contador de eventos personalizado y más inmediato | Consume cuota compartida con YASE: descartado ahora |
 | Contador público de terceros | Integración sencilla | Datos y condiciones sujetos a proveedor externo; no coinciden necesariamente con Cloudflare |
 
