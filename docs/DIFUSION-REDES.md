@@ -12,7 +12,7 @@ El **Blog YaskCode en Quarto / GitHub Pages** es la fuente principal de los art�
 | Prioridad | Canal | Objetivo | Experiencia del botón |
 | --- | --- | --- | --- |
 | 1 | LinkedIn | Divulgación profesional y académica | Compartir el enlace del artículo |
-| 2 | DEV Community (dev.to) | Conversación técnica; republicación editorial separada mediante RSS | **DEV · debatir** abre el editor para redactar una reflexión propia, no para copiar el artículo |
+| 2 | DEV Community (dev.to) | Descubrir la comunidad técnica; republicación editorial separada mediante RSS | **DEV** abre la comunidad (`dev.to`); se enlazará un perfil o artículo oficial de YaskCode cuando esté disponible |
 | 3 | WhatsApp | Difusión directa a estudiantes, colegas y grupos | Compartir título y enlace |
 | 4 | Bluesky | Conversación en tecnología y ciencia | Preparar publicación con título y enlace |
 | 5 | Reddit | Diálogo en comunidades técnicas pertinentes | Abrir formulario de envío y respetar reglas comunitarias |
@@ -25,11 +25,11 @@ El **Blog YaskCode en Quarto / GitHub Pages** es la fuente principal de los art�
 
 **Utilidades independientes de redes:** «Copiar enlace» y «Compartir» (menú nativo del dispositivo). El menú nativo depende del sistema y de las aplicaciones instaladas; no muestra necesariamente todas las plataformas. Instagram no aparece por ser redundante con «Copiar enlace» y no contar con un flujo universal de compartir una página web.
 
-**Diseño:** barra principal con Copiar enlace, Compartir (si el navegador lo permite), LinkedIn, DEV · debatir y WhatsApp. «Más redes» contiene, en ese orden, *Comunidades y redes técnicas* (Bluesky, Reddit, Mastodon y X) y *Difusión y mensajería* (Telegram, Threads, Facebook y Correo).
+**Diseño:** barra principal con Copiar enlace, Compartir (si el navegador lo permite), LinkedIn, DEV y WhatsApp. «Más redes» contiene, en ese orden, *Comunidades y redes técnicas* (Bluesky, Reddit, Mastodon y X) y *Difusión y mensajería* (Telegram, Threads, Facebook y Correo).
 
 ## DEV Community: procedimiento recomendado
 
-DEV es **plataforma editorial**, no un servicio que publique automáticamente una URL con un botón. El botón público **DEV · debatir** abre `https://dev.to/new`: permite a un lector escribir una **reflexión propia y sustancial** y citar el artículo original; no concede permiso para reproducirlo íntegramente. No equivale a una acción de compartir directamente una URL. La **republicación oficial de contenidos YaskCode** es un flujo distinto y exclusivo de la autora o su equipo autorizado. Para conservar la fuente original:
+DEV es **plataforma editorial**, no una red con un botón universal de compartir URL. La etiqueta visible será **DEV** y, provisionalmente, abrirá la portada de `https://dev.to/`, **no** un editor vacío ni un perfil de YaskCode que no está verificado. Cuando se configure un perfil oficial o una publicación correspondiente, el enlace deberá actualizarse a ese destino. La **republicación oficial de contenidos YaskCode** es un flujo independiente realizado por la autora o su equipo autorizado. Para conservar la fuente original:
 
 1. Mantener primero la publicación canónica en el Blog YaskCode.
 2. Elegir el contenido técnico que aporte valor a la comunidad DEV, evitando publicaciones únicamente promocionales.
@@ -52,4 +52,4 @@ Fuentes oficiales:
 
 ## Seguimiento y límites
 
-Revisar resultados cada cierto número de publicaciones: lecturas por artículo (Web Analytics), clics en recursos y conversaciones. Las cifras por red solo deben informarse cuando haya medición fiable y explícita. El botón DEV y las demás opciones de difusión son enlaces desde el navegador: **no utilizan Workers, D1 ni Workers AI de YASE**. No se ha creado ni publicado contenido en DEV desde esta intervención.
+Revisar resultados cada cierto número de publicaciones: lecturas por artículo (Web Analytics), clics en recursos y conversaciones. Las cifras por red solo deben informarse cuando haya medición fiable y explícita. El botón DEV y las demás opciones de difusión funcionan desde el navegador: **no utilizan Workers, D1 ni Workers AI de YASE**. No se ha creado ni publicado contenido en DEV desde esta intervención.
