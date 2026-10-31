@@ -2,6 +2,8 @@
 
 Revisión: **30 de octubre de 2026**. Este registro orienta decisiones; no acredita elegibilidad futura, inscripción, aval ni premios para YaskCode.
 
+**Decisión editorial:** Premio Internacional Espiral es el único certamen seleccionado como referencia y objetivo de preparación. No incorporamos las otras alternativas exploradas. La preparación durante 2027 no presupone una convocatoria de premios ese año.
+
 ## Premio Internacional Espiral: encaje propuesto
 
 **Recomendación editorial:** priorizar la categoría especial **Espacio de Contenidos Educativos** para el blog cuando exista un conjunto consistente de publicaciones originales con utilidad educativa. Es una inferencia sobre el encaje, no una aceptación de la organización.

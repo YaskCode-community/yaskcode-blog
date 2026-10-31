@@ -60,3 +60,8 @@ GitHub conserva los originales; Quarto genera el blog. La publicación prevista 
 - La referencia aportada por la autora describe una newsletter que conecta conceptos, prácticas, construcción y comunidad. Se desarrolla como guía propia en `docs/GUIA-EDITORIAL.md` y se refleja en la página Acerca.
 - El análisis de Espiral, sus vías de participación y ejemplos reconocidos se registra con fuentes y fecha en `docs/CONVOCATORIAS.md`. No se ha enviado ninguna candidatura ni asignado una licencia.
 - La revisión de la guía y página Acerca por la autora sigue pendiente. La preparación editorial no convierte la migración en un sitio desplegado ni acredita impacto educativo.
+
+## Identidad visual aprobada
+
+- Por indicación de Yaskelly, se incorpora el banner aprobado al README y a la página Acerca, con texto alternativo y ancho adaptable. La ilustración se generó con asistencia de IA y fue seleccionada por la autora; no representa participantes reales.
+- Se mantiene el Premio Internacional Espiral como único concurso seleccionado. La preparación editorial se distingue del calendario oficial de futuras convocatorias.

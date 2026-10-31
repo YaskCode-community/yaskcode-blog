@@ -1,5 +1,7 @@
 # Blog YaskCode
 
+![Blog YaskCode: de la teoría al conocimiento compartido. Aprende, Practica, Construye y Comparte.](assets/yaskcode-banner.png)
+
 **De la teoría al conocimiento compartido.**
 
 YaskCode es un blog de aprendizaje tecnológico que conecta explicaciones, ejercicios y proyectos con experiencias reales de quienes los construyen. Su propósito es ayudar a **comprender una idea, ponerla a prueba, convertirla en una solución y compartir lo aprendido para que otras personas puedan avanzar**.

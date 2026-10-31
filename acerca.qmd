@@ -1,7 +1,10 @@
 ---
 title: "Acerca del Blog YaskCode"
 toc: false
+image: assets/yaskcode-banner.png
 ---
+
+![](assets/yaskcode-banner.png){fig-alt="Blog YaskCode: de la teoría al conocimiento compartido. Aprende, Practica, Construye y Comparte." width=100%}
 
 **De la teoría al conocimiento compartido.**
 
