@@ -85,8 +85,21 @@ assert 'historia-campus-yaskcode",level' not in client, 'El relato del Campus no
 source = (ROOT / 'assets/article-tools.js').read_text(encoding='utf-8')
 assert 'articleMeta(content)' in source, 'Falta tiempo de lectura y perfil de autora'
 assert 'window.print()' in source, 'Falta opción de impresión/PDF'
+def is_draft(slug):
+    source = ROOT.parent / 'posts' / slug / 'index.qmd'
+    if not source.exists():
+        return False
+    metadata = source.read_text(encoding='utf-8').split('---', 2)[1]
+    return any(line.strip() == 'draft: true' for line in metadata.splitlines())
+
+def is_blank_draft(post):
+    # Quarto draft-mode: gone renders a blank stub; review renders full HTML.
+    return is_draft(post.parent.name) and 'En 1 minuto' not in post.read_text(encoding='utf-8')
+
 for post in sorted((ROOT / 'posts').glob('*/index.html')):
     slug = post.parent.name
+    if is_blank_draft(post):
+        continue
     page_html = post.read_text(encoding='utf-8')
     assert 'application/ld+json' in page_html and 'BlogPosting' in page_html, f'Sin datos estructurados: {slug}'
     assert 'og:title' in page_html, f'Sin Open Graph: {slug}'
@@ -159,11 +172,16 @@ for source_path in (ROOT.parent / 'posts').glob('*/index.qmd'):
         heading = line.strip()
         assert not (heading.startswith(('**Aprende ·', '**Practica ·')) and
                     '· Nivel ' in heading), f'Etiquetas duplicadas en {source_path.name}'
-# Giscus debe mostrarse únicamente en las cuatro publicaciones, no en portada ni Acerca de.
+# Contadores para artículos publicados; los borradores futuros aún no tienen visitas.
 article_pages = sorted((ROOT / 'posts').glob('*/index.html'))
-assert len(article_pages) == 4, f'Se esperaban 4 artículos, hay {len(article_pages)}'
-for article_path in article_pages:
+published_pages = [p for p in article_pages if not is_draft(p.parent.name)]
+assert len(published_pages) >= 4, f'Faltan artículos ya publicados: {len(published_pages)}'
+for article_path in published_pages:
     assert PREFIX + 'posts/' + article_path.parent.name + '/' in paths, f'Falta contador para {article_path.parent.name}'
+# La vista normal deja los borradores en blanco; el perfil review sí los muestra.
+for article_path in article_pages:
+    if is_blank_draft(article_path):
+        continue
     assert 'giscus.app/client.js' in article_path.read_text(), (
         f'Falta Giscus en {article_path.relative_to(ROOT)}'
     )
