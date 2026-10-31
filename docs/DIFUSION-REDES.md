@@ -12,7 +12,7 @@ El **Blog YaskCode en Quarto / GitHub Pages** es la fuente principal de los art�
 | Prioridad | Canal | Objetivo | Experiencia del botón |
 | --- | --- | --- | --- |
 | 1 | LinkedIn | Divulgación profesional y académica | Compartir el enlace del artículo |
-| 2 | DEV Community (dev.to) | Republicar material técnico para desarrolladores | Abrir el editor de DEV; **no** se publica automáticamente |
+| 2 | DEV Community (dev.to) | Conversación técnica; republicación editorial separada mediante RSS | **DEV · debatir** abre el editor para redactar una reflexión propia, no para copiar el artículo |
 | 3 | WhatsApp | Difusión directa a estudiantes, colegas y grupos | Compartir título y enlace |
 | 4 | Bluesky | Conversación en tecnología y ciencia | Preparar publicación con título y enlace |
 | 5 | Reddit | Diálogo en comunidades técnicas pertinentes | Abrir formulario de envío y respetar reglas comunitarias |
@@ -25,11 +25,11 @@ El **Blog YaskCode en Quarto / GitHub Pages** es la fuente principal de los art�
 
 **Utilidades independientes de redes:** «Copiar enlace» y «Compartir» (menú nativo del dispositivo). El menú nativo depende del sistema y de las aplicaciones instaladas; no muestra necesariamente todas las plataformas. Instagram no aparece por ser redundante con «Copiar enlace» y no contar con un flujo universal de compartir una página web.
 
-**Diseño:** barra principal con Copiar enlace, Compartir (si el navegador lo permite), LinkedIn, DEV · republicar y WhatsApp. «Más redes» contiene, en ese orden, *Comunidades y redes técnicas* (Bluesky, Reddit, Mastodon y X) y *Difusión y mensajería* (Telegram, Threads, Facebook y Correo).
+**Diseño:** barra principal con Copiar enlace, Compartir (si el navegador lo permite), LinkedIn, DEV · debatir y WhatsApp. «Más redes» contiene, en ese orden, *Comunidades y redes técnicas* (Bluesky, Reddit, Mastodon y X) y *Difusión y mensajería* (Telegram, Threads, Facebook y Correo).
 
 ## DEV Community: procedimiento recomendado
 
-DEV es **plataforma editorial**, no un servicio que publique automáticamente una URL con un botón. El botón **DEV · republicar** abre `https://dev.to/new`, donde la autora inicia sesión, revisa y adapta el artículo. Para conservar la fuente original:
+DEV es **plataforma editorial**, no un servicio que publique automáticamente una URL con un botón. El botón público **DEV · debatir** abre `https://dev.to/new`: permite a un lector escribir una **reflexión propia y sustancial** y citar el artículo original; no concede permiso para reproducirlo íntegramente. No equivale a una acción de compartir directamente una URL. La **republicación oficial de contenidos YaskCode** es un flujo distinto y exclusivo de la autora o su equipo autorizado. Para conservar la fuente original:
 
 1. Mantener primero la publicación canónica en el Blog YaskCode.
 2. Elegir el contenido técnico que aporte valor a la comunidad DEV, evitando publicaciones únicamente promocionales.
@@ -43,6 +43,7 @@ DEV es **plataforma editorial**, no un servicio que publique automáticamente un
 - En DEV: `https://dev.to/settings/extensions`, sección **Publishing to DEV Community from RSS**.
 - Activar **Mark the RSS source as canonical URL by default**. Revisar los enlaces importados y conservar la versión original como fuente.
 - DEV permite revisar los artículos importados como **borradores** antes de su publicación. No activar un proceso que publique sin revisión editorial.
+- No publicar entradas que sean solo un enlace ni reproducir contenido ajeno sin permiso: DEV exige contenido original y sustancial.
 - La configuración del RSS en DEV requiere sesión/autorización de la propia autora y **no se ha realizado desde el repositorio**.
 
 Fuentes oficiales:
