@@ -98,3 +98,8 @@ main p, main li { overflow-wrap: anywhere; }
 .yc-rss-link { display: inline-flex; align-items: center; gap: .35rem; color: var(--yc-magenta); font-weight: 700; }
 .yc-rss-link:hover { color: #81016d; }
 
+
+/* Métricas discretas: vistas medidas durante 30 días, no visitantes únicos. */
+.yc-view-count { color: #555; font-size: .78rem; line-height: 1.4; margin: .45rem 0 .25rem !important; font-variant-numeric: tabular-nums; }
+#title-block-header .yc-view-count { margin: .5rem 0 0 !important; }
+.card-body .yc-view-count { margin-top: .65rem !important; }

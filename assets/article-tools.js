@@ -117,7 +117,53 @@
     group.append(feedback);
     return group;
   };
+  // Contadores estáticos, sin llamadas a Workers ni exposición de credenciales.
+  // Solo mostramos datos verificados y recientes; nunca inventamos cifras.
+  const initViews = async () => {
+    try {
+      const source = new URL(root + "assets/views.json", location.origin);
+      const response = await fetch(source.href, {cache:"no-store"});
+      if (!response.ok) return;
+      const stats = await response.json();
+      const ageMs = Date.now() - Date.parse(stats.generated_at);
+      if (stats.schema_version !== 2 || stats.window_days !== 30 ||
+          !Number.isFinite(ageMs) || ageMs < -600000 || ageMs > 72*3600*1000 ||
+          !stats.paths || typeof stats.paths !== "object") return;
+
+      const valid = counts => counts && Number.isSafeInteger(counts.total) &&
+        Number.isSafeInteger(counts.last_30_days) && counts.total >= 0 &&
+        counts.last_30_days >= 0 && counts.last_30_days <= counts.total;
+      const badge = counts => {
+        const plural = counts.total === 1 ? "vista acumulada" : "vistas acumuladas";
+        const el = create("p","yc-view-count","◉ " + counts.total.toLocaleString("es") +
+          " " + plural + " · " + counts.last_30_days.toLocaleString("es") +
+          " últimos 30 días");
+        el.title = "Desde el 31 de octubre de 2026. Vistas registradas, no visitantes únicos. La medición puede omitir navegadores con bloqueo de analítica.";
+        return el;
+      };
+      const article = location.pathname.match(/\/posts\/([^/]+)\/?(?:index\.html)?$/);
+      if (article) {
+        const path = root + "posts/" + article[1] + "/";
+        const number = stats.paths[path];
+        const header = document.querySelector("#title-block-header");
+        if (header && valid(number)) header.append(badge(number));
+      }
+      document.querySelectorAll("#article-grid .post-card").forEach(card => {
+        const link = card.querySelector("h2 a");
+        const body = card.querySelector(".card-body");
+        if (!link || !body) return;
+        let path = new URL(link.href,location.href).pathname;
+        if (path.endsWith("/index.html")) path = path.slice(0,-10);
+        if (!path.endsWith("/")) path += "/";
+        const number = stats.paths[path];
+        if (valid(number)) body.append(badge(number));
+      });
+    } catch {
+      // Si no hay cifras confiables, el blog sigue funcionando sin mostrarlas.
+    }
+  };
   const init = () => {
+    void initViews();
     const match = location.pathname.match(/\/posts\/([^/]+)\/?(?:index\.html)?$/);
     if (!match) return;
     const slug=match[1];

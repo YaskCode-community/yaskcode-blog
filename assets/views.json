@@ -1,0 +1,30 @@
+{
+  "schema_version": 2,
+  "window_days": 30,
+  "generated_at": "2026-10-31T15:01:26Z",
+  "measurement_started_at": "2026-10-31T06:39:51Z",
+  "source": "Cloudflare Web Analytics (Analytics SQL API)",
+  "metric": "recorded_pageviews_non_bot",
+  "paths": {
+    "/yaskcode-blog/": {
+      "total": 5,
+      "last_30_days": 5
+    },
+    "/yaskcode-blog/posts/historia-campus-yaskcode/": {
+      "total": 0,
+      "last_30_days": 0
+    },
+    "/yaskcode-blog/posts/hugging-face-modelos-datasets-ciencia-de-datos/": {
+      "total": 9,
+      "last_30_days": 9
+    },
+    "/yaskcode-blog/posts/por-que-aprender-poo-en-la-era-de-la-ia/": {
+      "total": 1,
+      "last_30_days": 1
+    },
+    "/yaskcode-blog/posts/rag-fundamentos-arquitectura/": {
+      "total": 8,
+      "last_30_days": 8
+    }
+  }
+}

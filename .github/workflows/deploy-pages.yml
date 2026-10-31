@@ -4,6 +4,8 @@ on:
   push:
     branches: [main]
   workflow_dispatch:
+  schedule:
+    - cron: '17 12 * * *'  # Actualización diaria a las 12:17 UTC
 
 permissions:
   contents: read
@@ -18,6 +20,10 @@ jobs:
   build:
     name: Generar y validar sitio
     runs-on: ubuntu-latest
+    permissions:
+      contents: write # Solo para persistir el archivo histórico en rama separada
+      pages: write
+      id-token: write
     steps:
       - name: Recuperar fuentes
         uses: actions/checkout@v4
@@ -27,6 +33,60 @@ jobs:
           version: '1.10.20'
       - name: Generar HTML
         run: quarto render
+      - name: Recuperar historial persistente de vistas
+        shell: bash
+        run: |
+          set +e
+          git ls-remote --exit-code --heads origin refs/heads/analytics-history > "$RUNNER_TEMP/history-ref"
+          status=$?
+          set -e
+          if [ "$status" -eq 0 ]; then
+            git fetch --no-tags origin analytics-history
+            git show FETCH_HEAD:views-history.json > "$RUNNER_TEMP/views-history.json"
+            echo "ANALYTICS_HISTORY_EXISTS=1" >> "$GITHUB_ENV"
+          elif [ "$status" -eq 2 ]; then
+            echo "ANALYTICS_HISTORY_EXISTS=0" >> "$GITHUB_ENV"
+            echo "::notice::Inicializando historial diario en una rama separada."
+          else
+            echo "::error::No se pudo comprobar el archivo histórico remoto."
+            exit 1
+          fi
+      - name: Actualizar instantánea de vistas (si hay credencial de solo lectura)
+        env:
+          CF_WEB_ANALYTICS_TOKEN: ${{ secrets.CF_WEB_ANALYTICS_TOKEN }}
+          CF_WEB_ANALYTICS_ACCOUNT_ID: ${{ secrets.CF_WEB_ANALYTICS_ACCOUNT_ID }}
+        run: |
+          if [ -n "$CF_WEB_ANALYTICS_TOKEN" ] && [ -n "$CF_WEB_ANALYTICS_ACCOUNT_ID" ]; then
+            python3 scripts/update_views.py --output _site/assets/views.json --history "$RUNNER_TEMP/views-history.json"
+            echo "ANALYTICS_REFRESHED=1" >> "$GITHUB_ENV"
+          else
+            echo "::notice::Falta token o ID de cuenta: se mantiene la última instantánea; la web oculta cifras obsoletas."
+          fi
+      - name: Conservar historial diario en rama analytics-history
+        if: env.ANALYTICS_REFRESHED == '1'
+        shell: bash
+        run: |
+          set -euo pipefail
+          dir="$(mktemp -d)"
+          if [ "$ANALYTICS_HISTORY_EXISTS" = "1" ]; then
+            git worktree add --detach "$dir" FETCH_HEAD
+            git -C "$dir" checkout -B analytics-history HEAD
+          else
+            git worktree add --detach "$dir" HEAD
+            git -C "$dir" checkout --orphan analytics-history
+            git -C "$dir" rm -qr --cached .
+          fi
+          cp "$RUNNER_TEMP/views-history.json" "$dir/views-history.json"
+          git -C "$dir" config user.name "github-actions[bot]"
+          git -C "$dir" config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git -C "$dir" add views-history.json
+          if ! git -C "$dir" diff --cached --quiet; then
+            git -C "$dir" commit -m "data: actualizar histórico diario del Blog YaskCode"
+          fi
+          # Si el push falla se aborta el despliegue; nunca se publica
+          # un total que no haya quedado respaldado.
+          git -C "$dir" push origin HEAD:refs/heads/analytics-history
+          git worktree remove --force "$dir"
       - name: Comprobar enlaces y recursos locales
         run: python3 scripts/check_site.py
       - name: Configurar GitHub Pages

@@ -14,6 +14,10 @@ jobs:
           version: '1.10.20'
       - name: Comprobar sintaxis de JavaScript
         run: node --check assets/article-tools.js && node --check assets/filters.js
+      - name: Probar lógica de métricas (sin acceder a Cloudflare)
+        run: |
+          python3 -m py_compile scripts/update_views.py
+          python3 -m unittest discover -s tests -p 'test_views.py' -v
       - name: Verificar generación con borradores ocultos
         run: quarto render
       - name: Comprobar enlaces del sitio publicable

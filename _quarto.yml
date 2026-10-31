@@ -8,6 +8,7 @@ project:
   resources:
     - assets/*.png
     - assets/*.js
+    - assets/*.json
 website:
   title: "Blog YaskCode"
   description: "Artículos, tutoriales y recursos abiertos sobre Ingeniería de Software, Inteligencia Artificial, Ciencia de Datos y Cloud."
