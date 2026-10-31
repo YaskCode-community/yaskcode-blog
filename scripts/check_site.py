@@ -108,7 +108,38 @@ for required in ('draft: true', 'subtitle:', 'description:', 'categories:', 'are
                  'En 1 minuto', 'Lo que aprenderás', 'Conocimientos previos',
                  'Recursos para llevar', 'Referencias académicas y técnicas'):
     assert required in scaffold, f'Falta {required} en la plantilla Aprende'
-assert 'plantillas/' not in config, 'No incluir la plantilla en la configuración de render'
+# Los relatos de comunidad usan una plantilla narrativa sin nivel técnico.
+community_template = ROOT.parent / 'plantillas/articulo-comunidad/index.qmd'
+assert community_template.exists(), 'Falta plantilla narrativa de Comunidad'
+community_scaffold = community_template.read_text(encoding='utf-8')
+community_metadata = community_scaffold.split('---', 2)[1]
+assert 'draft: true' in community_metadata, 'La plantilla de Comunidad debe iniciar en borrador'
+assert 'categories: ["Comunidad YaskCode"]' in community_metadata, 'Falta categoría de Comunidad'
+assert '\nlevel:' not in community_metadata and '\nlevel-detail:' not in community_metadata, 'Un relato no debe recibir dificultad técnica'
+assert 'Qué encontrarás' in community_scaffold and 'Fuentes y recursos del proyecto' in community_scaffold, 'Faltan orientaciones propias de la narrativa'
+assert 'plantillas/' not in config, 'No incluir plantillas en la configuración de render'
+
+# Revisión de los tres artículos adicionales; dos técnicos ya son conformes.
+for slug in ('hugging-face-modelos-datasets-ciencia-de-datos', 'por-que-aprender-poo-en-la-era-de-la-ia'):
+    article = (ROOT.parent / 'posts' / slug / 'index.qmd').read_text(encoding='utf-8')
+    metadata = article.split('---', 2)[1]
+    for needle in ('editorial-section: "Aprende"', 'level: "Básico"', 'subtitle:',
+                   'description:', 'image-alt:', 'include-in-header:'):
+        assert needle in metadata, f'Metadato {needle} ausente en {slug}'
+    for needle in ('En 1 minuto', 'Lo que aprenderás', 'Antes de comenzar',
+                   'Conocimientos previos', 'Público destinatario',
+                   'Recursos para llevar', 'Referencias académicas y técnicas',
+                   'Continúa aprendiendo', 'Comparte con la comunidad'):
+        assert needle in article, f'Componente {needle} ausente en {slug}'
+
+campus_source = (ROOT.parent / 'posts/historia-campus-yaskcode/index.qmd').read_text(encoding='utf-8')
+campus_metadata = campus_source.split('---', 2)[1]
+assert 'editorial-section: "Comunidad YaskCode"' in campus_metadata
+assert '\nlevel:' not in campus_metadata, 'No asignar nivel técnico al relato de Campus'
+for needle in ('Qué encontrarás', '### Antes de comenzar', 'Público destinatario',
+               'Comparte con la comunidad', 'Fuentes y recursos del proyecto'):
+    assert needle in campus_source, f'Falta {needle} en el relato de Campus'
+assert '*Comunidad YaskCode · Historia de origen · Experiencia educativa*' not in campus_source, 'Categoría de comunidad repetida en el cuerpo'
 # Evitar volver a insertar bajo la cabecera las etiquetas ya mostradas por Quarto.
 for source_path in (ROOT.parent / 'posts').glob('*/index.qmd'):
     qmd = source_path.read_text(encoding='utf-8')

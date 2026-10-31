@@ -7,7 +7,7 @@
 - No modificar beehiiv, Apps Script, HubSpot ni Campus como parte de una edición del blog sin alcance explícito.
 - Trabajo editorial: preparar cambios en rama y PR. Sin merge ni despliegue hasta validación explícita de la autora, salvo autorización previa para una publicación concreta.
 - Revisar `docs/MIGRACION.md` antes de continuar la migración.
-- Para contenido editorial, seguir `docs/GUIA-EDITORIAL.md` y `docs/PLANTILLA-EDITORIAL-2026.md`; crear borradores desde `plantillas/articulo-aprende/index.qmd` sin publicar marcadores. El README presenta el propósito y recorrido; las instrucciones técnicas están en `docs/DESARROLLO.md`.
+- Para contenido editorial, seguir `docs/GUIA-EDITORIAL.md` y `docs/PLANTILLA-EDITORIAL-2026.md`. Crear borradores técnicos desde `plantillas/articulo-aprende/index.qmd` y relatos desde `plantillas/articulo-comunidad/index.qmd`, sin publicar marcadores. No asignar nivel técnico a relatos de Comunidad YaskCode. Consultar la matriz `docs/REVISION-EDITORIAL-ARTICULOS-2026-10-31.md`. El README presenta el propósito y recorrido; las instrucciones técnicas están en `docs/DESARROLLO.md`.
 - Cabecera aprobada: etiquetas de etapa, área y nivel con mismo estilo; `level` separado de `categories`; `AUTORÍA:` y enlaces en línea cuando haya espacio; un solo subtítulo visible. No repetir en el cuerpo `Aprende · Área · Nivel Básico · Fundamentos`.
 - Para cada artículo nuevo, registrar el slug/nivel en `assets/article-tools.js` y crear recursos y metadatos SEO reales. La plantilla no automatiza registro, métricas, fichas ni publicación.
 - Consultar `docs/CONVOCATORIAS.md` al hablar de premios; verificar de nuevo cada edición. No presentar criterios internos como una rúbrica oficial ni afirmar avales o premios inexistentes.

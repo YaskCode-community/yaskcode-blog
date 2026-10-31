@@ -22,7 +22,6 @@ format:
     include-in-header: ../../assets/seo-historia-campus-yaskcode.html
 ---
 
-*Comunidad YaskCode · Historia de origen · Experiencia educativa*
 
 ![Vista panorámica del Campus YaskCode, con edificios académicos, espacios de investigación y comunidad conectados por caminos.](campus-yaskcode-panorama.webp){fig-alt="Vista panorámica ilustrada de Campus YaskCode con espacios digitales dedicados a docencia, investigación, proyectos y comunidad. Los edificios se conectan mediante una red de caminos."}
 
@@ -30,7 +29,19 @@ format:
 Campus YaskCode nace de una mirada a la vida universitaria como encuentro entre **aprendizaje, investigación, proyectos y comunidad**. Su propuesta es convertir esas conexiones en recorridos digitales explorables. Es una historia personal de origen: algunas iniciativas ya pueden visitarse y otras continúan en desarrollo.
 :::
 
-**Antes de comenzar · Conocimientos previos:** no se requieren conocimientos técnicos. Es una historia de origen para estudiantes, docentes, investigadores y personas interesadas en educación abierta y comunidad.
+::: {.callout-tip title="Qué encontrarás"}
+Esta historia te invita a:
+
+1. **Conocer** el origen de Campus YaskCode a partir de una experiencia universitaria.
+2. **Explorar** cómo se conectan la docencia, la investigación, los proyectos y la comunidad.
+3. **Distinguir** los espacios que ya pueden recorrerse de las iniciativas que continúan desarrollándose.
+:::
+
+### Antes de comenzar
+
+**Conocimientos previos:** no se requieren conocimientos técnicos para recorrer esta historia.
+
+**Público destinatario:** estudiantes, docentes, investigadores y personas interesadas en educación abierta y comunidad.
 
 ::: {.callout-tip title="Recursos para llevar"}
 <a href="../../recursos/historia-campus-yaskcode-ficha.md" download>Descargar ficha de lectura (.md)</a> · La opción «Imprimir o guardar como PDF» estará disponible junto al encabezado.
@@ -123,6 +134,10 @@ Puedes comenzar por el edificio que despierte tu interés y descubrir, poco a po
 Al final, mi motivación sigue siendo la misma: que la formación en Computación no se reduzca a contenidos separados, sino que permita **aprender, investigar, colaborar y construir software con calidad y responsabilidad**.
 
 Porque la universidad es mucho más que sus edificios. Es también lo que construimos y compartimos entre quienes aprendemos en ella.
+
+### Comparte con la comunidad
+
+Si el recorrido te inspira una pregunta, una mejora o una experiencia educativa que quieras compartir, puedes participar en las [Discussions de YaskCode Community](https://github.com/orgs/YaskCode-community/discussions). La participación es voluntaria; no hace falta compartir información privada de estudiantes ni de instituciones.
 
 ---
 
