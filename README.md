@@ -50,7 +50,7 @@ Como primer paso del recorrido está disponible el original de [RAG: fundamentos
 - **Autoría y transparencia:** reconocer contribuciones y declarar usos sustanciales de IA y su revisión humana.
 - **Mejora continua:** escuchar correcciones y mantener un historial de cambios relevantes.
 
-La [guía editorial](docs/GUIA-EDITORIAL.md) desarrolla estos compromisos y orienta a quienes quieran contribuir.
+La [guía editorial](docs/GUIA-EDITORIAL.md) desarrolla estos compromisos. Los artículos se organizan **uno por carpeta** en `posts/`; las publicaciones prácticas pueden incorporar código, datos de ejemplo y pruebas reproducibles junto a `index.qmd`, conforme al [estándar de prácticas y laboratorios](docs/ESTANDAR-PRACTICAS-LABORATORIOS.md).
 
 ## Participa
 
