@@ -32,6 +32,18 @@ website:
   search:
     location: navbar
     type: overlay
+  comments:
+    giscus:
+      repo: YaskCode-community/.github
+      repo-id: R_kgDOT4uDYg
+      category: Blog YaskCode
+      category-id: DIC_kwDOT4uDYs4DKEGP
+      mapping: pathname
+      reactions-enabled: true
+      input-position: bottom
+      loading: lazy
+      language: es
+      theme: light
   page-footer:
     left: "YaskCode · Aprende · Practica · Construye · Comparte"
     right:
