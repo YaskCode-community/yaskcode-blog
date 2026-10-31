@@ -1,5 +1,6 @@
 """Check real rendered pages and their local links; no network or dependencies."""
 from html.parser import HTMLParser
+from xml.etree import ElementTree as ET
 from pathlib import Path
 from urllib.parse import unquote, urlsplit
 
@@ -29,6 +30,14 @@ for path in ROOT.rglob('*.html'):
     pages[path.resolve()] = page
 assert ROOT.joinpath('index.html').exists(), 'Falta index.html'
 assert ROOT.joinpath('posts/rag-fundamentos-arquitectura/index.html').exists(), 'Falta RAG'
+# El blog publica cuatro entradas y un feed RSS sindicado independiente de la newsletter.
+feed_path = ROOT / 'index.xml'
+assert feed_path.exists(), 'Falta index.xml (RSS)'
+feed = ET.parse(feed_path).getroot()
+assert feed.tag == 'rss', 'El feed no es RSS válido'
+rss_items = feed.findall('./channel/item')
+assert len(rss_items) >= 4, f'RSS incompleto: {len(rss_items)} publicaciones'
+assert all((item.findtext('link') or '').startswith('https://') for item in rss_items), 'RSS con enlaces no absolutos'
 for path, page in pages.items():
     for ref in page.refs:
         url = urlsplit(ref)
