@@ -2,8 +2,9 @@
 title: "Si la IA genera código, ¿por qué aprender Programación Orientada a Objetos?"
 subtitle: "Aprender a comprender, diseñar y evaluar software sigue siendo esencial cuando trabajamos con asistentes y agentes de programación."
 author: "Yaskelly Yedra"
-date: 2026-10-31
+date: 2026-10-14
 editorial-date: 2026-10-14
+first-web-publication: 2026-10-31
 description: "Una reflexión académica para estudiantes sobre el valor de la POO en la era de la IA generativa: clases, diseño de inventario, UML, código y validación humana."
 categories: ["Aprende", "Ingeniería de Software"]
 area: "Ingeniería de Software"
@@ -38,7 +39,7 @@ Al finalizar la lectura podrás:
 
 **Tiempo estimado de lectura:** 14 minutos (aproximadamente 2979 palabras, a 220 palabras por minuto).
 
-**Fecha editorial del texto:** 14 de octubre de 2026. Esta fecha identifica la planificación editorial; **no debe confundirse con la fecha de publicación en la web**, indicada en los metadatos del artículo cuando se publique.
+**Fecha editorial:** 14 de octubre de 2026. El artículo se publicó por primera vez en la web el **31 de octubre de 2026**; ambas fechas se conservan en sus metadatos.
 
 ## 1. Una pregunta que muchos estudiantes se hacen
 
