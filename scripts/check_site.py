@@ -67,6 +67,8 @@ styles = (ROOT / 'assets/theme.css').read_text(encoding='utf-8') if (ROOT / 'ass
 assert 'section.append(widget,print)' in client, 'La impresión debe acompañar al botón Me gusta'
 assert 'authorLine.append(authorLinks)' in client, 'Los enlaces deben ir junto al nombre de autoría'
 assert 'authorLine.textContent.trim() === "Yaskelly Yedra"' in client, 'El perfil académico y ORCID solo corresponden a su autora'
+assert 'if (authorHeading) authorHeading.textContent = "AUTORÍA:";' in client, 'Autoría en mayúsculas para una persona o un equipo'
+assert client.index('if (authorHeading) authorHeading.textContent = "AUTORÍA:";') < client.index('if (authorLine && authorLine.textContent.trim() === "Yaskelly Yedra"'), 'El rótulo de autoría no puede depender de un nombre específico'
 assert 'Conoce a la autora:' not in client, 'No duplicar la autoría en otra línea'
 assert 'grid-column: 1 / -1' in (ROOT.parent / 'assets/theme.scss').read_text(encoding='utf-8'), 'Fechas deben compartir fila'
 # Coherencia de cabecera: metadatos, una introducción y nivel educativo.
