@@ -64,7 +64,7 @@ El sitio generado queda en `_site/`. Se editan los archivos fuente, no las pági
 
 ## Escribir un artículo nuevo con la plantilla aprobada
 
-El esqueleto reutilizable está en **[`plantillas/articulo-aprende/index.qmd`](../plantillas/articulo-aprende/index.qmd)**; está fuera de `posts/` y de los archivos de render, de modo que no se publica por sí solo. Desde la raíz del repositorio, en PowerShell:
+Para contenidos técnicos de **Aprende** se usa **[`plantillas/articulo-aprende/index.qmd`](../plantillas/articulo-aprende/index.qmd)**. Para relatos de **Comunidad YaskCode** se usa **[`plantillas/articulo-comunidad/index.qmd`](../plantillas/articulo-comunidad/index.qmd)**, sin nivel de dificultad ni objetivos técnicos impuestos. Ambas plantillas están fuera de `posts/` y del render público. Para un artículo Aprende, desde la raíz del repositorio, en PowerShell:
 
 ```powershell
 New-Item -ItemType Directory -Path posts/mi-articulo
