@@ -1,29 +1,21 @@
 # Desarrollo y colaboración técnica
 
-Esta guía conserva las instrucciones operativas de la primera entrega. Para el propósito y recorrido del blog, consulta el [README](../README.md) y la [guía editorial](GUIA-EDITORIAL.md).
+Esta guía describe la operación actual del blog Quarto. Para el propósito y recorrido editorial, consulta el [README](../README.md), la [guía editorial](GUIA-EDITORIAL.md) y la [plantilla editorial](PLANTILLA-EDITORIAL-2026.md).
 
 ## Estado del proyecto
 
-Estamos migrando el blog desde beehiiv hacia un sitio propio generado con **Quarto**, con sus contenidos e imágenes versionados en GitHub.
-
-La primera entrega está en la rama `feat/quarto-blog-base` y en el [PR #1](https://github.com/YaskCode-community/yaskcode-blog/pull/1). Incluye el artículo publicado **«RAG: fundamentos y arquitectura para comenzar»**, tarjetas, filtros por área y sección, búsqueda y acceso a la suscripción.
-
-**El nuevo sitio sigue en revisión y aún no está desplegado.** La dirección prevista es [yaskcode-community.github.io/yaskcode-blog/](https://yaskcode-community.github.io/yaskcode-blog/).
-
-Consulta el [registro de migración y sus pendientes](MIGRACION.md).
-
-## Cómo se organiza
+**Blog YaskCode está publicado en [GitHub Pages](https://yaskcode-community.github.io/yaskcode-blog/)**. Su fuente vive en la rama `main`; las correcciones editoriales de la cabecera aprobadas el 31 de octubre de 2026 se integraron mediante los PR #22, #23 y #24. La migración y ampliación de contenidos siguen evolucionando y requieren revisión.
 
 | Componente | Función |
 | --- | --- |
-| Este repositorio | Conserva los originales de artículos, imágenes, diseño e historial de cambios. |
-| Quarto | Genera las páginas del blog y permite revisarlas localmente. |
-| GitHub Pages | Alojamiento previsto, pendiente de habilitar el despliegue. |
-| beehiiv | Mantiene la suscripción y el envío de la newsletter. |
-| Apps Script → HubSpot | Conserva la integración existente de contactos. |
-| Campus YaskCode | Continúa en Astro, en su propio repositorio. |
+| Repositorio y Quarto | Fuentes `.qmd`, diseño, datos y generación estática del sitio. |
+| GitHub Pages | Blog público; después de cada cambio revisar también la URL publicada. |
+| GitHub Actions | Comprueba render, enlaces y scripts; un CI exitoso no prueba por sí solo el aspecto visual del sitio desplegado. |
+| beehiiv | Suscripción y newsletter; publicar un artículo no envía un correo automáticamente. |
+| Apps Script → HubSpot | Sincronización de contactos independiente del blog. |
+| Campus YaskCode | Sitio Astro separado, no afectado por cambios de este repositorio. |
 
-Guardar cambios en GitHub **no envía una newsletter automáticamente**. En esta primera entrega, GitHub Actions comprueba el sitio y guarda un artefacto de revisión; todavía no lo publica.
+Consulta el [registro de migración](MIGRACION.md) para las tareas históricas y pendientes que aún deban verificarse.
 
 ## Explorar el contenido
 
@@ -42,7 +34,7 @@ Para una primera descarga:
 ```powershell
 git clone https://github.com/YaskCode-community/yaskcode-blog.git
 cd yaskcode-blog
-git switch feat/quarto-blog-base
+git switch main
 code -n .
 ```
 
@@ -70,36 +62,25 @@ En Linux o macOS, sustituye `py` por `python3`.
 
 El sitio generado queda en `_site/`. Se editan los archivos fuente, no las páginas de esa carpeta. La comprobación de recursos valida enlaces e imágenes locales; la revisión visual, de teclado y de enlaces externos se realiza por separado.
 
-## Escribir un artículo
+## Escribir un artículo nuevo con la plantilla aprobada
 
-1. Crea una carpeta en `posts/` con un nombre breve y sin espacios: por ejemplo, `posts/mi-articulo/`.
-2. Añade el archivo `index.qmd` y guarda sus imágenes en esa misma carpeta.
-3. Completa los metadatos, escribe el contenido y revisa el resultado con `quarto preview`.
-4. Presenta el cambio en un pull request para revisión editorial y técnica.
+El esqueleto reutilizable está en **[`plantillas/articulo-aprende/index.qmd`](../plantillas/articulo-aprende/index.qmd)**; está fuera de `posts/` y de los archivos de render, de modo que no se publica por sí solo. Desde la raíz del repositorio, en PowerShell:
 
-Ejemplo de metadatos para un **borrador**, que debe adaptarse al artículo real:
-
-```yaml
----
-title: "Título del artículo"
-author: "Nombre de la persona autora"
-date: 2026-10-30
-description: "Resumen breve de lo que aprenderá la persona lectora."
-categories: ["Aprende", "Inteligencia Artificial"]
-area: "Inteligencia Artificial"
-editorial-section: "Aprende"
-image: portada.png
-image-alt: "Descripción accesible de la portada."
-toc: true
-draft: true
----
+```powershell
+New-Item -ItemType Directory -Path posts/mi-articulo
+Copy-Item plantillas/articulo-aprende/index.qmd posts/mi-articulo/index.qmd
 ```
 
-Usa las áreas y secciones existentes, respetando sus nombres. `editorial-section` es el campo utilizado por las tarjetas y los filtros; no lo sustituyas por `section`.
+1. Cambiar `mi-articulo` por el slug final, reemplazar todos los marcadores `REEMPLAZAR` y la fecha de ejemplo, y mantener `draft: true` durante la revisión.
+2. Ajustar `categories` (etapa y área), `area`, `editorial-section`, `level` (**Básico / Intermedio / Avanzado**) y, si procede, `level-detail`. El nivel **no es una categoría**. Para un artículo de comunidad, no aplicar automáticamente la plantilla técnica ni añadir nivel.
+3. Preparar la portada y su texto alternativo, la ficha real `recursos/<slug>-ficha.md` y el archivo `assets/seo-<slug>.html` con datos estructurados `BlogPosting` y fechas veraces. La plantilla referencia ese archivo, pero **no lo genera**.
+4. Registrar el nuevo slug y nivel en `assets/article-tools.js`, que actualmente enumera artículos explícitamente; comprobar los relacionados, el índice/tarjetas, métricas, pruebas de conteo y rutas del artículo. Los contadores **no se inventan**.
+5. No escribir en el cuerpo `**Aprende · Área · Nivel Básico · Fundamentos**`, ni otra línea que repita categorías y nivel: esas etiquetas ya aparecen arriba. `subtitle` es la única introducción breve visible; `description` queda para SEO y se mantiene «En 1 minuto» como síntesis didáctica.
+6. Comprobar con `quarto preview` y `quarto render`; ejecutar las pruebas, revisar enlaces, teclado, escritorio y móvil. Antes de quitar `draft: true`, solicitar aprobación editorial y confirmar el funcionamiento del artículo público después de desplegar.
 
-La portada y las búsquedas se regeneran al construir el sitio. Mantén `draft: true` mientras el texto esté pendiente y comprueba su exclusión de la salida destinada a publicación. Un borrador guardado en este repositorio público puede ser leído en GitHub.
+La **autoría** usa el rótulo `AUTORÍA:` y enlaza el perfil académico y ORCID; las fechas comparten fila cuando cabe. El bloque superior de compartir no debe recuperar un recuadro, y la etiqueta del nivel debe compartir estilo con las de etapa y área.
 
-Cada artículo debe identificar su autoría, citar sus fuentes y distinguir los ejemplos hipotéticos de los resultados obtenidos. Las publicaciones derivadas de YASE y los laboratorios deben explicar qué se construyó, cómo se probó, qué se observó y cuáles son sus límites.
+**Importante:** el registro de artículos, los metadatos SEO por publicación y las comprobaciones automatizadas actuales no se crean automáticamente al copiar la plantilla. No se afirma que exista un laboratorio, ficha, imagen o evidencia hasta publicar el recurso real.
 
 ## Archivos principales
 
@@ -109,6 +90,8 @@ Cada artículo debe identificar su autoría, citar sus fuentes y distinguir los 
 | `index.qmd` | Portada y controles para explorar artículos. |
 | `acerca.qmd` | Presentación pública del propósito y recorrido editorial. |
 | `posts/<slug>/index.qmd` | Texto y metadatos de cada artículo. |
+| `plantillas/articulo-aprende/index.qmd` | Plantilla reutilizable de borrador, excluida del render público. |
+| `docs/PLANTILLA-EDITORIAL-2026.md` | Estándar aprobado de cabecera y lista de verificación. |
 | `assets/theme.scss` | Colores, tipografía y estilos. |
 | `assets/cards.ejs.md` | Plantilla de tarjetas. |
 | `assets/filters.js` | Filtros y búsqueda de la portada. |
@@ -123,15 +106,13 @@ La suscripción continúa en [beehiiv](https://yaskcode.beehiiv.com/). La integr
 
 Puedes participar en [YaskCode Community](https://github.com/YaskCode-community), proponer ideas en [Discussions](https://github.com/orgs/YaskCode-community/discussions) o comunicar correcciones mediante un [issue del blog](https://github.com/YaskCode-community/yaskcode-blog/issues).
 
-## Próximos pasos de la migración
+## Trabajo editorial y operativo pendiente
 
-- Confirmar visualmente los ajustes de la introducción y del centrado en pantallas amplias.
-- Completar la validación visual y funcional en escritorio y móvil.
-- Validar la nueva guía editorial, la página Acerca y el recorrido de suscripción.
-- Acordar las licencias y el tratamiento de las URLs anteriores.
-- Habilitar el despliegue después de la aceptación de esta entrega.
-- Actualizar el enlace del Campus cuando el nuevo blog esté disponible y comprobado.
-- Incorporar las cinco entradas adicionales con revisión editorial.
+- Revisar cualquier nueva entrada con la plantilla y sus criterios de nivel; no repetir etiquetas ni introducir un segundo párrafo de presentación.
+- Validar visualmente cada incorporación en escritorio, móvil y teclado, además del CI.
+- Continuar migrando entradas tras su comprobación editorial, bibliográfica, SEO y de permisos.
+- Revisar el registro de migración para confirmar qué enlaces antiguos o integraciones siguen pendientes.
+- Decidir y documentar licencias antes de permitir reutilización no autorizada.
 
 ## Autoría y licencias
 
