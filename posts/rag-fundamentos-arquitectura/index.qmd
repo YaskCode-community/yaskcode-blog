@@ -3,16 +3,37 @@ title: "RAG: fundamentos y arquitectura para comenzar"
 subtitle: "Comprende cómo los modelos de lenguaje utilizan información externa para generar respuestas basadas en documentos."
 author: "Yaskelly Yedra"
 date: 2026-10-21
+date-modified: 2026-10-31
 description: "Comprende qué es RAG, cómo funciona su arquitectura, sus diferencias con fine-tuning y cómo comenzar con documentos, embeddings y recursos gratuitos."
 categories: ["Aprende", "Inteligencia Artificial"]
 area: "Inteligencia Artificial"
 editorial-section: "Aprende"
+level: "Básico"
+level-detail: "Fundamentos"
 image: portada-rag.png
 image-alt: "Portada del artículo RAG: fundamentos y arquitectura para comenzar."
 image-description: "Portada original de YaskCode para el artículo sobre RAG."
 original-url: "https://yaskcode.beehiiv.com/p/rag-fundamentos-arquitectura"
 toc: true
 ---
+
+**Aprende · Inteligencia Artificial · Nivel Básico · Fundamentos**
+
+::: {.callout-tip title="Lo que aprenderás"}
+Al finalizar la lectura podrás:
+
+1. **Explicar** qué es RAG, qué problema resuelve y por qué una respuesta necesita evidencia pertinente.
+2. **Identificar** las piezas de una arquitectura RAG introductoria: fuentes, fragmentos, embeddings, índice, recuperador y generador.
+3. **Diferenciar** el proceso de preparación e indexación del proceso de recuperación y generación durante una consulta.
+4. **Comparar** RAG y *fine-tuning* y **justificar** cuándo conviene cada enfoque.
+5. **Reconocer** limitaciones de privacidad, seguridad y calidad, y **proponer** comprobaciones básicas de evidencia y fidelidad.
+:::
+
+**Conocimientos previos:** no necesitas haber implementado RAG. Conviene conocer las nociones generales de IA generativa y modelos de lenguaje.
+
+**Público destinatario:** estudiantes, docentes, desarrolladores y personas interesadas en comenzar con RAG.
+
+**Tiempo estimado de lectura:** 10 minutos (aproximadamente 2035 palabras, a 220 palabras por minuto).
 
 ## 1. ¿Por qué un modelo de lenguaje necesita información externa?
 
@@ -37,6 +58,12 @@ En la **recuperación**, el sistema localiza fragmentos relacionados con la preg
 En la **generación**, el LLM recibe la pregunta, instrucciones y fragmentos recuperados. Con esos elementos redacta una explicación comprensible. Si la aplicación conserva el origen de cada fragmento, puede mostrar referencias para que el lector compruebe la información.
 
 Por eso, **similitud semántica no equivale a exactitud factual**. Encontrar un párrafo relacionado es solo el primer paso; después hay que comprobar que realmente permite responder.
+
+### Ilustración conceptual: recuperar y generar
+
+![Ilustración conceptual de RAG: documentos y datos asociados al recuperador, un modelo de IA representado de forma simbólica y el generador de respuestas.](rag-recuperador-generador.webp){fig-alt="Ilustración en tonos azules sobre fondo oscuro: a la izquierda aparecen símbolos de documentos, base de datos y nube junto al bloque Retriever; un cerebro simbólico de IA conecta con el bloque Generator a la derecha."}
+
+*Ilustración conceptual. El recuperador localiza información pertinente y el modelo generador utiliza el contexto recuperado para elaborar una respuesta. El cerebro es una representación simbólica de la IA; esta imagen simplifica el proceso y no muestra todos los componentes de una arquitectura RAG.*
 
 ## 4. Anatomía de un sistema RAG
 
@@ -118,6 +145,8 @@ La **privacidad y la seguridad** requieren atención especial. Los documentos de
 
 Evaluar un sistema RAG implica observar, por separado, **si recuperó la evidencia correcta** y **si la respuesta se mantuvo fiel a esa evidencia**. Un piloto docente debería incluir preguntas verificables, casos sin respuesta y pruebas de acceso restringido, además de registrar errores y costos.
 
+Una evaluación inicial puede observar **pertinencia de los fragmentos recuperados**, **fidelidad de cada afirmación a esos fragmentos**, **correspondencia entre citas y documentos originales** y **capacidad de reconocer evidencia insuficiente**. Son criterios conceptuales: no se han calculado métricas ni probado un prototipo para este artículo.
+
 ## 9. Primeros pasos con herramientas abiertas
 
 Una primera práctica no necesita grandes volúmenes de datos. Puede realizarse con unos pocos documentos públicos o creados para el ejercicio y un entorno Python:
@@ -154,11 +183,37 @@ En YaskCode continuaremos este recorrido desde la explicación conceptual hacia 
 
 ### Comprueba lo aprendido
 
-1.  ¿Qué diferencia hay entre recuperar un fragmento y generar una respuesta?
+Estas preguntas permiten comprobar la comprensión y aplicar los conceptos a situaciones sencillas. No son un examen formal; intenta justificar cada respuesta antes de leer la orientación.
 
-2.  ¿Por qué actualizar un índice documental no equivale a hacer fine-tuning?
+1. **Un asistente recupera un párrafo relacionado con la pregunta, pero no encuentra allí la fecha solicitada. ¿Puede generar una fecha como respuesta?**
 
-3.  ¿Qué debería hacer el asistente si recupera dos guías con fechas contradictorias?
+   *Orientación:* distingue relevancia temática de evidencia suficiente. Una respuesta sustentada debe reconocer cuándo el dato no aparece.
+
+2. **Una universidad actualiza la guía de una asignatura. ¿Qué parte del sistema RAG habría que revisar y por qué no equivale a hacer fine-tuning?**
+
+   *Orientación:* piensa en fuentes, fragmentos e índice; el ajuste fino modifica parámetros del modelo, no sustituye el mantenimiento del repositorio documental.
+
+3. **Un docente necesita respuestas basadas en normas académicas vigentes y, además, un formato consistente de salida. ¿Cuándo usarías RAG, fine-tuning o ambos?**
+
+   *Orientación:* separa la necesidad de consultar información actualizada de la de adaptar el comportamiento o el formato de un modelo.
+
+4. **Dos documentos autorizados ofrecen fechas contradictorias. ¿Qué debería mostrar el asistente y cómo comprobarías su confiabilidad?**
+
+   *Orientación:* considera procedencia, fecha, versión, permisos, citas y reconocimiento explícito de la discrepancia.
+
+### Continúa aprendiendo: lleva RAG a la práctica
+
+**Próximamente · Practica**
+
+**«Tu primer sistema RAG: laboratorio guiado»** será la siguiente publicación de esta ruta temática. Construiremos un ejemplo reproducible con documentos permitidos, exploraremos la recuperación de fragmentos, examinaremos qué respalda cada respuesta y registraremos resultados y limitaciones.
+
+El laboratorio incluirá **retos Construye de nivel Básico, Intermedio y Avanzado**, para ampliar el prototipo de forma progresiva. **Todavía no está publicado**, por lo que no incluimos un enlace inexistente.
+
+### Comparte con la comunidad
+
+¿Qué preguntas intentarías responder con RAG? ¿Cómo comprobarías que una respuesta está respaldada por documentos reales? Puedes compartir una reflexión, duda o aprendizaje en las [Discussions de YaskCode Community](https://github.com/orgs/YaskCode-community/discussions).
+
+Utiliza ejemplos públicos, sintéticos o autorizados; no compartas documentos confidenciales, datos personales, credenciales ni información restringida.
 
 ### Referencias y documentación
 
