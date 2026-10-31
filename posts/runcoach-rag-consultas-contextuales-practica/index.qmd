@@ -1,0 +1,138 @@
+---
+title: "Práctica: construir consultas contextuales para RAG y probar sus casos límite"
+subtitle: "Un laboratorio guiado sobre selección temporal, calidad de la entrada y pruebas de regresión, sin modelos externos."
+author: "Yaskelly Yedra"
+date: 2027-05-20
+# Fecha planificada: confirmar al publicar en la web.
+description: "Laboratorio reproducible de Python para seleccionar notas pertinentes, construir consultas contextuales y verificar casos límite antes de usar un recuperador RAG."
+categories: ["Práctica", "Inteligencia Artificial"]
+editorial-section: "Práctica"
+area: "Inteligencia Artificial"
+level: "Básico"
+level-detail: "Laboratorio reproducible"
+toc: true
+draft: true
+format:
+  html:
+    include-in-header: ../../assets/seo-runcoach-rag-consultas-contextuales-practica.html
+---
+
+::: {.callout-note title="En 1 minuto"}
+Un sistema RAG puede fallar **antes de recuperar** información cuando la consulta omite registros importantes o incluye contexto desactualizado. En este laboratorio construiremos una consulta con datos ficticios, seleccionaremos notas recientes y comprobaremos los casos límite con pruebas automatizadas. No se usan modelos de lenguaje, embeddings ni bases vectoriales.
+:::
+
+::: {.callout-tip title="Lo que aprenderás"}
+1. Preparar una consulta con una ventana temporal explícita.
+2. Excluir datos vacíos, repetidos o temporalmente inválidos.
+3. Conservar un presupuesto de texto y un orden estable.
+4. Ejecutar pruebas de regresión y documentar sus resultados.
+:::
+
+### Antes de comenzar
+
+**Público destinatario:** estudiantes y desarrolladores que comienzan con RAG.
+
+**Conocimientos previos:** variables, listas, diccionarios, funciones sencillas de Python y uso básico de terminal.
+
+**Requisitos:** Python 3.11 o superior; VS Code es opcional. Solo biblioteca estándar; no se necesitan API keys ni servicios pagos.
+
+::: {.callout-tip title="Recursos para llevar"}
+[Descargar la ficha del laboratorio](../../recursos/runcoach-rag-consultas-contextuales-practica-ficha.md)
+
+El código, los datos y las pruebas están disponibles en enlaces separados dentro de esta publicación, para poder inspeccionarlos antes de ejecutarlos.
+:::
+
+## 1. El problema
+
+En [RunCoach AI](../runcoach-ai-conocimiento-rag-caso/index.qmd) observamos que un sistema puede recuperar fuentes relacionadas con una consulta formulada de manera incompleta. Vamos a aislar ese problema con un ejemplo **neutro y sintético**: un recorrido por un parque universitario.
+
+Queremos responder «¿Qué información necesito revisar antes de planificar la siguiente ruta?» a partir de observaciones registradas durante días anteriores. Algunas son recientes, otras antiguas, otras duplicadas y una carece de fecha válida.
+
+## 2. Contrato del experimento
+
+El ejercicio emplea reglas didácticas, **no reglas universales de RAG**:
+
+- Aceptar registros con 0–7 días de antigüedad.
+- Conservar como máximo tres notas.
+- Usar hasta 180 caracteres de notas.
+- Ordenar de la más reciente a la más antigua.
+- Ignorar contenido vacío, duplicado o con antigüedad inválida.
+
+```{mermaid}
+flowchart LR
+  A[Pregunta] --> C[Composición]
+  B[Registros ficticios] --> D[Selección y filtrado]
+  D --> C
+  C --> E[Texto preparado para recuperación futura]
+  E --> F[Recuperación y generación: fuera de alcance]
+```
+
+## 3. Archivos que utilizarás
+
+| Archivo | Propósito |
+|---|---|
+| [codigo/consultas.py](codigo/consultas.py) | Funciones de filtrado y composición |
+| [codigo/demo.py](codigo/demo.py) | Demostración de uso |
+| [codigo/__init__.py](codigo/__init__.py) | Paquete Python |
+| [datos/sesiones.json](datos/sesiones.json) | Registros de ejemplo |
+| [pruebas/test_consultas.py](pruebas/test_consultas.py) | 21 pruebas automatizadas |
+
+Descarga los archivos manteniendo esa estructura de carpetas dentro de una carpeta raíz del laboratorio. El código es una **adaptación didáctica original de YaskCode** y no contiene una copia del sistema estudiantil.
+
+## 4. Ejecuta y observa
+
+Abre la terminal desde la raíz de la carpeta del laboratorio y ejecuta en **PowerShell**:
+
+```powershell
+py -m codigo.demo
+py -m unittest discover -s pruebas -v
+```
+
+En Linux o macOS puedes sustituir `py` por `python3`. La demostración muestra un JSON con tres notas, en este orden: «Lluvia durante la salida», «Señal de mantenimiento en el parque», «Ruta alternativa señalizada».
+
+El registro de 15 días queda excluido; el texto repetido se conserva una sola vez; la entrada con fecha «desconocido» se ignora. La consulta final mantiene la pregunta y añade el contexto elegido.
+
+## 5. Comprueba lo que sucede
+
+Las 21 pruebas del laboratorio cubren: ausencia de registros, notas vacías, edad de los datos, orden temporal, duplicados, límites de longitud, valores inválidos, ausencia de mutaciones y composición de la consulta. Una ejecución local previa concluyó con **21 de 21 pruebas correctas**; comprueba el resultado en tu propio entorno.
+
+La prueba automatizada confirma comportamientos concretos de esta implementación, **no la calidad de un sistema RAG completo** ni el funcionamiento del proyecto RunCoach AI.
+
+## 6. Experimenta y explica
+
+Abre el archivo JSON y cambia el valor `dias_atras` de la nota antigua de 15 a 3. Ejecuta la demostración. ¿Aparecerá entre las tres elegidas? Justifica el resultado considerando el límite de notas y el orden temporal.
+
+Cambia temporalmente la constante `VENTANA_DIAS` a 3 en `codigo/consultas.py`. Ejecuta otra vez las pruebas y explica qué casos cambian. No modifiques las aserciones solo para volver a obtener resultados correctos.
+
+## 7. Solución de problemas
+
+| Situación | Qué comprobar |
+|---|---|
+| `No module named codigo` | Ejecutaste fuera de la carpeta raíz |
+| `py` no se reconoce | Python no está instalado o hay que utilizar `python` |
+| No aparecen notas | Revisa `dias_atras`, la ventana y `nota` |
+| La salida no coincide | Restaura el JSON y ejecuta otra vez |
+
+## Construye · Retos progresivos
+
+**Básico:** agrega una nota vacía y escribe una prueba para confirmar que se descarta.
+
+**Intermedio:** incorpora un límite de caracteres por nota y comprueba cadenas con caracteres Unicode y emojis; explica si cuentas puntos de código o bytes.
+
+**Avanzado:** prepara un conjunto de evaluación con contexto esperado para diferentes preguntas. Compara dos reglas de selección y explica por qué el número de coincidencias textuales no equivale a calidad de generación.
+
+## Créditos y procedencia
+
+**Laboratorio y código pedagógico:** YaskCode · Adaptación editorial de Yaskelly Yedra.
+
+**Proyecto académico que inspiró el problema:** RunCoach AI, de **José Francisco Urdaneta Sánchez y Julio César Matute**, bajo asesoría académica de Yaskelly Yedra.
+
+**Referencia de implementación:** [pruebas de síntesis de consulta del Equipo 1](https://github.com/YaskCode-laboratory/wellness-platform-team1/blob/main/tests/unit/test_rag_consulta.py).
+
+## Continúa aprendiendo
+
+Consulta [el caso RunCoach AI](../runcoach-ai-conocimiento-rag-caso/index.qmd) y [RAG: fundamentos y arquitectura para comenzar](../rag-fundamentos-arquitectura/index.qmd).
+
+## Comparte con la comunidad
+
+Comparte voluntariamente tus pruebas, resultados y decisiones de selección de contexto en un repositorio propio, sin usar registros personales ni credenciales.
