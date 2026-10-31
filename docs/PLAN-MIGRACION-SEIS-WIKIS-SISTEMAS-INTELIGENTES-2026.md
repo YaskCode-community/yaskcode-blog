@@ -128,7 +128,20 @@ El objetivo razonable de esas seis horas es la **primera migración editorial de
 
 **Puerta de publicación por caso:** wiki íntegra recuperada o fuente alternativa verificada + derechos/autorizaciones + créditos/fechas corroborados + revisión de privacidad/contenido + validación Quarto/SEO/Giscus + aceptación editorial explícita. No modificar la privacidad de las fuentes ni publicar materiales del repositorio privado para acelerar el proceso.
 
-## 9. Relación con el próximo laboratorio «Practica · RAG»
+## 9. Inicio del piloto · Control de avances
+
+- [x] Plan general aprobado; se confirma que **una wiki no necesita ser pública**: basta disponer de acceso autenticado autorizado para recuperar una copia de lectura, más autorización de sus autores para divulgar el material que se seleccione.
+- [x] Etiqueta **«Casos de estudio»** aprobada dentro de la sección **Comunidad YaskCode**; no modifica los filtros generales ni afecta a artículos existentes.
+- [x] Plantilla `plantillas/articulo-caso-estudio/index.qmd` preparada como borrador, con autoría múltiple, fechas diferenciadas y créditos de adaptación.
+- [x] Preparación de la cabecera para **no agregar automáticamente el ORCID de Yaskelly a autores estudiantiles**; validar CI antes de integrar.
+- [ ] Obtener una **copia autorizada de la wiki del Equipo 5**. La conexión GitHub disponible permite revisar el repositorio privado, pero no expone las páginas Wiki mediante su interfaz de lectura; no sustituir la wiki con el README ni pasarla a público.
+- [ ] Revisar el contenido completo, diagramas, enlaces y evidencias; acordar con las personas autoras la atribución, permisos, nombres, fechas y restricciones.
+- [ ] Elaborar una **adaptación real** en un borrador seguro; revisar y obtener aprobación previa al paso a GitHub público.
+- [ ] Generalizar pruebas y SEO por publicación, registrar el nuevo artículo sin inventar vistas y verificar Giscus al publicar.
+
+**Vía operativa para conseguir el material:** clonar la wiki desde un equipo con una cuenta GitHub autorizada y compartir un ZIP solo de sus Markdown/recursos pertinentes por un canal privado; excluir `.git`, credenciales, secretos, archivos internos no autorizados y datos identificables. No subir la wiki original al repositorio público.
+
+## 10. Relación con el próximo laboratorio «Practica · RAG»
 
 La migración de las seis wikis es una **línea de casos académicos de Comunidad YaskCode**, distinta del laboratorio **«Practica · RAG»**, ya registrado como siguiente desarrollo didáctico en el PR #27 (pendiente de integración cuando corresponda). Los casos podrán ilustrar **Comparte** y ofrecer futuras ideas de prácticas, pero **no sustituyen** un laboratorio reproducible y no se enlazarán como publicados hasta que existan.
 
