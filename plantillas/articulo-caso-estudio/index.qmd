@@ -1,0 +1,93 @@
+---
+# Plantilla editorial para casos de estudio de proyectos académicos.
+# Copiar a posts/<slug-aprobado>/index.qmd SOLO tras revisar material y permisos.
+# No publicar ni versionar en el repositorio público datos obtenidos de una wiki privada
+# antes de contar con autorización explícita de sus autores.
+title: "REEMPLAZAR: título específico del caso"
+subtitle: "REEMPLAZAR: problema abordado, enfoque y aporte principal"
+author:
+  - "REEMPLAZAR: autoría original 1 (autorizada)"
+  - "REEMPLAZAR: autoría original 2 (autorizada)"
+date: "YYYY-MM-DD"  # Primera publicación real de la adaptación web.
+# date-modified: "YYYY-MM-DD"  # Solo si hubo revisión pública posterior.
+description: "REEMPLAZAR: descripción única para buscadores y redes sociales"
+categories: ["Comunidad YaskCode", "Casos de estudio"]
+editorial-section: "Comunidad YaskCode"
+area: "Inteligencia Artificial"  # Ajustar al tema; no inventar área ni nivel.
+article-type: "Caso de estudio académico"
+image: "portada-pendiente.webp"
+image-alt: "REEMPLAZAR: descripción accesible de la imagen"
+toc: true
+draft: true
+format:
+  html:
+    include-in-header: ../../assets/seo-REEMPLAZAR-SLUG.html
+---
+
+<!-- REQUISITOS DE ACEPTACIÓN:
+- Revisar íntegramente la copia autorizada de la wiki y el permiso de republicación.
+- Sustituir todos los marcadores; no publicar documentos o archivos privados.
+- Identificar autoría, orden, aportes y permisos de cada estudiante.
+- Fecha académica original != fecha real de primera publicación web.
+- Registrar editor/a o revisión docente SEPARADOS de la autoría principal.
+- Crear archivos de imagen, recursos, metadatos SEO y pruebas del nuevo slug.
+- Verificar condiciones de uso de capturas, imágenes, diagramas y datasets.
+- Evaluar afirmaciones técnicas/experimentales; no dar por validado un prototipo.
+- Aprobar expresamente antes de quitar draft: true y fusionar el PR.
+-->
+
+::: {.callout-note title="En 1 minuto"}
+REEMPLAZAR: problema investigado, enfoque aplicado, contribución verificable y un límite importante. No repetir literalmente el subtítulo.
+:::
+
+::: {.callout-tip title="Qué encontrarás en este caso"}
+1. **Contexto:** REEMPLAZAR el problema, curso y alcance del proyecto.
+2. **Diseño:** REEMPLAZAR conceptos, decisiones y arquitectura contrastados.
+3. **Validación:** REEMPLAZAR qué se comprobó y qué quedó pendiente.
+:::
+
+### Antes de comenzar
+
+**Público destinatario:** REEMPLAZAR: personas interesadas en el área.
+
+**Conocimientos previos:** REEMPLAZAR: requisitos reales para entender este estudio.
+
+## 1. Contexto académico y problema
+
+REEMPLAZAR: contexto, origen académico y propósito.
+
+## 2. Fundamentos y decisiones
+
+REEMPLAZAR: aportes investigados, documentación y referencias comprobadas.
+
+## 3. Arquitectura y construcción
+
+REEMPLAZAR: enfoque técnico, diagramas autorizados, componentes y decisiones.
+
+## 4. Verificación y límites
+
+REEMPLAZAR: métodos, pruebas reproducibles cuando existan, evidencia y limitaciones. Diferenciar resultados observados, metas, simulaciones y validaciones externas.
+
+## 5. Lecciones aprendidas
+
+REEMPLAZAR: dificultades, mejoras y reflexión técnica del equipo, previa revisión por sus autores.
+
+## Créditos, procedencia y fechas
+
+**Autores del trabajo académico:** REEMPLAZAR: nombres autorizados, orden y contribuciones acordadas.
+
+**Procedencia:** REEMPLAZAR: curso, semestre/fecha académica verificada y fuente autorizada.
+
+**Adaptación editorial:** REEMPLAZAR: responsables del trabajo editorial, distinguidos de la autoría del proyecto.
+
+**Primera publicación en el Blog YaskCode:** REEMPLAZAR: fecha real de publicación web.
+
+**Derechos y permisos:** REEMPLAZAR: material autorizado, imágenes/código/datos incluidos y restricciones.
+
+## Comparte con la comunidad
+
+REEMPLAZAR: invitación a comentar mediante Giscus, sin solicitar datos personales ni material privado.
+
+## Fuentes y recursos
+
+REEMPLAZAR: documentación o bibliografía real con enlaces verificables. Vincular la fuente original solamente si es pública y se autorizó.

@@ -66,6 +66,7 @@ client = (ROOT / 'assets/article-tools.js').read_text(encoding='utf-8')
 styles = (ROOT / 'assets/theme.css').read_text(encoding='utf-8') if (ROOT / 'assets/theme.css').exists() else ''
 assert 'section.append(widget,print)' in client, 'La impresión debe acompañar al botón Me gusta'
 assert 'authorLine.append(authorLinks)' in client, 'Los enlaces deben ir junto al nombre de autoría'
+assert 'authorLine.textContent.trim() === "Yaskelly Yedra"' in client, 'El perfil académico y ORCID solo corresponden a su autora'
 assert 'Conoce a la autora:' not in client, 'No duplicar la autoría en otra línea'
 assert 'grid-column: 1 / -1' in (ROOT.parent / 'assets/theme.scss').read_text(encoding='utf-8'), 'Fechas deben compartir fila'
 # Coherencia de cabecera: metadatos, una introducción y nivel educativo.
@@ -140,6 +141,17 @@ for needle in ('Qué encontrarás', '### Antes de comenzar', 'Público destinata
                'Comparte con la comunidad', 'Fuentes y recursos del proyecto'):
     assert needle in campus_source, f'Falta {needle} en el relato de Campus'
 assert '*Comunidad YaskCode · Historia de origen · Experiencia educativa*' not in campus_source, 'Categoría de comunidad repetida en el cuerpo'
+# Modelo de caso de estudio: dos etiquetas editoriales, sin nivel automático ni publicación.
+case_template = ROOT.parent / 'plantillas/articulo-caso-estudio/index.qmd'
+assert case_template.exists(), 'Falta plantilla de casos de estudio'
+case_source = case_template.read_text(encoding='utf-8')
+case_metadata = case_source.split('---', 2)[1]
+assert 'categories: ["Comunidad YaskCode", "Casos de estudio"]' in case_metadata
+assert 'editorial-section: "Comunidad YaskCode"' in case_metadata
+assert 'draft: true' in case_metadata, 'La plantilla nunca debe publicarse directamente'
+assert '\nlevel:' not in case_metadata, 'Un caso de estudio no lleva nivel técnico por defecto'
+assert 'author:' in case_metadata and 'adaptación editorial' in case_source.lower(), 'Separar autoría de edición'
+
 # Evitar volver a insertar bajo la cabecera las etiquetas ya mostradas por Quarto.
 for source_path in (ROOT.parent / 'posts').glob('*/index.qmd'):
     qmd = source_path.read_text(encoding='utf-8')

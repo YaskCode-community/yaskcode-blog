@@ -108,7 +108,7 @@ Puedes participar en [YaskCode Community](https://github.com/YaskCode-community)
 
 ## Trabajo editorial y operativo pendiente
 
-- **Proyecto nuevo (pendiente):** [plan de seis wikis académicas de Sistemas Inteligentes → casos de estudio del Blog](PLAN-MIGRACION-SEIS-WIKIS-SISTEMAS-INTELIGENTES-2026.md). Priorizar piloto del equipo 5, permisos de autoría y fechas, extracción privada de wikis y adecuación de las fichas de autor para varios estudiantes. Se preservan los repositorios originales; no publicar materiales privados ni enlaces de acceso restringido.
+- **Proyecto nuevo (piloto iniciado, migración pendiente):** [plan de seis wikis académicas de Sistemas Inteligentes → casos de estudio del Blog](PLAN-MIGRACION-SEIS-WIKIS-SISTEMAS-INTELIGENTES-2026.md). Plantilla específica: [`plantillas/articulo-caso-estudio/index.qmd`](../plantillas/articulo-caso-estudio/index.qmd); etiquetas `Comunidad YaskCode` y `Casos de estudio`. Priorizar Equipo 5, autorización de autoría y fechas, extracción privada de wikis y configuración de autores múltiples. Se preservan los repositorios originales; no publicar materiales privados ni enlaces de acceso restringido.
 - Revisar cualquier nueva entrada con la plantilla y sus criterios de nivel; no repetir etiquetas ni introducir un segundo párrafo de presentación.
 - Validar visualmente cada incorporación en escritorio, móvil y teclado, además del CI.
 - Continuar migrando entradas tras su comprobación editorial, bibliográfica, SEO y de permisos.

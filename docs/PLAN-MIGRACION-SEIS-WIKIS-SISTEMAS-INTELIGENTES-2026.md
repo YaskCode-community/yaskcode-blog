@@ -1,7 +1,7 @@
 # Plan de migración editorial · Seis wikis de Sistemas Inteligentes al Blog YaskCode
 
 **Registro inicial:** 31 de octubre de 2026  
-**Estado:** propuesta de trabajo **pendiente**; no se han clonado las wikis ni creado/publicado sus artículos.  
+**Estado:** plan **aprobado** e inicio de la preparación del piloto (plantilla y compatibilidad de autoría); ninguna wiki se ha clonado ni se han creado/publicado artículos estudiantiles.  
 **Origen:** seis equipos de proyectos académicos de **Sistemas Inteligentes**, Maestría en Tecnologías de Información y Comunicación, Universidad del Zulia. Repositorios de `YaskCode-laboratory`.  
 **Destino:** [Blog YaskCode (Quarto)](https://yaskcode-community.github.io/yaskcode-blog/), en `YaskCode-community/yaskcode-blog`.  
 **Referencia editorial:** [guía editorial](GUIA-EDITORIAL.md) · [estándar Quarto](PLANTILLA-EDITORIAL-2026.md) · [revisión de cuatro artículos publicados](REVISION-EDITORIAL-ARTICULOS-2026-10-31.md).
@@ -12,7 +12,7 @@ Convertir **copias autorizadas** de las seis wikis académicas en hasta **seis a
 
 El original académico permanece en cada repositorio/wiki de GitHub, con su visibilidad, archivos e historial intactos. El Blog publica únicamente una **adaptación editorial revisada y aprobada**, no la documentación interna completa ni una réplica de código privado.
 
-**Tipo editorial propuesto:** «Caso de estudio académico» dentro de **Comunidad YaskCode**, con relación temática a Inteligencia Artificial / Ingeniería de Software según el proyecto. No crear una categoría nueva ni añadir `BÁSICO` o `INTERMEDIO` a los seis artículos por defecto. Solo asignar nivel pedagógico a un eventual artículo didáctico específico, después de examinar el contenido.
+**Tipo editorial aprobado:** caso de estudio académico dentro de **Comunidad YaskCode**, con una **etiqueta adicional `Casos de estudio`** visible en la cabecera. En Quarto se usarán `categories: ["Comunidad YaskCode", "Casos de estudio"]` y `editorial-section: "Comunidad YaskCode"`; no se crea una sección nueva en los filtros de portada. El área temática se determina por el proyecto, y no se añade `BÁSICO` ni `INTERMEDIO` automáticamente. Solo asignar nivel pedagógico a un eventual artículo didáctico específico, después de examinar el contenido. Fuente reutilizable: [`plantillas/articulo-caso-estudio/index.qmd`](../plantillas/articulo-caso-estudio/index.qmd).
 
 ## 2. Inventario y control de acceso
 
@@ -128,7 +128,21 @@ El objetivo razonable de esas seis horas es la **primera migración editorial de
 
 **Puerta de publicación por caso:** wiki íntegra recuperada o fuente alternativa verificada + derechos/autorizaciones + créditos/fechas corroborados + revisión de privacidad/contenido + validación Quarto/SEO/Giscus + aceptación editorial explícita. No modificar la privacidad de las fuentes ni publicar materiales del repositorio privado para acelerar el proceso.
 
-## 9. Relación con el próximo laboratorio «Practica · RAG»
+## 9. Inicio del piloto · Control de avances
+
+- [x] Plan general aprobado; se confirma que **una wiki no necesita ser pública**: basta disponer de acceso autenticado autorizado para recuperar una copia de lectura, más autorización de sus autores para divulgar el material que se seleccione.
+- [x] Etiqueta **«Casos de estudio»** aprobada dentro de la sección **Comunidad YaskCode**; no modifica los filtros generales ni afecta a artículos existentes.
+- [x] Plantilla `plantillas/articulo-caso-estudio/index.qmd` preparada como borrador, con autoría múltiple, fechas diferenciadas y créditos de adaptación.
+- [x] Preparación de la cabecera para **no agregar automáticamente el ORCID de Yaskelly a autores estudiantiles**; validar CI antes de integrar.
+- [x] **Copia de lectura de la wiki del Equipo 5 recibida para evaluación privada:** la usuaria clonó la wiki con su acceso autorizado y facilitó dos archivos Markdown para revisión; la conexión GitHub por sí sola no permite consultar páginas Wiki. La wiki y el repositorio original permanecen privados y sin modificaciones. Esto **no equivale** a autorización de los autores para republicar.
+- [x] Primera lectura editorial de los dos Markdown recibidos; identificadas dudas de versiones, arquitectura, fechas y afirmaciones de validación. Los informes de revisión y el borrador de artículo se prepararon **fuera del repositorio público**.
+- [ ] Completar la contrastación con código, diagramas, enlaces y resultados; acordar con las personas autoras atribución, permisos, nombres, fechas y restricciones.
+- [ ] Elaborar una **adaptación real** en un borrador seguro; revisar y obtener aprobación previa al paso a GitHub público.
+- [ ] Generalizar pruebas y SEO por publicación, registrar el nuevo artículo sin inventar vistas y verificar Giscus al publicar.
+
+**Vía operativa para conseguir el material:** clonar la wiki desde un equipo con una cuenta GitHub autorizada y compartir un ZIP solo de sus Markdown/recursos pertinentes por un canal privado; excluir `.git`, credenciales, secretos, archivos internos no autorizados y datos identificables. No subir la wiki original al repositorio público.
+
+## 10. Relación con el próximo laboratorio «Practica · RAG»
 
 La migración de las seis wikis es una **línea de casos académicos de Comunidad YaskCode**, distinta del laboratorio **«Practica · RAG»**, ya registrado como siguiente desarrollo didáctico en el PR #27 (pendiente de integración cuando corresponda). Los casos podrán ilustrar **Comparte** y ofrecer futuras ideas de prácticas, pero **no sustituyen** un laboratorio reproducible y no se enlazarán como publicados hasta que existan.
 

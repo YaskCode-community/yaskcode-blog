@@ -31,7 +31,7 @@ El recorrido es flexible: se puede entrar por un proyecto y volver a sus fundame
 | --- | --- | --- |
 | Radar tecnológico | Ayudar a entender una novedad y decidir si merece explorarse. | Fuente primaria, fecha, contexto y límites; identificar opinión o inferencia. |
 | Explora y participa | Conectar con cursos, eventos, recursos y oportunidades. | Enlace oficial, fecha de comprobación y condiciones verificadas; no presentar como gratuita una oferta sin confirmación. |
-| Comunidad YaskCode | Visibilizar experiencias y facilitar colaboración. | Autoría reconocida, permiso para materiales ajenos y explicación del aporte. |
+| Comunidad YaskCode | Visibilizar experiencias y facilitar colaboración. Incluye la etiqueta **Casos de estudio** para proyectos académicos adaptados, sin convertirse en una sección independiente. | Autoría original reconocida, permisos de republicación, fechas comprobadas, revisión docente diferenciada y explicación del aporte. |
 
 El blog desarrolla contenidos con profundidad y conserva sus versiones. La newsletter puede seleccionar una idea central, enlazar una explicación y una actividad disponibles, destacar una oportunidad y cerrar con una pregunta. No tiene que incluir todas las secciones en cada envío. La frecuencia se adapta a la capacidad de revisión.
 

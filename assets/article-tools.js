@@ -208,7 +208,10 @@
       header.classList.add("yc-editorial-header");
       const authorLine = meta.querySelector(":scope > div:first-child .quarto-title-meta-contents p.author") ||
         meta.querySelector(":scope > div:first-child .quarto-title-meta-contents p");
-      if (authorLine && !authorLine.querySelector(".yc-author-links")) {
+      // Solo enlazar el perfil y ORCID de Yaskelly cuando ella es la autora mostrada.
+      // En casos de estudio con autoría estudiantil, no atribuir esos perfiles a terceros.
+      if (authorLine && authorLine.textContent.trim() === "Yaskelly Yedra" &&
+          !authorLine.querySelector(".yc-author-links")) {
         const authorHeading = meta.querySelector(":scope > div:first-child .quarto-title-meta-heading");
         if (authorHeading) authorHeading.textContent = "AUTORÍA:";
         const authorLinks = create("span","yc-author-links");
