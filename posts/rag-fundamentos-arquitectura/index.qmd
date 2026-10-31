@@ -10,9 +10,9 @@ area: "Inteligencia Artificial"
 editorial-section: "Aprende"
 level: "Básico"
 level-detail: "Fundamentos"
-image: portada-rag.png
-image-alt: "Portada del artículo RAG: fundamentos y arquitectura para comenzar."
-image-description: "Portada original de YaskCode para el artículo sobre RAG."
+image: portada-rag-yaskcode-renovada.webp
+image-alt: "Nueva portada del artículo RAG con fondo claro, título magenta, documentos, búsqueda, índice vectorial y respuesta generada."
+image-description: "Portada renovada YaskCode de estilo magenta y lavanda, creada con asistencia de IA; la imagen anterior se conserva en el historial del repositorio."
 original-url: "https://yaskcode.beehiiv.com/p/rag-fundamentos-arquitectura"
 toc: true
 ---
