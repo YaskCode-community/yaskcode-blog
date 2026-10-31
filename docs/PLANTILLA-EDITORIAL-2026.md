@@ -104,6 +104,8 @@ El nivel **no depende del número de páginas**, ni debe convertirse en una prom
 
 **Estado de partida:** RAG y POO ya contienen *algunos diagramas y ejemplos conceptuales*, y los artículos Aprende incluyen objetivos y preguntas de comprensión. Se conservarán; la mejora pendiente es validarlos, documentarlos y enlazarlos a prácticas/evidencias cuando estén listas. El relato del Campus no requiere pruebas de programación ni niveles técnicos.
 
+**Próxima aplicación prioritaria (pendiente): «Practica · RAG».** Será el primer laboratorio complementario del artículo Aprende sobre RAG y la **primera prueba integral de la metodología Aprende → Practica → Construye → Comparte**. Debe ofrecer una práctica guiada reproducible y verificable, retos Construye progresivos y una invitación Comparte a documentar evidencias y aprendizajes. Su publicación exige comprobar código, instrucciones, datos, requisitos, resultados observables, fuentes, privacidad, licencias y accesibilidad. **No presentar el laboratorio ni sus resultados como disponibles antes de desarrollarlos, validarlos y publicarlos.** Véase el [registro de pendientes y cierre editorial](REVISION-EDITORIAL-ARTICULOS-2026-10-31.md).
+
 ## Enlaces normativos y documentación
 
 - Quarto · metadatos sociales: https://quarto.org/docs/websites/website-tools.html
