@@ -66,6 +66,7 @@ client = (ROOT / 'assets/article-tools.js').read_text(encoding='utf-8')
 styles = (ROOT / 'assets/theme.css').read_text(encoding='utf-8') if (ROOT / 'assets/theme.css').exists() else ''
 assert 'section.append(widget,print)' in client, 'La impresión debe acompañar al botón Me gusta'
 assert 'authorLine.append(authorLinks)' in client, 'Los enlaces deben ir junto al nombre de autoría'
+assert 'authorLine.textContent.trim() === "Yaskelly Yedra"' in client, 'El perfil académico y ORCID solo corresponden a su autora'
 assert 'Conoce a la autora:' not in client, 'No duplicar la autoría en otra línea'
 assert 'grid-column: 1 / -1' in (ROOT.parent / 'assets/theme.scss').read_text(encoding='utf-8'), 'Fechas deben compartir fila'
 # Coherencia de cabecera: metadatos, una introducción y nivel educativo.
