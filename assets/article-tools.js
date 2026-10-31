@@ -54,12 +54,37 @@
       }
     });
     if (typeof navigator.share === "function") actions.append(native);
+    // Las dos acciones principales permanecen visibles; el resto se agrupa para móviles.
     actions.append(
       link("WhatsApp","https://wa.me/?text="+encodeURIComponent(title+" "+articleUrl)),
-      link("LinkedIn","https://www.linkedin.com/sharing/share-offsite/?url="+encodeURIComponent(articleUrl)),
-      link("Bluesky","https://bsky.app/intent/compose?text="+encodeURIComponent(title+" "+articleUrl)),
-      link("Telegram","https://t.me/share/url?url="+encodeURIComponent(articleUrl)+"&text="+encodeURIComponent(title))
+      link("LinkedIn","https://www.linkedin.com/sharing/share-offsite/?url="+encodeURIComponent(articleUrl))
     );
+    const more = create("details","yc-share-more");
+    const summary = create("summary","yc-share-action","Más redes");
+    const moreList = create("div","yc-share-more-list");
+    moreList.append(
+      link("Bluesky","https://bsky.app/intent/compose?text="+encodeURIComponent(title+" "+articleUrl)),
+      link("Telegram","https://t.me/share/url?url="+encodeURIComponent(articleUrl)+"&text="+encodeURIComponent(title)),
+      link("X","https://twitter.com/intent/tweet?text="+encodeURIComponent(title)+"&url="+encodeURIComponent(articleUrl)),
+      link("Facebook","https://www.facebook.com/sharer/sharer.php?u="+encodeURIComponent(articleUrl)),
+      link("Threads","https://www.threads.com/intent/post?text="+encodeURIComponent(title+" "+articleUrl)),
+      link("Mastodon","https://share.joinmastodon.org/?text="+encodeURIComponent(title+" "+articleUrl)),
+      link("Reddit","https://www.reddit.com/submit?url="+encodeURIComponent(articleUrl)+"&title="+encodeURIComponent(title)),
+      link("Correo","mailto:?subject="+encodeURIComponent(title)+"&body="+encodeURIComponent(title+"\n"+articleUrl))
+    );
+    const instagram = create("button","yc-share-action","Instagram · copiar enlace");
+    instagram.type="button";
+    instagram.addEventListener("click", async () => {
+      try {
+        await navigator.clipboard.writeText(articleUrl);
+        feedback.textContent="Enlace copiado. Puedes pegarlo en Instagram, por ejemplo en Stories mediante el sticker de enlace.";
+      } catch {
+        feedback.textContent="Para Instagram, copia la dirección de esta página desde tu navegador.";
+      }
+    });
+    moreList.append(instagram);
+    more.append(summary,moreList);
+    actions.append(more);
     group.append(actions,feedback);
     return group;
   };
