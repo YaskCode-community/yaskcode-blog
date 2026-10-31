@@ -55,31 +55,52 @@
       }
     });
     if (typeof navigator.share === "function") actions.append(native);
-    // Las dos acciones principales permanecen visibles; el resto se agrupa para móviles.
+    // Prioridad editorial: profesionales (LinkedIn), comunidad técnica (DEV)
+    // y difusión directa en español (WhatsApp).
     actions.append(
-      link("WhatsApp","https://wa.me/?text="+encodeURIComponent(title+" "+articleUrl)),
       link("LinkedIn","https://www.linkedin.com/sharing/share-offsite/?url="+encodeURIComponent(articleUrl))
     );
+    const dev = link("DEV · republicar","https://dev.to/new");
+    dev.classList.add("yc-share-editorial");
+    dev.title = "Abre el editor de DEV: revisa el artículo y establece el enlace original como URL canónica. No se publica automáticamente.";
+    dev.setAttribute("aria-label","Republicar una versión revisada en DEV Community; requiere cuenta y publicación manual");
+    actions.append(dev,
+      link("WhatsApp","https://wa.me/?text="+encodeURIComponent(title+" "+articleUrl))
+    );
+
     const moreToggle = create("button","yc-share-action","Más redes ▾");
     moreToggle.type = "button";
-    moreToggle.title = "Mostrar más opciones para compartir";
+    moreToggle.title = "Mostrar canales adicionales, ordenados por afinidad con YaskCode";
     const moreList = create("div","yc-share-more-list");
     moreList.id = "yc-share-extra-" + (compact ? "top" : "bottom");
     moreList.hidden = true;
     moreList.setAttribute("role","group");
-    moreList.setAttribute("aria-label","Otras redes para compartir");
+    moreList.setAttribute("aria-label","Canales adicionales para compartir");
     moreToggle.setAttribute("aria-controls",moreList.id);
     moreToggle.setAttribute("aria-expanded","false");
-    moreList.append(
+
+    const technical = create("div","yc-share-more-group");
+    technical.append(create("p","yc-share-more-label","Comunidades y redes técnicas"));
+    const technicalLinks = create("div","yc-share-more-options");
+    technicalLinks.append(
       link("Bluesky","https://bsky.app/intent/compose?text="+encodeURIComponent(title+" "+articleUrl)),
-      link("Telegram","https://t.me/share/url?url="+encodeURIComponent(articleUrl)+"&text="+encodeURIComponent(title)),
-      link("X","https://twitter.com/intent/tweet?text="+encodeURIComponent(title)+"&url="+encodeURIComponent(articleUrl)),
-      link("Facebook","https://www.facebook.com/sharer/sharer.php?u="+encodeURIComponent(articleUrl)),
-      link("Threads","https://www.threads.com/intent/post?text="+encodeURIComponent(title+" "+articleUrl)),
-      link("Mastodon","https://share.joinmastodon.org/?text="+encodeURIComponent(title+" "+articleUrl)),
       link("Reddit","https://www.reddit.com/submit?url="+encodeURIComponent(articleUrl)+"&title="+encodeURIComponent(title)),
+      link("Mastodon","https://share.joinmastodon.org/?text="+encodeURIComponent(title+" "+articleUrl)),
+      link("X","https://twitter.com/intent/tweet?text="+encodeURIComponent(title)+"&url="+encodeURIComponent(articleUrl))
+    );
+    technical.append(technicalLinks);
+
+    const general = create("div","yc-share-more-group");
+    general.append(create("p","yc-share-more-label","Difusión y mensajería"));
+    const generalLinks = create("div","yc-share-more-options");
+    generalLinks.append(
+      link("Telegram","https://t.me/share/url?url="+encodeURIComponent(articleUrl)+"&text="+encodeURIComponent(title)),
+      link("Threads","https://www.threads.com/intent/post?text="+encodeURIComponent(title+" "+articleUrl)),
+      link("Facebook","https://www.facebook.com/sharer/sharer.php?u="+encodeURIComponent(articleUrl)),
       link("Correo","mailto:?subject="+encodeURIComponent(title)+"&body="+encodeURIComponent(title+" "+articleUrl))
     );
+    general.append(generalLinks);
+    moreList.append(technical,general);
     moreToggle.addEventListener("click",() => {
       const willOpen = moreList.hidden;
       moreList.hidden = !willOpen;
@@ -88,7 +109,12 @@
       moreToggle.title = willOpen ? "Ocultar opciones adicionales" : "Mostrar más opciones para compartir";
     });
     actions.append(moreToggle);
-    group.append(actions,moreList,feedback);
+    group.append(actions,moreList);
+    if (!compact) {
+      group.append(create("p","yc-share-note",
+        "DEV abre su editor: adapta el contenido y utiliza «Copiar enlace» como URL canónica del artículo original."));
+    }
+    group.append(feedback);
     return group;
   };
   const init = () => {
