@@ -6,7 +6,7 @@ Este modelo se adapta al tema. No exige crear cuatro publicaciones por tema: la 
 
 ## Claridad en la ficha del artículo
 
-La cabecera debe presentar **«Autoría: Yaskelly Yedra · Perfil académico · ORCID»** en una misma línea cuando haya espacio, sin separar el rótulo del nombre. Los artículos técnicos muestran **Básico / Intermedio / Avanzado** como etiqueta de nivel junto a las categorías, sin añadir ese nivel a las categorías temáticas, filtros ni RSS. Los relatos de comunidad no reciben nivel técnico.
+La cabecera debe presentar **«AUTORÍA: Yaskelly Yedra · Perfil académico · ORCID»** en una misma línea cuando haya espacio, sin separar el rótulo del nombre. El rótulo **AUTORÍA:** hereda el mismo estilo tipográfico en mayúsculas de **FECHA DE PUBLICACIÓN** y **FECHA DE ÚLTIMA MODIFICACIÓN**; se agrega una separación vertical moderada entre las etiquetas y la autoría. Los artículos técnicos muestran **BÁSICO / INTERMEDIO / AVANZADO** con exactamente el mismo estilo visual de las otras etiquetas de Quarto, sin añadir el nivel a las categorías temáticas, filtros ni RSS. Los relatos de comunidad no reciben nivel técnico.
 
 El **subtítulo es la introducción visible** que presenta el propósito del artículo; la propiedad Quarto `description` se conserva como descripción SEO y de metadatos sociales, pero se oculta de la cabecera para evitar una segunda introducción repetida. Esto mantiene SEO y lectura sin redundancias, junto con el resumen detallado **«En 1 minuto»**, que tiene otra función didáctica.
 
@@ -14,7 +14,7 @@ El **subtítulo es la introducción visible** que presenta el propósito del art
 
 En pantallas amplias, colocar **💜 Me gusta** al lado de **«Imprimir o guardar como PDF»**, antes del bloque «Comparte este artículo». Pagemoji gestiona el **contador de corazones del artículo** de forma independiente a Giscus y a las visitas de Cloudflare: es un conteo aproximado, no usuarios únicos. No agregar reacciones negativas al artículo principal.
 
-Mostrar **Autor/a: Yaskelly Yedra · Perfil académico · ORCID** sin repetir el nombre en otra línea, y reunir en una misma fila las fechas **Publicación** y **Última modificación**. En pantallas estrechas las fechas pueden apilarse para preservar legibilidad. Mantener los valores y la fecha editorial originales, sin ocultar cuándo se modificó el contenido.
+Mostrar **AUTORÍA: Yaskelly Yedra · Perfil académico · ORCID** sin repetir el nombre en otra línea, y reunir en una misma fila las fechas **Publicación** y **Última modificación**. En pantallas estrechas las fechas pueden apilarse para preservar legibilidad. Mantener los valores y la fecha editorial originales, sin ocultar cuándo se modificó el contenido.
 
 ## Componentes que ya deben estar en cada publicación
 
