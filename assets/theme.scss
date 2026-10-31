@@ -106,12 +106,17 @@ main p, main li { overflow-wrap: anywhere; }
 
 /* Reacción positiva del artículo: una opción 💜, separada de los comentarios. */
 .yc-like-tools {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: .55rem 1rem;
   margin: .65rem 0 .9rem;
   padding: .35rem 0;
   max-width: 100%;
 }
 .yc-like-tools pagemoji-reactions {
-  display: block;
+  display: inline-flex;
+  max-width: 100%;
   --pagemoji-accent: var(--yc-magenta);
   --pagemoji-fg: var(--yc-magenta);
   --pagemoji-justify: flex-start;
@@ -130,16 +135,44 @@ main p, main li { overflow-wrap: anywhere; }
   color: #52525b; font-size: .84rem; line-height: 1.5;
 }
 .yc-editorial-meta p { margin: 0 !important; }
-.yc-author-profile a { color: var(--yc-magenta); text-underline-offset: .15em; }
+/* Quarto: autoría en la primera fila, fechas enfrentadas en la segunda. */
+#title-block-header.yc-editorial-header .quarto-title-meta {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 1.5rem;
+  row-gap: .65rem;
+}
+#title-block-header.yc-editorial-header .quarto-title-meta > div:first-child {
+  grid-column: 1 / -1;
+}
+#title-block-header.yc-editorial-header .quarto-title-meta > div {
+  min-width: 0;
+}
+.yc-author-links {
+  display: inline;
+  overflow-wrap: anywhere;
+}
+.yc-author-links a {
+  color: var(--yc-magenta);
+  text-underline-offset: .15em;
+}
 .yc-print-action {
   border: 1px solid #d3c5dc; border-radius: 8px;
   background: #fff; color: var(--yc-magenta); cursor: pointer;
   font: inherit; padding: .35rem .65rem;
 }
 .yc-print-action:hover { background: var(--yc-lavender); }
+.yc-print-action:focus-visible { outline-offset: 4px; }
 @media (max-width: 600px) {
+  #title-block-header.yc-editorial-header .quarto-title-meta {
+    grid-template-columns: 1fr;
+    gap: .5rem;
+  }
+  #title-block-header.yc-editorial-header .quarto-title-meta > div:first-child {
+    grid-column: 1;
+  }
   .yc-editorial-meta { display: grid; gap: .4rem; }
-  .yc-print-action { justify-self: start; min-height: 42px; }
+  .yc-print-action { min-height: 42px; }
 }
 @media print {
   @page { margin: 15mm; }

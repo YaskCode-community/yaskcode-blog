@@ -61,6 +61,13 @@ ui = (ROOT / 'assets/article-tools.js').read_text(encoding='utf-8')
 assert 'pagemoji.magicpages.co/v1/pagemoji.js' in ui, 'Falta carga de botón positivo'
 assert 'widget.setAttribute("emojis", "💜")' in ui, 'Debe mostrarse solo corazón positivo'
 assert 'top.insertAdjacentElement("beforebegin",like)' in ui, 'Me gusta debe estar antes de Compartir'
+# Cabecera compacta: imprimir con Me gusta; perfil y ORCID junto al nombre.
+client = (ROOT / 'assets/article-tools.js').read_text(encoding='utf-8')
+styles = (ROOT / 'assets/theme.css').read_text(encoding='utf-8') if (ROOT / 'assets/theme.css').exists() else ''
+assert 'section.append(widget,print)' in client, 'La impresión debe acompañar al botón Me gusta'
+assert 'authorLine.append(authorLinks)' in client, 'Los enlaces deben ir junto al nombre de autoría'
+assert 'Conoce a la autora:' not in client, 'No duplicar la autoría en otra línea'
+assert 'grid-column: 1 / -1' in (ROOT.parent / 'assets/theme.scss').read_text(encoding='utf-8'), 'Fechas deben compartir fila'
 # Plantilla editorial: recursos físicos, autoría, metadatos sociales y BlogPosting.
 source = (ROOT / 'assets/article-tools.js').read_text(encoding='utf-8')
 assert 'articleMeta(content)' in source, 'Falta tiempo de lectura y perfil de autora'
