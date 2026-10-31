@@ -117,7 +117,49 @@
     group.append(feedback);
     return group;
   };
+  // Contadores estáticos, sin llamadas a Workers ni exposición de credenciales.
+  // Solo mostramos datos verificados y recientes; nunca inventamos cifras.
+  const initViews = async () => {
+    try {
+      const source = new URL(root + "assets/views.json", location.origin);
+      const response = await fetch(source.href, {cache:"no-store"});
+      if (!response.ok) return;
+      const stats = await response.json();
+      const ageMs = Date.now() - Date.parse(stats.generated_at);
+      if (stats.schema_version !== 1 || stats.window_days !== 30 ||
+          !Number.isFinite(ageMs) || ageMs < -600000 || ageMs > 72*3600*1000 ||
+          !stats.paths || typeof stats.paths !== "object") return;
+
+      const badge = (views) => {
+        const label = views === 1 ? "vista registrada" : "vistas registradas";
+        const el = create("p","yc-view-count","◉ " + views.toLocaleString("es") +
+          " " + label + " · últimos 30 días");
+        el.title = "Datos aproximados de Cloudflare Web Analytics. Pueden excluir visitas con bloqueo de seguimiento.";
+        return el;
+      };
+      const article = location.pathname.match(/\/posts\/([^/]+)\/?(?:index\.html)?$/);
+      if (article) {
+        const path = root + "posts/" + article[1] + "/";
+        const number = stats.paths[path];
+        const header = document.querySelector("#title-block-header");
+        if (header && Number.isSafeInteger(number) && number >= 0) header.append(badge(number));
+      }
+      document.querySelectorAll("#article-grid .post-card").forEach(card => {
+        const link = card.querySelector("h2 a");
+        const body = card.querySelector(".card-body");
+        if (!link || !body) return;
+        let path = new URL(link.href,location.href).pathname;
+        if (path.endsWith("/index.html")) path = path.slice(0,-10);
+        if (!path.endsWith("/")) path += "/";
+        const number = stats.paths[path];
+        if (Number.isSafeInteger(number) && number >= 0) body.append(badge(number));
+      });
+    } catch {
+      // Si no hay cifras confiables, el blog sigue funcionando sin mostrarlas.
+    }
+  };
   const init = () => {
+    void initViews();
     const match = location.pathname.match(/\/posts\/([^/]+)\/?(?:index\.html)?$/);
     if (!match) return;
     const slug=match[1];
