@@ -23,6 +23,11 @@ jobs:
           cd posts/runcoach-rag-consultas-contextuales-practica
           python3 -m codigo.demo
           python3 -m unittest discover -s pruebas -v
+      - name: Comprobar métricas RAG sobre datos sintéticos
+        run: |
+          cd posts/evaluar-recuperacion-rag-precision-recall-mrr
+          python3 codigo/metricas.py
+          python3 -m unittest discover -s pruebas -v
       - name: Verificar generación con borradores ocultos
         run: quarto render
       - name: Comprobar enlaces del sitio publicable
