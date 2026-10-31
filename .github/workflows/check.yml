@@ -18,6 +18,11 @@ jobs:
         run: |
           python3 -m py_compile scripts/update_views.py
           python3 -m unittest discover -s tests -p 'test_views.py' -v
+      - name: Probar laboratorio RunCoach AI sin servicios externos
+        run: |
+          cd posts/runcoach-rag-consultas-contextuales-practica
+          python3 -m codigo.demo
+          python3 -m unittest discover -s pruebas -v
       - name: Verificar generación con borradores ocultos
         run: quarto render
       - name: Comprobar enlaces del sitio publicable
