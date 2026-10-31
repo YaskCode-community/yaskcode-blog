@@ -16,11 +16,19 @@ image: "portada-poo-ia.webp"
 image-alt: "Portada educativa en blanco, magenta y lavanda, con POO e IA, un asistente robótico, una estudiante y tarjetas conceptuales de Producto, Inventario y Movimiento."
 image-description: "Ilustración original generada con asistencia de IA para Blog YaskCode; no representa un sistema real ni aval de un proveedor."
 toc: true
+date-modified: 2026-10-31
+format:
+  html:
+    include-in-header: ../../assets/seo-por-que-aprender-poo-en-la-era-de-la-ia.html
 ---
 
 **Aprende · Ingeniería de Software · Nivel Básico · Fundamentos**
 
 ![La Programación Orientada a Objetos y la IA colaboran para comprender, diseñar y validar software.](portada-poo-ia.webp){fig-alt="Portada educativa clara, con el texto POO más IA, ilustraciones de una estudiante, un asistente y entidades de inventario."}
+
+::: {.callout-note title="En 1 minuto"}
+Aunque un asistente de IA genere clases y funciones, **comprender el dominio, diseñar responsabilidades y validar el software** sigue siendo imprescindible. La POO ofrece conceptos para razonar sobre objetos y cambios; el código que funciona no es necesariamente un diseño mantenible, y la IA no sustituye el juicio de quien desarrolla.
+:::
 
 ::: {.callout-tip title="Lo que aprenderás"}
 Al finalizar la lectura podrás:
@@ -33,13 +41,21 @@ Al finalizar la lectura podrás:
 6. **Identificar** tareas de revisión, prueba y validación que siguen siendo necesarias al colaborar con agentes de programación.
 :::
 
+### Antes de comenzar
+
 **Conocimientos previos:** no necesitas dominar POO. Te ayudará conocer variables, condicionales, funciones y estructuras de datos sencillas.
 
 **Público destinatario:** estudiantes universitarios de Informática, Computación e Ingeniería de Software; docentes y personas que comienzan a programar.
 
-**Tiempo estimado de lectura:** 14 minutos (aproximadamente 2979 palabras, a 220 palabras por minuto).
 
 **Fecha editorial:** 14 de octubre de 2026. El artículo se publicó por primera vez en la web el **31 de octubre de 2026**; ambas fechas se conservan en sus metadatos.
+
+::: {.callout-tip title="Recursos para llevar"}
+<a href="../../recursos/por-que-aprender-poo-en-la-era-de-la-ia-ficha.md" download>Descargar ficha de lectura (.md)</a> · La opción «Imprimir o guardar como PDF» aparecerá junto al encabezado.
+
+La ficha sintetiza las ideas clave y propone preguntas para revisar la comprensión; **no sustituye un laboratorio**.
+:::
+
 
 ## 1. Una pregunta que muchos estudiantes se hacen
 
@@ -290,7 +306,7 @@ Allí analizaremos un problema de inventario, identificaremos clases y responsab
 
 Puedes utilizar ejemplos ficticios, públicos o autorizados. Evita incluir código privado, claves, documentos confidenciales o datos de otras personas.
 
-### Referencias y documentación
+### Referencias académicas y técnicas
 
 [1] GitHub. *About GitHub Copilot agents*. Documentación oficial. <https://docs.github.com/en/copilot/concepts/agent-capabilities/about-agents/about-github-copilot-agents>
 

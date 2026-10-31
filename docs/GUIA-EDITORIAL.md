@@ -45,6 +45,12 @@ Antes de redactar, responde:
 - ¿Qué parte podrá elegir, adaptar o cuestionar quien aprende?
 - ¿Qué siguiente paso o aportación se invitará a realizar?
 
+## Presentación editorial aprobada · 31 de octubre de 2026
+
+Los cuatro artículos ahora integran «En 1 minuto», conocimientos previos, fichas descargables, lectura estimada, perfil académico y metadatos SEO. Los tres artículos técnicos conservan bibliografía; el relato del Campus documenta sus propios recursos.
+
+La [plantilla editorial 2026](PLANTILLA-EDITORIAL-2026.md) registra también las mejoras que requieren material nuevo y evidencia: resultados de aprendizaje verificables, diagramas complementarios, laboratorios reproducibles y retos por niveles.
+
 ## Estructura orientativa de un artículo
 
 1. **Situación y objetivo:** problema, público y resultado de aprendizaje.

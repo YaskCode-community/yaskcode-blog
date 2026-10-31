@@ -4,6 +4,7 @@ subtitle: "La historia de una idea nacida de la experiencia universitaria y del 
 author: "Yaskelly Yedra"
 date: 2026-10-07
 first-published-at: 2026-10-31
+date-modified: 2026-10-31
 description: "La historia personal detrás de Campus YaskCode: de la experiencia universitaria durante y después de la pandemia a un campus digital que conecta docencia, investigación, proyectos y comunidad."
 categories: ["Comunidad YaskCode"]
 editorial-section: "Comunidad YaskCode"
@@ -16,11 +17,26 @@ image: "campus-yaskcode-portada.webp"
 image-alt: "Panorámica ilustrada de Campus YaskCode: edificios y caminos conectan áreas de docencia, investigación, proyectos, biblioteca y comunidad."
 image-description: "Composición auténtica del Campus YaskCode aportada por su autora y adaptada de forma proporcional para el blog; no es una universidad ficticia."
 toc: true
+format:
+  html:
+    include-in-header: ../../assets/seo-historia-campus-yaskcode.html
 ---
 
 *Comunidad YaskCode · Historia de origen · Experiencia educativa*
 
 ![Vista panorámica del Campus YaskCode, con edificios académicos, espacios de investigación y comunidad conectados por caminos.](campus-yaskcode-panorama.webp){fig-alt="Vista panorámica ilustrada de Campus YaskCode con espacios digitales dedicados a docencia, investigación, proyectos y comunidad. Los edificios se conectan mediante una red de caminos."}
+
+::: {.callout-note title="En 1 minuto"}
+Campus YaskCode nace de una mirada a la vida universitaria como encuentro entre **aprendizaje, investigación, proyectos y comunidad**. Su propuesta es convertir esas conexiones en recorridos digitales explorables. Es una historia personal de origen: algunas iniciativas ya pueden visitarse y otras continúan en desarrollo.
+:::
+
+**Antes de comenzar · Conocimientos previos:** no se requieren conocimientos técnicos. Es una historia de origen para estudiantes, docentes, investigadores y personas interesadas en educación abierta y comunidad.
+
+::: {.callout-tip title="Recursos para llevar"}
+<a href="../../recursos/historia-campus-yaskcode-ficha.md" download>Descargar ficha de lectura (.md)</a> · La opción «Imprimir o guardar como PDF» estará disponible junto al encabezado.
+
+La ficha reúne el origen, las ideas clave y preguntas para explorar el Campus.
+:::
 
 ## 1. Una universidad es mucho más que sus aulas
 
@@ -111,3 +127,11 @@ Porque la universidad es mucho más que sus edificios. Es también lo que constr
 ---
 
 *Nota de origen:* este relato se inspira en la respuesta que escribí el 12 de octubre de 2026 para explicar la motivación de mi sitio académico personal en el **Best Personal Academic Websites Contest 2026**. El Campus y sus áreas se describen de acuerdo con el proyecto disponible en su repositorio; algunas iniciativas permanecen en desarrollo.
+
+### Fuentes y recursos del proyecto
+
+- [Campus YaskCode · recorrido digital](https://yaskelly.github.io/) — sitio real descrito en este relato.
+- [YaskCode Community · conversaciones](https://github.com/orgs/YaskCode-community/discussions) — espacio para preguntas y propuestas.
+- [Perfil académico y trayectoria de la autora](https://www.yaskellyyedra.com/about/) — contexto de docencia e investigación.
+
+*Nota de fuentes:* al tratarse de un testimonio personal, estos enlaces documentan el proyecto y su contexto; no se presentan como estudios que demuestren impacto educativo.

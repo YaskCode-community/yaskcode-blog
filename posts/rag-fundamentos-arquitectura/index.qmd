@@ -15,9 +15,16 @@ image-alt: "Nueva portada del artículo RAG con fondo claro, título magenta, do
 image-description: "Portada renovada YaskCode de estilo magenta y lavanda, creada con asistencia de IA; la imagen anterior se conserva en el historial del repositorio."
 original-url: "https://yaskcode.beehiiv.com/p/rag-fundamentos-arquitectura"
 toc: true
+format:
+  html:
+    include-in-header: ../../assets/seo-rag-fundamentos-arquitectura.html
 ---
 
 **Aprende · Inteligencia Artificial · Nivel Básico · Fundamentos**
+
+::: {.callout-note title="En 1 minuto"}
+RAG combina **recuperación de información externa** y **generación de respuestas** para que un modelo pueda apoyarse en documentos pertinentes. Sus dos recorridos son preparar e indexar fuentes y, después, recuperar evidencia durante una consulta. La calidad depende de los documentos, las citas, la seguridad y la verificación: RAG **no garantiza por sí solo respuestas correctas**.
+:::
 
 ::: {.callout-tip title="Lo que aprenderás"}
 Al finalizar la lectura podrás:
@@ -29,11 +36,19 @@ Al finalizar la lectura podrás:
 5. **Reconocer** limitaciones de privacidad, seguridad y calidad, y **proponer** comprobaciones básicas de evidencia y fidelidad.
 :::
 
+### Antes de comenzar
+
 **Conocimientos previos:** no necesitas haber implementado RAG. Conviene conocer las nociones generales de IA generativa y modelos de lenguaje.
 
 **Público destinatario:** estudiantes, docentes, desarrolladores y personas interesadas en comenzar con RAG.
 
-**Tiempo estimado de lectura:** 10 minutos (aproximadamente 2035 palabras, a 220 palabras por minuto).
+
+::: {.callout-tip title="Recursos para llevar"}
+<a href="../../recursos/rag-fundamentos-arquitectura-ficha.md" download>Descargar ficha de lectura (.md)</a> · La opción «Imprimir o guardar como PDF» aparecerá junto al encabezado.
+
+La ficha sintetiza las ideas clave y propone preguntas para revisar la comprensión; **no sustituye un laboratorio**.
+:::
+
 
 ## 1. ¿Por qué un modelo de lenguaje necesita información externa?
 
@@ -65,7 +80,7 @@ Por eso, **similitud semántica no equivale a exactitud factual**. Encontrar un 
 
 *Ilustración conceptual. El recuperador localiza información pertinente y el modelo generador utiliza el contexto recuperado para elaborar una respuesta. El cerebro es una representación simbólica de la IA; esta imagen simplifica el proceso y no muestra todos los componentes de una arquitectura RAG.*
 
-## 4. Anatomía de un sistema RAG
+## 4. Aprende: fundamentos y arquitectura de un sistema RAG
 
 Una arquitectura introductoria puede organizarse en siete componentes:
 
@@ -215,7 +230,7 @@ El laboratorio incluirá **retos Construye de nivel Básico, Intermedio y Avanza
 
 Utiliza ejemplos públicos, sintéticos o autorizados; no compartas documentos confidenciales, datos personales, credenciales ni información restringida.
 
-### Referencias y documentación
+### Referencias académicas y técnicas
 
 \[1\] Lewis, P., et al. (2020). *Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks*. NeurIPS 33. <https://papers.nips.cc/paper_files/paper/2020/hash/6b493230205f780e1bc26945df7481e5-Abstract.html>
 

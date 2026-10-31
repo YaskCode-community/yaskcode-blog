@@ -9,10 +9,16 @@ project:
     - assets/*.png
     - assets/*.js
     - assets/*.json
+    - recursos/*.md
 website:
   title: "Blog YaskCode"
   description: "Artículos, tutoriales y recursos abiertos sobre Ingeniería de Software, Inteligencia Artificial, Ciencia de Datos y Cloud."
   site-url: https://yaskcode-community.github.io/yaskcode-blog/
+  open-graph: true
+  twitter-card: true
+  favicon: assets/yaskcode-logo.png
+  image: assets/yaskcode-banner.png
+  image-alt: "Blog YaskCode: Aprende, Practica, Construye y Comparte"
   repo-url: https://github.com/YaskCode-community/yaskcode-blog
   navbar:
     logo: assets/yaskcode-logo.png

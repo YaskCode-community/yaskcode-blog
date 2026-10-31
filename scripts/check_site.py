@@ -61,6 +61,25 @@ ui = (ROOT / 'assets/article-tools.js').read_text(encoding='utf-8')
 assert 'pagemoji.magicpages.co/v1/pagemoji.js' in ui, 'Falta carga de botón positivo'
 assert 'widget.setAttribute("emojis", "💜")' in ui, 'Debe mostrarse solo corazón positivo'
 assert 'top.insertAdjacentElement("beforebegin",like)' in ui, 'Me gusta debe estar antes de Compartir'
+# Plantilla editorial: recursos físicos, autoría, metadatos sociales y BlogPosting.
+source = (ROOT / 'assets/article-tools.js').read_text(encoding='utf-8')
+assert 'articleMeta(content)' in source, 'Falta tiempo de lectura y perfil de autora'
+assert 'window.print()' in source, 'Falta opción de impresión/PDF'
+for post in sorted((ROOT / 'posts').glob('*/index.html')):
+    slug = post.parent.name
+    page_html = post.read_text(encoding='utf-8')
+    assert 'application/ld+json' in page_html and 'BlogPosting' in page_html, f'Sin datos estructurados: {slug}'
+    assert 'og:title' in page_html, f'Sin Open Graph: {slug}'
+    assert 'twitter:card' in page_html, f'Sin Twitter Card: {slug}'
+    assert 'orcid.org/0009-0004-4290-120X' in page_html, f'Sin ORCID estructurado: {slug}'
+    assert 'En 1 minuto' in page_html, f'Sin resumen: {slug}'
+    assert 'Conocimientos previos' in page_html, f'Sin prerrequisitos: {slug}'
+    assert 'Recursos para llevar' in page_html, f'Sin sección descargable: {slug}'
+    assert (ROOT / 'recursos' / f'{slug}-ficha.md').exists(), f'Sin ficha descargable: {slug}'
+for slug in ('rag-fundamentos-arquitectura','hugging-face-modelos-datasets-ciencia-de-datos',
+             'por-que-aprender-poo-en-la-era-de-la-ia'):
+    html = (ROOT / 'posts' / slug / 'index.html').read_text(encoding='utf-8')
+    assert 'Referencias académicas y técnicas' in html, f'Faltan referencias: {slug}'
 # Giscus debe mostrarse únicamente en las cuatro publicaciones, no en portada ni Acerca de.
 article_pages = sorted((ROOT / 'posts').glob('*/index.html'))
 assert len(article_pages) == 4, f'Se esperaban 4 artículos, hay {len(article_pages)}'
