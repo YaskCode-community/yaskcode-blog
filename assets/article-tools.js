@@ -60,10 +60,10 @@
     actions.append(
       link("LinkedIn","https://www.linkedin.com/sharing/share-offsite/?url="+encodeURIComponent(articleUrl))
     );
-    const dev = link("DEV · debatir","https://dev.to/new");
+    const dev = link("DEV","https://dev.to/");
     dev.classList.add("yc-share-editorial");
-    dev.title = "Abre DEV para escribir una reflexión propia sobre esta lectura, citando la fuente. No publica automáticamente.";
-    dev.setAttribute("aria-label","Abrir editor de DEV Community para debatir esta lectura con una reflexión original; requiere cuenta");
+    dev.title = "Explorar DEV Community. Perfil oficial de YaskCode todavía pendiente de vincular.";
+    dev.setAttribute("aria-label","DEV Community: explorar la comunidad de desarrolladores");
     actions.append(dev,
       link("WhatsApp","https://wa.me/?text="+encodeURIComponent(title+" "+articleUrl))
     );
@@ -112,7 +112,7 @@
     group.append(actions,moreList);
     if (!compact) {
       group.append(create("p","yc-share-note",
-        "En DEV, añade una reflexión propia y cita el enlace de este artículo. La republicación oficial de YaskCode se gestiona mediante RSS."));
+        "DEV abre la comunidad de desarrolladores, no comparte automáticamente este artículo. La futura republicación oficial se gestionará desde YaskCode."));
     }
     group.append(feedback);
     return group;
