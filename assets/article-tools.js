@@ -9,7 +9,8 @@
     {slug:"ruta-aprendizaje-yaskcode-rag-sistemas-multiagentes",level:"Básico",title:"Ruta de aprendizaje YaskCode: de RAG a sistemas multiagentes y su evaluación",section:"Inteligencia Artificial"},
     {slug:"leer-criticamente-caso-ia-evidencia-arquitectura-limites",level:"Básico",title:"Cómo leer críticamente un caso de IA: evidencia, arquitectura y límites",section:"Ingeniería de Software"},
     {slug:"runcoach-ai-conocimiento-rag-caso",title:"RunCoach AI: del conocimiento documentado a un RAG trazable",section:"Comunidad YaskCode"},
-    {slug:"runcoach-rag-consultas-contextuales-practica",level:"Básico",title:"Práctica: construir consultas contextuales para RAG",section:"Práctica"}
+    {slug:"runcoach-rag-consultas-contextuales-practica",level:"Básico",title:"Práctica: construir consultas contextuales para RAG",section:"Práctica"},
+    {slug:"evaluar-recuperacion-rag-precision-recall-mrr",level:"Básico",title:"Cómo evaluar la recuperación RAG: Precision@K, Recall@K y MRR",section:"Inteligencia Artificial"}
   ];
   const links = {
     "historia-campus-yaskcode":["por-que-aprender-poo-en-la-era-de-la-ia","rag-fundamentos-arquitectura"],
@@ -19,7 +20,8 @@
     "ruta-aprendizaje-yaskcode-rag-sistemas-multiagentes":["rag-fundamentos-arquitectura","por-que-aprender-poo-en-la-era-de-la-ia"],
     "leer-criticamente-caso-ia-evidencia-arquitectura-limites":["ruta-aprendizaje-yaskcode-rag-sistemas-multiagentes","rag-fundamentos-arquitectura"],
     "runcoach-ai-conocimiento-rag-caso":["leer-criticamente-caso-ia-evidencia-arquitectura-limites","rag-fundamentos-arquitectura"],
-    "runcoach-rag-consultas-contextuales-practica":["runcoach-ai-conocimiento-rag-caso","rag-fundamentos-arquitectura"]
+    "runcoach-rag-consultas-contextuales-practica":["runcoach-ai-conocimiento-rag-caso","rag-fundamentos-arquitectura"],
+    "evaluar-recuperacion-rag-precision-recall-mrr":["runcoach-rag-consultas-contextuales-practica","runcoach-ai-conocimiento-rag-caso"]
   };
   const urlFor = slug => new URL(root + "posts/" + slug + "/", location.origin).href;
   const create = (tag, className, content) => {
