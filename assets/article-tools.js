@@ -46,6 +46,7 @@
     actions.append(copy);
     const native = create("button","yc-share-action","Compartir");
     native.type="button";
+    native.title="Abre las aplicaciones de compartir disponibles en tu dispositivo";
     native.addEventListener("click",()=>{
       if (typeof navigator.share === "function") {
         navigator.share({title,text:title,url:articleUrl}).catch(()=>{});
@@ -59,9 +60,16 @@
       link("WhatsApp","https://wa.me/?text="+encodeURIComponent(title+" "+articleUrl)),
       link("LinkedIn","https://www.linkedin.com/sharing/share-offsite/?url="+encodeURIComponent(articleUrl))
     );
-    const more = create("details","yc-share-more");
-    const summary = create("summary","yc-share-action","Más redes");
+    const moreToggle = create("button","yc-share-action","Más redes ▾");
+    moreToggle.type = "button";
+    moreToggle.title = "Mostrar más opciones para compartir";
     const moreList = create("div","yc-share-more-list");
+    moreList.id = "yc-share-extra-" + (compact ? "top" : "bottom");
+    moreList.hidden = true;
+    moreList.setAttribute("role","group");
+    moreList.setAttribute("aria-label","Otras redes para compartir");
+    moreToggle.setAttribute("aria-controls",moreList.id);
+    moreToggle.setAttribute("aria-expanded","false");
     moreList.append(
       link("Bluesky","https://bsky.app/intent/compose?text="+encodeURIComponent(title+" "+articleUrl)),
       link("Telegram","https://t.me/share/url?url="+encodeURIComponent(articleUrl)+"&text="+encodeURIComponent(title)),
@@ -70,22 +78,17 @@
       link("Threads","https://www.threads.com/intent/post?text="+encodeURIComponent(title+" "+articleUrl)),
       link("Mastodon","https://share.joinmastodon.org/?text="+encodeURIComponent(title+" "+articleUrl)),
       link("Reddit","https://www.reddit.com/submit?url="+encodeURIComponent(articleUrl)+"&title="+encodeURIComponent(title)),
-      link("Correo","mailto:?subject="+encodeURIComponent(title)+"&body="+encodeURIComponent(title+"\n"+articleUrl))
+      link("Correo","mailto:?subject="+encodeURIComponent(title)+"&body="+encodeURIComponent(title+" "+articleUrl))
     );
-    const instagram = create("button","yc-share-action","Instagram · copiar enlace");
-    instagram.type="button";
-    instagram.addEventListener("click", async () => {
-      try {
-        await navigator.clipboard.writeText(articleUrl);
-        feedback.textContent="Enlace copiado. Puedes pegarlo en Instagram, por ejemplo en Stories mediante el sticker de enlace.";
-      } catch {
-        feedback.textContent="Para Instagram, copia la dirección de esta página desde tu navegador.";
-      }
+    moreToggle.addEventListener("click",() => {
+      const willOpen = moreList.hidden;
+      moreList.hidden = !willOpen;
+      moreToggle.setAttribute("aria-expanded",String(willOpen));
+      moreToggle.textContent = willOpen ? "Menos redes ▴" : "Más redes ▾";
+      moreToggle.title = willOpen ? "Ocultar opciones adicionales" : "Mostrar más opciones para compartir";
     });
-    moreList.append(instagram);
-    more.append(summary,moreList);
-    actions.append(more);
-    group.append(actions,feedback);
+    actions.append(moreToggle);
+    group.append(actions,moreList,feedback);
     return group;
   };
   const init = () => {
