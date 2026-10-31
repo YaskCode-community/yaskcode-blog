@@ -99,11 +99,23 @@ for slug in ('rag-fundamentos-arquitectura','hugging-face-modelos-datasets-cienc
              'por-que-aprender-poo-en-la-era-de-la-ia'):
     html = (ROOT / 'posts' / slug / 'index.html').read_text(encoding='utf-8')
     assert 'Referencias académicas y técnicas' in html, f'Faltan referencias: {slug}'
-# Evitar repetir como texto del cuerpo las tres etiquetas mostradas por Quarto.
-for slug in ('rag-fundamentos-arquitectura', 'hugging-face-modelos-datasets-ciencia-de-datos',
-             'por-que-aprender-poo-en-la-era-de-la-ia'):
-    qmd = (ROOT.parent / 'posts' / slug / 'index.qmd').read_text(encoding='utf-8')
-    assert '· Nivel Básico · Fundamentos**' not in qmd, f'Metadatos visuales duplicados en {slug}'
+# El esqueleto operativo está fuera de posts/ y siempre arranca como borrador.
+template = ROOT.parent / 'plantillas/articulo-aprende/index.qmd'
+assert template.exists(), 'Falta plantilla Quarto reutilizable de Aprende'
+scaffold = template.read_text(encoding='utf-8')
+for required in ('draft: true', 'subtitle:', 'description:', 'categories:', 'area:',
+                 'editorial-section:', 'level:', 'level-detail:', 'include-in-header:',
+                 'En 1 minuto', 'Lo que aprenderás', 'Conocimientos previos',
+                 'Recursos para llevar', 'Referencias académicas y técnicas'):
+    assert required in scaffold, f'Falta {required} en la plantilla Aprende'
+assert 'plantillas/' not in config, 'No incluir la plantilla en la configuración de render'
+# Evitar volver a insertar bajo la cabecera las etiquetas ya mostradas por Quarto.
+for source_path in (ROOT.parent / 'posts').glob('*/index.qmd'):
+    qmd = source_path.read_text(encoding='utf-8')
+    for line in qmd.splitlines():
+        heading = line.strip()
+        assert not (heading.startswith(('**Aprende ·', '**Practica ·')) and
+                    '· Nivel ' in heading), f'Etiquetas duplicadas en {source_path.name}'
 # Giscus debe mostrarse únicamente en las cuatro publicaciones, no en portada ni Acerca de.
 article_pages = sorted((ROOT / 'posts').glob('*/index.html'))
 assert len(article_pages) == 4, f'Se esperaban 4 artículos, hay {len(article_pages)}'

@@ -66,7 +66,7 @@ El [registro de convocatorias y referentes](docs/CONVOCATORIAS.md) distingue las
 
 ## Sobre este repositorio
 
-Aquí conservamos los artículos, imágenes e historial del blog. **La migración desde beehiiv está en revisión y el nuevo sitio todavía no se ha desplegado.** beehiiv mantiene la suscripción y la newsletter.
+Aquí conservamos los artículos, imágenes e historial del blog. **El Blog YaskCode ya se encuentra publicado en [GitHub Pages](https://yaskcode-community.github.io/yaskcode-blog/).** Seguimos revisando y ampliando el contenido migrado desde beehiiv; beehiiv mantiene la suscripción y el envío de la newsletter. La [guía editorial](docs/GUIA-EDITORIAL.md) y la [plantilla Quarto](plantillas/articulo-aprende/index.qmd) rigen las próximas entradas.
 
 Para colaborar con el código o trabajar localmente, consulta la [guía de desarrollo](docs/DESARROLLO.md). Las decisiones de la transición están en el [registro de migración](docs/MIGRACION.md).
 

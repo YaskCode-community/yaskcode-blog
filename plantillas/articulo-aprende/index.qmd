@@ -1,0 +1,90 @@
+---
+# Plantilla fuente: copiar a posts/<slug>/index.qmd y reemplazar TODOS los marcadores.
+# Permanece fuera de posts/ para que Quarto no la publique accidentalmente.
+title: "REEMPLAZAR: título específico del tema"
+subtitle: "REEMPLAZAR: qué comprenderá la persona lectora"
+author: "Yaskelly Yedra"
+date: "YYYY-MM-DD"
+# date-modified: "YYYY-MM-DD"  # Solo cuando exista una modificación editorial real.
+description: "REEMPLAZAR: descripción breve y única para buscadores y redes sociales"
+categories: ["Aprende", "Inteligencia Artificial"]
+area: "Inteligencia Artificial"
+editorial-section: "Aprende"
+level: "Básico"
+level-detail: "Fundamentos"
+image: "portada-pendiente.webp"
+image-alt: "REEMPLAZAR: descripción accesible de la portada"
+toc: true
+draft: true
+format:
+  html:
+    include-in-header: ../../assets/seo-REEMPLAZAR-SLUG.html
+---
+
+<!--
+ANTES DE PUBLICAR:
+1. Adaptar área, nivel, fecha, título, subtítulo y descripción al artículo real.
+2. Crear la portada y el archivo assets/seo-<slug>.html con BlogPosting y metadatos verificados.
+3. Crear recursos/<slug>-ficha.md y revisar enlaces, licencias y referencias.
+4. Registrar el artículo y su nivel en assets/article-tools.js; revisar portada,
+   archivos de métricas, referencias cruzadas y comprobaciones técnicas.
+5. No repetir aquí «Aprende · Área temática · Nivel Básico · Fundamentos».
+   Esas etiquetas ya se muestran arriba, generadas por la cabecera.
+6. Mantener draft: true hasta la aceptación editorial; nunca publicar marcadores REEMPLAZAR.
+-->
+
+::: {.callout-note title="En 1 minuto"}
+REEMPLAZAR: síntesis de 2–4 frases con el problema, la idea esencial y una limitación real. No repetir literalmente el subtítulo.
+:::
+
+::: {.callout-tip title="Lo que aprenderás"}
+Al finalizar esta lectura podrás:
+
+1. **Explicar** REEMPLAZAR: concepto central con precisión.
+2. **Identificar** REEMPLAZAR: componentes, decisiones o relaciones.
+3. **Distinguir** REEMPLAZAR: límites, alternativas o comprobaciones.
+:::
+
+### Antes de comenzar
+
+**Conocimientos previos:** REEMPLAZAR: prerrequisitos reales para el nivel elegido.
+
+**Público destinatario:** REEMPLAZAR: a quién se dirige el artículo.
+
+::: {.callout-tip title="Recursos para llevar"}
+[Descargar ficha de lectura](../../recursos/REEMPLAZAR-SLUG-ficha.md)
+
+REEMPLAZAR: indicar qué contiene la ficha y qué no sustituye. El archivo debe existir antes de publicar.
+:::
+
+## 1. El problema que queremos comprender
+
+REEMPLAZAR: situación concreta, motivación y alcance.
+
+## 2. Conceptos fundamentales
+
+REEMPLAZAR: definiciones claras con fuentes verificables.
+
+## 3. Cómo funciona: explicación y ejemplo
+
+REEMPLAZAR: desarrollo, ejemplo propio, imagen o diagrama con descripción accesible cuando sea necesario.
+
+## 4. Límites, riesgos y comprobaciones
+
+REEMPLAZAR: supuestos, casos en que no aplica y criterios de evaluación, sin inventar resultados.
+
+## 5. Conclusiones
+
+REEMPLAZAR: ideas clave, decisiones y siguiente paso posible.
+
+### Referencias académicas y técnicas
+
+REEMPLAZAR: solo referencias reales y comprobadas (título, autor y enlace oficial cuando exista).
+
+### Continúa aprendiendo
+
+REEMPLAZAR: enlazar una práctica *Practica* únicamente si ya está disponible; en caso contrario, proponer una pregunta de reflexión sin inventar una publicación.
+
+### Comparte
+
+REEMPLAZAR: invitación voluntaria a aportar preguntas, correcciones, evidencias o experiencias sin exponer datos privados.

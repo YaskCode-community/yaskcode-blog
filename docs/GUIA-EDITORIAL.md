@@ -1,6 +1,6 @@
 # Guía editorial del Blog YaskCode
 
-Versión inicial · 30 de octubre de 2026. Guía propia para orientar la publicación y revisión; se ajustará con la experiencia.
+Versión revisada · 31 de octubre de 2026. Guía propia para orientar la publicación y revisión; incorpora la cabecera y plantilla Quarto aprobadas mediante la revisión visual de artículos.
 
 ## Propósito y público
 
@@ -18,6 +18,8 @@ La unidad de planificación preferida es una **ruta temática**: una pregunta o 
 | Practica | ¿Qué puede probar y cómo sabrá si lo consiguió? | Actividad breve, requisitos, pasos y comprobación. | Entrada de ejemplo, salida esperada o criterio para valorar una respuesta abierta. |
 | Construye | ¿Qué problema puede resolver integrando ese conocimiento? | Reto, decisiones, implementación, pruebas y variantes. | Código o artefacto, instrucciones y resultados con su contexto. |
 | Comparte | ¿Qué aprendizaje puede servir a otros y cómo pueden aportar? | Relato crítico, resultados, errores, mejoras y reconocimiento de autores. | Enlaces verificables y una invitación concreta a discutir o contribuir. |
+
+**Para un mismo tema priorizamos dos publicaciones principales:** una entrada **Aprende** con fundamentos, ejemplos, referencias y límites; y una entrada **Practica** con laboratorio guiado, reproducible y resultados verificables. **Construye** se incorpora mediante retos progresivos dentro del laboratorio (Básico, Intermedio y Avanzado cuando tenga sentido), y **Comparte** es una invitación transversal a compartir evidencias y aprendizajes voluntariamente. No es obligatorio publicar cuatro entradas por cada tema.
 
 El recorrido es flexible: se puede entrar por un proyecto y volver a sus fundamentos. Una serie debe señalar los pasos ya disponibles y distinguir los previstos. No creamos enlaces a artículos inexistentes ni publicamos contenido de relleno para completar etapas.
 
@@ -47,9 +49,17 @@ Antes de redactar, responde:
 
 ## Presentación editorial aprobada · 31 de octubre de 2026
 
-Los cuatro artículos ahora integran «En 1 minuto», conocimientos previos, fichas descargables, lectura estimada, perfil académico y metadatos SEO. Los tres artículos técnicos conservan bibliografía; el relato del Campus documenta sus propios recursos.
+La revisión visual de la cabecera quedó aceptada: **APRENDE · ÁREA TEMÁTICA · BÁSICO** aparece como un conjunto uniforme de tres etiquetas; el nivel es un metadato pedagógico separado de las categorías. **AUTORÍA:** va en mayúsculas, con la tipografía de los rótulos de fechas, los enlaces Perfil académico y ORCID en la misma fila cuando haya espacio y un margen de separación respecto de las etiquetas.
 
-La [plantilla editorial 2026](PLANTILLA-EDITORIAL-2026.md) registra también las mejoras que requieren material nuevo y evidencia: resultados de aprendizaje verificables, diagramas complementarios, laboratorios reproducibles y retos por niveles.
+El **subtítulo** es la única introducción breve visible (la propiedad `description` se conserva para SEO). No se repite como texto manual la línea «Aprende · Área · Nivel Básico · Fundamentos»: fue retirada de RAG, Hugging Face y POO en el PR #24. El resumen **«En 1 minuto»** tiene función pedagógica y no debe repetir literalmente ese subtítulo.
+
+Los artículos existentes incluyen conocimientos previos, fichas descargables, tiempo estimado, referencias de autoría y SEO. El bloque superior «Comparte este artículo» se integra sin un contenedor visual; **💜 Me gusta** e **Imprimir o guardar como PDF** comparten fila cuando hay espacio. Conservar las fechas reales y presentar vistas y reacciones como métricas de participación, nunca como indicadores de aprendizaje.
+
+Para nuevas entradas se usa la [plantilla editorial y lista de verificación](PLANTILLA-EDITORIAL-2026.md) y se copia el [archivo Quarto reutilizable](../plantillas/articulo-aprende/index.qmd), fuera de la carpeta de publicaciones. Esos archivos evitan reintroducir la duplicación corregida. La plantilla contiene marcadores que deben sustituirse; no se publica automáticamente.
+
+**Niveles:** Básico, Intermedio y Avanzado se asignan por prerrequisitos, autonomía, alcance técnico y verificaciones; no por longitud. Los artículos de comunidad pueden no llevar nivel técnico.
+
+La plantilla también registra mejoras que requieren material nuevo y evidencia: resultados de aprendizaje verificables, diagramas complementarios, laboratorios reproducibles y retos por niveles.
 
 ## Estructura orientativa de un artículo
 
