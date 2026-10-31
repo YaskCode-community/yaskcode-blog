@@ -32,7 +32,7 @@ Identificamos autoría y fuentes, revisamos las afirmaciones y recursos, reconoc
 
 Cuando se use IA de forma sustancial, explicamos su función y la revisión humana realizada. Compartir materiales de otras personas requiere reconocer su autoría y respetar permisos y condiciones de uso.
 
-Puedes consultar la [guía editorial completa](https://github.com/YaskCode-community/yaskcode-blog/blob/feat/quarto-blog-base/docs/GUIA-EDITORIAL.md) y proponer mejoras. Es nuestra guía de trabajo inicial, que evolucionará con la experiencia.
+Consulta también la [plantilla editorial y las mejoras didácticas previstas](https://github.com/YaskCode-community/yaskcode-blog/blob/main/docs/PLANTILLA-EDITORIAL-2026.md). Puedes consultar la [guía editorial completa](https://github.com/YaskCode-community/yaskcode-blog/blob/main/docs/GUIA-EDITORIAL.md) y proponer mejoras. Es nuestra guía de trabajo inicial, que evolucionará con la experiencia.
 
 ## Explora y participa
 
