@@ -134,8 +134,9 @@ El objetivo razonable de esas seis horas es la **primera migración editorial de
 - [x] Etiqueta **«Casos de estudio»** aprobada dentro de la sección **Comunidad YaskCode**; no modifica los filtros generales ni afecta a artículos existentes.
 - [x] Plantilla `plantillas/articulo-caso-estudio/index.qmd` preparada como borrador, con autoría múltiple, fechas diferenciadas y créditos de adaptación.
 - [x] Preparación de la cabecera para **no agregar automáticamente el ORCID de Yaskelly a autores estudiantiles**; validar CI antes de integrar.
-- [ ] Obtener una **copia autorizada de la wiki del Equipo 5**. La conexión GitHub disponible permite revisar el repositorio privado, pero no expone las páginas Wiki mediante su interfaz de lectura; no sustituir la wiki con el README ni pasarla a público.
-- [ ] Revisar el contenido completo, diagramas, enlaces y evidencias; acordar con las personas autoras la atribución, permisos, nombres, fechas y restricciones.
+- [x] **Copia de lectura de la wiki del Equipo 5 recibida para evaluación privada:** la usuaria clonó la wiki con su acceso autorizado y facilitó dos archivos Markdown para revisión; la conexión GitHub por sí sola no permite consultar páginas Wiki. La wiki y el repositorio original permanecen privados y sin modificaciones. Esto **no equivale** a autorización de los autores para republicar.
+- [x] Primera lectura editorial de los dos Markdown recibidos; identificadas dudas de versiones, arquitectura, fechas y afirmaciones de validación. Los informes de revisión y el borrador de artículo se prepararon **fuera del repositorio público**.
+- [ ] Completar la contrastación con código, diagramas, enlaces y resultados; acordar con las personas autoras atribución, permisos, nombres, fechas y restricciones.
 - [ ] Elaborar una **adaptación real** en un borrador seguro; revisar y obtener aprobación previa al paso a GitHub público.
 - [ ] Generalizar pruebas y SEO por publicación, registrar el nuevo artículo sin inventar vistas y verificar Giscus al publicar.
 
