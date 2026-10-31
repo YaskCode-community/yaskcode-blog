@@ -1,0 +1,202 @@
+---
+title: "Ruta de aprendizaje YaskCode: de RAG a sistemas multiagentes y su evaluación"
+subtitle: "Un recorrido guiado por fundamentos, seis proyectos académicos y laboratorios reproducibles para aprender a construir y verificar sistemas de IA."
+author: "Yaskelly Yedra"
+# Fecha editorial prevista; cambiar si la publicación real difiere.
+date: 2027-04-29
+description: "Explora la ruta YaskCode de abril a septiembre de 2027: RAG, agentes, contratos, trazabilidad, pruebas y evaluación crítica mediante seis casos académicos y sus laboratorios."
+categories: ["Aprende", "Inteligencia Artificial"]
+area: "Inteligencia Artificial"
+editorial-section: "Aprende"
+level: "Básico"
+level-detail: "Ruta de aprendizaje"
+toc: true
+draft: true
+format:
+  html:
+    include-in-header: ../../assets/seo-ruta-aprendizaje-yaskcode-rag-sistemas-multiagentes.html
+---
+
+<!-- BORRADOR EDITORIAL · APERTURA PREVISTA: 2027-04-29.
+  No asignar date/date-modified ni publicar hasta la fecha real y la revisión final.
+  Portada, image-alt, SEO BlogPosting y registro en assets/article-tools.js: pendientes.
+  Enlaces internos a los 12 artículos inéditos: añadir SOLO cuando estén publicados.
+-->
+
+::: {.callout-note title="En 1 minuto"}
+Un sistema de IA puede producir una respuesta convincente sin aportar evidencia suficiente. En esta ruta aprenderemos a **recuperar información, coordinar agentes y comprobar lo que realmente hacen**, utilizando seis proyectos de la Maestría TIC de la Universidad del Zulia y laboratorios independientes. Cada resultado se estudiará junto con sus pruebas, límites y decisiones de diseño: un ejemplo que funciona no demuestra que el sistema sea infalible.
+:::
+
+::: {.callout-tip title="Lo que aprenderás"}
+Al recorrer esta serie podrás:
+
+1. **Diferenciar** recuperación de información, generación de respuestas, uso de herramientas y colaboración entre agentes.
+2. **Reconocer** componentes y responsabilidades en una arquitectura RAG y en un sistema multiagente.
+3. **Interpretar** contratos de mensajes, identificadores de traza y mecanismos básicos de control de errores.
+4. **Leer críticamente** los resultados de una evaluación y distinguir pruebas locales, simulaciones y validación externa.
+5. **Realizar** laboratorios reproducibles y formular mejoras que puedan comprobarse mediante pruebas.
+:::
+
+### Antes de comenzar
+
+**Público destinatario:** estudiantes universitarios, docentes, desarrolladores y personas interesadas en inteligencia artificial e Ingeniería de Software.
+
+**Conocimientos previos:** basta con conocer, a nivel general, qué es una aplicación informática y qué hace un modelo de lenguaje. Para leer los casos no necesitas instalar herramientas; las prácticas señalarán sus requisitos por separado.
+
+**Nivel de esta guía:** Básico. Algunos casos y retos posteriores alcanzarán niveles Intermedio y Avanzado, según su autonomía técnica y las verificaciones que exijan.
+
+**Dedicación sugerida:** 10–15 minutos para conocer la ruta. Puedes seguirla semana a semana o volver a los artículos según tus intereses.
+
+::: {.callout-tip title="Recursos para llevar"}
+[Descargar ficha de la ruta YaskCode (.md)](../../recursos/ruta-aprendizaje-yaskcode-rag-sistemas-multiagentes-ficha.md)
+
+Incluye el mapa de las seis estaciones, una lista de comprobación y preguntas de reflexión. No sustituye las guías de laboratorio.
+:::
+
+## 1. Del resultado convincente al resultado comprobable
+
+Imagina que un asistente universitario responde: «La convocatoria de proyectos cierra el viernes». La frase suena razonable; incluso podría coincidir con una convocatoria anterior. Pero todavía no sabemos **de qué documento salió la fecha, si corresponde al periodo actual ni quién la aprobó**.
+
+Una solución mejor no consiste solamente en pedirle al modelo que sea más preciso. Consiste en diseñar un recorrido en el que podamos responder preguntas verificables: ¿qué fuente se consultó?, ¿qué fragmento respalda la afirmación?, ¿qué componente tomó la decisión?, ¿qué ocurre cuando faltan datos? y ¿cómo detectamos una regresión después de modificar el sistema?
+
+Esta es la idea que conecta la serie: **la IA no se evalúa únicamente por la fluidez de sus respuestas, sino por el comportamiento de todo el sistema que las produce**.
+
+Partiremos de la generación aumentada por recuperación (*Retrieval-Augmented Generation*, **RAG**), avanzaremos hacia la coordinación de agentes especializados y terminaremos con pruebas, trazabilidad, seguridad y evaluación crítica. El trabajo original de Lewis y colaboradores es una referencia fundamental para comprender el enfoque RAG [1]; la Ingeniería de Software ofrece, además, métodos para analizar requisitos, arquitectura, pruebas y mantenimiento [2].
+
+## 2. Tres preguntas para orientarnos
+
+| Pregunta | Qué necesitamos comprender | Evidencia útil |
+|---|---|---|
+| **¿De dónde proviene la información?** | Documentos, fragmentos, recuperación y procedencia | Fuente identificada, fecha, fragmento pertinente |
+| **¿Quién realiza cada acción?** | Agentes, herramientas, responsabilidades y contratos | Solicitud, delegación, respuesta y traza correlacionada |
+| **¿Cómo sabemos que funciona?** | Criterios de aceptación, pruebas, errores y límites | Casos de prueba, resultados reproducibles, fallos documentados |
+
+La secuencia no implica que todo sistema necesite múltiples agentes. Para una consulta sencilla puede bastar una búsqueda bien diseñada; añadir agentes sin una responsabilidad clara puede aumentar la complejidad y dificultar la depuración.
+
+### Un mapa conceptual del recorrido
+
+```{mermaid}
+flowchart TD
+    A["Pregunta o problema"] --> B["Fuentes y requisitos"]
+    B --> C["Recuperación y evidencia · RAG"]
+    C --> D["Decisión: responder o abstenerse"]
+    D --> E["Agentes y herramientas, cuando aporten valor"]
+    E --> F["Contratos, trazas y control de ciclos"]
+    F --> G["Pruebas y evaluación de resultados"]
+    G --> H["Revisión humana y mejora"]
+    H -. "Nuevos criterios" .-> B
+```
+
+*Lectura del diagrama:* una pregunta conduce a identificar requisitos y fuentes. La evidencia recuperada permite decidir si hay fundamento para responder; solo cuando la tarea lo justifica intervienen agentes y herramientas. Los registros y las pruebas permiten revisar el comportamiento y mejorar el diseño.
+
+## 3. Nuestra metodología: Aprende · Practica · Construye · Comparte
+
+En YaskCode utilizamos estas cuatro acciones como **un recorrido de aprendizaje**, no como la obligación de publicar cuatro artículos por cada tema.
+
+| Etapa | Qué haremos | Qué debería quedar al terminar |
+|---|---|---|
+| **Aprende** | Comprender un problema, sus fundamentos, la arquitectura y sus límites | Una explicación propia y preguntas relevantes |
+| **Practica** | Seguir un laboratorio con datos de ejemplo y comprobaciones explícitas | Una ejecución reproducible y resultados observables |
+| **Construye** | Resolver retos progresivos a partir del laboratorio | Una modificación justificada y pruebas de su comportamiento |
+| **Comparte** | Comunicar decisiones, evidencias, errores y aprendizajes | Una reflexión o contribución que otras personas puedan revisar |
+
+Cada proyecto académico se presentará mediante **dos publicaciones consecutivas**. La primera será un *caso de estudio* que conserve la autoría del equipo y explique su contexto, decisiones y limitaciones. La segunda será un *laboratorio didáctico* con un problema neutral y datos sintéticos; no es una copia literal de la aplicación estudiantil.
+
+Podrás leer un caso sin ejecutar código. Si decides realizar la práctica, encontrarás pasos concretos, una salida esperada y pruebas para reconocer tanto los aciertos como los errores.
+
+## 4. Seis estaciones, seis problemas de Ingeniería de Software
+
+La serie se apoya en seis proyectos elaborados en la asignatura **Sistemas Inteligentes de la Maestría en Tecnologías de Información y Comunicación de la Universidad del Zulia (LUZ)**. Los casos se adaptan para su lectura pública conservando los créditos de las personas autoras en cada artículo.
+
+| Estación | Caso académico | Qué examinaremos | Caso / práctica previstos |
+|:--|:--|:--|:--|
+| **1** | **RunCoach AI · Equipo 1** | La calidad de una consulta contextual antes de recuperar evidencia | 13 y 20 de mayo |
+| **2** | **SeniorVital · Equipo 5** | La diferencia entre encontrar un documento y tener evidencia suficiente para responder | 3 y 10 de junio |
+| **3** | **Sistema nutricional inteligente · Equipo 2** | Protocolos de comunicación y contratos estructurados entre agentes | 24 de junio y 1 de julio |
+| **4** | **Wellness Lift · Equipo 6** | Correlación de delegaciones y respuestas mediante `trace_id` y `task_id` | 15 y 22 de julio |
+| **5** | **QuickBurn AI · Equipo 3** | Uso iterativo de herramientas, decisiones y prevención de bucles | 5 y 12 de agosto |
+| **6** | **VitalSync · Equipo 4** | Evaluación crítica, fallos detectados y pruebas de regresión | 26 de agosto y 2 de septiembre |
+
+*Fechas previstas de 2027. Cada artículo tendrá su enlace cuando esté efectivamente publicado; no se adelantan enlaces a contenido todavía inexistente.*
+
+### Mayo y junio: recuperar, fundamentar, abstenerse
+
+Comenzaremos con **RunCoach AI** y **SeniorVital**. Sus casos muestran por qué importa tanto preparar correctamente una consulta como comprobar que la información encontrada responde de verdad a la pregunta. Entre ambos aprenderemos a interpretar métricas de recuperación como *Precision@K*, *Recall@K* y *Mean Reciprocal Rank* (MRR), sin confundirlas con una medida universal de exactitud.
+
+### Junio y julio: de un componente a varios agentes
+
+Después estudiaremos la coordinación de tareas. El **Equipo 2** permitirá explorar los mensajes y contratos entre agentes; **Wellness Lift** añadirá un problema distinto: reconstruir qué ocurrió cuando una solicitud pasó por varios componentes. Publicaremos además fundamentos sobre responsabilidades, versionado de contratos y observabilidad.
+
+### Agosto y septiembre: controlar, evaluar y aprender de los fallos
+
+**QuickBurn AI** nos ayudará a estudiar las decisiones que dependen de observaciones anteriores y los límites necesarios para evitar ciclos. **VitalSync** nos llevará a examinar evaluación, fallos y regresiones. Cerraremos con pruebas independientes, controles de seguridad, supervisión humana y una síntesis de los seis proyectos.
+
+## 5. Un ejemplo que conecta todo el recorrido
+
+Consideremos un **ejemplo inventado**: una aplicación que informa a estudiantes sobre convocatorias de proyectos. Una persona pregunta: «¿Puedo presentar una propuesta después de la fecha de cierre?».
+
+**Primero, las fuentes.** La aplicación debería recuperar la convocatoria pertinente y comprobar su edición, fecha y condiciones. Recuperar el documento correcto no basta si el apartado no dice nada sobre prórrogas.
+
+**Después, la decisión.** Si el documento no establece una excepción, el sistema no debería inventarla. Una respuesta responsable podría indicar que no encuentra una disposición sobre entregas tardías y remitir a la instancia académica correspondiente.
+
+**Si intervienen agentes.** Un agente de consulta documental puede identificar el texto; otro componente puede verificar que la edición consultada sea la vigente. Un supervisor coordinaría la respuesta, siempre que esa división de responsabilidades aporte valor real.
+
+**Por último, la verificación.** Las pruebas deberían cubrir al menos cuatro situaciones: fecha expresamente indicada, documento de edición anterior, ausencia de una cláusula sobre prórroga y error de acceso a la fuente. Una traza podría mostrar el documento seleccionado, el componente responsable y el motivo de la abstención, sin registrar información personal innecesaria.
+
+Este ejemplo **no es el funcionamiento de ninguno de los seis proyectos**: nos sirve para conectar conceptos sin atribuir comportamientos que no hayan sido comprobados en sus repositorios.
+
+## 6. ¿Qué significa verificar un sistema de IA?
+
+Cuando un laboratorio muestre «10 de 10 pruebas superadas», ese dato significa que **esas diez condiciones se cumplieron en el entorno y con los datos evaluados**. No demuestra que el sistema sea seguro ante cualquier entrada ni que funcionará de igual manera en un despliegue real.
+
+En esta serie prestaremos atención a cinco criterios:
+
+1. **Reproducibilidad:** otras personas pueden ejecutar la misma comprobación con instrucciones y entradas conocidas.
+2. **Procedencia:** una afirmación basada en documentos permite inspeccionar sus fuentes y su vigencia.
+3. **Trazabilidad:** es posible reconstruir qué componentes intervinieron, con qué identificadores y resultados.
+4. **Pruebas negativas:** el sistema también debe comportarse de forma prevista cuando faltan documentos, hay datos inválidos o falla una herramienta.
+5. **Límites explícitos:** se distingue un prototipo, una simulación local, una evaluación interna y una validación independiente.
+
+La evaluación técnica también debe considerar riesgos para las personas y el contexto de uso. El marco AI RMF del NIST propone gestionar esos riesgos durante el diseño, desarrollo, uso y evaluación de sistemas de IA [3]. Aquí lo tomaremos como referencia de análisis, **no como una certificación de los proyectos estudiantiles**.
+
+## 7. Elige cómo recorrer la serie
+
+No necesitas completar cada laboratorio para aprovechar las publicaciones. Puedes elegir un nivel de participación y ampliarlo cuando tengas tiempo.
+
+- **Básico · Comprende:** lee el caso, identifica el problema, dibuja los componentes principales y explica por qué una conclusión necesita evidencia.
+- **Intermedio · Verifica:** ejecuta el laboratorio, interpreta sus pruebas, modifica una entrada sintética y compara el resultado con el esperado.
+- **Avanzado · Cuestiona y mejora:** incorpora un caso límite, propone una mejora arquitectónica, documenta la decisión y diseña una prueba que pueda refutar tu hipótesis.
+
+Estos niveles describen **conocimientos previos, autonomía y verificación requerida**, no la longitud del artículo ni el valor de una contribución.
+
+### Tu primer ejercicio: define una evidencia
+
+Antes de comenzar la siguiente lectura, elige una pregunta que pudiera responder un asistente documental de tu universidad o comunidad. Sin escribir código, completa esta pequeña ficha:
+
+| Elemento | Pregunta de trabajo |
+|---|---|
+| **Consulta** | ¿Qué quiere saber la persona? |
+| **Fuente** | ¿Dónde debería estar la información autorizada? |
+| **Comprobación** | ¿Qué dato permitiría saber si la respuesta está respaldada? |
+| **Caso límite** | ¿Qué responderíamos si la fuente no existe o está desactualizada? |
+
+**Criterio de éxito:** explica por qué la respuesta sería verificable y qué harías cuando la evidencia resulte insuficiente. No necesitamos una aplicación funcional para practicar este razonamiento.
+
+## 8. Calendario y continuidad
+
+El recorrido editorial está previsto para **23 jueves consecutivos, del 29 de abril al 30 de septiembre de 2027**. Alternaremos fundamentos, seis casos académicos, seis laboratorios y artículos de análisis; el cierre reunirá las principales lecciones sobre arquitectura, pruebas y evaluación de sistemas de IA.
+
+La lectura de partida ya está disponible: **[RAG: fundamentos y arquitectura para comenzar](https://yaskcode-community.github.io/yaskcode-blog/posts/rag-fundamentos-arquitectura/)**, publicado originalmente el **21 de octubre de 2026**. Su fecha histórica se conserva; la serie no lo presenta como una publicación nueva de 2027.
+
+**Siguiente lectura prevista · 6 de mayo de 2027:** *Cómo leer críticamente un caso de IA: evidencia, arquitectura y límites*. Cuando esté publicada, incorporaremos aquí su enlace.
+
+## Referencias académicas y técnicas
+
+1. Lewis, P., et al. (2020). [*Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks*](https://arxiv.org/abs/2005.11401). *Advances in Neural Information Processing Systems*.
+2. IEEE Computer Society. [*Guide to the Software Engineering Body of Knowledge (SWEBOK), versión 4.0a*](https://www.computer.org/education/bodies-of-knowledge/software-engineering/v4). Consultado como marco de Ingeniería de Software.
+3. National Institute of Standards and Technology (NIST). [*AI Risk Management Framework*](https://www.nist.gov/itl/ai-risk-management-framework). Marco de referencia voluntario para gestión de riesgos de IA.
+4. YaskCode (2026). [*RAG: fundamentos y arquitectura para comenzar*](https://yaskcode-community.github.io/yaskcode-blog/posts/rag-fundamentos-arquitectura/). Lectura inicial del recorrido.
+
+## Comparte y participa
+
+¿Cuál de las seis preguntas técnicas te interesa investigar primero? Puedes compartir **una decisión de diseño, un caso límite, una prueba fallida o una corrección fundamentada** en los espacios de discusión de YaskCode. No publiques datos personales, credenciales ni material académico reservado. Aprender de una prueba que falla también es una contribución valiosa.
