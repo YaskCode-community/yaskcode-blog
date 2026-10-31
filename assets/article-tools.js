@@ -172,7 +172,11 @@
     widget.setAttribute("label", "Me gusta");
     widget.setAttribute("variant", "outline");
     widget.setAttribute("page", "yaskcode-blog-" + slug);
-    section.append(widget);
+    const print = create("button","yc-print-action","Imprimir o guardar como PDF");
+    print.type = "button";
+    print.addEventListener("click", () => window.print());
+    print.setAttribute("aria-label", "Abrir el diálogo para imprimir o guardar este artículo como PDF");
+    section.append(widget,print);
     return section;
   };
   const loadPositiveLikes = () => {
@@ -198,25 +202,28 @@
     reading.setAttribute("aria-label", "Tiempo estimado de lectura: " + minutes + " minutos");
     info.append(reading);
 
-    const author = create("p","yc-author-profile");
-    author.append(document.createTextNode("Conoce a la autora: "));
-    const addProfileLink = (label, href) => {
-      const a = create("a","",label);
-      a.href = href;
-      a.rel = "noopener noreferrer";
-      a.target = "_blank";
-      author.append(a);
-    };
-    addProfileLink("Perfil académico", "https://www.yaskellyyedra.com/about/");
-    author.append(document.createTextNode(" · "));
-    addProfileLink("ORCID", "https://orcid.org/0009-0004-4290-120X");
-    info.append(author);
-
-    const print = create("button","yc-print-action","Imprimir o guardar como PDF");
-    print.type = "button";
-    print.addEventListener("click", () => window.print());
-    print.setAttribute("aria-label", "Abrir el diálogo para imprimir o guardar el artículo como PDF");
-    info.append(print);
+    // Mantener el nombre que Quarto genera, con ambos enlaces en la misma línea.
+    const meta = header.querySelector(".quarto-title-meta");
+    if (meta) {
+      header.classList.add("yc-editorial-header");
+      const authorLine = meta.querySelector(":scope > div:first-child .quarto-title-meta-contents p.author") ||
+        meta.querySelector(":scope > div:first-child .quarto-title-meta-contents p");
+      if (authorLine && !authorLine.querySelector(".yc-author-links")) {
+        const authorLinks = create("span","yc-author-links");
+        const addProfileLink = (label, href) => {
+          const a = create("a","",label);
+          a.href = href;
+          a.rel = "noopener noreferrer";
+          a.target = "_blank";
+          authorLinks.append(a);
+        };
+        authorLinks.append(document.createTextNode(" · "));
+        addProfileLink("Perfil académico", "https://www.yaskellyyedra.com/about/");
+        authorLinks.append(document.createTextNode(" · "));
+        addProfileLink("ORCID", "https://orcid.org/0009-0004-4290-120X");
+        authorLine.append(authorLinks);
+      }
+    }
     header.append(info);
   };
   const init = () => {
