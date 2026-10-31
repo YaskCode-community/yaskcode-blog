@@ -2,7 +2,7 @@
 
 **Serie:** YaskCode 2027 · Caso académico del Equipo 1.
 
-**Autores del proyecto:** José Francisco Urdaneta Sánchez y Julio César Matute. **Adaptación editorial:** YaskCode.
+**Autores del proyecto:** Julio César Matute y José Urdaneta. **Asesoría y aprobación académica:** Yaskelly Yedra. **Adaptación editorial:** YaskCode.
 
 ## Distingue las afirmaciones
 
