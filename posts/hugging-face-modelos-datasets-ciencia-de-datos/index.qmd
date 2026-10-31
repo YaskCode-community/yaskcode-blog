@@ -2,14 +2,14 @@
 title: "Hugging Face: modelos, datasets y herramientas para comenzar en Ciencia de Datos"
 subtitle: "Una guía para descubrir recursos de inteligencia artificial, comprender sus diferencias y elegirlos con criterio."
 author: "Yaskelly Yedra"
-# Borrador no publicado: asignar date: AAAA-MM-DD en la fecha efectiva de publicación.
+date: 2026-10-31
 description: "Descubre Hugging Face Hub, modelos preentrenados, datasets, Transformers y Spaces; aprende a leer sus tarjetas y a seleccionar recursos para Ciencia de Datos con responsabilidad."
 categories: ["Aprende", "Ciencia de Datos", "Básico"]
 area: "Ciencia de Datos"
 editorial-section: "Aprende"
 level: "Básico"
 publication-number: 3
-publication-status: "Aprobado · pendiente de publicación"
+publication-status: "Aprobado para publicación"
 image: "portada-hugging-face.png"
 image-alt: "Portada original de YaskCode: modelos, conjuntos de datos y aplicaciones conectados con resultados de análisis."
 image-description: "Ilustración original, creada con asistencia de IA y aprobada editorialmente; no es un recurso ni un aval oficial de Hugging Face."
@@ -18,7 +18,7 @@ toc: true
 
 **Aprende · Ciencia de Datos · Nivel Básico**
 
-**Estado:** aprobado editorialmente el 31 de octubre de 2026; publicación y fecha definitiva pendientes.
+**Aprobación editorial:** 31 de octubre de 2026.
 
 **Tiempo estimado de lectura:** 14 minutos (estimación con 2970 palabras a 220 palabras/minuto).
 
