@@ -1,0 +1,50 @@
+project:
+  type: website
+  output-dir: _site
+  render:
+    - index.qmd
+    - acerca.qmd
+    - posts/**/*.qmd
+  resources:
+    - assets/*.png
+    - assets/*.js
+website:
+  title: "Blog YaskCode"
+  description: "Artículos, tutoriales y recursos abiertos sobre Ingeniería de Software, Inteligencia Artificial, Ciencia de Datos y Cloud."
+  site-url: https://yaskcode-community.github.io/yaskcode-blog/
+  repo-url: https://github.com/YaskCode-community/yaskcode-blog
+  navbar:
+    logo: assets/yaskcode-logo.png
+    logo-alt: "YaskCode"
+    left:
+      - href: index.qmd
+        text: Blog
+      - href: acerca.qmd
+        text: Acerca de
+      - href: https://yaskelly.github.io/
+        text: Campus YaskCode
+    right:
+      - href: https://yaskcode.beehiiv.com/
+        text: Suscríbete
+  search:
+    location: navbar
+    type: overlay
+  page-footer:
+    left: "YaskCode · Aprende · Practica · Construye · Comparte"
+    right:
+      - text: GitHub
+        href: https://github.com/YaskCode-community/yaskcode-blog
+      - text: Comunidad
+        href: https://github.com/orgs/YaskCode-community/discussions
+format:
+  html:
+    lang: es
+    theme: [cosmo, assets/theme.scss]
+    toc-title: "En este artículo"
+    date-format: "D MMM YYYY"
+    link-external-newwindow: true
+    include-after-body: assets/footer.html
+    code-copy: true
+    smooth-scroll: true
+execute:
+  enabled: false

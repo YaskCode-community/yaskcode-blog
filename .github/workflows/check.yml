@@ -1,0 +1,23 @@
+name: Comprobar blog Quarto
+on:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: quarto-dev/quarto-actions/setup@v2
+        with:
+          version: '1.10.20'
+      - name: Generar sitio
+        run: quarto render
+      - name: Comprobar enlaces y recursos locales
+        run: python3 scripts/check_site.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: blog-preview
+          path: _site/
+          retention-days: 7
