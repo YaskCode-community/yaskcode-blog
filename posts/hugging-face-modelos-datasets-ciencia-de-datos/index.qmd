@@ -15,11 +15,19 @@ image: "portada-hugging-face.png"
 image-alt: "Portada original de YaskCode: modelos, conjuntos de datos y aplicaciones conectados con resultados de análisis."
 image-description: "Ilustración original, creada con asistencia de IA y aprobada editorialmente; no es un recurso ni un aval oficial de Hugging Face."
 toc: true
+date-modified: 2026-10-31
+format:
+  html:
+    include-in-header: ../../assets/seo-hugging-face-modelos-datasets-ciencia-de-datos.html
 ---
 
 **Aprende · Ciencia de Datos · Nivel Básico · Fundamentos**
 
 ![Portada editorial con modelos, datasets y Spaces vinculados a resultados de Ciencia de Datos.](portada-hugging-face.png){fig-alt="Ilustración en blanco, magenta y lavanda: tres tarjetas de modelos, datasets y aplicaciones conectadas con un panel de resultados."}
+
+::: {.callout-note title="En 1 minuto"}
+**Hugging Face Hub** permite explorar modelos, conjuntos de datos y aplicaciones demostrativas (*Spaces*). Transformers y otras bibliotecas facilitan su uso, pero encontrar un recurso no significa que sea adecuado: antes de utilizarlo revisa su tarjeta, procedencia, licencia, limitaciones y requisitos.
+:::
 
 ::: {.callout-tip title="Lo que aprenderás"}
 Al finalizar la lectura podrás:
@@ -31,11 +39,19 @@ Al finalizar la lectura podrás:
 5. **Identificar** criterios básicos para seleccionar modelos y datos de manera responsable.
 :::
 
+### Antes de comenzar
+
 **Conocimientos previos:** no necesitas experiencia con Hugging Face ni programación previa para comprender los conceptos. Es recomendable conocer nociones generales de inteligencia artificial, aprendizaje automático (*machine learning*) y Ciencia de Datos.
 
 **Público destinatario:** estudiantes universitarios, docentes, investigadores y personas que comienzan en Ciencia de Datos e Inteligencia Artificial.
 
-**Tiempo estimado de lectura:** 14 minutos (aproximadamente 2970 palabras, a 220 palabras por minuto).
+
+::: {.callout-tip title="Recursos para llevar"}
+[**Descargar ficha de lectura (.md)**](/yaskcode-blog/recursos/hugging-face-modelos-datasets-ciencia-de-datos-ficha.md) · La opción «Imprimir o guardar como PDF» aparecerá junto al encabezado.
+
+La ficha sintetiza las ideas clave y propone preguntas para revisar la comprensión; **no sustituye un laboratorio**.
+:::
+
 
 ## 1. ¿Por qué Hugging Face es importante para la Ciencia de Datos?
 
@@ -251,7 +267,7 @@ En ese laboratorio exploraremos un dataset público, cargaremos e inspeccionarem
 
 ¿Descubriste un modelo o dataset interesante? Comparte **su enlace, el problema para el que podría servir y una precaución que tomarías antes de utilizarlo** en las [Discussions de YaskCode Community](https://github.com/orgs/YaskCode-community/discussions). No hace falta presentar una implementación: una elección bien argumentada también aporta al aprendizaje colectivo.
 
-### Referencias y documentación
+### Referencias académicas y técnicas
 
 [1] Hugging Face. *Hugging Face Hub documentation*. <https://huggingface.co/docs/hub>
 
