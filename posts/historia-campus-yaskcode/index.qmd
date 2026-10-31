@@ -2,7 +2,8 @@
 title: "Campus YaskCode: cuando la universidad inspira un espacio digital para aprender, investigar y construir"
 subtitle: "La historia de una idea nacida de la experiencia universitaria y del deseo de mantener conectados el aprendizaje, la investigación y la comunidad."
 author: "Yaskelly Yedra"
-date: 2026-10-31
+date: 2026-10-07
+first-published-at: 2026-10-31
 description: "La historia personal detrás de Campus YaskCode: de la experiencia universitaria durante y después de la pandemia a un campus digital que conecta docencia, investigación, proyectos y comunidad."
 categories: ["Comunidad YaskCode"]
 editorial-section: "Comunidad YaskCode"
