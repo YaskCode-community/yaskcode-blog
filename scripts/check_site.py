@@ -68,6 +68,14 @@ assert 'section.append(widget,print)' in client, 'La impresión debe acompañar 
 assert 'authorLine.append(authorLinks)' in client, 'Los enlaces deben ir junto al nombre de autoría'
 assert 'Conoce a la autora:' not in client, 'No duplicar la autoría en otra línea'
 assert 'grid-column: 1 / -1' in (ROOT.parent / 'assets/theme.scss').read_text(encoding='utf-8'), 'Fechas deben compartir fila'
+# Coherencia de cabecera: metadatos, una introducción y nivel educativo.
+client = (ROOT / 'assets/article-tools.js').read_text(encoding='utf-8')
+css = (ROOT.parent / 'assets/theme.scss').read_text(encoding='utf-8')
+assert 'authorHeading.textContent = "Autoría:"' in client, 'Etiqueta de autoría no compactada'
+assert 'yc-level-badge' in client and 'yc-level-badge' in css, 'Falta etiqueta de nivel'
+assert '#title-block-header .quarto-title .description { display: none; }' in css, 'Descripción SEO repetida visualmente'
+assert client.count('level:"Básico"') == 3, 'Los tres artículos técnicos requieren nivel Básico'
+assert 'historia-campus-yaskcode",level' not in client, 'El relato del Campus no debe tener nivel técnico'
 # Plantilla editorial: recursos físicos, autoría, metadatos sociales y BlogPosting.
 source = (ROOT / 'assets/article-tools.js').read_text(encoding='utf-8')
 assert 'articleMeta(content)' in source, 'Falta tiempo de lectura y perfil de autora'
