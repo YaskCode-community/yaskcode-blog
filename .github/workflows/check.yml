@@ -12,6 +12,8 @@ jobs:
       - uses: quarto-dev/quarto-actions/setup@v2
         with:
           version: '1.10.20'
+      - name: Comprobar sintaxis de JavaScript
+        run: node --check assets/article-tools.js && node --check assets/filters.js
       - name: Verificar generación con borradores ocultos
         run: quarto render
       - name: Comprobar enlaces del sitio publicable
