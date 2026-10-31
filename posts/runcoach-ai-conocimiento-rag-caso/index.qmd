@@ -2,8 +2,8 @@
 title: "RunCoach AI: del conocimiento documentado a un RAG trazable"
 subtitle: "Un caso académico sobre cómo evolucionar una aplicación hacia una arquitectura que recupera fuentes y registra evidencias."
 author:
-  - "José Francisco Urdaneta Sánchez"
   - "Julio César Matute"
+  - "José Urdaneta"
 date: 2027-05-13
 # Fecha planificada: confirmar al publicar en la web.
 description: "Caso de estudio de RunCoach AI, Equipo 1 de la Maestría TIC-LUZ: revisión académica, decisiones de arquitectura RAG, consulta contextual y límites de validación."
@@ -112,9 +112,9 @@ El siguiente paso de esta ruta será una práctica con datos sintéticos sobre s
 
 ## Créditos y procedencia
 
-**Autores del proyecto académico:** José Francisco Urdaneta Sánchez y Julio César Matute.
+**Autores del proyecto académico:** Julio César Matute y José Urdaneta.
 
-**Asesoría académica:** Dra. Yaskelly Yedra · Universidad del Zulia.
+**Asesoría y aprobación académica:** Dra. Yaskelly Yedra · Universidad del Zulia.
 
 **Adaptación editorial:** YaskCode, separada de la autoría original.
 
