@@ -1,14 +1,16 @@
 # Plantilla editorial YaskCode · Artículos Aprende
 
-**Versión:** 2026-10-31 · **Estado:** estándar editorial aprobado para futuras publicaciones.
+**Versión:** 2026-10-31 · **Estado:** cabecera aprobada y normalizada tras los PR #22, #23 y #24; plantilla operativa en revisión mediante PR.
 
-Este modelo se adapta al tema. No exige crear cuatro publicaciones por tema: la ruta editorial utiliza generalmente un artículo **Aprende** (fundamentos) y un artículo **Practica** (laboratorio). **Construye** son retos progresivos del laboratorio y **Comparte** invita a publicar evidencias en la comunidad.
+Este modelo se adapta al tema. No exige crear cuatro publicaciones por tema: la ruta editorial utiliza generalmente **dos publicaciones principales**, **Aprende** (fundamentos) y **Practica** (laboratorio verificable). **Construye** se expresa en retos progresivos dentro del laboratorio y **Comparte** invita transversalmente a publicar evidencias, repositorios, aprendizajes y aportes de forma voluntaria.
+
+**Fuente operativa:** [plantilla Quarto reutilizable](../plantillas/articulo-aprende/index.qmd), mantenida fuera de `posts/` para que no entre al sitio como artículo publicado.
 
 ## Claridad en la ficha del artículo
 
 La cabecera debe presentar **«AUTORÍA: Yaskelly Yedra · Perfil académico · ORCID»** en una misma línea cuando haya espacio, sin separar el rótulo del nombre. El rótulo **AUTORÍA:** hereda el mismo estilo tipográfico en mayúsculas de **FECHA DE PUBLICACIÓN** y **FECHA DE ÚLTIMA MODIFICACIÓN**; se agrega una separación vertical moderada entre las etiquetas y la autoría. Los artículos técnicos muestran **BÁSICO / INTERMEDIO / AVANZADO** con exactamente el mismo estilo visual de las otras etiquetas de Quarto, sin añadir el nivel a las categorías temáticas, filtros ni RSS. Los relatos de comunidad no reciben nivel técnico.
 
-No volver a escribir en el cuerpo una línea como **«Aprende · Área temática · Nivel Básico · Fundamentos»**: el encabezado generado por Quarto ya presenta la etapa, el área y el nivel. El detalle del nivel (`level-detail`, por ejemplo «Fundamentos») puede permanecer como metadato pedagógico sin duplicarse en pantalla. Las narraciones de comunidad pueden conservar su descripción de género si aporta información adicional y no repite íntegramente una etiqueta.
+No volver a escribir en el cuerpo una línea como **«Aprende · Área temática · Nivel Básico · Fundamentos»**: las dos categorías provienen del frontmatter Quarto y la etiqueta de nivel se añade desde `assets/article-tools.js`. La cabecera ya presenta etapa, área y nivel. El detalle del nivel (`level-detail`, por ejemplo «Fundamentos») puede permanecer como metadato pedagógico sin duplicarse en pantalla. Las narraciones de comunidad pueden conservar su descripción de género si aporta información adicional y no repite íntegramente una etiqueta.
 
 El **subtítulo es la introducción visible** que presenta el propósito del artículo; la propiedad Quarto `description` se conserva como descripción SEO y de metadatos sociales, pero se oculta de la cabecera para evitar una segunda introducción repetida. Esto mantiene SEO y lectura sin redundancias, junto con el resumen detallado **«En 1 minuto»**, que tiene otra función didáctica.
 
@@ -40,62 +42,54 @@ Mostrar **AUTORÍA: Yaskelly Yedra · Perfil académico · ORCID** sin repetir e
 - Las fichas no incluirán datos privados, trabajos estudiantiles sin permiso ni recursos descargables con licencias no verificadas.
 - Las capturas o prototipos no deben describirse como un experimento o evaluación educativa, salvo evidencia publicada.
 
-## Esqueleto de una nueva publicación
+## Plantilla Quarto de una publicación Aprende
 
-```qmd
----
-title: "Un título que describa el problema"
-subtitle: "Una promesa de aprendizaje concreta"
-author: "Yaskelly Yedra"
-date: YYYY-MM-DD
-description: "Descripción original para buscadores"
-categories: ["Aprende", "Área temática"]
-area: "Área temática"
-editorial-section: "Aprende"
-level: "Básico"
-image: "portada-por-crear.webp"
-image-alt: "Descripción textual de la portada"
-toc: true
----
+La plantilla que debe copiarse al crear una entrada es **[`plantillas/articulo-aprende/index.qmd`](../plantillas/articulo-aprende/index.qmd)**. Este documento explica las reglas; el archivo `.qmd` es la fuente única del esqueleto, para no mantener dos ejemplos que puedan divergir.
 
-**Aprende · Área temática · Nivel Básico**
+| Campo o componente | Regla editorial |
+| --- | --- |
+| `title` | Título específico, sin repetir área y etapa en una segunda línea. |
+| `subtitle` | **Única entrada introductoria visible**: propósito o promesa de aprendizaje. |
+| `description` | Descripción breve para SEO y redes; no se vuelve a mostrar visualmente debajo del subtítulo. |
+| `categories` | Solo etapa y área temática; p. ej. `["Aprende", "Inteligencia Artificial"]`. |
+| `editorial-section` y `area` | Valores coherentes con categorías y filtros de portada. |
+| `level` | **Básico, Intermedio o Avanzado** según conocimientos, autonomía, alcance y verificación; **no agregarlo a `categories`**. |
+| `level-detail` | Información pedagógica opcional como `Fundamentos`, sin repetirla como subtítulo del cuerpo. |
+| `date` / `date-modified` | Fechas reales y justificables; `date-modified` solo para una revisión publicada. |
+| `image` / `image-alt` | Archivo real y texto alternativo útil; evitar recursos inexistentes. |
+| `draft` | Siempre `true` hasta aceptación y comprobación de publicación. |
+| `format.html.include-in-header` | Referencia a metadatos por artículo comprobados; el archivo SEO debe existir. |
 
-::: {.callout-note title="En 1 minuto"}
-Síntesis comprobada, idea central y límites.
-:::
+### Orden visual aprobado
 
-::: {.callout-tip title="Lo que aprenderás"}
-Objetivos conceptuales adecuados al artículo (sin adjudicar resultados medidos).
-:::
+1. Título y controles `💜 Me gusta` + `Imprimir o guardar como PDF`; bloque **Comparte este artículo** sin recuadro superior.
+2. Subtítulo único y tres etiquetas visualmente iguales: **APRENDE · ÁREA TEMÁTICA · BÁSICO** (nivel equivalente según proceda).
+3. **AUTORÍA: Yaskelly Yedra · Perfil académico · ORCID** en una fila cuando exista espacio, con la tipografía del rótulo de fechas y aire respecto de las etiquetas.
+4. Fecha de publicación, última modificación cuando corresponda, tiempo estimado de lectura y vistas agregadas verificadas.
+5. Inicio del contenido: **«En 1 minuto»** (salvo recursos gráficos propios necesarios antes de ese bloque), seguido de «Lo que aprenderás», «Antes de comenzar» y el desarrollo. No agregar una línea manual repitiendo las etiquetas.
+6. Ficha descargable, bibliografía real, continuidad y participación según el tema.
 
-### Antes de comenzar
+La cabecera y los controles se generan desde Quarto y `assets/article-tools.js`; **no se duplican a mano en el `.qmd`**. Registrar cada artículo nuevo en la configuración actual del JavaScript, junto con su nivel y enlaces relacionados. También deben existir la portada, la ficha `recursos/<slug>-ficha.md` y los metadatos estructurados correspondientes. Las vistas y pruebas automáticas actuales contienen rutas de artículos conocidas: actualizarlas expresamente al añadir nuevas entradas. No asumir que copiar el archivo publica o registra automáticamente el artículo.
 
-**Conocimientos previos:** requisitos reales.
+### Niveles de complejidad
 
-::: {.callout-tip title="Recursos para llevar"}
-[Descargar ficha de lectura](ruta-real.md)
-:::
+| Nivel | Conocimientos previos y autonomía | Alcance y validación esperada |
+| --- | --- | --- |
+| **Básico** | Puede comenzar con nociones introductorias y guía explícita | Comprende conceptos, interpreta un ejemplo y realiza comprobaciones sencillas. |
+| **Intermedio** | Integra conceptos y toma algunas decisiones técnicas | Compara alternativas, adapta un ejemplo y justifica pruebas. |
+| **Avanzado** | Maneja fundamentos y resuelve decisiones con más autonomía | Integra componentes, explicita compromisos técnicos y aporta evaluación más exigente. |
 
-## 1. Situación o problema
+El nivel **no depende del número de páginas**, ni debe convertirse en una promesa de dificultad sin revisar el contenido. Los relatos de comunidad no exigen un nivel técnico.
 
-## 2. Conceptos esenciales
+### Lista mínima antes de publicar
 
-## 3. Aprende: fundamentos y arquitectura
-
-Explicación, ejemplos, decisiones y límites, según el tema.
-
-## 4. Conclusiones
-
-### Referencias académicas y técnicas
-
-Fuentes reales con título y enlace oficial.
-
-### Continúa aprendiendo
-
-Enlace al laboratorio Practica **solo si ya está publicado**.
-```
-
-Los marcadores de ejemplo **no deben incorporarse a producción**. Para cada nuevo artículo hay que crear su ficha descargable real y su archivo de metadatos `BlogPosting`, o automatizar esa generación con pruebas.
+- [ ] Sustituir todos los marcadores `REEMPLAZAR` y fechas de ejemplo; conservar `draft: true` hasta el cierre editorial.
+- [ ] Confirmar que no se repitan título, subtítulo, categorías ni nivel en el cuerpo.
+- [ ] Revisar objetivos, conocimientos previos, fuentes, límites y coherencia con el nivel.
+- [ ] Verificar imágenes, ficha de lectura, SEO `BlogPosting`, atribución y licencias.
+- [ ] Registrar slug, nivel, relacionados, datos de portada y seguimiento técnico necesarios sin inventar métricas.
+- [ ] Ejecutar `quarto render`, `python3 scripts/check_site.py` y controles de GitHub Actions; revisar escritorio, móvil y teclado.
+- [ ] Obtener aceptación editorial antes de quitar `draft: true`, fusionar o publicar.
 
 ## Material didáctico reservado para una segunda intervención
 
