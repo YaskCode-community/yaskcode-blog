@@ -1,7 +1,7 @@
 # Plan de migración editorial · Seis wikis de Sistemas Inteligentes al Blog YaskCode
 
 **Registro inicial:** 31 de octubre de 2026  
-**Estado:** propuesta de trabajo **pendiente**; no se han clonado las wikis ni creado/publicado sus artículos.  
+**Estado:** plan **aprobado** e inicio de la preparación del piloto (plantilla y compatibilidad de autoría); ninguna wiki se ha clonado ni se han creado/publicado artículos estudiantiles.  
 **Origen:** seis equipos de proyectos académicos de **Sistemas Inteligentes**, Maestría en Tecnologías de Información y Comunicación, Universidad del Zulia. Repositorios de `YaskCode-laboratory`.  
 **Destino:** [Blog YaskCode (Quarto)](https://yaskcode-community.github.io/yaskcode-blog/), en `YaskCode-community/yaskcode-blog`.  
 **Referencia editorial:** [guía editorial](GUIA-EDITORIAL.md) · [estándar Quarto](PLANTILLA-EDITORIAL-2026.md) · [revisión de cuatro artículos publicados](REVISION-EDITORIAL-ARTICULOS-2026-10-31.md).
