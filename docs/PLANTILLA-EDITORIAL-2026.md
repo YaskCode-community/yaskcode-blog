@@ -4,6 +4,12 @@
 
 Este modelo se adapta al tema. No exige crear cuatro publicaciones por tema: la ruta editorial utiliza generalmente un artículo **Aprende** (fundamentos) y un artículo **Practica** (laboratorio). **Construye** son retos progresivos del laboratorio y **Comparte** invita a publicar evidencias en la comunidad.
 
+## Cabecera compacta y participación
+
+En pantallas amplias, colocar **💜 Me gusta** al lado de **«Imprimir o guardar como PDF»**, antes del bloque «Comparte este artículo». Pagemoji gestiona el **contador de corazones del artículo** de forma independiente a Giscus y a las visitas de Cloudflare: es un conteo aproximado, no usuarios únicos. No agregar reacciones negativas al artículo principal.
+
+Mostrar **Autor/a: Yaskelly Yedra · Perfil académico · ORCID** sin repetir el nombre en otra línea, y reunir en una misma fila las fechas **Publicación** y **Última modificación**. En pantallas estrechas las fechas pueden apilarse para preservar legibilidad. Mantener los valores y la fecha editorial originales, sin ocultar cuándo se modificó el contenido.
+
 ## Componentes que ya deben estar en cada publicación
 
 1. **Ficha de publicación:** título descriptivo, subtítulo, autor, fecha editorial, fecha de actualización si procede, área, etapa, nivel (solo artículos técnicos), portada y descripción para buscadores.
