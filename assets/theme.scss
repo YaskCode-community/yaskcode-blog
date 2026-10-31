@@ -103,3 +103,22 @@ main p, main li { overflow-wrap: anywhere; }
 .yc-view-count { color: #555; font-size: .78rem; line-height: 1.4; margin: .45rem 0 .25rem !important; font-variant-numeric: tabular-nums; }
 #title-block-header .yc-view-count { margin: .5rem 0 0 !important; }
 .card-body .yc-view-count { margin-top: .65rem !important; }
+
+/* Reacción positiva del artículo: una opción 💜, separada de los comentarios. */
+.yc-like-tools {
+  margin: .65rem 0 .9rem;
+  padding: .35rem 0;
+  max-width: 100%;
+}
+.yc-like-tools pagemoji-reactions {
+  display: block;
+  --pagemoji-accent: var(--yc-magenta);
+  --pagemoji-fg: var(--yc-magenta);
+  --pagemoji-justify: flex-start;
+  --pagemoji-font-size: .92rem;
+  --pagemoji-radius: 9px;
+  --pagemoji-padding: .44rem .85rem;
+  --pagemoji-border: #e4d2e8;
+  --pagemoji-bg: #fff;
+  --pagemoji-bg-hover: #f3e6fa;
+}

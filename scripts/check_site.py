@@ -54,6 +54,13 @@ assert all(isinstance(value, dict) and
            isinstance(value.get('last_30_days'), int) and
            0 <= value['last_30_days'] <= value['total']
            for value in paths.values()), 'Histórico o métricas de 30 días inválidos'
+# El artículo principal solo permite 💜 mediante Pagemoji; sin barra Giscus de reacciones.
+config = (ROOT.parent / '_quarto.yml').read_text(encoding='utf-8')
+assert 'reactions-enabled: false' in config, 'La barra de reacciones principal debe estar desactivada'
+ui = (ROOT / 'assets/article-tools.js').read_text(encoding='utf-8')
+assert 'pagemoji.magicpages.co/v1/pagemoji.js' in ui, 'Falta carga de botón positivo'
+assert 'widget.setAttribute("emojis", "💜")' in ui, 'Debe mostrarse solo corazón positivo'
+assert 'top.insertAdjacentElement("beforebegin",like)' in ui, 'Me gusta debe estar antes de Compartir'
 # Giscus debe mostrarse únicamente en las cuatro publicaciones, no en portada ni Acerca de.
 article_pages = sorted((ROOT / 'posts').glob('*/index.html'))
 assert len(article_pages) == 4, f'Se esperaban 4 artículos, hay {len(article_pages)}'
