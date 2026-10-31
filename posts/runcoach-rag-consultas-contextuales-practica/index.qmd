@@ -125,7 +125,7 @@ Cambia temporalmente la constante `VENTANA_DIAS` a 3 en `codigo/consultas.py`. E
 
 **Laboratorio y código pedagógico:** YaskCode · Adaptación editorial de Yaskelly Yedra.
 
-**Proyecto académico que inspiró el problema:** RunCoach AI, de **José Francisco Urdaneta Sánchez y Julio César Matute**, bajo asesoría académica de Yaskelly Yedra.
+**Proyecto académico que inspiró el problema:** RunCoach AI, de **Julio César Matute y José Urdaneta**, bajo asesoría y aprobación académica de Yaskelly Yedra.
 
 **Referencia de implementación:** [pruebas de síntesis de consulta del Equipo 1](https://github.com/YaskCode-laboratory/wellness-platform-team1/blob/main/tests/unit/test_rag_consulta.py).
 
