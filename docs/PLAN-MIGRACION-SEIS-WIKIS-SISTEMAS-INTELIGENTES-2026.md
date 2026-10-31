@@ -54,6 +54,8 @@ Antes de redactar **cada** artículo, contrastar la portada y el historial de la
 
 **Regla de licencias:** ni la visibilidad pública de GitHub ni la existencia de una licencia del código autorizan automáticamente la republicación de texto, diagramas, fotografías, datos o contribuciones de terceros. Acordar permisos y condiciones de reutilización antes de publicar. La coordinación docente no sustituye el consentimiento de las personas autoras.
 
+**Control interno de la migración:** cualquier ficha de autoría, fechas, revisión o permisos es un **registro privado de YaskCode**, no un formulario público ni un nuevo requisito administrativo impuesto al estudiantado. Puede registrarse la conformidad por una comunicación verificable ya existente; conservar únicamente lo mínimo necesario. Las fechas del expediente de control son internas y no deben convertirse en `datePublished` del artículo.
+
 ## 4. Piloto y conversión técnica (sin alterar el repositorio de origen)
 
 Comenzar por **Equipo 5**, únicamente si hay acceso y permiso de lectura. La captura del proyecto sirve para definir el piloto, pero **no sustituye** la revisión de la wiki completa. En particular, revisar con cuidado cualquier afirmación sobre salud, seguridad, desempeño, validación clínica o resultados cuantitativos: distinguir metas, resultados internos, prototipos y validaciones externas verificadas.
