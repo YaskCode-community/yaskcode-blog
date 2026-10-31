@@ -3,9 +3,9 @@
   const root = "/yaskcode-blog/";
   const articles = [
     {slug:"historia-campus-yaskcode",title:"Campus YaskCode: la historia de un espacio digital para aprender",section:"Comunidad YaskCode"},
-    {slug:"por-que-aprender-poo-en-la-era-de-la-ia",title:"Si la IA genera código, ¿por qué aprender POO?",section:"Ingeniería de Software"},
-    {slug:"rag-fundamentos-arquitectura",title:"RAG: fundamentos y arquitectura para comenzar",section:"Inteligencia Artificial"},
-    {slug:"hugging-face-modelos-datasets-ciencia-de-datos",title:"Hugging Face: modelos, datasets y herramientas para comenzar",section:"Ciencia de Datos"}
+    {slug:"por-que-aprender-poo-en-la-era-de-la-ia",level:"Básico",title:"Si la IA genera código, ¿por qué aprender POO?",section:"Ingeniería de Software"},
+    {slug:"rag-fundamentos-arquitectura",level:"Básico",title:"RAG: fundamentos y arquitectura para comenzar",section:"Inteligencia Artificial"},
+    {slug:"hugging-face-modelos-datasets-ciencia-de-datos",level:"Básico",title:"Hugging Face: modelos, datasets y herramientas para comenzar",section:"Ciencia de Datos"}
   ];
   const links = {
     "historia-campus-yaskcode":["por-que-aprender-poo-en-la-era-de-la-ia","rag-fundamentos-arquitectura"],
@@ -209,6 +209,8 @@
       const authorLine = meta.querySelector(":scope > div:first-child .quarto-title-meta-contents p.author") ||
         meta.querySelector(":scope > div:first-child .quarto-title-meta-contents p");
       if (authorLine && !authorLine.querySelector(".yc-author-links")) {
+        const authorHeading = meta.querySelector(":scope > div:first-child .quarto-title-meta-heading");
+        if (authorHeading) authorHeading.textContent = "Autoría:";
         const authorLinks = create("span","yc-author-links");
         const addProfileLink = (label, href) => {
           const a = create("a","",label);
@@ -235,6 +237,13 @@
     const content = document.querySelector("#quarto-document-content") || document.querySelector("main.content");
     if (!content) return;
     articleMeta(content);
+    // El nivel es metadato pedagógico, distinto de las categorías temáticas.
+    // Se presenta como una etiqueta, sin contaminar categorías, RSS ni filtros.
+    const level = articles.find(article => article.slug === slug)?.level;
+    const categories = document.querySelector("#title-block-header .quarto-categories");
+    if (level && categories && !categories.querySelector(".yc-level-badge")) {
+      categories.append(create("div", "quarto-category yc-level-badge", level));
+    }
     const canonical = urlFor(slug);
     const title=document.querySelector("h1.title")?.textContent?.trim() || document.title;
     const top=share(canonical,title,true);
