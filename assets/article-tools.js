@@ -183,6 +183,42 @@
     script.setAttribute("data-yc-pagemoji", "");
     document.head.append(script);
   };
+  // Ayudas editoriales reutilizables: lectura, autoría y versión para imprimir.
+  // Se limitan a artículos; la lectura no depende de servicios externos.
+  const articleMeta = (content) => {
+    const header = document.querySelector("#title-block-header");
+    if (!header) return;
+    const cleanText = content.textContent.replace(/\\s+/g, " ").trim();
+    const count = cleanText ? cleanText.split(" ").length : 0;
+    const minutes = Math.max(1, Math.ceil(count / 220));
+
+    const info = create("div","yc-editorial-meta");
+    const reading = create("p","yc-estimated-reading",
+      "⏱ Lectura estimada: " + minutes + " min · aproximadamente 220 palabras/min");
+    reading.setAttribute("aria-label", "Tiempo estimado de lectura: " + minutes + " minutos");
+    info.append(reading);
+
+    const author = create("p","yc-author-profile");
+    author.append(document.createTextNode("Conoce a la autora: "));
+    const addProfileLink = (label, href) => {
+      const a = create("a","",label);
+      a.href = href;
+      a.rel = "noopener noreferrer";
+      a.target = "_blank";
+      author.append(a);
+    };
+    addProfileLink("Perfil académico", "https://www.yaskellyyedra.com/about/");
+    author.append(document.createTextNode(" · "));
+    addProfileLink("ORCID", "https://orcid.org/0009-0004-4290-120X");
+    info.append(author);
+
+    const print = create("button","yc-print-action","Imprimir o guardar como PDF");
+    print.type = "button";
+    print.addEventListener("click", () => window.print());
+    print.setAttribute("aria-label", "Abrir el diálogo para imprimir o guardar el artículo como PDF");
+    info.append(print);
+    header.append(info);
+  };
   const init = () => {
     void initViews();
     const match = location.pathname.match(/\/posts\/([^/]+)\/?(?:index\.html)?$/);
@@ -191,6 +227,7 @@
     if (!articles.some(x=>x.slug===slug)) return;
     const content = document.querySelector("#quarto-document-content") || document.querySelector("main.content");
     if (!content) return;
+    articleMeta(content);
     const canonical = urlFor(slug);
     const title=document.querySelector("h1.title")?.textContent?.trim() || document.title;
     const top=share(canonical,title,true);
