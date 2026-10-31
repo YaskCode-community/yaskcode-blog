@@ -4,6 +4,12 @@
 
 Este modelo se adapta al tema. No exige crear cuatro publicaciones por tema: la ruta editorial utiliza generalmente un artículo **Aprende** (fundamentos) y un artículo **Practica** (laboratorio). **Construye** son retos progresivos del laboratorio y **Comparte** invita a publicar evidencias en la comunidad.
 
+## Claridad en la ficha del artículo
+
+La cabecera debe presentar **«Autoría: Yaskelly Yedra · Perfil académico · ORCID»** en una misma línea cuando haya espacio, sin separar el rótulo del nombre. Los artículos técnicos muestran **Básico / Intermedio / Avanzado** como etiqueta de nivel junto a las categorías, sin añadir ese nivel a las categorías temáticas, filtros ni RSS. Los relatos de comunidad no reciben nivel técnico.
+
+El **subtítulo es la introducción visible** que presenta el propósito del artículo; la propiedad Quarto `description` se conserva como descripción SEO y de metadatos sociales, pero se oculta de la cabecera para evitar una segunda introducción repetida. Esto mantiene SEO y lectura sin redundancias, junto con el resumen detallado **«En 1 minuto»**, que tiene otra función didáctica.
+
 ## Cabecera compacta y participación
 
 En pantallas amplias, colocar **💜 Me gusta** al lado de **«Imprimir o guardar como PDF»**, antes del bloque «Comparte este artículo». Pagemoji gestiona el **contador de corazones del artículo** de forma independiente a Giscus y a las visitas de Cloudflare: es un conteo aproximado, no usuarios únicos. No agregar reacciones negativas al artículo principal.
