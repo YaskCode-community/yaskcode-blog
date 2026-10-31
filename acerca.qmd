@@ -1,6 +1,7 @@
 ---
 title: "Acerca del Blog YaskCode"
 toc: false
+comments: false
 image: assets/yaskcode-banner.png
 ---
 
