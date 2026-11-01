@@ -69,6 +69,26 @@ assert 'authorLine.append(authorLinks)' in client, 'Los enlaces deben ir junto a
 assert 'authorLine.textContent.trim() === "Yaskelly Yedra"' in client, 'El perfil académico y ORCID solo corresponden a su autora'
 assert 'Conoce a la autora:' not in client, 'No duplicar la autoría en otra línea'
 assert 'grid-column: 1 / -1' in (ROOT.parent / 'assets/theme.scss').read_text(encoding='utf-8'), 'Fechas deben compartir fila'
+# Fechas editoriales visibles en portada y en artículos, sin modificar datePublished.
+cards_template = (ROOT.parent / 'assets/cards.ejs.md').read_text(encoding='utf-8')
+article_client = (ROOT.parent / 'assets/article-tools.js').read_text(encoding='utf-8')
+assert 'card-editorial-date' in cards_template and 'Fecha de la serie:' in cards_template, 'La portada debe destacar la fecha de la serie'
+assert 'yc-series-date' in article_client and 'Fecha de la serie:' in article_client, 'Falta fecha editorial en artículo'
+expected_series_dates = {
+    'ruta-aprendizaje-yaskcode-rag-sistemas-multiagentes':'2027-04-29',
+    'leer-criticamente-caso-ia-evidencia-arquitectura-limites':'2027-05-06',
+    'runcoach-ai-conocimiento-rag-caso':'2027-05-13',
+    'runcoach-rag-consultas-contextuales-practica':'2027-05-20',
+    'evaluar-recuperacion-rag-precision-recall-mrr':'2027-05-27',
+    'seniorvital-rag-agentes-evidencia-caso':'2027-06-03',
+    'seniorvital-evidencia-abstencion-rag-practica':'2027-06-10',
+    'de-rag-a-sistemas-multiagentes-responsabilidades-supervision':'2027-06-17',
+}
+for slug, planned in expected_series_dates.items():
+    qmd = (ROOT.parent / 'posts' / slug / 'index.qmd').read_text(encoding='utf-8')
+    assert f'original-editorial-slot: {planned}' in qmd, f'Fecha editorial distinta: {slug}'
+    assert 'date: 2026-10-31' in qmd, f'No alterar primera publicación real: {slug}'
+
 # Coherencia de cabecera: metadatos, una introducción y nivel educativo.
 client = (ROOT / 'assets/article-tools.js').read_text(encoding='utf-8')
 css = (ROOT.parent / 'assets/theme.scss').read_text(encoding='utf-8')
