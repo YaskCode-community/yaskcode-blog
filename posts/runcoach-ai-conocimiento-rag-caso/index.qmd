@@ -1,0 +1,139 @@
+---
+title: "RunCoach AI: del conocimiento documentado a un RAG trazable"
+subtitle: "Un caso académico sobre cómo evolucionar una aplicación hacia una arquitectura que recupera fuentes y registra evidencias."
+author:
+  - "Julio César Matute"
+  - "José Urdaneta"
+date: 2026-10-31
+# Posición original del calendario de la serie, antes de adelantar su publicación.
+original-editorial-slot: 2027-05-13
+# Publicación adelantada, autorizada para revisión directamente en el blog.
+description: "Caso de estudio de RunCoach AI, Equipo 1 de la Maestría TIC-LUZ: revisión académica, decisiones de arquitectura RAG, consulta contextual y límites de validación."
+categories: ["Comunidad YaskCode", "Casos de estudio"]
+editorial-section: "Comunidad YaskCode"
+area: "Inteligencia Artificial"
+article-type: "Caso de estudio académico"
+toc: true
+draft: false
+format:
+  html:
+    include-in-header: ../../assets/seo-runcoach-ai-conocimiento-rag-caso.html
+---
+
+::: {.callout-note title="En 1 minuto"}
+RunCoach AI es un caso de evolución arquitectónica: de una aplicación para registrar sesiones de running y generar recomendaciones, hacia componentes con **base de conocimiento, recuperación y trazabilidad de fuentes**. Su documentación reúne revisión bibliográfica, diseño e implementación incremental. La presencia de esos componentes **no demuestra por sí sola eficacia deportiva, seguridad clínica ni calidad general de las respuestas**.
+:::
+
+::: {.callout-tip title="Qué encontrarás"}
+1. El problema académico y las decisiones de ingeniería de conocimiento.
+2. La diferencia entre lo propuesto en la wiki y lo identificado en el repositorio.
+3. El papel de la consulta contextual, la recuperación y la validación de citas.
+4. Evidencias de pruebas y límites que deben acompañar cualquier resultado.
+:::
+
+### Antes de comenzar
+
+**Público destinatario:** estudiantes, docentes y desarrolladores interesados en IA, RAG e Ingeniería de Software.
+
+**Conocimientos previos:** nociones de requisitos, componentes de software, modelos de lenguaje y recuperación de información.
+
+::: {.callout-tip title="Recursos para llevar"}
+[Descargar ficha de lectura del caso](../../recursos/runcoach-ai-conocimiento-rag-caso-ficha.md)
+
+La ficha permite clasificar las afirmaciones del caso como **diseño, implementación o comportamiento verificado**. Complementa la lectura; no sustituye las pruebas del proyecto.
+:::
+
+## 1. El problema de ingeniería
+
+El proyecto académico RunCoach AI fue desarrollado en la Maestría en Tecnologías de Información y Comunicación de la Universidad del Zulia, en el marco de Ingeniería de Software y Bases de Datos y Sistemas Inteligentes. Su punto de partida es una aplicación de apoyo a corredores con registros de actividad, objetivos y recomendaciones.
+
+La pregunta de interés para nuestro blog va más allá de si un modelo redacta una respuesta plausible:
+
+> ¿Podemos explicar qué registros, qué fuentes y qué decisiones técnicas intervinieron para producirla?
+
+Una respuesta fluida puede ser insuficiente. Necesitamos poder reconstruir la consulta, el contexto recuperado, las decisiones de los agentes y las comprobaciones disponibles.
+
+## 2. De la revisión bibliográfica a las decisiones de diseño
+
+La wiki académica del equipo revisa seis líneas de trabajo relacionadas con sistemas de recomendación, ontologías, RAG y agentes. También organiza ocho casos de uso de la aplicación. Ese análisis es valioso como **fundamentación**, pero no todas las extensiones mencionadas deben considerarse implementadas.
+
+| Perspectiva | Pregunta técnica | Decisión que permite estudiar |
+|---|---|---|
+| Recomendación contextual | ¿Cuál es el papel del historial? | Incorporar registros pertinentes a la consulta |
+| Ontologías del dominio | ¿Qué conceptos y restricciones importa representar? | Separar conocimiento explícito de texto libre |
+| Recuperación aumentada | ¿De dónde procede una afirmación? | Recuperar fragmentos y conservar referencias |
+| Agentes especializados | ¿Quién debe realizar cada tarea? | Delimitar las responsabilidades y la delegación |
+| Evaluación | ¿Qué evidencia respalda el comportamiento? | Diseñar pruebas y documentar límites |
+
+El valor de la revisión está en conectar una necesidad con una decisión de arquitectura; no en atribuir al prototipo resultados experimentales de otros trabajos.
+
+## 3. Arquitectura: propuesta y componentes implementados
+
+La documentación del repositorio presenta una evolución por tres sprints. En el primero se trabajó una base de conocimiento de siete documentos, segmentación, embeddings, almacenamiento vectorial en ChromaDB y comprobaciones de citas. El segundo se concentró en memoria, herramientas y un agente conversacional. El tercero documenta un orquestador, delegación a especialistas y trazas de ejecución.
+
+```{mermaid}
+flowchart TD
+    A[Registros disponibles] --> B[Construcción de consulta]
+    C[Base de conocimiento] --> D[Recuperador]
+    B --> D
+    D --> E[Fragmentos con procedencia]
+    E --> F[Generador]
+    F --> G[Comprobación de citas]
+    G --> H[Respuesta con evidencias]
+```
+
+Este esquema sintetiza el flujo RAG descrito; **no es una certificación del comportamiento en producción** ni debe confundirse con un experimento independiente.
+
+| Nivel de evidencia | Qué podemos afirmar | Qué no debemos inferir |
+|---|---|---|
+| **Diseño documentado** | Existe una decisión o componente especificado | Que se haya desplegado o probado |
+| **Implementación identificada** | Hay código y rutas rastreables | Que todas las situaciones funcionen |
+| **Prueba documentada** | Se verificaron escenarios concretos | Que el sistema sea eficaz para todas las personas |
+
+## 4. Una lección central: formular bien la consulta
+
+En una parte del flujo, RunCoach AI compone la consulta RAG desde información del corredor y sus registros recientes. Si la síntesis omite una observación importante, el recuperador puede devolver documentos **relacionados con una pregunta incompleta**, aunque la búsqueda funcione según lo programado.
+
+El repositorio contiene pruebas para la síntesis de consulta: notas vacías, antigüedad, orden temporal y límites de texto. Es un aprendizaje aplicable a asistentes de documentación, buscadores empresariales y sistemas de apoyo universitario.
+
+Por ejemplo, ante una consulta sobre el mantenimiento de una ruta del campus, recuperar documentos sobre rutas en general no basta si se omite un aviso reciente de cierre. La mejora comienza **antes del modelo**, al decidir qué información incluir en la búsqueda.
+
+## 5. Verificación y límites
+
+La documentación describe una estrategia de anclaje a fuentes y comprobaciones programáticas de las citas. Eso mejora la auditabilidad, pero no acredita automáticamente que cada respuesta sea correcta ni que una recomendación funcione con usuarios reales.
+
+En esta adaptación distinguimos el trabajo teórico, los incrementos del software y las pruebas identificables. No afirmamos que se haya realizado una evaluación independiente de eficacia deportiva o de seguridad clínica. Tampoco exponemos datos reales de corredores.
+
+La [suite académica de pruebas de consulta](https://github.com/YaskCode-laboratory/wellness-platform-team1/blob/main/tests/unit/test_rag_consulta.py) y la [arquitectura RAG documentada](https://github.com/YaskCode-laboratory/wellness-platform-team1/blob/main/docs/architecture/rag-architecture.md) permiten profundizar en el razonamiento técnico.
+
+## 6. Lecciones transferibles
+
+Primero hay que **delimitar el problema y el conocimiento necesario**; luego identificar cómo se recuperará información pertinente; por último, definir qué resultados se comprobarán y qué limitaciones quedarán explícitas.
+
+El siguiente paso de esta ruta es la [práctica de consultas contextuales](../runcoach-rag-consultas-contextuales-practica/index.qmd), con datos sintéticos y pruebas de regresión. No requiere el proyecto original ni credenciales cloud.
+
+## Créditos y procedencia
+
+**Autores del proyecto académico:** Julio César Matute y José Urdaneta.
+
+**Asesoría y aprobación académica:** Dra. Yaskelly Yedra · Universidad del Zulia.
+
+**Adaptación editorial:** YaskCode, separada de la autoría original.
+
+**Procedencia:** wiki académica de RunCoach AI y documentación técnica del [repositorio del Equipo 1](https://github.com/YaskCode-laboratory/wellness-platform-team1). La documentación académica original conserva sus propias fechas; esta adaptación web se publicó el **31 de octubre de 2026**, adelantando la fecha del calendario editorial original.
+
+## Fuentes y recursos
+
+- [Repositorio del Equipo 1](https://github.com/YaskCode-laboratory/wellness-platform-team1).
+- [Arquitectura de RAG documentada](https://github.com/YaskCode-laboratory/wellness-platform-team1/blob/main/docs/architecture/rag-architecture.md).
+- [Pruebas de síntesis de consultas RAG](https://github.com/YaskCode-laboratory/wellness-platform-team1/blob/main/tests/unit/test_rag_consulta.py).
+- Lewis, P. y colaboradores (2020). [Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks](https://arxiv.org/abs/2005.11401).
+- Smyth, B. y colaboradores. [Recommendations for marathon runners](https://doi.org/10.1007/s11257-021-09299-3).
+
+## Continúa aprendiendo
+
+Para una base conceptual consulta [RAG: fundamentos y arquitectura para comenzar](../rag-fundamentos-arquitectura/index.qmd) y la [guía para leer críticamente casos de IA](../leer-criticamente-caso-ia-evidencia-arquitectura-limites/index.qmd).
+
+## Comparte con la comunidad
+
+¿Qué evidencias exigirías antes de confiar en una recomendación generada con RAG? Puedes proponer pruebas, preguntas o correcciones metodológicas sin divulgar información personal.

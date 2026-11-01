@@ -1,0 +1,39 @@
+{
+  "consultas": [
+    {
+      "id": "Q1",
+      "pregunta": "¿Cuándo es el cierre de la convocatoria de propuestas?",
+      "campo": "cierre",
+      "estado": "RESPALDADA",
+      "fuente": "DOC-02"
+    },
+    {
+      "id": "Q2",
+      "pregunta": "¿Cuáles son los anexos y requisitos de la propuesta?",
+      "campo": "requisitos",
+      "estado": "RESPALDADA",
+      "fuente": "DOC-03"
+    },
+    {
+      "id": "Q3",
+      "pregunta": "¿Cuándo es la notificación de resultados?",
+      "campo": "notificacion",
+      "estado": "RESPALDADA",
+      "fuente": "DOC-04"
+    },
+    {
+      "id": "Q4",
+      "pregunta": "¿Cuánto cuesta la postulación de propuestas universitarias?",
+      "campo": "costo",
+      "estado": "SIN_EVIDENCIA",
+      "fuente": null
+    },
+    {
+      "id": "Q5",
+      "pregunta": "¿Cuál es el tamaño de Júpiter?",
+      "campo": "diametro",
+      "estado": "SIN_COINCIDENCIAS",
+      "fuente": null
+    }
+  ]
+}

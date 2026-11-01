@@ -5,13 +5,29 @@
     {slug:"historia-campus-yaskcode",title:"Campus YaskCode: la historia de un espacio digital para aprender",section:"Comunidad YaskCode"},
     {slug:"por-que-aprender-poo-en-la-era-de-la-ia",level:"Básico",title:"Si la IA genera código, ¿por qué aprender POO?",section:"Ingeniería de Software"},
     {slug:"rag-fundamentos-arquitectura",level:"Básico",title:"RAG: fundamentos y arquitectura para comenzar",section:"Inteligencia Artificial"},
-    {slug:"hugging-face-modelos-datasets-ciencia-de-datos",level:"Básico",title:"Hugging Face: modelos, datasets y herramientas para comenzar",section:"Ciencia de Datos"}
+    {slug:"hugging-face-modelos-datasets-ciencia-de-datos",level:"Básico",title:"Hugging Face: modelos, datasets y herramientas para comenzar",section:"Ciencia de Datos"},
+    {slug:"ruta-aprendizaje-yaskcode-rag-sistemas-multiagentes",level:"Básico",title:"Ruta de aprendizaje YaskCode: de RAG a sistemas multiagentes y su evaluación",section:"Inteligencia Artificial"},
+    {slug:"leer-criticamente-caso-ia-evidencia-arquitectura-limites",level:"Básico",title:"Cómo leer críticamente un caso de IA: evidencia, arquitectura y límites",section:"Ingeniería de Software"},
+    {slug:"runcoach-ai-conocimiento-rag-caso",title:"RunCoach AI: del conocimiento documentado a un RAG trazable",section:"Comunidad YaskCode"},
+    {slug:"runcoach-rag-consultas-contextuales-practica",level:"Básico",title:"Práctica: construir consultas contextuales para RAG",section:"Práctica"},
+    {slug:"evaluar-recuperacion-rag-precision-recall-mrr",level:"Básico",title:"Cómo evaluar la recuperación RAG: Precision@K, Recall@K y MRR",section:"Inteligencia Artificial"},
+    {slug:"seniorvital-rag-agentes-evidencia-caso",title:"SeniorVital: RAG, agentes y evidencia en un proyecto académico",section:"Comunidad YaskCode"},
+    {slug:"seniorvital-evidencia-abstencion-rag-practica",level:"Básico",title:"Práctica: verificar evidencia y abstenerse antes de responder con RAG",section:"Práctica"},
+    {slug:"de-rag-a-sistemas-multiagentes-responsabilidades-supervision",level:"Intermedio",title:"De RAG a sistemas multiagentes: responsabilidades y supervisión",section:"Inteligencia Artificial"}
   ];
   const links = {
     "historia-campus-yaskcode":["por-que-aprender-poo-en-la-era-de-la-ia","rag-fundamentos-arquitectura"],
     "por-que-aprender-poo-en-la-era-de-la-ia":["rag-fundamentos-arquitectura","hugging-face-modelos-datasets-ciencia-de-datos"],
     "rag-fundamentos-arquitectura":["hugging-face-modelos-datasets-ciencia-de-datos","por-que-aprender-poo-en-la-era-de-la-ia"],
-    "hugging-face-modelos-datasets-ciencia-de-datos":["rag-fundamentos-arquitectura","por-que-aprender-poo-en-la-era-de-la-ia"]
+    "hugging-face-modelos-datasets-ciencia-de-datos":["rag-fundamentos-arquitectura","por-que-aprender-poo-en-la-era-de-la-ia"],
+    "ruta-aprendizaje-yaskcode-rag-sistemas-multiagentes":["rag-fundamentos-arquitectura","por-que-aprender-poo-en-la-era-de-la-ia"],
+    "leer-criticamente-caso-ia-evidencia-arquitectura-limites":["ruta-aprendizaje-yaskcode-rag-sistemas-multiagentes","rag-fundamentos-arquitectura"],
+    "runcoach-ai-conocimiento-rag-caso":["leer-criticamente-caso-ia-evidencia-arquitectura-limites","rag-fundamentos-arquitectura"],
+    "runcoach-rag-consultas-contextuales-practica":["runcoach-ai-conocimiento-rag-caso","rag-fundamentos-arquitectura"],
+    "evaluar-recuperacion-rag-precision-recall-mrr":["runcoach-rag-consultas-contextuales-practica","runcoach-ai-conocimiento-rag-caso"],
+    "seniorvital-rag-agentes-evidencia-caso":["evaluar-recuperacion-rag-precision-recall-mrr","runcoach-ai-conocimiento-rag-caso"],
+    "seniorvital-evidencia-abstencion-rag-practica":["seniorvital-rag-agentes-evidencia-caso","evaluar-recuperacion-rag-precision-recall-mrr"],
+    "de-rag-a-sistemas-multiagentes-responsabilidades-supervision":["seniorvital-rag-agentes-evidencia-caso","rag-fundamentos-arquitectura"]
   };
   const urlFor = slug => new URL(root + "posts/" + slug + "/", location.origin).href;
   const create = (tag, className, content) => {

@@ -1,0 +1,221 @@
+---
+title: "Cómo leer críticamente un caso de IA: evidencia, arquitectura y límites"
+subtitle: "Seis preguntas para comprender qué se diseñó, qué se implementó y qué demuestran realmente las pruebas de un proyecto con inteligencia artificial."
+author: "Yaskelly Yedra"
+# Publicación adelantada, autorizada para revisión directamente en el blog.
+date: 2026-10-31
+# Posición original del calendario de la serie, antes de adelantar su publicación.
+original-editorial-slot: 2027-05-06
+description: "Guía YaskCode para analizar críticamente casos de IA: trazabilidad de evidencias, arquitectura, pruebas, métricas, riesgos y lecciones transferibles."
+categories: ["Aprende", "Ingeniería de Software"]
+area: "Ingeniería de Software"
+editorial-section: "Aprende"
+level: "Básico"
+level-detail: "Lectura crítica de casos"
+toc: true
+draft: false
+format:
+  html:
+    include-in-header: ../../assets/seo-leer-criticamente-caso-ia-evidencia-arquitectura-limites.html
+---
+
+::: {.callout-note title="En 1 minuto"}
+Un proyecto puede tener una arquitectura bien explicada, pruebas automatizadas y una demostración convincente, pero cada evidencia respalda **afirmaciones diferentes**. Leer críticamente un caso de inteligencia artificial significa reconstruir la cadena entre **problema, decisión, implementación, comprobación y límites**, sin confundir un prototipo con una solución validada en cualquier contexto. Esta guía propone seis preguntas aplicables a casos académicos, repositorios y artículos técnicos.
+:::
+
+::: {.callout-tip title="Lo que aprenderás"}
+Al terminar podrás:
+
+1. **Distinguir** un caso académico descriptivo de un estudio empírico formal y de un tutorial.
+2. **Separar** la arquitectura propuesta del comportamiento implementado y observado.
+3. **Identificar** qué evidencia hace falta para respaldar una afirmación técnica.
+4. **Interpretar** resultados de pruebas sin confundir éxito local con calidad general.
+5. **Reconocer** limitaciones, riesgos y decisiones transferibles a otros proyectos.
+6. **Aplicar** una ficha de seis preguntas al primer caso de la serie, RunCoach AI.
+:::
+
+### Antes de comenzar
+
+**Conocimientos previos:** basta con comprender qué es una aplicación de software, haber oído hablar de IA generativa o RAG y conocer el propósito de una prueba de software. No necesitas programar.
+
+**Público destinatario:** estudiantes de Computación e Ingeniería de Software, docentes, personas que investigan sistemas inteligentes y profesionales que revisan prototipos de IA.
+
+::: {.callout-tip title="Recursos para llevar"}
+<a href="../../recursos/leer-criticamente-caso-ia-evidencia-arquitectura-limites-ficha.md" download>Descargar la ficha de lectura crítica (.md)</a>
+
+Incluye una matriz reutilizable, un ejercicio resuelto y preguntas de profundización. Es una herramienta de análisis, **no una certificación del sistema evaluado**.
+:::
+
+## 1. Una demostración convincente no responde todas las preguntas
+
+Imagina la presentación de un asistente para gestionar convocatorias universitarias. El equipo explica que el sistema consulta documentos, utiliza varios agentes y muestra una respuesta en segundos. En la demostración, la respuesta sobre una fecha de cierre es correcta. Después enseña una pantalla: «100 % de éxito».
+
+Ese resultado puede ser auténtico, pero aún necesitamos saber **qué se evaluó**. ¿Una consulta o cien? ¿Se utilizaron documentos reales o un conjunto sintético? ¿La respuesta fue comparada con la normativa vigente? ¿Qué sucede si falta el documento, una herramienta falla o la consulta tiene varias interpretaciones?
+
+No se trata de desconfiar del equipo. Se trata de **delimitar el alcance de la evidencia**. La Ingeniería de Software estudia requisitos, diseño, construcción, pruebas, mantenimiento y calidad como actividades relacionadas, no como hechos intercambiables [1].
+
+La pregunta que guiará nuestra lectura será:
+
+> **¿Qué podemos afirmar con la evidencia disponible, y qué no podemos concluir todavía?**
+
+## 2. ¿Qué es un caso de estudio y qué no es?
+
+En nuestra serie, un **caso académico** es una narración técnica basada en un proyecto concreto: explica el problema, las decisiones, el sistema construido, las pruebas reportadas y sus límites. Su propósito es que otras personas comprendan las decisiones y aprendan de ellas.
+
+En investigación, un **estudio de caso empírico** exige además un diseño metodológico explícito: definir el caso, preguntas de investigación, fuentes de datos, procedimiento de análisis y amenazas a la validez. Runeson y Höst proponen guías para conducir y reportar estos estudios en Ingeniería de Software [2].
+
+| Género | Pregunta principal | Evidencia característica |
+|---|---|---|
+| **Caso académico descriptivo** | ¿Qué problema abordó el equipo y qué decisiones tomó? | Documentación, arquitectura, código, pruebas disponibles y reflexión crítica |
+| **Estudio de caso empírico** | ¿Qué podemos aprender de un fenómeno estudiado sistemáticamente en su contexto? | Protocolo, recogida y análisis de datos, cadena de evidencia y amenazas a la validez |
+| **Tutorial o laboratorio** | ¿Cómo puedo realizar y comprobar una actividad concreta? | Instrucciones, entradas, código o pasos, resultados esperados y pruebas |
+
+Estos géneros pueden complementarse. **Ninguno adquiere el rigor de otro solo por llamarse «caso de estudio».** Por eso los seis proyectos de YaskCode se presentarán como casos académicos, acompañados por laboratorios independientes y verificables, sin atribuirles resultados de investigación que no se hayan documentado.
+
+## 3. Seis preguntas para leer cualquier caso de IA
+
+### Pregunta 1. ¿Cuál es el problema y en qué contexto aparece?
+
+Antes de admirar la solución, identifica la necesidad: ¿quién tiene el problema?, ¿qué información necesita?, ¿qué restricciones existen?, ¿por qué usar IA y no una regla determinista o un buscador convencional?
+
+**Busca:** propósito, actores, requisitos, alcance, condiciones de operación y aquello que el proyecto excluye. Si la pregunta es simplemente «¿cuándo cierra la convocatoria?», una búsqueda documental bien diseñada podría bastar; añadir varios agentes debe justificarse por una necesidad concreta.
+
+### Pregunta 2. ¿Qué se diseñó y qué está implementado?
+
+Un diagrama puede representar una **arquitectura propuesta**, no necesariamente el estado actual del sistema. Una especificación puede mencionar cinco agentes, mientras que el software ejecutable contenga un supervisor y dos especialistas. Eso no invalida el diseño: indica que debemos nombrar correctamente el alcance de cada evidencia.
+
+La norma ISO/IEC/IEEE 42010:2022 distingue la arquitectura de un sistema de la **descripción** que la representa [3]. En nuestra lectura, añadimos una comprobación práctica: comparar los diagramas y las decisiones arquitectónicas con los módulos, interfaces y flujos observables.
+
+**Busca:** diagramas con versión, decisiones arquitectónicas (ADR), contratos, estructura del código, implementaciones efectivas y componentes todavía previstos.
+
+### Pregunta 3. ¿De dónde procede cada afirmación?
+
+Una afirmación sobre el sistema debe permitir recorrer un camino de comprobación. Distinguiremos cuatro verbos que frecuentemente se usan como si fueran equivalentes:
+
+| Afirmación del artículo | Evidencia pertinente | Lo que todavía **no** demuestra |
+|---|---|---|
+| **«Se diseñó** un mecanismo de delegación» | Diagrama, ADR y especificación de mensajes | Que ese mecanismo se ejecuta correctamente |
+| **«Se implementó** la delegación» | Código, versión, integración y pruebas relevantes | Que funciona en cualquier entrada o entorno |
+| **«Se verificó** con 20 pruebas locales» | Casos, resultados, fecha, entorno y versión probada | Que se cumplen requisitos no incluidos en esas pruebas |
+| **«Se validó** para una población o uso real» | Protocolo apropiado, datos representativos, evaluación en contexto y revisión competente | Ausencia definitiva de errores o riesgos |
+
+Por ejemplo, una captura de una consola puede mostrar una ejecución, pero no sustituye la descripción del conjunto de casos. Un resultado de CI demuestra el estado de las verificaciones configuradas para una revisión específica; no confirma automáticamente un despliegue público, ni la validez de una recomendación médica.
+
+### Pregunta 4. ¿Cómo se evaluó y cuál es el denominador?
+
+Las métricas requieren contexto. Si leemos «100 % de aciertos», debemos preguntar **100 % de qué**. Una evaluación sobre 4 de 4 consultas tiene una lectura distinta de una evaluación sobre 400 consultas diversas, aunque ambas expresen el mismo porcentaje.
+
+Anota al menos: **criterio de éxito, cantidad de casos, origen de los datos, fecha, versión, configuración, errores y condiciones de repetición**. También pregunta si los ejemplos de prueba sirvieron para ajustar el sistema antes de medirlo: en ese caso, los resultados pueden ser optimistas respecto de entradas nuevas.
+
+En sistemas con generación de texto, una prueba del enrutamiento no evalúa necesariamente la fidelidad factual de la respuesta. Y una prueba de recuperación de documentos no demuestra, por sí sola, que el modelo utilice correctamente los fragmentos recuperados.
+
+::: {.callout-warning title="El porcentaje no reemplaza el conjunto de evaluación"}
+**10/10 pruebas superadas** significa que esas diez comprobaciones pasaron bajo las condiciones registradas. Para evaluar generalización hay que considerar consultas nuevas, errores, variaciones de lenguaje y escenarios no utilizados para ajustar el sistema.
+:::
+
+### Pregunta 5. ¿Qué falla, qué riesgos quedan y cómo se gestionan?
+
+Un informe técnico gana valor cuando reconoce defectos reproducibles, falsas respuestas, limitaciones de datos, dependencias externas y mecanismos de recuperación. Pregunta qué ocurre si no hay fuentes, el servicio tarda demasiado, un agente recibe un mensaje inválido o se detecta un ciclo de delegación.
+
+El **AI Risk Management Framework** del NIST organiza la gestión de riesgos de IA mediante las funciones *Govern, Map, Measure y Manage* [4]. Puede ayudarnos a formular preguntas sobre contexto, mediciones y mitigaciones; **utilizarlo como referencia no certifica** un proyecto.
+
+En aplicaciones de salud u otros dominios sensibles es imprescindible diferenciar los resultados de pruebas de software de la **validación de seguridad para su uso con personas**. Una simulación, incluso con respuestas correctas, no habilita por sí sola recomendaciones clínicas.
+
+### Pregunta 6. ¿Qué aprendizaje podemos transferir y bajo qué condiciones?
+
+El objetivo no es copiar ciegamente la arquitectura de otro equipo. Una decisión es transferible si conocemos **por qué se tomó**, el contexto en el que funcionó y las condiciones que harían necesario cambiarla.
+
+Una regla práctica es completar esta frase: **«Adoptaría esta decisión cuando ___; antes comprobaría ___; no la usaría si ___»**. Así convertimos la lectura de un proyecto en criterio de diseño y no en una lista de herramientas.
+
+## 4. Un mapa visual: de la afirmación a la evidencia
+
+```{mermaid}
+flowchart TD
+    A["Afirmación técnica"] --> B{"¿Qué se está afirmando?"}
+    B -->|Diseño| C["Especificación y ADR"]
+    B -->|Implementación| D["Código y contrato"]
+    B -->|Comportamiento| E["Pruebas y ejecución"]
+    B -->|Uso real| F["Evaluación en contexto"]
+    C --> G["Versión y procedencia"]
+    D --> G
+    E --> G
+    F --> G
+    G --> H["Alcance y límites de la conclusión"]
+```
+
+*Lectura del diagrama:* empieza identificando el tipo de afirmación, busca su evidencia correspondiente y registra la versión a la que pertenece. La conclusión debe ser tan amplia como permita esa evidencia, pero no más.
+
+## 5. Ejemplo guiado: un asistente para convocatorias universitarias
+
+Continuemos con un **ejemplo ficticio**, ajeno a los proyectos de estudiantes. Un equipo construye un sistema para responder preguntas sobre plazos de presentación de propuestas.
+
+Se documenta este recorrido: la persona formula una consulta; un componente recupera apartados de una convocatoria; una regla comprueba la edición vigente; el sistema responde o se abstiene si faltan datos.
+
+Supongamos que su informe incluye estas cuatro afirmaciones:
+
+| Afirmación | Lo que preguntaríamos | Evidencia que solicitaríamos |
+|---|---|---|
+| «La arquitectura usa recuperación documental» | ¿Qué fuente consulta y de qué edición? | Diagrama, módulo recuperador y colección de documentos |
+| «El asistente responde con la fecha correcta» | ¿En qué consultas y contra qué referencia? | Conjunto de preguntas y respuestas esperadas, con versión del documento |
+| «No inventa prórrogas» | ¿Se probó una pregunta sin cláusula de prórroga? | Caso negativo y salida que reconoce la ausencia de evidencia |
+| «Puede desplegarse en producción» | ¿Qué se hizo para validar seguridad, disponibilidad y control de acceso? | Pruebas de integración, evaluación de riesgos y controles operativos |
+
+Observa la última fila: **producir una respuesta correcta no basta para afirmar que el servicio está listo para producción**. La corrección funcional es una parte de la evaluación, no la totalidad.
+
+### Una comparación útil
+
+**Primera versión de la conclusión:** «Nuestro asistente siempre identifica el plazo correcto».
+
+**Versión respaldada por evidencia acotada:** «En una ejecución local, con la edición 2027 del documento de ejemplo y las ocho consultas definidas, el sistema recuperó correctamente las fechas esperadas en siete casos; la consulta sin fecha explícita produjo una abstención prevista».
+
+La segunda conclusión es más útil porque indica **contexto, datos, denominador y comportamiento ante evidencia insuficiente**. Los números son ilustrativos y no corresponden a una prueba real.
+
+## 6. Cómo se aplicarán estas preguntas a los seis proyectos
+
+Los seis casos de la serie YaskCode no se presentarán como un ranking. Cada uno permitirá practicar una habilidad diferente al leer decisiones y resultados documentados.
+
+| Proyecto académico | Pregunta central de lectura | Qué aprenderemos a verificar |
+|---|---|---|
+| **RunCoach AI · Equipo 1** | ¿La consulta contiene el contexto necesario antes de recuperar documentos? | Información de entrada, recencia y pertinencia de la evidencia |
+| **SeniorVital · Equipo 5** | ¿Un documento relacionado es evidencia suficiente para responder? | Fundamentación, citas y abstención cuando falta respaldo |
+| **Sistema nutricional inteligente · Equipo 2** | ¿El contrato de comunicación descrito coincide con el implementado? | Mensajes, versiones y responsabilidades entre agentes |
+| **Wellness Lift · Equipo 6** | ¿Podemos reconstruir una delegación y sus respuestas? | Continuidad de trazas, identificadores y errores |
+| **QuickBurn AI · Equipo 3** | ¿Qué ocurre cuando un agente decide utilizar otra herramienta? | Observaciones, límites de iteración y prevención de ciclos |
+| **VitalSync · Equipo 4** | ¿Qué aprendemos cuando una evaluación detecta un defecto? | Casos negativos, regresiones y alcances de las métricas |
+
+Los artículos conservarán la **autoría académica de sus equipos** y distinguirán esa autoría de la asesoría y la adaptación editorial. Los laboratorios utilizarán ejemplos didácticos independientes con datos ficticios.
+
+## 7. Actividad de lectura: seis preguntas en quince minutos
+
+Antes de leer el caso de **RunCoach AI**, toma cualquier README, informe técnico o artículo sobre un proyecto de IA. Puede ser propio, público o el ejemplo ficticio de esta página. No necesitas ejecutar su código.
+
+1. **Contexto:** escribe en una frase qué problema resuelve y para quién.
+2. **Arquitectura:** identifica dos componentes y señala si aparecen como diseñados o implementados.
+3. **Evidencia:** elige una afirmación técnica e indica exactamente qué documento, prueba o código la respalda.
+4. **Evaluación:** busca el denominador de una métrica o explica que no está disponible.
+5. **Límites:** anota un caso de fallo que el informe reconozca o que todavía deba probarse.
+6. **Transferencia:** formula una decisión que podrías adoptar y una condición bajo la cual no la adoptarías.
+
+**Criterio de logro:** tus seis respuestas deben diferenciar **hecho documentado, inferencia personal y pregunta pendiente**. Si el informe no aporta un dato, la respuesta correcta es señalar esa ausencia, no completarla con una suposición.
+
+La ficha descargable contiene una matriz para registrar lo anterior y repetir la actividad con los seis casos.
+
+## 8. Antes de pasar al primer caso
+
+Con esta guía ya disponemos de un método para leer con rigor proyectos de IA. La lectura crítica no busca descalificar trabajos ni premiar el uso de más modelos: busca identificar **decisiones justificadas, resultados verificables y límites expresados con claridad**.
+
+Como preparación para este análisis, lee también [la ruta de aprendizaje YaskCode](../ruta-aprendizaje-yaskcode-rag-sistemas-multiagentes/index.qmd). Como antecedente, puedes consultar [RAG: fundamentos y arquitectura para comenzar](https://yaskcode-community.github.io/yaskcode-blog/posts/rag-fundamentos-arquitectura/), publicado en octubre de 2026. Será útil para interpretar el primer caso sin confundir recuperación de información con generación de texto.
+
+**Continúa ahora:** [RunCoach AI: del conocimiento documentado a un RAG trazable](../runcoach-ai-conocimiento-rag-caso/index.qmd), disponible en la serie.
+
+## Referencias académicas y técnicas
+
+1. IEEE Computer Society. [*Guide to the Software Engineering Body of Knowledge — SWEBOK v4.0a*](https://www.computer.org/education/bodies-of-knowledge/software-engineering/resources/). Referencia para disciplinas, prácticas y actividades de Ingeniería de Software.
+2. Runeson, P., & Höst, M. (2009). [*Guidelines for conducting and reporting case study research in software engineering*](https://doi.org/10.1007/s10664-008-9102-8). *Empirical Software Engineering, 14*, 131–164. DOI: 10.1007/s10664-008-9102-8.
+3. ISO/IEC/IEEE. (2022). [*ISO/IEC/IEEE 42010:2022 — Software, systems and enterprise — Architecture description*](https://www.iso.org/standard/74393.html). Ficha oficial de la norma; el texto completo puede requerir compra o suscripción.
+4. NIST. (2023). [*Artificial Intelligence Risk Management Framework (AI RMF 1.0)*](https://airc.nist.gov/airmf-resources/airmf/5-sec-core/). Referencia voluntaria de gestión de riesgos de IA; no implica certificación.
+5. NIST. (2024). [*Artificial Intelligence Risk Management Framework: Generative Artificial Intelligence Profile*](https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-generative-artificial-intelligence). Complemento para riesgos de sistemas generativos.
+
+## Comparte con la comunidad
+
+¿Qué afirmación técnica te parece más difícil de comprobar: una arquitectura, una tasa de éxito o la seguridad de un sistema? Puedes compartir **la pregunta que formularías y la evidencia que necesitarías** en los espacios de YaskCode, sin exponer datos privados, credenciales ni información sensible. Una duda bien formulada puede conducir a una mejora verificable.

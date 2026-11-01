@@ -1,0 +1,129 @@
+---
+title: "Práctica: verificar evidencia y abstenerse antes de responder con RAG"
+subtitle: "Aprende a distinguir un documento relacionado de una respuesta respaldada con una búsqueda reproducible y un corpus ficticio."
+author: "Yaskelly Yedra"
+date: 2026-10-31
+# Posición original del calendario de la serie, antes de adelantar su publicación.
+original-editorial-slot: 2027-06-10
+description: "Laboratorio Python sobre búsqueda léxica, hechos curados, citas y abstención cuando falta evidencia documental."
+categories: ["Práctica", "Inteligencia Artificial"]
+editorial-section: "Práctica"
+area: "Inteligencia Artificial"
+level: "Básico"
+level-detail: "Laboratorio reproducible"
+toc: true
+draft: false
+format:
+  html:
+    include-in-header: ../../assets/seo-seniorvital-evidencia-abstencion-rag-practica.html
+---
+
+::: {.callout-note title="En 1 minuto"}
+Encontrar un documento relacionado con una pregunta no significa que contenga la respuesta. En este laboratorio con documentos ficticios se recuperan textos mediante búsqueda léxica y se consultan hechos curados manualmente. Si falta la evidencia, el sistema **se abstiene**. No utilizaremos LLM, embeddings ni información de pacientes.
+:::
+
+::: {.callout-tip title="Lo que aprenderás"}
+1. Diferenciar documentos candidatos de hechos respaldados por fuentes.
+2. Devolver una respuesta con identificador documental cuando existe evidencia.
+3. Distinguir falta de coincidencias y falta de evidencia suficiente.
+4. Ejecutar pruebas de regresión y diseñar casos límite.
+:::
+
+### Antes de comenzar
+
+**Público:** estudiantes de IA y personas interesadas en pruebas de recuperación de información.
+
+**Conocimientos previos:** Python elemental, JSON y uso de terminal.
+
+**Requisitos:** Python 3.11 o superior, sin paquetes ni credenciales externas.
+
+::: {.callout-tip title="Recursos para llevar"}
+[Descargar ficha del laboratorio](../../recursos/seniorvital-evidencia-abstencion-rag-practica-ficha.md).
+
+[Corpus ficticio](datos/corpus.json) · [Consultas](datos/consultas.json) · [Código Python](codigo/evidencias.py) · [Pruebas](pruebas/test_evidencias.py).
+:::
+
+## 1. Del caso académico al ejercicio
+
+En [SeniorVital](../seniorvital-rag-agentes-evidencia-caso/index.qmd) vimos que conviene distinguir recuperación de información, generación, simulaciones y validaciones. Vamos a practicar una decisión fundamental: **no responder sin un hecho explícito en una fuente recuperada**.
+
+El caso de práctica es una convocatoria universitaria ficticia. Sus documentos incluyen fechas, requisitos y notificaciones, pero **no especifican cuánto cuesta postular**.
+
+## 2. Arquitectura mínima
+
+```{mermaid}
+flowchart TD
+  A[Consulta con campo anotado] --> B[Búsqueda léxica]
+  C[Corpus ficticio] --> B
+  B --> D[Documentos candidatos]
+  D --> E{¿El campo está respaldado?}
+  E -->|Sí| F[Respuesta y fuente]
+  E -->|No| G[Abstención]
+```
+
+La intención de la consulta viene anotada como un campo. Los hechos de los documentos son **curados manualmente**. No hay inferencia de intención ni generación de respuestas mediante un LLM.
+
+## 3. Archivos del laboratorio
+
+| Archivo | Función |
+|---|---|
+| [datos/corpus.json](datos/corpus.json) | Cinco documentos sintéticos |
+| [datos/consultas.json](datos/consultas.json) | Cinco escenarios |
+| [codigo/evidencias.py](codigo/evidencias.py) | Recuperar y comprobar |
+| [codigo/demo.py](codigo/demo.py) | Ejecutar la demostración |
+| [pruebas/test_evidencias.py](pruebas/test_evidencias.py) | Suite de regresión |
+
+## 4. Ejecución en PowerShell
+
+Desde el directorio del artículo, ejecuta:
+
+```powershell
+py -m codigo.demo
+py -m unittest discover -s pruebas -v
+```
+
+En Linux y macOS sustituye `py` por `python3`. No necesitas descargar ni iniciar el software SeniorVital.
+
+## 5. Salidas esperadas
+
+| Pregunta | Resultado esperado | Motivo |
+|---|---|---|
+| Fecha de cierre | `RESPALDADA` | Un documento informa la fecha |
+| Requisitos | `RESPALDADA` | Un documento informa los anexos |
+| Notificación | `RESPALDADA` | Un documento informa la notificación |
+| Costo de postulación | `SIN_EVIDENCIA` | Hay textos relacionados, sin importe |
+| Tamaño de Júpiter | `SIN_COINCIDENCIAS` | No hay documentos relacionados |
+
+El estado `RESPALDADA` solo significa que un campo anotado coincide con un hecho curado de un documento recuperado. No demuestra que todas las fuentes externas sean verdaderas ni que un modelo de lenguaje responda fielmente.
+
+## 6. Experimenta
+
+Retira temporalmente el campo de cierre del corpus. Ejecuta el laboratorio de nuevo. ¿Por qué debe abstenerse el sistema aunque el documento todavía mencione el evento?
+
+Agrega luego un documento de una convocatoria antigua con otra fecha. ¿Cómo evitarías que el programa mezcle versiones?
+
+## 7. Construye
+
+**Básico:** añade una consulta para un hecho conocido y registra su identificador.
+
+**Intermedio:** incorpora un identificador de versión documental y una prueba que rechace fuentes obsoletas.
+
+**Avanzado:** compara dos políticas de recuperación sobre consultas no utilizadas durante el ajuste; identifica abstenciones incorrectas y coincidencias espurias.
+
+## 8. Alcance y límites
+
+Este ejercicio implementa búsqueda léxica y comprobación de hechos anotados, **no un RAG completo**. Sus pruebas evalúan comportamiento determinista, no seguridad médica, utilidad clínica ni calidad de modelos generativos.
+
+Consulta también el artículo [Evaluación de recuperación RAG](../evaluar-recuperacion-rag-precision-recall-mrr/index.qmd).
+
+## Créditos y procedencia
+
+**Autoría y código del laboratorio:** YaskCode · Yaskelly Yedra.
+
+**Antecedente académico:** SeniorVital, de Daniel Alejandro Sánchez Ávila y Abdenago Nahmens (Equipo 5), bajo asesoría y aprobación académica de la Dra. Yaskelly Yedra.
+
+El ejemplo es original, emplea datos sintéticos y no incluye código ni información privada de los estudiantes.
+
+## Comparte
+
+Puedes compartir resultados, datos de prueba y decisiones metodológicas. No divulgues información de pacientes ni credenciales.

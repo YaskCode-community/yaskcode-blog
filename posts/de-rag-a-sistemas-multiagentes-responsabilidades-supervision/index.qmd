@@ -1,0 +1,190 @@
+---
+title: "De RAG a sistemas multiagentes: responsabilidades y supervisión"
+subtitle: "Comprende cuándo conviene pasar de recuperar documentos a coordinar capacidades especializadas, sin confundir complejidad con autonomía."
+author: "Yaskelly Yedra"
+date: 2026-10-31
+# Posición original del calendario de la serie, antes de adelantar su publicación.
+original-editorial-slot: 2027-06-17
+# Publicación adelantada, autorizada para revisión directamente en el blog.
+description: "Guía de arquitectura sobre RAG, agentes, patrones supervisor, router y handoff, contratos, trazabilidad y validación con un ejemplo universitario."
+categories: ["Aprende", "Inteligencia Artificial"]
+area: "Inteligencia Artificial"
+editorial-section: "Aprende"
+level: "Intermedio"
+level-detail: "Arquitectura y coordinación"
+toc: true
+draft: false
+format:
+  html:
+    include-in-header: ../../assets/seo-de-rag-a-sistemas-multiagentes-responsabilidades-supervision.html
+---
+
+::: {.callout-note title="En 1 minuto"}
+RAG permite recuperar información pertinente; un agente puede utilizar esa evidencia, tomar decisiones acotadas e invocar herramientas. En un sistema multiagente, distintos componentes especializados colaboran mediante contratos y reglas de coordinación. **Agregar agentes no mejora automáticamente la calidad**: una arquitectura adecuada depende del problema, los límites de acceso, la trazabilidad y cómo se evalúa cada responsabilidad.
+:::
+
+::: {.callout-tip title="Lo que aprenderás"}
+Al finalizar esta lectura podrás:
+
+1. **Diferenciar** un pipeline RAG, un agente con herramientas y un sistema multiagente.
+2. **Comparar** router, supervisor y handoff según quién conserva el control.
+3. **Asignar** responsabilidades y contratos a componentes especializados.
+4. **Identificar** riesgos de ciclos, delegaciones incorrectas, permisos excesivos y falta de evidencia.
+5. **Diseñar** pruebas por componente y de extremo a extremo, con trazas y revisión humana.
+:::
+
+### Antes de comenzar
+
+**Conocimientos previos:** fundamentos de RAG, arquitectura por componentes, APIs y pruebas automatizadas. Para una introducción, consulta [RAG: fundamentos y arquitectura para comenzar](../rag-fundamentos-arquitectura/index.qmd).
+
+**Público destinatario:** estudiantes de Ingeniería de Software, IA y arquitectura de sistemas, así como docentes y desarrolladores con experiencia básica en APIs.
+
+::: {.callout-tip title="Recursos para llevar"}
+[Descargar ficha de decisiones arquitectónicas](../../recursos/de-rag-a-sistemas-multiagentes-responsabilidades-supervision-ficha.md).
+
+Contiene una matriz de responsabilidades, tres patrones de coordinación y un ejercicio para diseñar contratos y pruebas.
+:::
+
+## 1. Una transición que conviene justificar
+
+Imagina una plataforma universitaria de convocatorias. Al principio, el sistema solo necesita contestar preguntas como «¿cuándo cierra la recepción de propuestas?» con ayuda del reglamento vigente. Para ese escenario, un flujo RAG puede resultar suficiente: buscar documentos, recuperar evidencia y elaborar una respuesta verificable.
+
+Más adelante se solicita **registrar una propuesta**, **comprobar anexos**, **solicitar revisión académica** y **notificar una decisión**. Estas acciones tienen estados, permisos, consecuencias y responsables diferentes. No son equivalentes a resumir un documento.
+
+La pregunta central no es «¿cuántos agentes podemos crear?», sino **«¿qué decisiones requieren capacidades y controles separados?»**.
+
+## 2. Tres niveles de arquitectura
+
+| Enfoque | Responsabilidad principal | Ejemplo |
+|---|---|---|
+| **RAG** | Recuperar evidencia para responder una consulta | Localizar el reglamento vigente |
+| **Agente con herramientas** | Elegir y ejecutar acciones autorizadas, con límites | Consultar una propuesta mediante una API |
+| **Multiagente** | Coordinar componentes especializados que cooperan | Verificar requisitos y preparar una revisión |
+
+RAG es una técnica de recuperación y generación, **no un agente por definición**. Un agente puede utilizar RAG como herramienta. Y un sistema multiagente puede tener varios recuperadores, uno o ninguno: su característica distintiva está en cómo distribuye y coordina responsabilidades.
+
+::: {.callout-important title="La complejidad necesita justificación"}
+Si una sola herramienta determinista y una secuencia sencilla resuelven el problema, añadir múltiples agentes puede aumentar latencia, costo, superficie de ataque y dificultad de depuración sin aportar valor. La documentación de LangChain también recomienda empezar por una solución más simple cuando sea suficiente [2].
+:::
+
+## 3. Un ejemplo de responsabilidades bien delimitadas
+
+Para la convocatoria universitaria ficticia definimos tres capacidades:
+
+- **Consulta documental:** encuentra reglamentos y conserva su procedencia, sin modificar datos.
+- **Verificación de propuesta:** comprueba formato, anexos y estados conforme a reglas explícitas.
+- **Gestión de revisión:** prepara una asignación o una decisión **solo si existe autorización humana**.
+
+Separarlas permite asignar permisos distintos. El componente documental no necesita escribir sobre el registro de propuestas; el verificador no necesita emitir decisiones finales; y el coordinador no debería actuar como si una recomendación técnica equivaliera a una aprobación institucional.
+
+```{mermaid}
+flowchart TD
+    U[Solicitud universitaria] --> S[Supervisor o coordinador]
+    S --> D[Consulta documental - lectura]
+    S --> V[Verificación de requisitos]
+    S --> R[Preparación de revisión]
+    D --> E[Fuente y versión]
+    V --> P[Resultado de comprobación]
+    R --> H{¿Aprobación humana?}
+    H -->|Sí| A[Acción autorizada]
+    H -->|No| N[Sin cambios]
+    E --> S
+    P --> S
+    A --> S
+    N --> S
+    S --> O[Respuesta y traza de decisiones]
+```
+
+*Diagrama conceptual original para fines educativos; no corresponde a una implementación ni ejecución de una plataforma institucional real.*
+
+## 4. Router, supervisor y handoff no son sinónimos
+
+La documentación actual de LangChain y Microsoft Agent Framework distingue varios patrones que ayudan a elegir según la interacción y el control [2, 3, 4].
+
+| Patrón | Quién decide el siguiente paso | Uso orientativo | Límite característico |
+|---|---|---|---|
+| **Router** | Clasificador o regla de despacho | Elegir un especialista para una solicitud | Suele decidir una ruta, no coordinar varios pasos por sí solo |
+| **Supervisor** | Un coordinador central con contexto de la tarea | Asignar trabajo, recibir resultados y decidir si hay más acciones | Riesgo de centralizar demasiada lógica o privilegios |
+| **Handoff** | Los agentes transfieren explícitamente el control | Conversaciones o tareas que cambian de responsable | Hay que controlar estados, traspasos y puntos de terminación |
+| **Flujo secuencial** | Orden de pasos definido de antemano | Revisar requisitos y después producir un informe | Menos flexibilidad ante rutas variables |
+
+La arquitectura supervisor no exige que todas las funciones sean LLM. Un coordinador puede aplicar reglas deterministas y delegar tareas acotadas. La **responsabilidad final sobre permisos y acciones sensibles** debe quedar en políticas del software y autorizaciones explícitas, no solo en el texto de un prompt.
+
+## 5. Diseñar contratos antes que conversaciones entre agentes
+
+Un contrato mínimo de delegación debe establecer **identificador de tarea**, **correlación de ejecución**, **tipo de solicitud**, **datos permitidos**, **destinatario**, **resultado esperado**, **errores posibles** y **límites de tiempo o pasos**.
+
+Por ejemplo, una solicitud didáctica de comprobación de anexos puede representarse así:
+
+```json
+{
+  "task_id": "T-014",
+  "trace_id": "TR-008",
+  "tipo": "verificar_anexos",
+  "destinatario": "verificador",
+  "datos": {"propuesta_id": "P-101"},
+  "max_pasos": 3
+}
+```
+
+Este fragmento es **un ejemplo creado para el artículo**, no un contrato copiado del proyecto académico ni un estándar universal.
+
+Conviene comprobar también que un agente no pueda cambiar silenciosamente el destinatario, repetir la misma delegación indefinidamente o utilizar datos reservados para responder a un componente que no debe recibirlos.
+
+## 6. De la coordinación a la observabilidad
+
+Una respuesta de «tarea completada» es insuficiente para estudiar un sistema complejo. Necesitamos saber quién actuó, qué datos utilizó, qué reglas se aplicaron y en qué punto se detuvo la ejecución.
+
+La traza puede registrar:
+
+| Campo | Para qué sirve |
+|---|---|
+| `trace_id` | Correlacionar todo el recorrido de la solicitud |
+| `task_id` | Identificar la tarea que se delegó |
+| `agente` y `herramienta` | Registrar el responsable técnico de cada acción |
+| `estado` y `error` | Separar fallo técnico de rechazo del negocio |
+| `fuentes` y `versiones` | Reconstruir evidencia documental |
+| `pasos` y `duracion` | Detectar bucles, lentitud y desbordamientos |
+
+Registrar trazas no significa almacenar indiscriminadamente prompts, datos personales o documentos confidenciales. Es necesario aplicar minimización de datos y políticas de acceso.
+
+## 7. ¿Cómo validamos la arquitectura?
+
+Una estrategia gradual combina pruebas de **contratos**, **rutas**, **integración** y **evaluación humana**.
+
+1. **Contrato:** comprobar campos, autorización y errores de un mensaje.
+2. **Enrutamiento:** usar consultas con destino esperado y casos ambiguos.
+3. **Delegación:** verificar límites de pasos, cancelaciones y ausencia de ciclos.
+4. **Integración:** confirmar que un resultado vuelve al componente correcto.
+5. **Seguridad:** comprobar que una acción de escritura exige autorización.
+6. **Evaluación:** separar resultados simulados de ejecuciones con modelos y servicios reales.
+
+La prueba «6/6 casos correctos» demuestra que seis escenarios cumplieron criterios definidos; no demuestra que cualquier solicitud vaya a dirigirse correctamente. Un resultado de recuperación tampoco certifica la calidad de la decisión posterior.
+
+## 8. Dos proyectos que permiten estudiar esta evolución
+
+El [caso SeniorVital](../seniorvital-rag-agentes-evidencia-caso/index.qmd) ayuda a reconocer una transición por incrementos: base de conocimiento, agente con herramientas y coordinación bajo un supervisor. Su documentación también enseña a distinguir la configuración de los componentes efectivamente ejecutados.
+
+El **Equipo 2**, con su sistema nutricional inteligente B2B2C, permitirá estudiar la interoperabilidad entre agentes, la diferencia entre protocolos conceptuales y contratos implementados, y cómo transformar ese aprendizaje en un laboratorio de mensajes estructurados. Su publicación está **prevista para el 24 de junio de 2027**; no enlazamos todavía una página que no esté disponible.
+
+## 9. Una actividad de diseño
+
+Para un asistente universitario ficticio, plantea dos soluciones: **un agente con herramientas** y **dos especialistas con un supervisor**. Identifica qué requerimiento justificaría la segunda solución y redacta una prueba donde el coordinador deba abstenerse por falta de permisos.
+
+La solución no se valora por la cantidad de agentes, sino por sus decisiones de diseño, verificabilidad, costo y responsabilidades.
+
+### Referencias académicas y técnicas
+
+1. Lewis, P. y colaboradores (2020). [Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks](https://arxiv.org/abs/2005.11401).
+2. LangChain. [Multi-agent architectures](https://docs.langchain.com/oss/python/langchain/multi-agent).
+3. LangChain. [Subagents and supervisor architecture](https://docs.langchain.com/oss/python/langchain/multi-agent/subagents).
+4. Microsoft Learn. [Agent Framework: workflow orchestrations](https://learn.microsoft.com/en-us/agent-framework/workflows/orchestrations/).
+5. Microsoft Learn. [Handoff orchestration](https://learn.microsoft.com/en-us/agent-framework/workflows/orchestrations/handoff).
+
+### Continúa aprendiendo
+
+Revisa [RAG: fundamentos y arquitectura](../rag-fundamentos-arquitectura/index.qmd), [RunCoach AI](../runcoach-ai-conocimiento-rag-caso/index.qmd) y [SeniorVital](../seniorvital-rag-agentes-evidencia-caso/index.qmd). Compara qué componentes recuperan evidencia y cuáles toman decisiones operativas.
+
+### Comparte con la comunidad
+
+¿En qué condiciones preferirías un solo agente, un router o un supervisor? Comparte un diagrama, contratos y pruebas reproducibles con datos ficticios, indicando qué acciones requieren autorización humana.

@@ -79,14 +79,27 @@ assert 'text-transform:' not in author_heading_style and 'font-size:' not in aut
 assert 'yc-level-badge' in client and '.quarto-category.yc-level-badge' in css, 'Falta etiqueta de nivel'
 assert '.quarto-categories .yc-level-badge {' not in css, 'El nivel no debe tener un estilo diferente al de las otras categorías'
 assert '#title-block-header .description { display: none; }' in css, 'Descripción SEO repetida visualmente'
-assert client.count('level:"Básico"') == 3, 'Los tres artículos técnicos requieren nivel Básico'
+assert client.count('level:"Básico"') == 8, 'Los artículos técnicos deben estar registrados con nivel Básico'
 assert 'historia-campus-yaskcode",level' not in client, 'El relato del Campus no debe tener nivel técnico'
 # Plantilla editorial: recursos físicos, autoría, metadatos sociales y BlogPosting.
 source = (ROOT / 'assets/article-tools.js').read_text(encoding='utf-8')
 assert 'articleMeta(content)' in source, 'Falta tiempo de lectura y perfil de autora'
 assert 'window.print()' in source, 'Falta opción de impresión/PDF'
+def is_draft(slug):
+    source = ROOT.parent / 'posts' / slug / 'index.qmd'
+    if not source.exists():
+        return False
+    metadata = source.read_text(encoding='utf-8').split('---', 2)[1]
+    return any(line.strip() == 'draft: true' for line in metadata.splitlines())
+
+def is_blank_draft(post):
+    # Quarto draft-mode: gone renders a blank stub; review renders full HTML.
+    return is_draft(post.parent.name) and 'En 1 minuto' not in post.read_text(encoding='utf-8')
+
 for post in sorted((ROOT / 'posts').glob('*/index.html')):
     slug = post.parent.name
+    if is_blank_draft(post):
+        continue
     page_html = post.read_text(encoding='utf-8')
     assert 'application/ld+json' in page_html and 'BlogPosting' in page_html, f'Sin datos estructurados: {slug}'
     assert 'og:title' in page_html, f'Sin Open Graph: {slug}'
@@ -159,11 +172,26 @@ for source_path in (ROOT.parent / 'posts').glob('*/index.qmd'):
         heading = line.strip()
         assert not (heading.startswith(('**Aprende ·', '**Practica ·')) and
                     '· Nivel ' in heading), f'Etiquetas duplicadas en {source_path.name}'
-# Giscus debe mostrarse únicamente en las cuatro publicaciones, no en portada ni Acerca de.
+# Contadores para artículos publicados; los borradores futuros aún no tienen visitas.
 article_pages = sorted((ROOT / 'posts').glob('*/index.html'))
-assert len(article_pages) == 4, f'Se esperaban 4 artículos, hay {len(article_pages)}'
+published_pages = [p for p in article_pages if not is_draft(p.parent.name)]
+assert len(published_pages) >= 12, f'Deben estar publicadas las 4 entradas previas y 8 nuevas: {len(published_pages)}'
+# Los artículos recién publicados no disponen aún de métricas agregadas.
+# Solo exigimos historial para las cuatro publicaciones preexistentes; no inventamos visitas.
+historical_slugs = {
+    'historia-campus-yaskcode',
+    'por-que-aprender-poo-en-la-era-de-la-ia',
+    'rag-fundamentos-arquitectura',
+    'hugging-face-modelos-datasets-ciencia-de-datos',
+}
+for article_path in published_pages:
+    slug = article_path.parent.name
+    if slug in historical_slugs:
+        assert PREFIX + 'posts/' + slug + '/' in paths, f'Falta contador para {slug}'
+# La vista normal deja los borradores en blanco; el perfil review sí los muestra.
 for article_path in article_pages:
-    assert PREFIX + 'posts/' + article_path.parent.name + '/' in paths, f'Falta contador para {article_path.parent.name}'
+    if is_blank_draft(article_path):
+        continue
     assert 'giscus.app/client.js' in article_path.read_text(), (
         f'Falta Giscus en {article_path.relative_to(ROOT)}'
     )

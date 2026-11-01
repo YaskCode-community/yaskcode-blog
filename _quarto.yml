@@ -10,6 +10,9 @@ project:
     - assets/*.js
     - assets/*.json
     - recursos/*.md
+    - posts/**/codigo/*.py
+    - posts/**/pruebas/*.py
+    - posts/**/datos/*.json
 website:
   title: "Blog YaskCode"
   description: "Artículos, tutoriales y recursos abiertos sobre Ingeniería de Software, Inteligencia Artificial, Ciencia de Datos y Cloud."

@@ -1,0 +1,204 @@
+---
+title: "Cómo evaluar la recuperación RAG: Precision@K, Recall@K y MRR"
+subtitle: "Aprende a medir qué documentos recupera un sistema, cuáles faltan y dónde aparece la primera evidencia relevante."
+author: "Yaskelly Yedra"
+date: 2026-10-31
+# Posición original del calendario de la serie, antes de adelantar su publicación.
+original-editorial-slot: 2027-05-27
+# Publicación adelantada, autorizada para revisión directamente en el blog.
+description: "Guía práctica y fundamentada para interpretar Precision@K, Recall@K y Mean Reciprocal Rank en la recuperación de un sistema RAG, con datos sintéticos y Python reproducible."
+categories: ["Aprende", "Inteligencia Artificial"]
+area: "Inteligencia Artificial"
+editorial-section: "Aprende"
+level: "Básico"
+level-detail: "Evaluación de recuperación"
+toc: true
+draft: false
+format:
+  html:
+    include-in-header: ../../assets/seo-evaluar-recuperacion-rag-precision-recall-mrr.html
+---
+
+::: {.callout-note title="En 1 minuto"}
+La recuperación es una etapa evaluable de RAG **antes de generar cualquier respuesta**. Precision@K indica qué proporción de los primeros K documentos recuperados es relevante; Recall@K indica cuánta de la evidencia relevante conocida aparece en esos K resultados; y MRR resume cuán pronto se encuentra el **primer** resultado relevante. Ninguna de estas métricas, por sí sola, garantiza que un LLM utilice correctamente la evidencia.
+:::
+
+::: {.callout-tip title="Lo que aprenderás"}
+Al finalizar podrás:
+
+1. **Diferenciar** relevancia documental, recuperación y calidad de una respuesta generada.
+2. **Calcular** Precision@3 y Recall@3 a partir de una tabla de documentos relevantes.
+3. **Interpretar** la posición del primer resultado relevante mediante Reciprocal Rank y MRR.
+4. **Comparar** promedios por consulta y reconocer límites del conjunto de evaluación.
+5. **Reproducir** los cálculos con un programa Python sin dependencias externas.
+:::
+
+### Antes de comenzar
+
+**Conocimientos previos:** comprensión básica de RAG, conjuntos de documentos y fracciones. Para ejecutar el ejemplo, se recomienda conocer funciones y diccionarios de Python.
+
+**Público destinatario:** estudiantes, docentes y personas que diseñan, revisan o evalúan recuperadores de información.
+
+::: {.callout-tip title="Recursos para llevar"}
+[Descargar ficha de evaluación RAG](../../recursos/evaluar-recuperacion-rag-precision-recall-mrr-ficha.md) · [Ver código Python reproducible](codigo/metricas.py) · [Ver las pruebas automatizadas](pruebas/test_metricas.py)
+
+La ficha incluye una tabla de evaluación y una plantilla para registrar conjuntos de consulta, relevancia y resultados.
+:::
+
+## 1. Evaluar qué se recupera antes de evaluar qué se responde
+
+Consideremos un asistente para responder preguntas sobre convocatorias de proyectos universitarios. La pregunta es «¿Qué documentos debo presentar para postular?». Un recuperador puede encontrar una convocatoria vigente, un formulario sin instrucciones y una convocatoria anterior. Aunque los tres documentos contienen palabras relacionadas con el tema, **no todos son evidencia suficiente para contestar correctamente**.
+
+La evaluación de recuperación examina el resultado ordenado que el buscador entrega al sistema RAG. La evaluación de generación, en cambio, analiza qué hace después el modelo con esos fragmentos. Son problemas relacionados, pero diferentes [1, 2].
+
+En [RunCoach AI](../runcoach-ai-conocimiento-rag-caso/index.qmd) estudiamos cómo el contexto incluido en una consulta condiciona la recuperación. En la [práctica de consultas contextuales](../runcoach-rag-consultas-contextuales-practica/index.qmd) verificamos esa preparación. Aquí damos el siguiente paso: definir cómo medir los resultados recuperados.
+
+## 2. Qué necesitamos para medir
+
+Un conjunto de evaluación inicial debe contener:
+
+- **Consultas de prueba**, con una intención identificable.
+- **Documentos de referencia**, con identificadores y versiones.
+- **Juicios de relevancia**, indicando qué documentos realmente satisfacen cada necesidad de información.
+- **Listas recuperadas y ordenadas** por el sistema para cada consulta.
+- **Un valor K declarado**, por ejemplo K = 3.
+
+No basta con que un texto mencione palabras de la consulta. En un proyecto real, los juicios de relevancia deberían seguir criterios explícitos y, cuando corresponda, ser revisados por varias personas para estudiar desacuerdos.
+
+Para esta guía elegimos relevancia binaria: **relevante / no relevante**. En escenarios reales también se usan grados de relevancia y métricas que consideran esos grados, como nDCG [1].
+
+## 3. Precision@K: precisión entre los primeros resultados
+
+Para una consulta:
+
+\[
+\mathrm{Precision@K} =
+\frac{\text{documentos relevantes entre los primeros K}}
+{\text{K}}
+\]
+
+Supongamos que el recuperador devuelve tres documentos y dos son relevantes. Entonces:
+
+\[
+\mathrm{Precision@3} = \frac{2}{3} \approx 0{,}667
+\]
+
+Una precisión alta significa que hay menos resultados irrelevantes **dentro de los K primeros**, siempre que nuestros juicios de relevancia sean adecuados. No indica por sí misma si recuperamos toda la evidencia necesaria.
+
+En esta práctica asumimos tres resultados por consulta; no evaluamos listas de longitud menor que K.
+
+## 4. Recall@K: cobertura de la evidencia relevante conocida
+
+\[
+\mathrm{Recall@K} =
+\frac{\text{documentos relevantes entre los primeros K}}
+{\text{total de documentos relevantes conocidos}}
+\]
+
+Si sabemos que existen dos documentos relevantes y el sistema recupera ambos entre los tres primeros:
+
+\[
+\mathrm{Recall@3} = \frac{2}{2}=1
+\]
+
+Si solamente recupera uno:
+
+\[
+\mathrm{Recall@3} = \frac{1}{2}=0{,}5
+\]
+
+Recall@K depende de tener un conjunto de documentos relevantes suficientemente identificado. En colecciones grandes, los juicios suelen ser **incompletos**: un valor alto sobre una referencia pequeña no equivale necesariamente a cobertura de toda la documentación real.
+
+## 5. Reciprocal Rank y MRR: ¿cuándo aparece el primer documento relevante?
+
+Para cada consulta, **Reciprocal Rank (RR)** es el inverso de la posición del primer documento relevante. Si ninguno aparece en la lista evaluada, su valor es 0.
+
+\[
+\mathrm{RR@K} =
+\begin{cases}
+1/r & \text{si el primer relevante está en la posición } r\leq K\\
+0 & \text{si ninguno está entre los primeros K}
+\end{cases}
+\]
+
+Luego **MRR@K** es la media de los RR@K de todas las consultas:
+
+\[
+\mathrm{MRR@K}=\frac{1}{N}\sum_{i=1}^{N}\mathrm{RR@K}_i
+\]
+
+A diferencia de Precision@K y Recall@K, esta medida se fija en **la primera coincidencia relevante**. Puede tener un buen valor aunque queden otros documentos pertinentes sin recuperar [1, 2].
+
+## 6. Ejercicio resuelto: tres consultas con K = 3
+
+Todos los documentos son **ficticios**. Las letras representan identificadores; el orden en cada fila es el orden recuperado.
+
+| Consulta | Documentos relevantes conocidos | Top 3 recuperados | Precision@3 | Recall@3 | RR@3 |
+|---|---|---|---:|---:|---:|
+| Q1: requisitos de postulación | A, B | A, C, B | 2/3 | 2/2 | 1 |
+| Q2: evaluación de propuestas | D, E | X, D, Y | 1/3 | 1/2 | 1/2 |
+| Q3: cronograma de revisión | F | G, H, F | 1/3 | 1/1 | 1/3 |
+
+El promedio macro (media aritmética entre consultas, con el mismo peso para cada una) resulta:
+
+\[
+\overline{\mathrm{Precision@3}} = \frac{2/3+1/3+1/3}{3}=\frac49\approx 0{,}444
+\]
+
+\[
+\overline{\mathrm{Recall@3}} = \frac{1+0{,}5+1}{3}=\frac56\approx 0{,}833
+\]
+
+\[
+\mathrm{MRR@3} = \frac{1+1/2+1/3}{3}=\frac{11}{18}\approx 0{,}611
+\]
+
+**Interpretación:** en este conjunto sintético de tres consultas se recupera una proporción alta de documentos relevantes conocidos, pero los primeros resultados contienen varios documentos no relevantes. La primera evidencia relevante aparece inmediatamente en Q1, en segundo lugar en Q2 y en tercero en Q3.
+
+No debemos concluir que el recuperador funcionará igual en producción: apenas estamos validando una tabla ilustrativa.
+
+## 7. Compruébalo con Python
+
+Descarga el [código](codigo/metricas.py) y la [suite de pruebas](pruebas/test_metricas.py), conservando la carpeta del artículo como directorio de trabajo. En PowerShell puedes ejecutar:
+
+```powershell
+py codigo/metricas.py
+py -m unittest discover -s pruebas -v
+```
+
+En Linux o macOS utiliza `python3`. El programa vuelve a calcular las tres métricas, produce el resultado de cada consulta y comprueba los promedios. No necesita conexión, bibliotecas externas ni acceso al proyecto RunCoach AI.
+
+En la salida esperada se leen, redondeadas a tres decimales: **Precision@3 = 0,444; Recall@3 = 0,833; MRR@3 = 0,611**. Son resultados ilustrativos de datos sintéticos.
+
+## 8. Errores frecuentes y decisiones metodológicas
+
+| Error | Por qué importa | Qué documentar |
+|---|---|---|
+| Usar Recall@3 sin lista de relevantes | El denominador carece de base | Procedencia de los juicios |
+| Mezclar K = 3 y K = 5 | Compara umbrales distintos | K de cada corrida |
+| Llamar «precisión del RAG» a Precision@3 | Solo mide recuperación | Etapa y métrica exacta |
+| Cambiar el conjunto después de ver los fallos | Sesga la evaluación | Versión y separación de conjuntos |
+| Publicar solo el promedio | Oculta casos con fallos sistemáticos | Resultados por consulta |
+| Considerar MRR como calidad de las respuestas | Solo valora la primera coincidencia relevante | Evaluación de generación separada |
+
+Las consultas sin ningún documento relevante conocido requieren una política explícita (por ejemplo, separar pruebas de abstención). En esta guía todas tienen por lo menos uno, de modo que Recall@3 está bien definido.
+
+## 9. Conclusiones
+
+La recuperación puede parecer exitosa porque el sistema devuelve textos relacionados; sin embargo, debemos preguntar **cuántos son realmente relevantes, cuántos faltan y dónde aparecen en el ranking**. Precision@K, Recall@K y MRR son medidas complementarias, no una garantía de que la respuesta final sea fiel, segura o correcta.
+
+También importa el diseño del experimento: consultas representativas, relevancia revisada, versiones de documentos, casos negativos y una separación entre datos para ajustar y datos para evaluar.
+
+### Referencias académicas y técnicas
+
+1. Manning, C. D., Raghavan, P. y Schütze, H. (2008). [*Introduction to Information Retrieval*, capítulo 8: Evaluation in information retrieval](https://nlp.stanford.edu/IR-book/html/htmledition/evaluation-in-information-retrieval-1.html). Cambridge University Press.
+2. Microsoft Learn. [Develop a RAG solution on Azure: evaluate your search results](https://learn.microsoft.com/en-us/azure/architecture/ai-ml/guide/rag/rag-information-retrieval).
+3. Google for Developers. [Machine Learning Glossary: Metrics](https://developers.google.com/machine-learning/glossary/metrics).
+
+### Continúa aprendiendo
+
+Como preparación, consulta [RAG: fundamentos y arquitectura para comenzar](../rag-fundamentos-arquitectura/index.qmd), el [caso RunCoach AI](../runcoach-ai-conocimiento-rag-caso/index.qmd) y su [laboratorio de consultas contextuales](../runcoach-rag-consultas-contextuales-practica/index.qmd).
+
+### Comparte con la comunidad
+
+¿En qué consulta falló tu recuperador y qué documentos necesitaba encontrar? Comparte de forma voluntaria una tabla **con datos públicos o sintéticos**, con los criterios de relevancia y una explicación de los errores más importantes.
