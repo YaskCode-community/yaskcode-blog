@@ -2,8 +2,10 @@
 title: "Ruta de aprendizaje YaskCode: de RAG a sistemas multiagentes y su evaluación"
 subtitle: "Un recorrido guiado por fundamentos, seis proyectos académicos y laboratorios reproducibles para aprender a construir y verificar sistemas de IA."
 author: "Yaskelly Yedra"
-# Fecha editorial prevista; cambiar si la publicación real difiere.
-date: 2027-04-29
+# Publicación adelantada, autorizada para revisión directamente en el blog.
+date: 2026-10-31
+# Posición original del calendario de la serie, antes de adelantar su publicación.
+original-editorial-slot: 2027-04-29
 description: "Explora la ruta YaskCode de abril a septiembre de 2027: RAG, agentes, contratos, trazabilidad, pruebas y evaluación crítica mediante seis casos académicos y sus laboratorios."
 categories: ["Aprende", "Inteligencia Artificial"]
 area: "Inteligencia Artificial"
@@ -11,17 +13,11 @@ editorial-section: "Aprende"
 level: "Básico"
 level-detail: "Ruta de aprendizaje"
 toc: true
-draft: true
+draft: false
 format:
   html:
     include-in-header: ../../assets/seo-ruta-aprendizaje-yaskcode-rag-sistemas-multiagentes.html
 ---
-
-<!-- BORRADOR EDITORIAL · APERTURA PREVISTA: 2027-04-29.
-  No asignar date/date-modified ni publicar hasta la fecha real y la revisión final.
-  Portada, image-alt, SEO BlogPosting y registro en assets/article-tools.js: pendientes.
-  Enlaces internos a los 12 artículos inéditos: añadir SOLO cuando estén publicados.
--->
 
 ::: {.callout-note title="En 1 minuto"}
 Un sistema de IA puede producir una respuesta convincente sin aportar evidencia suficiente. En esta ruta aprenderemos a **recuperar información, coordinar agentes y comprobar lo que realmente hacen**, utilizando seis proyectos de la Maestría TIC de la Universidad del Zulia y laboratorios independientes. Cada resultado se estudiará junto con sus pruebas, límites y decisiones de diseño: un ejemplo que funciona no demuestra que el sistema sea infalible.
