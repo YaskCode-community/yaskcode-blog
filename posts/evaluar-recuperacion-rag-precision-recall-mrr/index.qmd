@@ -3,6 +3,7 @@ title: "Cómo evaluar la recuperación RAG: Precision@K, Recall@K y MRR"
 subtitle: "Aprende a medir qué documentos recupera un sistema, cuáles faltan y dónde aparece la primera evidencia relevante."
 author: "Yaskelly Yedra"
 date: 2026-10-31
+date-modified: 2026-10-31
 # Posición original del calendario de la serie, antes de adelantar su publicación.
 original-editorial-slot: 2027-05-27
 # Publicación adelantada, autorizada para revisión directamente en el blog.
