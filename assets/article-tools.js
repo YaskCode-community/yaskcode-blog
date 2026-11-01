@@ -12,7 +12,8 @@
     {slug:"runcoach-rag-consultas-contextuales-practica",level:"Básico",title:"Práctica: construir consultas contextuales para RAG",section:"Práctica"},
     {slug:"evaluar-recuperacion-rag-precision-recall-mrr",level:"Básico",title:"Cómo evaluar la recuperación RAG: Precision@K, Recall@K y MRR",section:"Inteligencia Artificial"},
     {slug:"seniorvital-rag-agentes-evidencia-caso",title:"SeniorVital: RAG, agentes y evidencia en un proyecto académico",section:"Comunidad YaskCode"},
-    {slug:"seniorvital-evidencia-abstencion-rag-practica",level:"Básico",title:"Práctica: verificar evidencia y abstenerse antes de responder con RAG",section:"Práctica"}
+    {slug:"seniorvital-evidencia-abstencion-rag-practica",level:"Básico",title:"Práctica: verificar evidencia y abstenerse antes de responder con RAG",section:"Práctica"},
+    {slug:"de-rag-a-sistemas-multiagentes-responsabilidades-supervision",level:"Intermedio",title:"De RAG a sistemas multiagentes: responsabilidades y supervisión",section:"Inteligencia Artificial"}
   ];
   const links = {
     "historia-campus-yaskcode":["por-que-aprender-poo-en-la-era-de-la-ia","rag-fundamentos-arquitectura"],
@@ -25,7 +26,8 @@
     "runcoach-rag-consultas-contextuales-practica":["runcoach-ai-conocimiento-rag-caso","rag-fundamentos-arquitectura"],
     "evaluar-recuperacion-rag-precision-recall-mrr":["runcoach-rag-consultas-contextuales-practica","runcoach-ai-conocimiento-rag-caso"],
     "seniorvital-rag-agentes-evidencia-caso":["evaluar-recuperacion-rag-precision-recall-mrr","runcoach-ai-conocimiento-rag-caso"],
-    "seniorvital-evidencia-abstencion-rag-practica":["seniorvital-rag-agentes-evidencia-caso","evaluar-recuperacion-rag-precision-recall-mrr"]
+    "seniorvital-evidencia-abstencion-rag-practica":["seniorvital-rag-agentes-evidencia-caso","evaluar-recuperacion-rag-precision-recall-mrr"],
+    "de-rag-a-sistemas-multiagentes-responsabilidades-supervision":["seniorvital-rag-agentes-evidencia-caso","rag-fundamentos-arquitectura"]
   };
   const urlFor = slug => new URL(root + "posts/" + slug + "/", location.origin).href;
   const create = (tag, className, content) => {
