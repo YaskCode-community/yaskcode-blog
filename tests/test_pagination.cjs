@@ -44,7 +44,7 @@ function setup(url = 'https://example.org/yaskcode-blog/') {
   const areaGroup = element({dataset:{group:'area'}});
   areaGroup.querySelectorAll = () => areaButtons;
   const sectionGroup = element({dataset:{group:'section'}});
-  const sectionButtons = ['Aprende','Práctica'].map(value => element({dataset: {value}}));
+  const sectionButtons = ['Aprende','Práctica','Comunidad YaskCode','Casos de estudio'].map(value => element({dataset: {value}}));
   sectionGroup.querySelectorAll = () => sectionButtons;
   const nodes = {
     '#article-search': search, '#article-grid': grid, '#result-status': status,
