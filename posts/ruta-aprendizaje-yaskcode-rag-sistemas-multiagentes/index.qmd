@@ -113,7 +113,7 @@ La serie se apoya en seis proyectos elaborados en la asignatura **Sistemas Intel
 | **5** | **QuickBurn AI · Equipo 3** | Uso iterativo de herramientas, decisiones y prevención de bucles | 5 y 12 de agosto |
 | **6** | **VitalSync · Equipo 4** | Evaluación crítica, fallos detectados y pruebas de regresión | 26 de agosto y 2 de septiembre |
 
-*Fechas previstas de 2027. Cada artículo tendrá su enlace cuando esté efectivamente publicado; no se adelantan enlaces a contenido todavía inexistente.*
+*El calendario original preveía estas publicaciones para 2027; las ocho primeras se han adelantado para su revisión pública en el blog. Las próximas se enlazarán cuando estén disponibles.*
 
 ### Mayo y junio: recuperar, fundamentar, abstenerse
 
@@ -180,11 +180,11 @@ Antes de comenzar la siguiente lectura, elige una pregunta que pudiera responder
 
 ## 8. Calendario y continuidad
 
-El recorrido editorial está previsto para **23 jueves consecutivos, del 29 de abril al 30 de septiembre de 2027**. Alternaremos fundamentos, seis casos académicos, seis laboratorios y artículos de análisis; el cierre reunirá las principales lecciones sobre arquitectura, pruebas y evaluación de sistemas de IA.
+El recorrido editorial se diseñó originalmente para **23 jueves consecutivos, del 29 de abril al 30 de septiembre de 2027**, pero sus ocho primeras entregas se adelantaron al **31 de octubre de 2026** para revisarlas públicamente. Alternaremos fundamentos, seis casos académicos, seis laboratorios y artículos de análisis; el cierre reunirá las principales lecciones sobre arquitectura, pruebas y evaluación de sistemas de IA.
 
 La lectura de partida ya está disponible: **[RAG: fundamentos y arquitectura para comenzar](https://yaskcode-community.github.io/yaskcode-blog/posts/rag-fundamentos-arquitectura/)**, publicado originalmente el **21 de octubre de 2026**. Su fecha histórica se conserva; la serie no lo presenta como una publicación nueva de 2027.
 
-**Siguiente lectura prevista · 6 de mayo de 2027:** *Cómo leer críticamente un caso de IA: evidencia, arquitectura y límites*. Cuando esté publicada, incorporaremos aquí su enlace.
+**Continúa ahora:** [Cómo leer críticamente un caso de IA: evidencia, arquitectura y límites](../leer-criticamente-caso-ia-evidencia-arquitectura-limites/index.qmd), disponible como parte de este adelanto editorial.
 
 ## Referencias académicas y técnicas
 
