@@ -89,6 +89,14 @@ for slug, names in {
     assert 'academic-advisor-role: "Asesoría y aprobación académica"' in source
     assert all(name in source for name in names), f'Faltan autores de {slug}'
 
+# El filtro Casos de estudio debe corresponder con la sección de los casos publicados.
+blog_index = (ROOT.parent / 'index.qmd').read_text(encoding='utf-8')
+assert 'data-value="Casos de estudio"' in blog_index, 'Falta botón de Casos de estudio'
+for slug in ('runcoach-ai-conocimiento-rag-caso', 'seniorvital-rag-agentes-evidencia-caso'):
+    case_source = (ROOT.parent / 'posts' / slug / 'index.qmd').read_text(encoding='utf-8')
+    assert 'editorial-section: "Casos de estudio"' in case_source, f'Filtro sin metadatos en {slug}'
+    assert 'categories: ["Comunidad YaskCode", "Casos de estudio"]' in case_source, 'Conservar comunidad como categoría complementaria'
+
 # Coherencia de cabecera: metadatos, una introducción y nivel educativo.
 client = (ROOT / 'assets/article-tools.js').read_text(encoding='utf-8')
 css = (ROOT.parent / 'assets/theme.scss').read_text(encoding='utf-8')

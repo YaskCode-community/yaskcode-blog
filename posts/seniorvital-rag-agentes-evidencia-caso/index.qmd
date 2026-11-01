@@ -10,7 +10,7 @@ date-modified: 2026-10-31
 original-editorial-slot: 2027-06-03
 description: "Caso académico SeniorVital del Equipo 5 de la Maestría TIC-LUZ: RAG, agentes, arquitectura, telemetría y límites de las pruebas."
 categories: ["Comunidad YaskCode", "Casos de estudio"]
-editorial-section: "Comunidad YaskCode"
+editorial-section: "Casos de estudio"
 area: "Inteligencia Artificial"
 article-type: "Caso de estudio académico"
 academic-advisor: "Dra. Yaskelly Yedra"
