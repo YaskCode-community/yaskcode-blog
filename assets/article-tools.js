@@ -15,18 +15,6 @@
     {slug:"seniorvital-evidencia-abstencion-rag-practica",level:"Básico",title:"Práctica: verificar evidencia y abstenerse antes de responder con RAG",section:"Práctica"},
     {slug:"de-rag-a-sistemas-multiagentes-responsabilidades-supervision",level:"Intermedio",title:"De RAG a sistemas multiagentes: responsabilidades y supervisión",section:"Inteligencia Artificial"}
   ];
-  // Fechas aprobadas del calendario editorial original. No sustituyen la fecha
-  // real de primera publicación web y se presentan separadas de Quarto/SEO.
-  const editorialDates = {
-    "ruta-aprendizaje-yaskcode-rag-sistemas-multiagentes":"29/04/2027",
-    "leer-criticamente-caso-ia-evidencia-arquitectura-limites":"06/05/2027",
-    "runcoach-ai-conocimiento-rag-caso":"13/05/2027",
-    "runcoach-rag-consultas-contextuales-practica":"20/05/2027",
-    "evaluar-recuperacion-rag-precision-recall-mrr":"27/05/2027",
-    "seniorvital-rag-agentes-evidencia-caso":"03/06/2027",
-    "seniorvital-evidencia-abstencion-rag-practica":"10/06/2027",
-    "de-rag-a-sistemas-multiagentes-responsabilidades-supervision":"17/06/2027"
-  };
   const links = {
     "historia-campus-yaskcode":["por-que-aprender-poo-en-la-era-de-la-ia","rag-fundamentos-arquitectura"],
     "por-que-aprender-poo-en-la-era-de-la-ia":["rag-fundamentos-arquitectura","hugging-face-modelos-datasets-ciencia-de-datos"],
@@ -268,18 +256,6 @@
     const content = document.querySelector("#quarto-document-content") || document.querySelector("main.content");
     if (!content) return;
     articleMeta(content);
-    if (editorialDates[slug]) {
-      const header = document.querySelector("#title-block-header");
-      const meta = header?.querySelector(".quarto-title-meta");
-      if (header && !header.querySelector(".yc-series-date")) {
-        const dateLine = create("p", "yc-series-date");
-        dateLine.append(create("strong", "", "Fecha de la serie: " + editorialDates[slug]));
-        dateLine.append(create("span", "yc-series-date-note",
-          "Calendario editorial original · Publicación web: 31/10/2026"));
-        if (meta) meta.insertAdjacentElement("beforebegin", dateLine);
-        else header.append(dateLine);
-      }
-    }
     // El nivel es metadato pedagógico, distinto de las categorías temáticas.
     // Se presenta como una etiqueta, sin contaminar categorías, RSS ni filtros.
     const level = articles.find(article => article.slug === slug)?.level;
