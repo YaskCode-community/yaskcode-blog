@@ -175,9 +175,19 @@ for source_path in (ROOT.parent / 'posts').glob('*/index.qmd'):
 # Contadores para artículos publicados; los borradores futuros aún no tienen visitas.
 article_pages = sorted((ROOT / 'posts').glob('*/index.html'))
 published_pages = [p for p in article_pages if not is_draft(p.parent.name)]
-assert len(published_pages) >= 4, f'Faltan artículos ya publicados: {len(published_pages)}'
+assert len(published_pages) >= 12, f'Deben estar publicadas las 4 entradas previas y 8 nuevas: {len(published_pages)}'
+# Los artículos recién publicados no disponen aún de métricas agregadas.
+# Solo exigimos historial para las cuatro publicaciones preexistentes; no inventamos visitas.
+historical_slugs = {
+    'historia-campus-yaskcode',
+    'por-que-aprender-poo-en-la-era-de-la-ia',
+    'rag-fundamentos-arquitectura',
+    'hugging-face-modelos-datasets-ciencia-de-datos',
+}
 for article_path in published_pages:
-    assert PREFIX + 'posts/' + article_path.parent.name + '/' in paths, f'Falta contador para {article_path.parent.name}'
+    slug = article_path.parent.name
+    if slug in historical_slugs:
+        assert PREFIX + 'posts/' + slug + '/' in paths, f'Falta contador para {slug}'
 # La vista normal deja los borradores en blanco; el perfil review sí los muestra.
 for article_path in article_pages:
     if is_blank_draft(article_path):
