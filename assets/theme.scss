@@ -243,3 +243,15 @@ main p, main li { overflow-wrap: anywhere; }
   img, pre, table, .callout { break-inside: avoid; max-width: 100%; }
   body { color: #222; background: #fff; font-size: 11pt; }
 }
+
+/* Créditos académicos: autores estudiantiles y asesoría, sin confundir roles. */
+.card-advisor { color: #52525b; font-size: .78rem; margin: -.4rem 0 .6rem; line-height: 1.5; }
+.card-advisor strong, .card-author strong { font-weight: 650; }
+.yc-case-credits {
+  margin: .75rem 0 1rem;
+  font-size: .9rem;
+  line-height: 1.55;
+  color: #41414b;
+}
+.yc-case-credits p { margin: .1rem 0; }
+.yc-case-credits strong { font-weight: 650; }
