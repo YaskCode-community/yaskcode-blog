@@ -4,6 +4,7 @@ subtitle: "Seis preguntas para comprender qué se diseñó, qué se implementó 
 author: "Yaskelly Yedra"
 # Publicación adelantada, autorizada para revisión directamente en el blog.
 date: 2026-10-31
+date-modified: 2026-10-31
 # Posición original del calendario de la serie, antes de adelantar su publicación.
 original-editorial-slot: 2027-05-06
 description: "Guía YaskCode para analizar críticamente casos de IA: trazabilidad de evidencias, arquitectura, pruebas, métricas, riesgos y lecciones transferibles."

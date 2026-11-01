@@ -3,6 +3,7 @@ title: "De RAG a sistemas multiagentes: responsabilidades y supervisión"
 subtitle: "Comprende cuándo conviene pasar de recuperar documentos a coordinar capacidades especializadas, sin confundir complejidad con autonomía."
 author: "Yaskelly Yedra"
 date: 2026-10-31
+date-modified: 2026-10-31
 # Posición original del calendario de la serie, antes de adelantar su publicación.
 original-editorial-slot: 2027-06-17
 # Publicación adelantada, autorizada para revisión directamente en el blog.
