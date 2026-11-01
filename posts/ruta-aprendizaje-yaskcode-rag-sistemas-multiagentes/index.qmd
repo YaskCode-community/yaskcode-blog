@@ -7,7 +7,10 @@ date: 2026-10-31
 date-modified: 2026-10-31
 # Posición original del calendario de la serie, antes de adelantar su publicación.
 original-editorial-slot: 2027-04-29
-description: "Explora la ruta YaskCode de abril a septiembre de 2027: RAG, agentes, contratos, trazabilidad, pruebas y evaluación crítica mediante seis casos académicos y sus laboratorios."
+description: "Explora la ruta YaskCode sobre RAG, agentes, contratos, trazabilidad, pruebas y evaluación crítica mediante seis casos académicos y laboratorios reproducibles."
+# Portada preparada; antes de integrar este PR debe subirse el archivo WebP indicado.
+image: "portada-ruta-aprendizaje-yaskcode.webp"
+image-alt: "Ruta visual de seis etapas desde el problema y la recuperación de evidencia RAG hasta sistemas multiagentes, pruebas, evaluación y mejora."
 categories: ["Aprende", "Inteligencia Artificial"]
 area: "Inteligencia Artificial"
 editorial-section: "Aprende"
@@ -105,16 +108,16 @@ Podrás leer un caso sin ejecutar código. Si decides realizar la práctica, enc
 
 La serie se apoya en seis proyectos elaborados en la asignatura **Sistemas Inteligentes de la Maestría en Tecnologías de Información y Comunicación de la Universidad del Zulia (LUZ)**. Los casos se adaptan para su lectura pública conservando los créditos de las personas autoras en cada artículo.
 
-| Estación | Caso académico | Qué examinaremos | Caso / práctica previstos |
+| Estación | Caso académico | Qué examinaremos | Estado de publicación |
 |:--|:--|:--|:--|
-| **1** | **RunCoach AI · Equipo 1** | La calidad de una consulta contextual antes de recuperar evidencia | 13 y 20 de mayo |
-| **2** | **SeniorVital · Equipo 5** | La diferencia entre encontrar un documento y tener evidencia suficiente para responder | 3 y 10 de junio |
-| **3** | **Sistema nutricional inteligente · Equipo 2** | Protocolos de comunicación y contratos estructurados entre agentes | 24 de junio y 1 de julio |
-| **4** | **Wellness Lift · Equipo 6** | Correlación de delegaciones y respuestas mediante `trace_id` y `task_id` | 15 y 22 de julio |
-| **5** | **QuickBurn AI · Equipo 3** | Uso iterativo de herramientas, decisiones y prevención de bucles | 5 y 12 de agosto |
-| **6** | **VitalSync · Equipo 4** | Evaluación crítica, fallos detectados y pruebas de regresión | 26 de agosto y 2 de septiembre |
+| **1** | **RunCoach AI · Equipo 1** | La calidad de una consulta contextual antes de recuperar evidencia | Caso y laboratorio publicados |
+| **2** | **SeniorVital · Equipo 5** | La diferencia entre encontrar un documento y tener evidencia suficiente para responder | Caso y laboratorio publicados |
+| **3** | **Sistema nutricional inteligente · Equipo 2** | Protocolos de comunicación y contratos estructurados entre agentes | Pendientes de reprogramación |
+| **4** | **Wellness Lift · Equipo 6** | Correlación de delegaciones y respuestas mediante `trace_id` y `task_id` | Pendientes de reprogramación |
+| **5** | **QuickBurn AI · Equipo 3** | Uso iterativo de herramientas, decisiones y prevención de bucles | Pendientes de reprogramación |
+| **6** | **VitalSync · Equipo 4** | Evaluación crítica, fallos detectados y pruebas de regresión | Pendientes de reprogramación |
 
-*El calendario original preveía estas publicaciones para 2027; las ocho primeras se han adelantado para su revisión pública en el blog. Las próximas se enlazarán cuando estén disponibles.*
+*Los casos y laboratorios de RunCoach AI y SeniorVital ya están disponibles. Las fechas de los demás proyectos se comunicarán al reprogramar las quince publicaciones pendientes. No se presentan aquí las fechas históricas del plan como fechas futuras confirmadas.*
 
 ### Mayo y junio: recuperar, fundamentar, abstenerse
 
@@ -181,7 +184,7 @@ Antes de comenzar la siguiente lectura, elige una pregunta que pudiera responder
 
 ## 8. Calendario y continuidad
 
-El recorrido editorial se diseñó originalmente para **23 jueves consecutivos, del 29 de abril al 30 de septiembre de 2027**, pero sus ocho primeras entregas se adelantaron al **31 de octubre de 2026** para revisarlas públicamente. Alternaremos fundamentos, seis casos académicos, seis laboratorios y artículos de análisis; el cierre reunirá las principales lecciones sobre arquitectura, pruebas y evaluación de sistemas de IA.
+La serie se planificó inicialmente con **23 entregas**. Sus primeras **ocho publicaciones están disponibles desde el 31 de octubre de 2026**; las **quince restantes están pendientes de reprogramación**. Mantendremos fundamentos, casos académicos, laboratorios y análisis críticos, con fechas nuevas únicamente cuando hayan sido aprobadas.
 
 La lectura de partida ya está disponible: **[RAG: fundamentos y arquitectura para comenzar](https://yaskcode-community.github.io/yaskcode-blog/posts/rag-fundamentos-arquitectura/)**, publicado originalmente el **21 de octubre de 2026**. Su fecha histórica se conserva; la serie no lo presenta como una publicación nueva de 2027.
 
