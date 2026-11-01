@@ -4,15 +4,17 @@ subtitle: "Un caso académico sobre cómo evolucionar una aplicación hacia una 
 author:
   - "Julio César Matute"
   - "José Urdaneta"
-date: 2027-05-13
-# Fecha planificada: confirmar al publicar en la web.
+date: 2026-10-31
+# Posición original del calendario de la serie, antes de adelantar su publicación.
+original-editorial-slot: 2027-05-13
+# Publicación adelantada, autorizada para revisión directamente en el blog.
 description: "Caso de estudio de RunCoach AI, Equipo 1 de la Maestría TIC-LUZ: revisión académica, decisiones de arquitectura RAG, consulta contextual y límites de validación."
 categories: ["Comunidad YaskCode", "Casos de estudio"]
 editorial-section: "Comunidad YaskCode"
 area: "Inteligencia Artificial"
 article-type: "Caso de estudio académico"
 toc: true
-draft: true
+draft: false
 format:
   html:
     include-in-header: ../../assets/seo-runcoach-ai-conocimiento-rag-caso.html
