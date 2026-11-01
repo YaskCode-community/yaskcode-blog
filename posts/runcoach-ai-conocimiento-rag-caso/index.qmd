@@ -5,6 +5,7 @@ author:
   - "Julio César Matute"
   - "José Urdaneta"
 date: 2026-10-31
+date-modified: 2026-10-31
 # Posición original del calendario de la serie, antes de adelantar su publicación.
 original-editorial-slot: 2027-05-13
 # Publicación adelantada, autorizada para revisión directamente en el blog.
