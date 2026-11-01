@@ -4,6 +4,7 @@ subtitle: "Un recorrido guiado por fundamentos, seis proyectos académicos y lab
 author: "Yaskelly Yedra"
 # Publicación adelantada, autorizada para revisión directamente en el blog.
 date: 2026-10-31
+date-modified: 2026-10-31
 # Posición original del calendario de la serie, antes de adelantar su publicación.
 original-editorial-slot: 2027-04-29
 description: "Explora la ruta YaskCode de abril a septiembre de 2027: RAG, agentes, contratos, trazabilidad, pruebas y evaluación crítica mediante seis casos académicos y sus laboratorios."
