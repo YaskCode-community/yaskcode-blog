@@ -2,8 +2,10 @@
 title: "Práctica: construir consultas contextuales para RAG y probar sus casos límite"
 subtitle: "Un laboratorio guiado sobre selección temporal, calidad de la entrada y pruebas de regresión, sin modelos externos."
 author: "Yaskelly Yedra"
-date: 2027-05-20
-# Fecha planificada: confirmar al publicar en la web.
+date: 2026-10-31
+# Posición original del calendario de la serie, antes de adelantar su publicación.
+original-editorial-slot: 2027-05-20
+# Publicación adelantada, autorizada para revisión directamente en el blog.
 description: "Laboratorio reproducible de Python para seleccionar notas pertinentes, construir consultas contextuales y verificar casos límite antes de usar un recuperador RAG."
 categories: ["Práctica", "Inteligencia Artificial"]
 editorial-section: "Práctica"
@@ -11,7 +13,7 @@ area: "Inteligencia Artificial"
 level: "Básico"
 level-detail: "Laboratorio reproducible"
 toc: true
-draft: true
+draft: false
 format:
   html:
     include-in-header: ../../assets/seo-runcoach-rag-consultas-contextuales-practica.html
