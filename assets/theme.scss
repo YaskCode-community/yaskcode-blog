@@ -46,12 +46,6 @@ h1.title { color: #222; font-size: clamp(2rem, 4vw, 2.8rem); }
 .card-series-order { display: block; margin-top: .2rem; font-weight: 600; color: #7b2970; }
 .card-date-modified, .card-original-slot { display: block; margin-top: .15rem; }
 .card-original-slot { color: #666; font-size: .78rem; }
-/* Fecha del recorrido editorial: visualmente prioritaria, sin cambiar SEO histórico. */
-.card-editorial-date { display: block; font-size: .93rem; font-weight: 700; color: var(--yc-magenta); margin-bottom: .2rem; }
-.card-web-date { display: block; font-size: .76rem; color: #666; margin-top: .35rem; line-height: 1.5; }
-.yc-series-date { margin: .7rem 0 1rem; padding: .6rem .85rem; border-left: 3px solid var(--yc-magenta); background: #faf6fc; border-radius: 0 8px 8px 0; }
-.yc-series-date strong { display: block; color: #85006d; font-size: 1.05rem; }
-.yc-series-date-note { display: block; color: #555; font-size: .79rem; margin-top: .2rem; }
 
 .yc-pagination {
   display: flex; flex-wrap: wrap; align-items: center; justify-content: center;
