@@ -39,6 +39,7 @@ listing:
       <button type="button" data-value="Comparte" aria-pressed="false">Comparte</button>
       <button type="button" data-value="Explora y participa" aria-pressed="false">Explora y participa</button>
       <button type="button" data-value="Comunidad YaskCode" aria-pressed="false">Comunidad YaskCode</button>
+      <button type="button" data-value="Casos de estudio" aria-pressed="false">Casos de estudio</button>
     </div>
   </section>
   <section class="explore-panel subscribe-panel" aria-labelledby="subscribe-title">
