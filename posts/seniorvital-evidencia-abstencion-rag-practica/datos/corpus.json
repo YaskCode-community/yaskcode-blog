@@ -1,0 +1,35 @@
+{
+  "documentos": [
+    {
+      "id": "DOC-01",
+      "texto": "La convocatoria de propuestas universitarias permite la postulación de equipos docentes.",
+      "hechos": {}
+    },
+    {
+      "id": "DOC-02",
+      "texto": "El cierre de la convocatoria de propuestas universitarias será el 30 de junio.",
+      "hechos": {
+        "cierre": "30 de junio"
+      }
+    },
+    {
+      "id": "DOC-03",
+      "texto": "La propuesta universitaria exige anexos: resumen y cronograma.",
+      "hechos": {
+        "requisitos": "resumen y cronograma"
+      }
+    },
+    {
+      "id": "DOC-04",
+      "texto": "La notificación de resultados de propuestas universitarias será el 15 de julio.",
+      "hechos": {
+        "notificacion": "15 de julio"
+      }
+    },
+    {
+      "id": "DOC-05",
+      "texto": "El proceso de postulación dispone de una guía de consulta en la universidad.",
+      "hechos": {}
+    }
+  ]
+}
