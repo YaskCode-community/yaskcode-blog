@@ -206,7 +206,7 @@ Con esta guía ya disponemos de un método para leer con rigor proyectos de IA. 
 
 Como preparación para este análisis, lee también [la ruta de aprendizaje YaskCode](../ruta-aprendizaje-yaskcode-rag-sistemas-multiagentes/index.qmd). Como antecedente, puedes consultar [RAG: fundamentos y arquitectura para comenzar](https://yaskcode-community.github.io/yaskcode-blog/posts/rag-fundamentos-arquitectura/), publicado en octubre de 2026. Será útil para interpretar el primer caso sin confundir recuperación de información con generación de texto.
 
-**Siguiente publicación prevista · 13 de mayo de 2027:** *RunCoach AI: del estudio académico a la arquitectura inteligente*. Cuando esté disponible en el blog, añadiremos su enlace; por ahora no presentamos una URL inexistente.
+**Continúa ahora:** [RunCoach AI: del conocimiento documentado a un RAG trazable](../runcoach-ai-conocimiento-rag-caso/index.qmd), disponible en la serie.
 
 ## Referencias académicas y técnicas
 
