@@ -2,28 +2,22 @@
 title: "Cómo leer críticamente un caso de IA: evidencia, arquitectura y límites"
 subtitle: "Seis preguntas para comprender qué se diseñó, qué se implementó y qué demuestran realmente las pruebas de un proyecto con inteligencia artificial."
 author: "Yaskelly Yedra"
-# Fecha editorial prevista; cambiar si la publicación real difiere.
-date: 2027-05-06
+# Publicación adelantada, autorizada para revisión directamente en el blog.
+date: 2026-10-31
+# Posición original del calendario de la serie, antes de adelantar su publicación.
+original-editorial-slot: 2027-05-06
 description: "Guía YaskCode para analizar críticamente casos de IA: trazabilidad de evidencias, arquitectura, pruebas, métricas, riesgos y lecciones transferibles."
 categories: ["Aprende", "Ingeniería de Software"]
 area: "Ingeniería de Software"
 editorial-section: "Aprende"
 level: "Básico"
 level-detail: "Lectura crítica de casos"
-planned-publication-date: "2027-05-06"
 toc: true
-draft: true
+draft: false
 format:
   html:
     include-in-header: ../../assets/seo-leer-criticamente-caso-ia-evidencia-arquitectura-limites.html
 ---
-
-<!-- BORRADOR PRIVADO. Publicación prevista: 6 de mayo de 2027.
-  planned-publication-date es un dato de planificación, NO de publicación real.
-  Antes de publicar: portada e image-alt, archivo SEO BlogPosting con fecha real,
-  registro en assets/article-tools.js, enlaces definitivos y QA visual de Quarto.
-  No añadir date ni date-modified hasta que exista publicación o revisión reales.
--->
 
 ::: {.callout-note title="En 1 minuto"}
 Un proyecto puede tener una arquitectura bien explicada, pruebas automatizadas y una demostración convincente, pero cada evidencia respalda **afirmaciones diferentes**. Leer críticamente un caso de inteligencia artificial significa reconstruir la cadena entre **problema, decisión, implementación, comprobación y límites**, sin confundir un prototipo con una solución validada en cualquier contexto. Esta guía propone seis preguntas aplicables a casos académicos, repositorios y artículos técnicos.
