@@ -11,7 +11,7 @@ original-editorial-slot: 2027-05-13
 # Publicación adelantada, autorizada para revisión directamente en el blog.
 description: "Caso de estudio de RunCoach AI, Equipo 1 de la Maestría TIC-LUZ: revisión académica, decisiones de arquitectura RAG, consulta contextual y límites de validación."
 categories: ["Comunidad YaskCode", "Casos de estudio"]
-editorial-section: "Comunidad YaskCode"
+editorial-section: "Casos de estudio"
 area: "Inteligencia Artificial"
 article-type: "Caso de estudio académico"
 image: portada-runcoach-ai-rag.webp
