@@ -2,8 +2,10 @@
 title: "Cómo evaluar la recuperación RAG: Precision@K, Recall@K y MRR"
 subtitle: "Aprende a medir qué documentos recupera un sistema, cuáles faltan y dónde aparece la primera evidencia relevante."
 author: "Yaskelly Yedra"
-date: 2027-05-27
-# Fecha editorial prevista: confirmar con la publicación real.
+date: 2026-10-31
+# Posición original del calendario de la serie, antes de adelantar su publicación.
+original-editorial-slot: 2027-05-27
+# Publicación adelantada, autorizada para revisión directamente en el blog.
 description: "Guía práctica y fundamentada para interpretar Precision@K, Recall@K y Mean Reciprocal Rank en la recuperación de un sistema RAG, con datos sintéticos y Python reproducible."
 categories: ["Aprende", "Inteligencia Artificial"]
 area: "Inteligencia Artificial"
@@ -11,7 +13,7 @@ editorial-section: "Aprende"
 level: "Básico"
 level-detail: "Evaluación de recuperación"
 toc: true
-draft: true
+draft: false
 format:
   html:
     include-in-header: ../../assets/seo-evaluar-recuperacion-rag-precision-recall-mrr.html
