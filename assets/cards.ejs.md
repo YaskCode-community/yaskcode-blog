@@ -30,7 +30,8 @@ const orderedItems = items.slice().sort((a, b) => {
       <p class="card-date">Publicado: <%- item.date %><% if (item['date-modified']) { %><span class="card-date-modified">Actualizado: <%- item['date-modified'] %></span><% } %></p>
       <h2><a href="<%- item.path %>"><%- item.title %></a></h2>
       <p class="card-description"><%- item.description || '' %></p>
-      <p class="card-author"><%- Array.isArray(item.author) ? item.author.join(', ') : (item.author || 'YaskCode') %></p>
+      <p class="card-author"><% if (item['academic-advisor']) { %><strong>Autores del proyecto:</strong> <% } %><%- Array.isArray(item.author) ? item.author.join(', ') : (item.author || 'YaskCode') %></p>
+      <% if (item['academic-advisor']) { %><p class="card-advisor"><strong><%- item['academic-advisor-role'] || 'Asesoría académica' %>:</strong> <%- item['academic-advisor'] %></p><% } %>
     </div>
   </article>
 <% } %>

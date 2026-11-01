@@ -15,6 +15,16 @@
     {slug:"seniorvital-evidencia-abstencion-rag-practica",level:"Básico",title:"Práctica: verificar evidencia y abstenerse antes de responder con RAG",section:"Práctica"},
     {slug:"de-rag-a-sistemas-multiagentes-responsabilidades-supervision",level:"Intermedio",title:"De RAG a sistemas multiagentes: responsabilidades y supervisión",section:"Inteligencia Artificial"}
   ];
+  const academicCaseCredits = {
+    "runcoach-ai-conocimiento-rag-caso": {
+      authors: "Julio César Matute y José Urdaneta",
+      advisor: "Dra. Yaskelly Yedra"
+    },
+    "seniorvital-rag-agentes-evidencia-caso": {
+      authors: "Daniel Alejandro Sánchez Ávila y Abdenago Nahmens",
+      advisor: "Dra. Yaskelly Yedra"
+    }
+  };
   const links = {
     "historia-campus-yaskcode":["por-que-aprender-poo-en-la-era-de-la-ia","rag-fundamentos-arquitectura"],
     "por-que-aprender-poo-en-la-era-de-la-ia":["rag-fundamentos-arquitectura","hugging-face-modelos-datasets-ciencia-de-datos"],
@@ -256,6 +266,22 @@
     const content = document.querySelector("#quarto-document-content") || document.querySelector("main.content");
     if (!content) return;
     articleMeta(content);
+    const credits = academicCaseCredits[slug];
+    if (credits) {
+      const header = document.querySelector("#title-block-header");
+      if (header && !header.querySelector(".yc-case-credits")) {
+        const block = create("div", "yc-case-credits");
+        const authors = create("p", "", "");
+        authors.append(create("strong", "", "Autores del proyecto: "), document.createTextNode(credits.authors));
+        const advisor = create("p", "", "");
+        advisor.append(create("strong", "", "Asesoría y aprobación académica: "),
+          document.createTextNode(credits.advisor + " · Universidad del Zulia"));
+        block.append(authors, advisor);
+        const meta = header.querySelector(".quarto-title-meta");
+        if (meta) meta.insertAdjacentElement("afterend", block);
+        else header.append(block);
+      }
+    }
     // El nivel es metadato pedagógico, distinto de las categorías temáticas.
     // Se presenta como una etiqueta, sin contaminar categorías, RSS ni filtros.
     const level = articles.find(article => article.slug === slug)?.level;
