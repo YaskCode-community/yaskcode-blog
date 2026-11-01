@@ -43,6 +43,26 @@ h1.title { color: #222; font-size: clamp(2rem, 4vw, 2.8rem); }
 .card-tags { display: flex; flex-wrap: wrap; gap: .4rem; }
 .card-tags span { border-radius: 6px; background: var(--yc-lavender); padding: .2rem .5rem; font-size: .72rem; color: var(--yc-magenta); }
 .card-date, .card-author { color: #555; font-size: .82rem; margin: .8rem 0; }
+.card-series-order { display: block; margin-top: .2rem; font-weight: 600; color: #7b2970; }
+.yc-pagination {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: center;
+  gap: .65rem; margin: 2rem 0 .5rem;
+}
+.yc-page-numbers { display: flex; flex-wrap: wrap; gap: .4rem; }
+.yc-pagination button {
+  min-width: 2.6rem; min-height: 2.6rem;
+  padding: .5rem .75rem; border-radius: 8px;
+  border: 1px solid #d7c6df; color: var(--yc-magenta);
+  background: #fff; font: inherit; font-size: .92rem; cursor: pointer;
+}
+.yc-pagination button:hover:not(:disabled) { background: var(--yc-lavender); }
+.yc-pagination button[aria-current="page"] {
+  background: var(--yc-magenta); border-color: var(--yc-magenta);
+  color: #fff; font-weight: 700; cursor: default; opacity: 1;
+}
+.yc-pagination button:disabled:not([aria-current]) { color: #666; opacity: .55; cursor: not-allowed; }
+.yc-page-summary { text-align: center; color: #555; font-size: .88rem; }
+
 .post-card h2 { font-size: 1.35rem; line-height: 1.35; border: 0; padding: 0; margin: .7rem 0; }
 .post-card h2 a { color: #222; text-decoration: none; }
 .post-card h2 a:hover { color: var(--yc-magenta); text-decoration: underline; }

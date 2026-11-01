@@ -65,4 +65,10 @@ listing:
 
 ```{=html}
 <p id="no-results" hidden>No hay artículos con estos filtros todavía. Prueba otra área o pulsa «Mostrar todos».</p>
+<nav class="yc-pagination" id="article-pagination" aria-label="Páginas de artículos" hidden>
+  <button type="button" id="yc-page-prev" aria-label="Ir a la página anterior">Anterior</button>
+  <div id="yc-page-numbers" class="yc-page-numbers" aria-label="Seleccionar página"></div>
+  <button type="button" id="yc-page-next" aria-label="Ir a la página siguiente">Siguiente</button>
+</nav>
+<p id="yc-page-summary" class="yc-page-summary" aria-live="polite"></p>
 ```
