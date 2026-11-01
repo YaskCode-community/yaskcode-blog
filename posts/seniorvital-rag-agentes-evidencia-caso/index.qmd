@@ -1,0 +1,143 @@
+---
+title: "SeniorVital: RAG, agentes y evidencia en un proyecto académico"
+subtitle: "Cómo distinguir la arquitectura prevista de los componentes efectivamente ejecutados al revisar un sistema inteligente."
+author:
+  - "Daniel Alejandro Sánchez Ávila"
+  - "Abdenago Nahmens"
+date: 2027-06-03
+description: "Caso académico SeniorVital del Equipo 5 de la Maestría TIC-LUZ: RAG, agentes, arquitectura, telemetría y límites de las pruebas."
+categories: ["Comunidad YaskCode", "Casos de estudio"]
+editorial-section: "Comunidad YaskCode"
+area: "Inteligencia Artificial"
+article-type: "Caso de estudio académico"
+toc: true
+draft: true
+format:
+  html:
+    include-in-header: ../../assets/seo-seniorvital-rag-agentes-evidencia-caso.html
+---
+
+::: {.callout-note title="En 1 minuto"}
+SeniorVital es un proyecto académico de bienestar para personas mayores, desarrollado con ingeniería del conocimiento, RAG, agentes y coordinación multiagente. La lección central es distinguir una arquitectura configurada de la ejecución registrada por las pruebas. Una simulación reproducible puede comprobar componentes de software, pero **no demuestra eficacia clínica, seguridad médica ni validez general**.
+:::
+
+::: {.callout-tip title="Qué encontrarás"}
+1. Problema de ingeniería y evolución en tres sprints.
+2. Arquitectura RAG y decisiones de coordinación de agentes.
+3. Telemetría sobre componentes utilizados en la ejecución.
+4. Interpretación de métricas con limitaciones metodológicas.
+5. Recomendaciones para estudiar proyectos en dominios sensibles.
+:::
+
+### Antes de comenzar
+
+**Público destinatario:** estudiantes, docentes y profesionales interesados en el diseño y la evaluación de sistemas inteligentes.
+
+**Conocimientos previos:** nociones básicas de recuperación de información, pruebas y arquitectura. Lectura introductoria: [RAG: fundamentos y arquitectura](../rag-fundamentos-arquitectura/index.qmd).
+
+::: {.callout-tip title="Recursos para llevar"}
+[Descargar ficha de evaluación del caso](../../recursos/seniorvital-rag-agentes-evidencia-caso-ficha.md).
+
+La ficha sirve para clasificar afirmaciones según el tipo de evidencia y el entorno de ejecución.
+:::
+
+## 1. El problema y la experiencia académica
+
+SeniorVital 2.0 fue desarrollado en la asignatura **Sistemas Inteligentes** de la Maestría en Tecnologías de Información y Comunicación de la **Universidad del Zulia**. El equipo propuso una plataforma de apoyo al bienestar de adultos mayores, con recuperación documental y agentes especializados.
+
+Aquí no estudiaremos consejos de salud. Nos concentraremos en una pregunta de Ingeniería de Software: **¿qué evidencia necesitamos para afirmar que los componentes de un sistema se implementaron, ejecutaron y evaluaron?**
+
+El dominio exige especial cuidado con las afirmaciones sobre seguridad y eficacia. Una aplicación con controles de software no equivale a una intervención clínica validada.
+
+## 2. Evolución por sprints
+
+| Sprint | Principales componentes documentados | Pregunta de evaluación |
+|---|---|---|
+| 1 · Ingeniería del conocimiento | Corpus, fragmentación, embeddings, recuperación, generación y telemetría | ¿Qué fuentes se recuperaron y cómo? |
+| 2 · Agentes inteligentes | Herramientas, memoria, control del ciclo de decisión y seguridad | ¿Qué acciones fueron permitidas? |
+| 3 · Multiagentes | Supervisor, agente especializado de nutrición, mensajes y correlación | ¿Qué componente recibió cada solicitud? |
+
+La wiki académica se centra principalmente en fundamentación, revisión de literatura y casos de uso. El repositorio y los informes de los sprints documentan incrementos posteriores; **no debemos confundir ambos tipos de evidencia**.
+
+## 3. La arquitectura RAG
+
+Los informes del proyecto describen una colección de conocimiento, segmentación estructurada, embeddings de 384 dimensiones, mecanismos de recuperación y respuestas instrumentadas con telemetría. También documentan rutas alternativas para cuando determinados servicios no están disponibles.
+
+```{mermaid}
+flowchart TD
+    A[Documentos del dominio] --> B[Fragmentos y metadatos]
+    B --> C[Representación vectorial]
+    C --> D[Almacén vectorial o respaldo]
+    E[Consulta] --> F[Recuperador]
+    D --> F
+    F --> G[Contexto y procedencia]
+    G --> H[Modelo o respaldo determinista]
+    H --> I[Respuesta y telemetría]
+```
+
+El esquema representa el diseño estudiado, **no una certificación de todas las rutas en un entorno productivo**.
+
+## 4. Configurado no significa ejecutado
+
+Una característica importante de la documentación del Equipo 5 es su distinción explícita entre **arquitectura configurada** y **componentes efectivos de cada prueba**.
+
+| Capa | Alternativas de arquitectura | Evidencia de ejecución en los informes |
+|---|---|---|
+| Embeddings | Modelo de Hugging Face | Modelo real en algunas validaciones; respaldo en CI aislado |
+| Vectorización y búsqueda | Supabase / pgvector | Búsqueda mediante almacén en memoria en una evaluación |
+| Generación | Proveedores de LLM externos | Motor determinista de respaldo en corridas registradas |
+| Agentes | Supervisor y especialistas | Pruebas de contratos y escenarios con componentes simulados |
+
+Esto enseña a documentar *cómo* se produjo un resultado, no solo si se obtuvo una salida satisfactoria.
+
+## 5. Interpretación crítica de los resultados
+
+El informe del Sprint 1 presenta una evaluación de diez consultas, con **Hit Rate@3 de 100 %, MRR de 0,9000 y Precision@3 de 0,6333**. Son resultados del corpus, configuración y criterios declarados, no estimaciones de precisión clínica ni garantía de calidad de las respuestas finales.
+
+En el informe del Sprint 3 se presentan resultados favorables para **6 escenarios de enrutamiento**, realizados con adaptadores simulados y reglas de validación. Las latencias de despacho medidas en memoria no deben extrapolarse a la respuesta completa de un servicio con redes y modelos externos.
+
+Un informe con una cifra de **100 % de adherencia a ciertos criterios** exige revisar el denominador, la definición de éxito, la presencia de simulaciones y la existencia de un conjunto independiente de evaluación. Las coincidencias de palabras o reglas programadas **no prueban eficacia terapéutica**.
+
+Para comprender las métricas de recuperación consulta [Precision@K, Recall@K y MRR](../evaluar-recuperacion-rag-precision-recall-mrr/index.qmd).
+
+## 6. Aprendizajes transferibles
+
+**Registrar la ejecución real.** Anotar el proveedor, el backend, la versión de los datos y el tipo de respaldo utilizado.
+
+**Separar las pruebas por capas.** Recuperación, invocación de herramientas, selección de agentes y respuestas finales necesitan criterios diferentes.
+
+**Conservar resultados negativos.** Un caso que exige abstenerse o rechazar una acción también proporciona evidencia útil.
+
+**Limitar las conclusiones.** Ninguna batería pequeña de casos simulados garantiza seguridad, accesibilidad ni eficacia para usuarios reales.
+
+## 7. Próximo paso de aprendizaje
+
+La práctica del **10 de junio de 2027** trasladará una de estas preguntas a un ejemplo neutral: ¿cómo impedir que un sistema responda cuando no dispone de un documento con el hecho solicitado? Utilizaremos **una convocatoria universitaria ficticia**, no datos clínicos.
+
+## Créditos y procedencia
+
+**Autores académicos:** Daniel Alejandro Sánchez Ávila y Abdenago Nahmens (Equipo 5).
+
+**Asesoría y aprobación académica:** Dra. Yaskelly Yedra, Universidad del Zulia.
+
+**Acompañamiento técnico-clínico reconocido por el equipo:** Ing. Julio Matute.
+
+**Adaptación editorial:** YaskCode / Yaskelly Yedra, diferenciada de la autoría original.
+
+La adaptación se fundamenta en la wiki y los informes técnicos del proyecto. No reproduce datos personales, repositorios privados ni guías clínicas restringidas.
+
+## Fuentes y recursos del proyecto
+
+- Equipo 5 (2026). *SeniorVital 2.0*, documentación académica de Sistemas Inteligentes, Maestría TIC-LUZ.
+- Equipo 5 (2026). *Informe de Sprint 1: Ingeniería del conocimiento y RAG*.
+- Equipo 5 (2026). *Informe de Sprint 3: Sistemas multiagentes y orquestación*.
+- Manning, C. D., Raghavan, P. y Schütze, H. (2008). [Introduction to Information Retrieval](https://nlp.stanford.edu/IR-book/).
+- NIST. [Artificial Intelligence Risk Management Framework](https://www.nist.gov/itl/ai-risk-management-framework).
+
+## Continúa aprendiendo
+
+Consulta la [guía de análisis crítico de casos de IA](../leer-criticamente-caso-ia-evidencia-arquitectura-limites/index.qmd) y las métricas de evaluación RAG.
+
+## Comparte con la comunidad
+
+¿Qué campo agregarías a una traza para distinguir una respuesta generada por un servicio de otra producida por un mecanismo de respaldo? Comparte una propuesta utilizando datos sintéticos.
