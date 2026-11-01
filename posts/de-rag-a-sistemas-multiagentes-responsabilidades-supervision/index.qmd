@@ -2,8 +2,10 @@
 title: "De RAG a sistemas multiagentes: responsabilidades y supervisión"
 subtitle: "Comprende cuándo conviene pasar de recuperar documentos a coordinar capacidades especializadas, sin confundir complejidad con autonomía."
 author: "Yaskelly Yedra"
-date: 2027-06-17
-# Fecha editorial prevista; confirmar la fecha real al publicar.
+date: 2026-10-31
+# Posición original del calendario de la serie, antes de adelantar su publicación.
+original-editorial-slot: 2027-06-17
+# Publicación adelantada, autorizada para revisión directamente en el blog.
 description: "Guía de arquitectura sobre RAG, agentes, patrones supervisor, router y handoff, contratos, trazabilidad y validación con un ejemplo universitario."
 categories: ["Aprende", "Inteligencia Artificial"]
 area: "Inteligencia Artificial"
@@ -11,7 +13,7 @@ editorial-section: "Aprende"
 level: "Intermedio"
 level-detail: "Arquitectura y coordinación"
 toc: true
-draft: true
+draft: false
 format:
   html:
     include-in-header: ../../assets/seo-de-rag-a-sistemas-multiagentes-responsabilidades-supervision.html
