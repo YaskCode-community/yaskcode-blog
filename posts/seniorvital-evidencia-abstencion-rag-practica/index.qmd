@@ -3,6 +3,7 @@ title: "Práctica: verificar evidencia y abstenerse antes de responder con RAG"
 subtitle: "Aprende a distinguir un documento relacionado de una respuesta respaldada con una búsqueda reproducible y un corpus ficticio."
 author: "Yaskelly Yedra"
 date: 2026-10-31
+date-modified: 2026-10-31
 # Posición original del calendario de la serie, antes de adelantar su publicación.
 original-editorial-slot: 2027-06-10
 description: "Laboratorio Python sobre búsqueda léxica, hechos curados, citas y abstención cuando falta evidencia documental."
