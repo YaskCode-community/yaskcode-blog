@@ -10,7 +10,9 @@
     {slug:"leer-criticamente-caso-ia-evidencia-arquitectura-limites",level:"Básico",title:"Cómo leer críticamente un caso de IA: evidencia, arquitectura y límites",section:"Ingeniería de Software"},
     {slug:"runcoach-ai-conocimiento-rag-caso",title:"RunCoach AI: del conocimiento documentado a un RAG trazable",section:"Comunidad YaskCode"},
     {slug:"runcoach-rag-consultas-contextuales-practica",level:"Básico",title:"Práctica: construir consultas contextuales para RAG",section:"Práctica"},
-    {slug:"evaluar-recuperacion-rag-precision-recall-mrr",level:"Básico",title:"Cómo evaluar la recuperación RAG: Precision@K, Recall@K y MRR",section:"Inteligencia Artificial"}
+    {slug:"evaluar-recuperacion-rag-precision-recall-mrr",level:"Básico",title:"Cómo evaluar la recuperación RAG: Precision@K, Recall@K y MRR",section:"Inteligencia Artificial"},
+    {slug:"seniorvital-rag-agentes-evidencia-caso",title:"SeniorVital: RAG, agentes y evidencia en un proyecto académico",section:"Comunidad YaskCode"},
+    {slug:"seniorvital-evidencia-abstencion-rag-practica",level:"Básico",title:"Práctica: verificar evidencia y abstenerse antes de responder con RAG",section:"Práctica"}
   ];
   const links = {
     "historia-campus-yaskcode":["por-que-aprender-poo-en-la-era-de-la-ia","rag-fundamentos-arquitectura"],
@@ -21,7 +23,9 @@
     "leer-criticamente-caso-ia-evidencia-arquitectura-limites":["ruta-aprendizaje-yaskcode-rag-sistemas-multiagentes","rag-fundamentos-arquitectura"],
     "runcoach-ai-conocimiento-rag-caso":["leer-criticamente-caso-ia-evidencia-arquitectura-limites","rag-fundamentos-arquitectura"],
     "runcoach-rag-consultas-contextuales-practica":["runcoach-ai-conocimiento-rag-caso","rag-fundamentos-arquitectura"],
-    "evaluar-recuperacion-rag-precision-recall-mrr":["runcoach-rag-consultas-contextuales-practica","runcoach-ai-conocimiento-rag-caso"]
+    "evaluar-recuperacion-rag-precision-recall-mrr":["runcoach-rag-consultas-contextuales-practica","runcoach-ai-conocimiento-rag-caso"],
+    "seniorvital-rag-agentes-evidencia-caso":["evaluar-recuperacion-rag-precision-recall-mrr","runcoach-ai-conocimiento-rag-caso"],
+    "seniorvital-evidencia-abstencion-rag-practica":["seniorvital-rag-agentes-evidencia-caso","evaluar-recuperacion-rag-precision-recall-mrr"]
   };
   const urlFor = slug => new URL(root + "posts/" + slug + "/", location.origin).href;
   const create = (tag, className, content) => {
