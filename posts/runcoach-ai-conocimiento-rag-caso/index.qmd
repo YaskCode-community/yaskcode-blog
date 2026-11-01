@@ -14,6 +14,9 @@ categories: ["Comunidad YaskCode", "Casos de estudio"]
 editorial-section: "Comunidad YaskCode"
 area: "Inteligencia Artificial"
 article-type: "Caso de estudio académico"
+image: portada-runcoach-ai-rag.webp
+image-alt: "Ilustración educativa de RunCoach AI: corredora, aplicación de entrenamiento, documentos y flujo RAG con fuentes citadas."
+image-description: "Portada conceptual creada con asistencia de inteligencia artificial para YaskCode. No representa una captura ni resultados verificados del proyecto estudiantil."
 academic-advisor: "Dra. Yaskelly Yedra"
 academic-advisor-role: "Asesoría y aprobación académica"
 toc: true
