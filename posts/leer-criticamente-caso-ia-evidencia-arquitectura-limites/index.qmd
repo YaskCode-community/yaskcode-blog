@@ -8,6 +8,8 @@ date-modified: 2026-10-31
 # Posición original del calendario de la serie, antes de adelantar su publicación.
 original-editorial-slot: 2027-05-06
 description: "Guía YaskCode para analizar críticamente casos de IA: trazabilidad de evidencias, arquitectura, pruebas, métricas, riesgos y lecciones transferibles."
+image: "portada-leer-criticamente-caso-ia-evidencia-arquitectura-limites.webp"
+image-alt: "Seis preguntas para leer un caso de IA: problema, evidencia, arquitectura, implementación, pruebas y límites."
 categories: ["Aprende", "Ingeniería de Software"]
 area: "Ingeniería de Software"
 editorial-section: "Aprende"

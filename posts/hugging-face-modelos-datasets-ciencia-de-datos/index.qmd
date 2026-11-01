@@ -11,7 +11,7 @@ level: "Básico"
 level-detail: "Fundamentos"
 publication-number: 3
 publication-status: "Aprobado para publicación"
-image: "portada-hugging-face.png"
+image: "portada-hugging-face.webp"
 image-alt: "Portada original de YaskCode: modelos, conjuntos de datos y aplicaciones conectados con resultados de análisis."
 image-description: "Ilustración original, creada con asistencia de IA y aprobada editorialmente; no es un recurso ni un aval oficial de Hugging Face."
 toc: true
@@ -22,7 +22,7 @@ format:
 ---
 
 
-![Portada editorial con modelos, datasets y Spaces vinculados a resultados de Ciencia de Datos.](portada-hugging-face.png){fig-alt="Ilustración en blanco, magenta y lavanda: tres tarjetas de modelos, datasets y aplicaciones conectadas con un panel de resultados."}
+![Portada editorial con modelos, datasets y Spaces vinculados a resultados de Ciencia de Datos.](portada-hugging-face.webp){fig-alt="Ilustración en blanco, magenta y lavanda: tres tarjetas de modelos, datasets y aplicaciones conectadas con un panel de resultados."}
 
 ::: {.callout-note title="En 1 minuto"}
 **Hugging Face Hub** permite explorar modelos, conjuntos de datos y aplicaciones demostrativas (*Spaces*). Transformers y otras bibliotecas facilitan su uso, pero encontrar un recurso no significa que sea adecuado: antes de utilizarlo revisa su tarjeta, procedencia, licencia, limitaciones y requisitos.

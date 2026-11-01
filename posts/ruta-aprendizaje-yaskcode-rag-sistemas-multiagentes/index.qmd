@@ -8,6 +8,8 @@ date-modified: 2026-10-31
 # Posición original del calendario de la serie, antes de adelantar su publicación.
 original-editorial-slot: 2027-04-29
 description: "Explora la ruta YaskCode de abril a septiembre de 2027: RAG, agentes, contratos, trazabilidad, pruebas y evaluación crítica mediante seis casos académicos y sus laboratorios."
+image: "portada-ruta-aprendizaje-yaskcode.webp"
+image-alt: "Ruta visual de seis etapas desde el problema y la recuperación de evidencia RAG hasta sistemas multiagentes, pruebas, evaluación y mejora."
 categories: ["Aprende", "Inteligencia Artificial"]
 area: "Inteligencia Artificial"
 editorial-section: "Aprende"

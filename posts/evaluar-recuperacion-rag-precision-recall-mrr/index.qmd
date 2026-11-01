@@ -8,6 +8,9 @@ date-modified: 2026-10-31
 original-editorial-slot: 2027-05-27
 # Publicación adelantada, autorizada para revisión directamente en el blog.
 description: "Guía práctica y fundamentada para interpretar Precision@K, Recall@K y Mean Reciprocal Rank en la recuperación de un sistema RAG, con datos sintéticos y Python reproducible."
+image: "portada-metricas-recuperacion-rag.webp"
+image-alt: "Revisión de documentos con una lupa y los nombres de las métricas Precision@K, Recall@K y MRR."
+image-description: "Ilustración conceptual creada con asistencia de IA para YaskCode; no representa una captura, arquitectura implementada ni resultados experimentales del proyecto."
 categories: ["Aprende", "Inteligencia Artificial"]
 area: "Inteligencia Artificial"
 editorial-section: "Aprende"

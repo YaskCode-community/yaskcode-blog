@@ -7,6 +7,9 @@ date-modified: 2026-10-31
 # Posición original del calendario de la serie, antes de adelantar su publicación.
 original-editorial-slot: 2027-06-10
 description: "Laboratorio Python sobre búsqueda léxica, hechos curados, citas y abstención cuando falta evidencia documental."
+image: "portada-evidencia-abstencion-rag.webp"
+image-alt: "Estudiante que verifica documentos de una convocatoria; una lupa y un símbolo de pausa representan la comprobación y la abstención."
+image-description: "Ilustración conceptual creada con asistencia de IA para YaskCode; no representa una captura, arquitectura implementada ni resultados experimentales del proyecto."
 categories: ["Práctica", "Inteligencia Artificial"]
 editorial-section: "Práctica"
 area: "Inteligencia Artificial"
