@@ -14,6 +14,8 @@ categories: ["Comunidad YaskCode", "Casos de estudio"]
 editorial-section: "Comunidad YaskCode"
 area: "Inteligencia Artificial"
 article-type: "Caso de estudio académico"
+academic-advisor: "Dra. Yaskelly Yedra"
+academic-advisor-role: "Asesoría y aprobación académica"
 toc: true
 draft: false
 format:
