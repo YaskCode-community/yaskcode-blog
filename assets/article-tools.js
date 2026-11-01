@@ -30,7 +30,7 @@
     "por-que-aprender-poo-en-la-era-de-la-ia":["rag-fundamentos-arquitectura","hugging-face-modelos-datasets-ciencia-de-datos"],
     "rag-fundamentos-arquitectura":["hugging-face-modelos-datasets-ciencia-de-datos","por-que-aprender-poo-en-la-era-de-la-ia"],
     "hugging-face-modelos-datasets-ciencia-de-datos":["rag-fundamentos-arquitectura","por-que-aprender-poo-en-la-era-de-la-ia"],
-    "ruta-aprendizaje-yaskcode-rag-sistemas-multiagentes":["rag-fundamentos-arquitectura","por-que-aprender-poo-en-la-era-de-la-ia"],
+    "ruta-aprendizaje-yaskcode-rag-sistemas-multiagentes":["leer-criticamente-caso-ia-evidencia-arquitectura-limites","rag-fundamentos-arquitectura"],
     "leer-criticamente-caso-ia-evidencia-arquitectura-limites":["ruta-aprendizaje-yaskcode-rag-sistemas-multiagentes","rag-fundamentos-arquitectura"],
     "runcoach-ai-conocimiento-rag-caso":["leer-criticamente-caso-ia-evidencia-arquitectura-limites","rag-fundamentos-arquitectura"],
     "runcoach-rag-consultas-contextuales-practica":["runcoach-ai-conocimiento-rag-caso","rag-fundamentos-arquitectura"],
