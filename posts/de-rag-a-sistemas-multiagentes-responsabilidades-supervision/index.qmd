@@ -8,6 +8,9 @@ date-modified: 2026-10-31
 original-editorial-slot: 2027-06-17
 # Publicación adelantada, autorizada para revisión directamente en el blog.
 description: "Guía de arquitectura sobre RAG, agentes, patrones supervisor, router y handoff, contratos, trazabilidad y validación con un ejemplo universitario."
+image: "portada-sistemas-multiagentes-supervision.webp"
+image-alt: "Supervisora humana con tres asistentes simbólicos dedicados a documentos, herramientas y revisión, comunicados mediante mensajes."
+image-description: "Ilustración conceptual creada con asistencia de IA para YaskCode; no representa una captura, arquitectura implementada ni resultados experimentales del proyecto."
 categories: ["Aprende", "Inteligencia Artificial"]
 area: "Inteligencia Artificial"
 editorial-section: "Aprende"

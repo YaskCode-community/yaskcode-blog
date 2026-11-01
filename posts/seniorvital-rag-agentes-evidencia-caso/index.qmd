@@ -9,6 +9,9 @@ date-modified: 2026-10-31
 # Posición original del calendario de la serie, antes de adelantar su publicación.
 original-editorial-slot: 2027-06-03
 description: "Caso académico SeniorVital del Equipo 5 de la Maestría TIC-LUZ: RAG, agentes, arquitectura, telemetría y límites de las pruebas."
+image: "portada-seniorvital-arquitectura-evidencia.webp"
+image-alt: "Investigadora revisando documentos, módulos y registros de un caso académico de RAG y agentes, sin validación clínica."
+image-description: "Ilustración conceptual creada con asistencia de IA para YaskCode; no representa una captura, arquitectura implementada ni resultados experimentales del proyecto."
 categories: ["Comunidad YaskCode", "Casos de estudio"]
 editorial-section: "Casos de estudio"
 area: "Inteligencia Artificial"

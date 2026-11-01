@@ -8,6 +8,9 @@ date-modified: 2026-10-31
 original-editorial-slot: 2027-05-20
 # Publicación adelantada, autorizada para revisión directamente en el blog.
 description: "Laboratorio reproducible de Python para seleccionar notas pertinentes, construir consultas contextuales y verificar casos límite antes de usar un recuperador RAG."
+image: "portada-consultas-contextuales-rag.webp"
+image-alt: "Estudiante que selecciona notas de un parque con un calendario y un filtro para construir y probar consultas contextuales."
+image-description: "Ilustración conceptual creada con asistencia de IA para YaskCode; no representa una captura, arquitectura implementada ni resultados experimentales del proyecto."
 categories: ["Práctica", "Inteligencia Artificial"]
 editorial-section: "Práctica"
 area: "Inteligencia Artificial"
