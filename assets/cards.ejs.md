@@ -21,12 +21,12 @@ const orderedItems = items.slice().sort((a, b) => {
 ```{=html}
 <div class="article-grid" id="article-grid">
 <% for (const item of orderedItems) { const order = sequence[slugFromPath(item.path)]; %>
-  <article class="post-card" data-area="<%- item.area || '' %>" data-section="<%- item['editorial-section'] || '' %>">
+  <article class="post-card" data-area="<%- item.area || '' %>" data-section="<%- item['editorial-section'] || '' %>" data-community="<%- Array.isArray(item.categories) && item.categories.includes('Comunidad YaskCode') ? 'true' : 'false' %>">
     <% if (item.image) { %>
     <a class="card-image-link" href="<%- item.path %>" tabindex="-1" aria-hidden="true"><img src="<%- item.image %>" alt="" width="1200" height="630" loading="lazy"></a>
     <% } %>
     <div class="card-body">
-      <div class="card-tags"><% if (item['editorial-section']) { %><span><%- item['editorial-section'] %></span><% } %><% if (item.area) { %><span><%- item.area %></span><% } %><% if (item.level) { %><span><%- item.level %></span><% } %></div>
+      <div class="card-tags"><% if (item['editorial-section']) { %><span><%- item['editorial-section'] %></span><% } %><% if (item['editorial-section'] !== 'Comunidad YaskCode' && Array.isArray(item.categories) && item.categories.includes('Comunidad YaskCode')) { %><span>Comunidad YaskCode</span><% } %><% if (item.area) { %><span><%- item.area %></span><% } %><% if (item.level) { %><span><%- item.level %></span><% } %></div>
       <p class="card-date">Publicado: <%- item.date %><% if (item['date-modified']) { %><span class="card-date-modified">Actualizado: <%- item['date-modified'] %></span><% } %></p>
       <h2><a href="<%- item.path %>"><%- item.title %></a></h2>
       <p class="card-description"><%- item.description || '' %></p>

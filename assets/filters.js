@@ -58,7 +58,7 @@
       const query = normalize(search.value.trim());
       const matches = cards.filter(card =>
         (!selected.area || card.dataset.area === selected.area)
-        && (!selected.section || card.dataset.section === selected.section)
+        && (!selected.section || card.dataset.section === selected.section || (selected.section === 'Comunidad YaskCode' && card.dataset.community === 'true'))
         && (!query || normalize(card.textContent).includes(query))
       );
       const total = matches.length;
