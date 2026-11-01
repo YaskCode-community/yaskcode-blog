@@ -79,7 +79,7 @@ assert 'text-transform:' not in author_heading_style and 'font-size:' not in aut
 assert 'yc-level-badge' in client and '.quarto-category.yc-level-badge' in css, 'Falta etiqueta de nivel'
 assert '.quarto-categories .yc-level-badge {' not in css, 'El nivel no debe tener un estilo diferente al de las otras categorías'
 assert '#title-block-header .description { display: none; }' in css, 'Descripción SEO repetida visualmente'
-assert client.count('level:"Básico"') == 7, 'Los artículos técnicos deben estar registrados con nivel Básico'
+assert client.count('level:"Básico"') == 8, 'Los artículos técnicos deben estar registrados con nivel Básico'
 assert 'historia-campus-yaskcode",level' not in client, 'El relato del Campus no debe tener nivel técnico'
 # Plantilla editorial: recursos físicos, autoría, metadatos sociales y BlogPosting.
 source = (ROOT / 'assets/article-tools.js').read_text(encoding='utf-8')
