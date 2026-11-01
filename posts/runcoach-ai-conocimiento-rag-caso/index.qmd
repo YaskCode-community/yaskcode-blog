@@ -110,7 +110,7 @@ La [suite académica de pruebas de consulta](https://github.com/YaskCode-laborat
 
 Primero hay que **delimitar el problema y el conocimiento necesario**; luego identificar cómo se recuperará información pertinente; por último, definir qué resultados se comprobarán y qué limitaciones quedarán explícitas.
 
-El siguiente paso de esta ruta será una práctica con datos sintéticos sobre selección temporal de observaciones y construcción de consultas, prevista para el **20 de mayo de 2027**. No requiere el proyecto original ni credenciales cloud.
+El siguiente paso de esta ruta es la [práctica de consultas contextuales](../runcoach-rag-consultas-contextuales-practica/index.qmd), con datos sintéticos y pruebas de regresión. No requiere el proyecto original ni credenciales cloud.
 
 ## Créditos y procedencia
 
@@ -120,7 +120,7 @@ El siguiente paso de esta ruta será una práctica con datos sintéticos sobre s
 
 **Adaptación editorial:** YaskCode, separada de la autoría original.
 
-**Procedencia:** wiki académica de RunCoach AI y documentación técnica del [repositorio del Equipo 1](https://github.com/YaskCode-laboratory/wellness-platform-team1). La documentación académica original conserva sus propias fechas; la fecha de esta adaptación web se confirmará al publicarla.
+**Procedencia:** wiki académica de RunCoach AI y documentación técnica del [repositorio del Equipo 1](https://github.com/YaskCode-laboratory/wellness-platform-team1). La documentación académica original conserva sus propias fechas; esta adaptación web se publicó el **31 de octubre de 2026**, adelantando la fecha del calendario editorial original.
 
 ## Fuentes y recursos
 
