@@ -114,7 +114,7 @@ Para comprender las métricas de recuperación consulta [Precision@K, Recall@K y
 
 ## 7. Próximo paso de aprendizaje
 
-La práctica del **10 de junio de 2027** trasladará una de estas preguntas a un ejemplo neutral: ¿cómo impedir que un sistema responda cuando no dispone de un documento con el hecho solicitado? Utilizaremos **una convocatoria universitaria ficticia**, no datos clínicos.
+La [práctica sobre evidencia y abstención](../seniorvital-evidencia-abstencion-rag-practica/index.qmd), publicada anticipadamente junto a este caso, traslada una de estas preguntas a un ejemplo neutral: ¿cómo impedir que un sistema responda cuando no dispone de un documento con el hecho solicitado? Utilizaremos **una convocatoria universitaria ficticia**, no datos clínicos.
 
 ## Créditos y procedencia
 
