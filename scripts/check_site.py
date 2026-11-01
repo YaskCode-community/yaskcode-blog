@@ -75,6 +75,20 @@ article_client = (ROOT.parent / 'assets/article-tools.js').read_text(encoding='u
 assert 'Fecha de la serie:' not in cards_template, 'Quitar fecha editorial añadida a las tarjetas'
 assert 'Fecha de la serie:' not in article_client, 'Quitar banner editorial redundante del artículo'
 assert 'yc-series-date' not in article_client, 'No insertar banner de fecha editorial'
+# Los casos académicos distinguen autoría estudiantil de asesoría.
+cards_template = (ROOT.parent / 'assets/cards.ejs.md').read_text(encoding='utf-8')
+article_client = (ROOT.parent / 'assets/article-tools.js').read_text(encoding='utf-8')
+assert 'card-advisor' in cards_template, 'Las tarjetas deben incluir la asesoría de casos'
+assert 'yc-case-credits' in article_client, 'La cabecera del caso debe mostrar créditos académicos'
+for slug, names in {
+    'runcoach-ai-conocimiento-rag-caso': ('Julio César Matute', 'José Urdaneta'),
+    'seniorvital-rag-agentes-evidencia-caso': ('Daniel Alejandro Sánchez Ávila', 'Abdenago Nahmens')
+}.items():
+    source = (ROOT.parent / 'posts' / slug / 'index.qmd').read_text(encoding='utf-8')
+    assert 'academic-advisor: "Dra. Yaskelly Yedra"' in source
+    assert 'academic-advisor-role: "Asesoría y aprobación académica"' in source
+    assert all(name in source for name in names), f'Faltan autores de {slug}'
+
 # Coherencia de cabecera: metadatos, una introducción y nivel educativo.
 client = (ROOT / 'assets/article-tools.js').read_text(encoding='utf-8')
 css = (ROOT.parent / 'assets/theme.scss').read_text(encoding='utf-8')
