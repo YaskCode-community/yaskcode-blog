@@ -32,4 +32,14 @@
 - [ ] Revisión visual de las páginas en escritorio y móvil tras aceptar y publicar los cambios.
 - [ ] Verificación manual de enlaces externos, lectura con teclado y comportamiento de widgets; el CI no equivale a certificación WCAG.
 
+## Próximo pendiente · Primer laboratorio Practica · RAG
+
+- [ ] **Diseñar, implementar, verificar y publicar «Practica · RAG»**, como continuación del artículo [«RAG: fundamentos y arquitectura para comenzar»](../posts/rag-fundamentos-arquitectura/index.qmd).
+- **Propósito:** realizar la **primera prueba completa del recorrido editorial Aprende → Practica → Construye → Comparte**, sin confundir el laboratorio con una evaluación formal de impacto educativo.
+- **Practica:** laboratorio guiado y reproducible con objetivo, conocimientos previos, herramientas y versiones, datos públicos o sintéticos autorizados, pasos, código ejecutable, resultados esperados y verificaciones.
+- **Construye:** retos de aplicación progresivos (Básico, Intermedio y Avanzado, cuando correspondan), con criterios de aceptación y evidencias.
+- **Comparte:** invitación voluntaria a publicar repositorios, observaciones, errores y aprendizajes con respeto a licencias, privacidad y autoría.
+- **Criterios de cierre:** otra persona puede reproducir el laboratorio y contrastar resultados; se documentan limitaciones, pruebas, versiones y fuentes; el artículo Aprende enlaza al laboratorio **solo después** de su publicación verificada.
+- **Estado:** pendiente de planificación y elaboración; **no** existe todavía un laboratorio publicado ni resultados experimentales validados que podamos atribuirle.
+
 **Alcance:** esta revisión no altera comentarios de Giscus, corazones Pagemoji, métricas históricas, ni los repositorios Campus/YASE. No supone una evaluación formal del aprendizaje ni publicación de laboratorios todavía pendientes.
