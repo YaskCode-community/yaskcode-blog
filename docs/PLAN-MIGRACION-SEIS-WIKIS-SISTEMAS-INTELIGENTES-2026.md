@@ -36,7 +36,8 @@ Antes de redactar **cada** artículo, contrastar la portada y el historial de la
 | Dato | Cómo documentarlo en el artículo y en el registro de trabajo |
 | --- | --- |
 | **Autoría original** | Nombres y orden de quienes efectivamente contribuyeron al trabajo, confirmados por el equipo y con autorización para su identificación pública. Si alguien no desea aparecer, acordar una atribución autorizada alternativa. |
-| **Coordinación/edición** | «Revisión académica y adaptación editorial: YaskCode / Yaskelly Yedra» **separada** de la autoría del estudiantado. Atribuir coautoría solo cuando corresponda al aporte real y exista acuerdo explícito. |
+| **Asesoría académica** | Identificar explícitamente a la docente asesora del proyecto, **separada** de la autoría original de los estudiantes y de la edición posterior del Blog. Para el piloto del Equipo 5, la docente confirmó que el trabajo se desarrolló **con su asesoría**. Esta función no se presenta automáticamente como coautoría. |
+| **Coordinación/edición** | «Revisión académica y adaptación editorial: YaskCode / Yaskelly Yedra» **separada** de la autoría del estudiantado y de la asesoría docente. Atribuir coautoría solo cuando corresponda al aporte real y exista acuerdo explícito. |
 | **Fecha del proyecto o de la wiki** | Indicar como fecha de elaboración académica o periodo del curso, según evidencia de wiki/commits/entrega. No inventar el día de creación si solo se sabe el semestre. |
 | **Versión de origen** | Registrar identificador de revisión/commit o copia autorizada y fecha de extracción en el expediente **privado** de procedencia. |
 | **Fecha de publicación del Blog** | Usar la fecha **real de la primera publicación web** del artículo adaptado para `datePublished` y la cabecera; no retrotraerla a la fecha del semestre o de la wiki. |
@@ -52,6 +53,8 @@ Antes de redactar **cada** artículo, contrastar la portada y el historial de la
 > **Fuente y alcance:** adaptación autorizada de una wiki académica; se preserva el original y solo se muestran materiales aprobados.
 
 **Regla de licencias:** ni la visibilidad pública de GitHub ni la existencia de una licencia del código autorizan automáticamente la republicación de texto, diagramas, fotografías, datos o contribuciones de terceros. Acordar permisos y condiciones de reutilización antes de publicar. La coordinación docente no sustituye el consentimiento de las personas autoras.
+
+**Control interno de la migración:** cualquier ficha de autoría, fechas, revisión o permisos es un **registro privado de YaskCode**, no un formulario público ni un nuevo requisito administrativo impuesto al estudiantado. Puede registrarse la conformidad por una comunicación verificable ya existente; conservar únicamente lo mínimo necesario. Las fechas del expediente de control son internas y no deben convertirse en `datePublished` del artículo.
 
 ## 4. Piloto y conversión técnica (sin alterar el repositorio de origen)
 
@@ -133,9 +136,10 @@ El objetivo razonable de esas seis horas es la **primera migración editorial de
 - [x] Plan general aprobado; se confirma que **una wiki no necesita ser pública**: basta disponer de acceso autenticado autorizado para recuperar una copia de lectura, más autorización de sus autores para divulgar el material que se seleccione.
 - [x] Etiqueta **«Casos de estudio»** aprobada dentro de la sección **Comunidad YaskCode**; no modifica los filtros generales ni afecta a artículos existentes.
 - [x] Plantilla `plantillas/articulo-caso-estudio/index.qmd` preparada como borrador, con autoría múltiple, fechas diferenciadas y créditos de adaptación.
-- [x] Preparación de la cabecera para **no agregar automáticamente el ORCID de Yaskelly a autores estudiantiles**; validar CI antes de integrar.
+- [x] Primer ajuste de cabecera integrado en main (PR #29): **no agrega el ORCID de Yaskelly a autores estudiantiles**. Revisión adicional en PR separado: rótulo **AUTORÍA:** uniforme también para publicaciones de equipos; validar la composición final de varios autores al incorporar el primer artículo autorizado.
 - [x] **Copia de lectura de la wiki del Equipo 5 recibida para evaluación privada:** la usuaria clonó la wiki con su acceso autorizado y facilitó dos archivos Markdown para revisión; la conexión GitHub por sí sola no permite consultar páginas Wiki. La wiki y el repositorio original permanecen privados y sin modificaciones. Esto **no equivale** a autorización de los autores para republicar.
-- [x] Primera lectura editorial de los dos Markdown recibidos; identificadas dudas de versiones, arquitectura, fechas y afirmaciones de validación. Los informes de revisión y el borrador de artículo se prepararon **fuera del repositorio público**.
+- [x] Primera lectura editorial de los dos Markdown recibidos; se confirma que la **wiki es principalmente la fundamentación teórica** del proyecto (problema, estado del arte, referencias y casos de uso), mientras que el **repositorio de código y sus sprints** documentan la implementación y pruebas. Se identificaron dudas de versiones, fechas y afirmaciones de validación. Los informes de revisión y el borrador de artículo se prepararon **fuera del repositorio público**.
+- [ ] Confirmar individualmente con **ambos autores del equipo piloto** el consentimiento y el alcance de la republicación de la síntesis teórica; requerir autorización adicional para código, diagramas y otros materiales. Conservar constancias únicamente en un expediente privado.
 - [ ] Completar la contrastación con código, diagramas, enlaces y resultados; acordar con las personas autoras atribución, permisos, nombres, fechas y restricciones.
 - [ ] Elaborar una **adaptación real** en un borrador seguro; revisar y obtener aprobación previa al paso a GitHub público.
 - [ ] Generalizar pruebas y SEO por publicación, registrar el nuevo artículo sin inventar vistas y verificar Giscus al publicar.
