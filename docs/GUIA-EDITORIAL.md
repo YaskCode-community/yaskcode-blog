@@ -59,6 +59,8 @@ Para nuevas entradas se usa la [plantilla editorial y lista de verificación](PL
 
 **Niveles:** Básico, Intermedio y Avanzado se asignan por prerrequisitos, autonomía, alcance técnico y verificaciones; no por longitud. Los artículos de comunidad pueden no llevar nivel técnico.
 
+Para laboratorios, prácticas y ejercicios se aplica el [estándar de prácticas reproducibles](ESTANDAR-PRACTICAS-LABORATORIOS.md) y la [plantilla Quarto de Práctica](../plantillas/articulo-practica/index.qmd). **Cada publicación vive en `posts/<slug>/index.qmd`**, acompañada de código, datos y pruebas cuando sea necesario. Los ejercicios breves se integran en la práctica; se convierten en post independiente solo cuando tienen objetivo y verificación propios. No crear una sección o carpeta raíz nueva por formato.
+
 La plantilla también registra mejoras que requieren material nuevo y evidencia: resultados de aprendizaje verificables, diagramas complementarios, laboratorios reproducibles y retos por niveles.
 
 ## Estructura orientativa de un artículo

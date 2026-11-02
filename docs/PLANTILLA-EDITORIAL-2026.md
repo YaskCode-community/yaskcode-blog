@@ -4,7 +4,7 @@
 
 Este modelo se adapta al tema. No exige crear cuatro publicaciones por tema: la ruta editorial utiliza generalmente **dos publicaciones principales**, **Aprende** (fundamentos) y **Practica** (laboratorio verificable). **Construye** se expresa en retos progresivos dentro del laboratorio y **Comparte** invita transversalmente a publicar evidencias, repositorios, aprendizajes y aportes de forma voluntaria.
 
-**Fuentes operativas:** [plantilla Quarto Aprende](../plantillas/articulo-aprende/index.qmd) y [plantilla Quarto de Comunidad](../plantillas/articulo-comunidad/index.qmd), ambas fuera de `posts/` para que no entren al sitio como publicaciones. La [matriz de revisión de los cuatro artículos](REVISION-EDITORIAL-ARTICULOS-2026-10-31.md) registra qué se conserva y qué se adapta según el género.
+**Fuentes operativas:** [plantilla Quarto Aprende](../plantillas/articulo-aprende/index.qmd), [plantilla Quarto Práctica](../plantillas/articulo-practica/index.qmd) y [plantilla Quarto de Comunidad](../plantillas/articulo-comunidad/index.qmd), todas fuera de `posts/` para que no entren al sitio como publicaciones. Las prácticas siguen su [estándar de reproducibilidad, ejercicios y recursos](ESTANDAR-PRACTICAS-LABORATORIOS.md). La [matriz de revisión de los cuatro artículos](REVISION-EDITORIAL-ARTICULOS-2026-10-31.md) registra qué se conserva y qué se adapta según el género.
 
 ## Claridad en la ficha del artículo
 
