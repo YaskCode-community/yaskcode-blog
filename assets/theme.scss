@@ -255,3 +255,58 @@ main p, main li { overflow-wrap: anywhere; }
 }
 .yc-case-credits p { margin: .1rem 0; }
 .yc-case-credits strong { font-weight: 650; }
+
+
+/* Perfiles oficiales de YaskCode: independientes de las acciones para compartir artículos. */
+.yc-social-follow {
+  margin-top: 1rem;
+  padding-top: .85rem;
+  border-top: 1px solid #e6d8ed;
+}
+.yc-social-follow h3 {
+  margin: 0 0 .25rem;
+  font-size: .98rem;
+}
+.yc-social-follow > p {
+  margin: .2rem 0 .55rem;
+  font-size: .84rem;
+}
+.yc-social-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .4rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  counter-reset: social-priority;
+}
+.yc-social-links li { counter-increment: social-priority; }
+.yc-social-links a {
+  display: inline-flex;
+  min-height: 40px;
+  align-items: center;
+  gap: .38rem;
+  padding: .38rem .6rem;
+  border: 1px solid #e4d2e8;
+  border-radius: 8px;
+  background: #fff;
+  color: var(--yc-magenta);
+  font-size: .82rem;
+  line-height: 1.35;
+  text-decoration: none;
+}
+.yc-social-links a::before {
+  content: counter(social-priority);
+  display: inline-grid;
+  width: 1.35rem;
+  height: 1.35rem;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--yc-lavender);
+  font-size: .72rem;
+  font-weight: 700;
+}
+.yc-social-links a:hover { background: #f3e6fa; color: #81016d; }
+@media (max-width: 600px) {
+  .yc-social-links a { min-height: 42px; font-size: .88rem; }
+}
