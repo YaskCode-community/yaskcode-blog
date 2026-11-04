@@ -48,20 +48,20 @@ listing:
     <a class="subscribe-button" href="https://yaskcode.beehiiv.com/">Suscríbete a YaskCode</a>
     <p class="small-note">La suscripción continúa en beehiiv.</p>
     <p class="small-note">¿Prefieres seguir el blog sin correo? <a class="yc-rss-link" href="index.xml" type="application/rss+xml" aria-label="Suscribirse al RSS del Blog YaskCode">RSS · nuevas publicaciones</a></p>
-    <nav class="yc-social-follow" aria-labelledby="social-title">
-      <h3 id="social-title">Sigue a YaskCode</h3>
-      <p>Canales oficiales, ordenados por prioridad.</p>
-      <ol class="yc-social-links">
-        <li><a href="https://www.linkedin.com/company/yaskcode/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
-        <li><a href="https://www.youtube.com/@yaskcode" target="_blank" rel="noopener noreferrer">YouTube</a></li>
-        <li><a href="https://github.com/YaskCode" target="_blank" rel="noopener noreferrer">GitHub</a></li>
-        <li><a href="https://www.instagram.com/yaskcode" target="_blank" rel="noopener noreferrer">Instagram</a></li>
-        <li><a href="https://t.me/yaskcode" target="_blank" rel="noopener noreferrer">Telegram</a></li>
-        <li><a href="https://medium.com/@yaskelly/" target="_blank" rel="noopener noreferrer">Medium · Yaskelly</a></li>
-      </ol>
-      <p class="small-note">Medium abre el perfil personal de Yaskelly Yedra.</p>
-    </nav>
   </section>
+  <nav class="yc-social-follow" aria-labelledby="social-title">
+    <h3 id="social-title">Sigue a YaskCode</h3>
+    <p>Canales oficiales, ordenados por prioridad.</p>
+    <ol class="yc-social-links">
+      <li><a href="https://www.linkedin.com/company/yaskcode/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+      <li><a href="https://www.youtube.com/@yaskcode" target="_blank" rel="noopener noreferrer">YouTube</a></li>
+      <li><a href="https://github.com/YaskCode" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+      <li><a href="https://www.instagram.com/yaskcode" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+      <li><a href="https://t.me/yaskcode" target="_blank" rel="noopener noreferrer">Telegram</a></li>
+      <li><a href="https://medium.com/@yaskelly/" target="_blank" rel="noopener noreferrer">Medium · Yaskelly</a></li>
+    </ol>
+    <p class="small-note">Medium abre el perfil personal de Yaskelly Yedra.</p>
+  </nav>
 </div>
 <section class="article-controls" aria-label="Buscar y filtrar artículos">
   <label for="article-search">Buscar artículos</label>
