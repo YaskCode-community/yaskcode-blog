@@ -59,7 +59,6 @@ listing:
       <li><a href="https://t.me/yaskcode" target="_blank" rel="noopener noreferrer" aria-label="Telegram" title="Telegram"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M2 11 22 3l-4 18-6-5-3 3v-5l10-8-12 7z"/></svg></a></li>
       <li><a href="https://medium.com/@yaskelly/" target="_blank" rel="noopener noreferrer" aria-label="Medium" title="Medium"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><rect x="2" y="2" width="20" height="20" rx="3" fill="none" stroke="currentColor" stroke-width="2"/><path d="M6 17V7h3l3 5 3-5h3v10h-3v-5l-3 5-3-5v5z"/></svg></a></li>
     </ul>
-    <p class="small-note">Medium abre el perfil personal de Yaskelly Yedra.</p>
   </nav>
 </div>
 <section class="article-controls" aria-label="Buscar y filtrar artículos">
