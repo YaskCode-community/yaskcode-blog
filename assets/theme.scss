@@ -289,24 +289,18 @@ main p, main li { overflow-wrap: anywhere; }
   padding: 0;
 }
 .yc-social-links a {
-  display: inline-flex;
-  min-height: 42px;
-  align-items: center;
-  gap: .45rem;
-  padding: .42rem .75rem;
-  border: 1px solid #e4d2e8;
+  display: inline-grid;
+  width: 44px;
+  height: 44px;
+  place-items: center;
   border-radius: 9px;
-  background: #fff;
   color: var(--yc-magenta);
-  font-size: .94rem;
-  line-height: 1.35;
-  text-decoration: none;
 }
-.yc-social-links a:hover { background: #f3e6fa; color: #81016d; }
+.yc-social-links svg { width: 26px; height: 26px; }
+.yc-social-links a:hover { background: #eadcf2; color: #81016d; }
 @media (max-width: 900px) {
   .yc-social-follow { grid-column: 1 / -1; grid-row: auto; }
 }
 @media (max-width: 600px) {
   .yc-social-follow { grid-column: auto; }
-  .yc-social-links a { min-height: 42px; font-size: .9rem; }
 }
