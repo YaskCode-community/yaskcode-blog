@@ -1,6 +1,6 @@
 # Estrategia de difusión · Blog YaskCode
 
-**Versión:** 31 de octubre de 2026  
+**Versión:** 4 de noviembre de 2026  
 **Estado:** propuesta para revisión editorial.
 
 ## Principio
@@ -53,3 +53,18 @@ Fuentes oficiales:
 ## Seguimiento y límites
 
 Revisar resultados cada cierto número de publicaciones: lecturas por artículo (Web Analytics), clics en recursos y conversaciones. Las cifras por red solo deben informarse cuando haya medición fiable y explícita. El botón DEV y las demás opciones de difusión funcionan desde el navegador: **no utilizan Workers, D1 ni Workers AI de YASE**. No se ha creado ni publicado contenido en DEV desde esta intervención.
+
+## Perfiles oficiales de YaskCode en el sitio
+
+En la portada del blog, los enlaces de perfil se presentan en este orden de prioridad editorial, separado del menú **«Comparte este artículo»**. Cada botón abre el perfil o canal correspondiente; ninguno publica automáticamente el artículo abierto.
+
+| Prioridad | Canal | Destino | Uso principal |
+| --- | --- | --- | --- |
+| 1 | LinkedIn | https://www.linkedin.com/company/yaskcode/ | Divulgación profesional y académica |
+| 2 | YouTube | https://www.youtube.com/@yaskcode | Videos y recursos de aprendizaje |
+| 3 | GitHub | https://github.com/YaskCode | Código y proyectos abiertos |
+| 4 | Instagram | https://www.instagram.com/yaskcode | Comunidad y novedades visuales |
+| 5 | Telegram | https://t.me/yaskcode | Actualizaciones y comunicación con la comunidad |
+| 6 | Medium · Yaskelly | https://medium.com/@yaskelly/ | Perfil personal de Yaskelly; no es un perfil de YaskCode |
+
+El enlace de Medium se identifica como perfil personal para mantener clara la autoría. La republicación de un artículo es un proceso editorial aparte y debe conservar la autoría original y sus fuentes.
