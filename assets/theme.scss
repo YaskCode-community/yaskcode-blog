@@ -257,24 +257,29 @@ main p, main li { overflow-wrap: anywhere; }
 .yc-case-credits strong { font-weight: 650; }
 
 
-/* Perfiles oficiales de YaskCode: independientes de las acciones para compartir artículos. */
+/* Perfiles oficiales en el espacio libre bajo los filtros; siguen separados de
+   las acciones para compartir cada artículo. */
 .yc-social-follow {
-  margin-top: 1rem;
-  padding-top: .85rem;
-  border-top: 1px solid #e6d8ed;
+  grid-column: 1 / 3;
+  grid-row: 2;
+  align-self: stretch;
+  padding: 1.25rem;
+  background: var(--yc-lavender);
+  border-radius: 12px;
 }
 .yc-social-follow h3 {
   margin: 0 0 .25rem;
-  font-size: .98rem;
+  font-size: 1.15rem;
 }
 .yc-social-follow > p {
-  margin: .2rem 0 .55rem;
-  font-size: .84rem;
+  margin: .2rem 0 .65rem;
+  font-size: .96rem;
 }
+.yc-social-follow > .small-note { margin-top: .65rem; }
 .yc-social-links {
   display: flex;
   flex-wrap: wrap;
-  gap: .4rem;
+  gap: .45rem;
   list-style: none;
   margin: 0;
   padding: 0;
@@ -283,30 +288,34 @@ main p, main li { overflow-wrap: anywhere; }
 .yc-social-links li { counter-increment: social-priority; }
 .yc-social-links a {
   display: inline-flex;
-  min-height: 40px;
+  min-height: 42px;
   align-items: center;
-  gap: .38rem;
-  padding: .38rem .6rem;
+  gap: .45rem;
+  padding: .42rem .75rem;
   border: 1px solid #e4d2e8;
-  border-radius: 8px;
+  border-radius: 9px;
   background: #fff;
   color: var(--yc-magenta);
-  font-size: .82rem;
+  font-size: .94rem;
   line-height: 1.35;
   text-decoration: none;
 }
 .yc-social-links a::before {
   content: counter(social-priority);
   display: inline-grid;
-  width: 1.35rem;
-  height: 1.35rem;
+  width: 1.55rem;
+  height: 1.55rem;
   place-items: center;
   border-radius: 50%;
   background: var(--yc-lavender);
-  font-size: .72rem;
+  font-size: .78rem;
   font-weight: 700;
 }
 .yc-social-links a:hover { background: #f3e6fa; color: #81016d; }
+@media (max-width: 900px) {
+  .yc-social-follow { grid-column: 1 / -1; grid-row: auto; }
+}
 @media (max-width: 600px) {
-  .yc-social-links a { min-height: 42px; font-size: .88rem; }
+  .yc-social-follow { grid-column: auto; }
+  .yc-social-links a { min-height: 42px; font-size: .9rem; }
 }
