@@ -267,19 +267,11 @@ main p, main li { overflow-wrap: anywhere; }
   grid-column: 1 / 3;
   grid-row: 2;
   align-self: stretch;
-  padding: 1.25rem;
-  background: var(--yc-lavender);
-  border-radius: 12px;
 }
 .yc-social-follow h3 {
   margin: 0 0 .25rem;
   font-size: 1.15rem;
 }
-.yc-social-follow > p {
-  margin: .2rem 0 .65rem;
-  font-size: .96rem;
-}
-.yc-social-follow > .small-note { margin-top: .65rem; }
 .yc-social-links {
   display: flex;
   flex-wrap: wrap;
